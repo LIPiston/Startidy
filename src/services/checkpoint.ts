@@ -34,6 +34,11 @@ export interface CheckpointState {
   pendingIds: string[];
   /** Size of the run this file belongs to */
   totalRepos: number;
+  /**
+   * The taxonomy agent added or split categories during this run, so the
+   * categories here are newer than the plan and always win on resume.
+   */
+  agentModifiedCategories?: boolean;
 }
 
 export function checkpointPath(outputDir: string): string {
@@ -69,6 +74,7 @@ export function loadCheckpoint(outputDir: string): CheckpointState | null {
       pendingIds: Array.isArray(parsed.pendingIds) ? parsed.pendingIds : [],
       totalRepos:
         typeof parsed.totalRepos === "number" ? parsed.totalRepos : 0,
+      agentModifiedCategories: parsed.agentModifiedCategories === true,
     };
   } catch {
     return null;

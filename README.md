@@ -19,6 +19,7 @@
 - **分步执行或全自动**：既可以单独运行每一步，也可以一次性跑完整流程
 - **批量处理**：每次并行处理 20 个仓库，分类更快
 - **断点续传**：每批分类完成后立刻写出 Markdown 并记录进度；中断后重新运行同一条命令会从断点继续，全部完成后进度文件自动删除
+- **分类智能体**：每批分类完成后自动回头看一遍分类是否还合适——把这一批仓库向量化，和每个分类**此前**的向量中心比较，让 AI 决定要不要给「哪儿都放不进去」的仓库新增分类，或者把成员已经裂成两簇的大分类拆成 `大类-小类`；受影响的仓库会自动重新排队、用新分类再分一次。没有配置 embedding 就自动跳过，不影响正常流程
 
 ## 分类示例
 
@@ -309,6 +310,57 @@ startidy classify
 startidy classify --only-new
 ```
 
+## 分类智能体（embedding）
+
+分类是一次性做出来的，批次之间不会互相参考，所以「一个分类悄悄变得太杂」或者「一批仓库被硬塞进某个分类」都不容易被发现。智能体就是补上这一环：**每批分类完成后看一次全局**，用向量相似度找出问题，再让 AI 确认。
+
+一轮检查做两件事：
+
+1. **发现「无处可归」**：把这一批仓库向量化，和每个分类的向量中心比较。注意比较的是这批仓库**进来之前**的分类中心——否则刚塞进去的仓库会把自己「认证」成合理成员。相似度低于 `AGENT_SIMILARITY_THRESHOLD` 的仓库会被聚成候选组，足够大（≥ `AGENT_MIN_NEW_MEMBERS`）就交给 AI 决定要不要建一个新分类。
+2. **发现「该拆了」**：对成员足够多的分类（≥ `AGENT_MIN_SPLIT_MEMBERS × 2`）做一次二聚类，如果两簇内部很像、彼此不像（差距 ≥ `AGENT_SPLIT_GAP`），就交给 AI 决定要不要拆成 `大类-小类`，比如把 `游戏` 拆成 `游戏-Minecraft`、`游戏-CSGO`。
+
+AI 确认后，受影响的仓库会被**重新排队**，用新分类再分一次；新的分类也会写进进度文件，所以中断续传时用的是最新的分类，而不是最初的方案。
+
+一个实际例子：
+
+```
+🤖 split 「游戏」 into 「游戏-Minecraft」, 「游戏-CSGO」 (18 repositories) - members drifted into separate clusters
+🔁 18 repositories queued for re-classification
+```
+
+### 需要什么
+
+只需要一个 embedding 接口。默认跟随当前的 AI 提供方，直接复用 `OPENAI_BASE_URL` / `OPENAI_API_KEY`（或 `GEMINI_API_KEY`），所以接本地服务通常只要几行：
+
+```env
+# Ollama 本地 embedding
+EMBEDDING_PROVIDER=openai
+EMBEDDING_BASE_URL=http://localhost:11434/v1
+EMBEDDING_API_KEY=ollama
+EMBEDDING_MODEL=nomic-embed-text
+```
+
+```env
+# OpenAI
+EMBEDDING_MODEL=text-embedding-3-small
+```
+
+```env
+# Gemini
+EMBEDDING_PROVIDER=gemini
+EMBEDDING_MODEL=text-embedding-004
+```
+
+**没有配置 embedding 时智能体会被自动跳过**，只打印一行提示，分类照常跑完——embedding 从来不是必须的。embedding 接口或模型临时报错也只影响当前这一批的检查，不会中断整个运行。
+
+### 安全边界
+
+- 只会创建或拆分类，**不会删除**分类；拆分类必须正好取代原来那一个
+- 语言分类（`Lang-Python`、`Python` 之类）一律拒绝，和规划阶段同一条规则
+- 新分类和拆分后的每个子分类都必须达到最少成员数，且不能与现有分类重名
+- 每批最多生效 `AGENT_MAX_DECISIONS` 个决定；同一个仓库最多被重新排队 2 次，避免来回摇摆
+- 智能体改过的分类集会随进度一起保存，续传时以它为准（比最初的方案更新）
+
 ## 运行示例
 
 ```
@@ -411,6 +463,19 @@ OUTPUT_DIR=stars                      # Markdown 输出目录（默认：stars�
 CLASSIFY_BATCH_SIZE=20                # 分类时每批处理的仓库数
 BATCH_DELAY=2000                      # 批次之间的延迟（毫秒）
 
+# 分类智能体（embedding）
+AGENT_ENABLED=true                    # 是否让智能体盯住分类过程
+EMBEDDING_PROVIDER=openai             # openai（默认）或 gemini
+EMBEDDING_BASE_URL=https://api.openai.com/v1  # embedding 接口地址
+EMBEDDING_API_KEY=sk-xxxxxxxxxxxx     # embedding 接口 Key
+EMBEDDING_MODEL=text-embedding-3-small        # embedding 模型
+AGENT_SIMILARITY_THRESHOLD=0.35       # 低于该相似度算「不属于任何分类」
+AGENT_CLUSTER_SIMILARITY=0.72         # 把「无处可归」聚成候选分类所需相似度
+AGENT_SPLIT_GAP=0.18                  # 拆分类所需的两簇差距
+AGENT_MIN_SPLIT_MEMBERS=6             # 分类至少多少成员才考虑拆分
+AGENT_MIN_NEW_MEMBERS=4               # 新分类/拆分后每个子分类至少多少成员
+AGENT_MAX_DECISIONS=2                 # 每批最多生效几个决定
+
 # 模型设置
 GEMINI_MODEL=gemini-2.5-flash         # Gemini 模型
 GEMINI_RPM=15                         # Gemini 每分钟请求数（免费额度）
@@ -437,6 +502,7 @@ LOG_API_RESPONSES=false               # 打印原始 API 响应
 ## 已知限制
 
 - AI 无法归类的仓库会单独写进 `无法分类.md`，并在索引中单独列出
+- 分类智能体需要 embedding 接口，并且会额外产生 embedding 请求和少量 AI 请求；被判定受影响的仓库会再分一次，所以运行时间会比纯分类略长
 - Gemini API 免费额度：每分钟 15 次请求（可用 `AI_RPM` 调整，对两个提供方都生效）
 - OpenAI 兼容模型需要支持 JSON 输出，否则会退化为文本解析
 

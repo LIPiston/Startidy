@@ -19,6 +19,7 @@ It writes a browsable flat Markdown layout: an index `README.md` with a table of
 - **Step-by-Step or Full Automation**: Run individual steps or execute the entire workflow at once
 - **Batch Processing**: Parallel processing of 20 repositories at a time for faster classification
 - **Resumable Runs**: Every finished batch is written to disk with its progress; re-run the same command after an interruption and it continues where it stopped (the progress file is deleted on completion)
+- **Taxonomy Agent**: After every batch it takes a second look at whether the classification still holds — it embeds that batch of repositories and compares them against each category's **previous** vector centroid, then lets the AI decide whether to add a new category for repositories that fit nowhere, or to split a large category whose members have drifted into two clusters into `Parent-Child` subcategories (e.g. `Game-Minecraft`); affected repositories are automatically re-queued and classified again under the new categories. Skipped automatically when embedding is not configured, without affecting the normal workflow
 
 ## Category Examples
 
@@ -312,6 +313,57 @@ startidy classify
 startidy classify --only-new
 ```
 
+## Taxonomy Agent (Embeddings)
+
+Categories are planned in one shot and batches never reference each other, so it is easy to miss the fact that "a category has quietly become too broad" or that "a batch of repositories was forced into some category". The agent closes exactly that gap: **after every batch it takes one global look**, uses vector similarity to surface the problem, and lets the AI confirm it.
+
+One review round does two things:
+
+1. **Spot the "homeless"**: embed the repositories of this batch and compare them against each category's vector centroid. Note that the comparison uses the centroids from **before** this batch arrived — otherwise the repositories just filed in would "certify" themselves as legitimate members. Repositories whose similarity falls below `AGENT_SIMILARITY_THRESHOLD` are grouped into candidate clusters, and if a cluster is large enough (≥ `AGENT_MIN_NEW_MEMBERS`) the AI decides whether to create a new category for it.
+2. **Spot the "should be split"**: for categories with enough members (≥ `AGENT_MIN_SPLIT_MEMBERS × 2`), run a two-way clustering; if the two clusters are internally similar and dissimilar to each other (gap ≥ `AGENT_SPLIT_GAP`), the AI decides whether to split the category into `Parent-Child` subcategories, e.g. splitting `游戏` into `游戏-Minecraft` and `游戏-CSGO`.
+
+Once the AI confirms, the affected repositories are **re-queued** and classified again under the new categories; the new categories are also written to the progress file, so a resumed run uses the latest taxonomy instead of the original plan.
+
+A real example:
+
+```
+🤖 split 「游戏」 into 「游戏-Minecraft」, 「游戏-CSGO」 (18 repositories) - members drifted into separate clusters
+🔁 18 repositories queued for re-classification
+```
+
+### What It Needs
+
+It only needs an embedding endpoint. By default it follows the current AI provider and reuses `OPENAI_BASE_URL` / `OPENAI_API_KEY` (or `GEMINI_API_KEY`), so pointing it at a local server is usually just a few lines:
+
+```env
+# Ollama local embeddings
+EMBEDDING_PROVIDER=openai
+EMBEDDING_BASE_URL=http://localhost:11434/v1
+EMBEDDING_API_KEY=ollama
+EMBEDDING_MODEL=nomic-embed-text
+```
+
+```env
+# OpenAI
+EMBEDDING_MODEL=text-embedding-3-small
+```
+
+```env
+# Gemini
+EMBEDDING_PROVIDER=gemini
+EMBEDDING_MODEL=text-embedding-004
+```
+
+**When embedding is not configured the agent is skipped automatically**, printing a single notice, and classification runs to completion as usual — embedding is never required. A transient error from the embedding endpoint or model only affects the current batch's review; it never aborts the whole run.
+
+### Safety Boundaries
+
+- It only creates or splits categories and **never deletes** one; a split must replace exactly the original category
+- Language categories (`Lang-Python`, `Python` and the like) are always rejected, by the same rule as the planning stage
+- A new category and every subcategory produced by a split must reach the minimum member count, and must not collide with an existing category name
+- At most `AGENT_MAX_DECISIONS` decisions take effect per batch; the same repository can be re-queued at most twice, to avoid back-and-forth churn
+- The agent's modified category set is saved with the progress, and a resumed run takes it as the source of truth (newer than the original plan)
+
 ## Execution Example
 
 ```
@@ -414,6 +466,19 @@ OUTPUT_DIR=stars                      # Markdown output directory (default: star
 CLASSIFY_BATCH_SIZE=20                # Repos per batch for classification
 BATCH_DELAY=2000                      # Delay between batches (ms)
 
+# Taxonomy Agent (Embeddings)
+AGENT_ENABLED=true                    # let the agent supervise the classification run
+EMBEDDING_PROVIDER=openai             # openai (default) or gemini
+EMBEDDING_BASE_URL=https://api.openai.com/v1  # embedding endpoint
+EMBEDDING_API_KEY=sk-xxxxxxxxxxxx     # embedding endpoint key
+EMBEDDING_MODEL=text-embedding-3-small        # embedding model
+AGENT_SIMILARITY_THRESHOLD=0.35       # below this similarity a repo fits no category
+AGENT_CLUSTER_SIMILARITY=0.72         # similarity needed to group homeless repos
+AGENT_SPLIT_GAP=0.18                  # cluster gap required to split a category
+AGENT_MIN_SPLIT_MEMBERS=6             # members a category needs before a split is considered
+AGENT_MIN_NEW_MEMBERS=4               # members each new or split category needs
+AGENT_MAX_DECISIONS=2                 # decisions applied per batch
+
 # Model Settings
 GEMINI_MODEL=gemini-2.5-flash         # Gemini model
 GEMINI_RPM=15                         # Gemini requests per minute (Free tier)
@@ -440,6 +505,7 @@ LOG_API_RESPONSES=false               # Log raw API responses
 ## Limitations
 
 - Repositories the AI cannot place are written to a separate `无法分类.md` (uncategorized) file and listed in the index
+- The taxonomy agent needs an embedding endpoint and produces extra embedding requests plus a small number of AI requests; repositories judged to be affected are classified a second time, so a run takes slightly longer than plain classification
 - Gemini API free tier: 15 requests per minute (tune with `AI_RPM`, which applies to both providers)
 - OpenAI-compatible models should support JSON output; plain-text parsing is used as a fallback
 

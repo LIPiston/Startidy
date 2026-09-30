@@ -175,6 +175,22 @@ Include every one of the ${repos.length} repositories exactly once, using the re
   }
 
   /**
+   * Asks the model to review the taxonomy mid-run (taxonomy agent).
+   * Returns the raw JSON text; validation lives in taxonomy-agent.ts
+   */
+  async reviewTaxonomy(prompt: string): Promise<string> {
+    return this.chatJson({
+      messages: [
+        { role: "system", content: SYSTEM_PROMPT },
+        { role: "user", content: prompt },
+      ],
+      temperature: 0.2,
+      maxTokens: this.config.maxTokensClassify,
+      label: "Taxonomy review",
+    });
+  }
+
+  /**
    * Sends one chat completion request and returns the assistant message text.
    * Retries transient failures with exponential backoff and degrades
    * gracefully when the endpoint rejects `response_format`.

@@ -27,6 +27,17 @@ import {
   saveCheckpoint,
   type CheckpointState,
 } from "./checkpoint";
+import {
+  createEmbeddingClient,
+  isEmbeddingConfigured,
+  type EmbeddingClient,
+} from "./embeddings";
+import {
+  reviewTaxonomy,
+  type AgentChange,
+  type AgentRepo,
+  type TaxonomyReview,
+} from "./taxonomy-agent";
 
 export interface ClassifyStats {
   success: number;
@@ -46,16 +57,21 @@ export interface ClassifyOptions {
   merge: boolean;
 }
 
+/** How often a single repository may be pushed back into the queue */
+const REQUEUE_LIMIT_PER_REPO = 2;
+
 /**
  * Classifies repositories and writes `<outputDir>/README.md` plus one Markdown
- * file per category. Progress is checkpointed after every batch.
+ * file per category. Progress is checkpointed after every batch, and the
+ * taxonomy agent may add or split categories between batches - repositories
+ * affected by its decisions go back into the queue for re-classification.
  */
 export async function classifyAndWrite(
   config: Config,
   ai: AIService,
   options: ClassifyOptions,
 ): Promise<ClassifyStats> {
-  const { repos, allRepos, categories, merge } = options;
+  const { repos, allRepos, merge } = options;
   const batchSize = config.classifyBatchSize;
 
   // ---- Resume from an interrupted run -------------------------------
@@ -63,7 +79,12 @@ export async function classifyAndWrite(
   let resumeState: CheckpointState | null = null;
 
   if (saved) {
-    if (sameCategories(saved.categories, categories)) {
+    // A taxonomy the agent changed mid-run is newer than the plan, so it
+    // always wins. Otherwise the plan has to match the checkpoint.
+    if (
+      saved.agentModifiedCategories ||
+      sameCategories(saved.categories, options.categories)
+    ) {
       resumeState = saved;
     } else {
       console.log(
@@ -72,6 +93,12 @@ export async function classifyAndWrite(
       clearCheckpoint(config.outputDir);
     }
   }
+
+  /** Working taxonomy - the agent may add to or split it mid-run */
+  let categories = resumeState
+    ? [...resumeState.categories]
+    : [...options.categories];
+  let agentTouched = resumeState?.agentModifiedCategories === true;
 
   const assignments = new Map<string, string[]>(
     resumeState ? Object.entries(resumeState.assignments) : [],
@@ -88,7 +115,6 @@ export async function classifyAndWrite(
   const pendingRepos = resumeState
     ? repos.filter((repo) => !assignments.has(repoId(repo)))
     : repos;
-  const totalBatches = Math.ceil(pendingRepos.length / batchSize);
   const failedIds = new Set<string>();
 
   if (resumeState) {
@@ -103,12 +129,51 @@ export async function classifyAndWrite(
     );
   }
 
-  for (let batchIdx = 0; batchIdx < totalBatches; batchIdx++) {
-    const batchStart = batchIdx * batchSize;
-    const batchEnd = Math.min(batchStart + batchSize, pendingRepos.length);
-    const batchRepos = pendingRepos.slice(batchStart, batchEnd);
+  // ---- Taxonomy agent setup -----------------------------------------
+  const embeddings =
+    config.agentEnabled && isEmbeddingConfigured(config)
+      ? createEmbeddingClient(config)
+      : null;
 
-    console.log(`── Batch ${batchIdx + 1}/${totalBatches} (${batchStart + 1}-${batchEnd}) ──`);
+  if (embeddings) {
+    console.log(
+      `  🤖 Taxonomy agent active (${embeddings.provider}/${embeddings.model})`,
+    );
+  } else if (config.agentEnabled) {
+    console.log(
+      "  ℹ️ Taxonomy agent off: set EMBEDDING_MODEL (plus EMBEDDING_API_KEY for a separate endpoint) so it can review the taxonomy.",
+    );
+  }
+
+  const repoInfo = new Map<string, AgentRepo>(
+    allRepos.map((repo) => [
+      repoId(repo),
+      {
+        id: repoId(repo),
+        description: repo.description,
+        language: repo.language,
+        stars: repo.stargazers_count,
+      },
+    ]),
+  );
+  const reposById = new Map<string, Repo>(
+    allRepos.map((repo) => [repoId(repo), repo]),
+  );
+  const vectorCache = new Map<string, number[]>();
+  const requeueCounts = new Map<string, number>();
+
+  // ---- Work queue: the agent can push repositories back in -------------
+  const queue: Repo[] = [...pendingRepos];
+  const maxBatches = Math.ceil(pendingRepos.length / batchSize) * 3 + 3;
+  let batchIdx = 0;
+
+  while (queue.length > 0 && batchIdx < maxBatches) {
+    const batchRepos = queue.splice(0, batchSize);
+    batchIdx++;
+
+    console.log(
+      `── Batch ${batchIdx} (${batchRepos.length} repositories, ${queue.length} still queued) ──`,
+    );
 
     // Step 1: Fetch READMEs
     const batchRepoInfos = await fetchReadmesForBatch(config, batchRepos);
@@ -126,6 +191,7 @@ export async function classifyAndWrite(
           names.length > 0 ? names : [UNCATEGORIZED_CATEGORY_NAME];
 
         assignments.set(id, assignedNames);
+        failedIds.delete(id);
 
         if (assignedNames.includes(UNCATEGORIZED_CATEGORY_NAME)) {
           uncategorized++;
@@ -133,6 +199,56 @@ export async function classifyAndWrite(
         } else {
           success++;
           console.log(`  ✅ ${id} → ${assignedNames.slice(0, 2).join(", ")}`);
+        }
+      }
+
+      // Step 2b: let the taxonomy agent review the fresh assignments
+      if (embeddings) {
+        const review = await runTaxonomyAgent({
+          config,
+          ai,
+          embeddings,
+          categories,
+          assignments,
+          batchRepoInfos,
+          repoInfo,
+          vectorCache,
+        });
+
+        if (review) {
+          categories = review.categories;
+          agentTouched = true;
+
+          // Repositories the agent moved are classified again against the
+          // new taxonomy, so their old assignment is dropped first.
+          const requeued: Repo[] = [];
+          for (const id of review.requeue) {
+            const times = requeueCounts.get(id) ?? 0;
+            if (times >= REQUEUE_LIMIT_PER_REPO) continue;
+
+            const names = assignments.get(id);
+            if (!names) continue;
+
+            if (names.includes(UNCATEGORIZED_CATEGORY_NAME)) uncategorized--;
+            else success--;
+
+            assignments.delete(id);
+            failedIds.delete(id);
+            requeueCounts.set(id, times + 1);
+
+            const repo = reposById.get(id);
+            if (repo) requeued.push(repo);
+          }
+
+          for (const change of review.changes) {
+            console.log(`  🤖 ${describeChange(change)}`);
+          }
+          if (requeued.length > 0) {
+            queue.push(...requeued);
+            console.log(
+              `  🔁 ${requeued.length} repositories queued for re-classification`,
+            );
+          }
         }
       }
     }
@@ -144,8 +260,9 @@ export async function classifyAndWrite(
       categories,
       assignments: Object.fromEntries(assignments),
       failedIds: [...failedIds],
-      pendingIds: pendingRepos.slice(batchEnd).map(repoId),
+      pendingIds: queue.map(repoId),
       totalRepos: repos.length,
+      agentModifiedCategories: agentTouched,
     });
 
     if (assignments.size > 0) {
@@ -156,7 +273,7 @@ export async function classifyAndWrite(
     }
 
     // Delay between batches
-    if (batchIdx < totalBatches - 1) {
+    if (queue.length > 0) {
       await delay(config.batchDelay);
     }
   }
@@ -209,6 +326,63 @@ export async function classifyAndWrite(
 
 function repoId(repo: Repo): string {
   return `${repo.owner.login}/${repo.name}`;
+}
+
+interface AgentRunInput {
+  config: Config;
+  ai: AIService;
+  embeddings: EmbeddingClient;
+  categories: Category[];
+  assignments: Map<string, string[]>;
+  batchRepoInfos: BatchRepoInfo[];
+  repoInfo: Map<string, AgentRepo>;
+  vectorCache: Map<string, number[]>;
+}
+
+/**
+ * Runs the taxonomy agent after a batch. A failing embedding endpoint or
+ * model call only skips the review for this batch - the run continues.
+ */
+async function runTaxonomyAgent(
+  input: AgentRunInput,
+): Promise<TaxonomyReview | null> {
+  const spinner = ora("Taxonomy agent reviewing...").start();
+
+  try {
+    const review = await reviewTaxonomy({
+      config: input.config,
+      ai: input.ai,
+      embeddings: input.embeddings,
+      categories: input.categories,
+      assignments: input.assignments,
+      batchRepos: input.batchRepoInfos.map((info) => ({
+        id: info.id,
+        description: info.description,
+        language: info.language,
+        stars: info.stars,
+      })),
+      repoInfo: input.repoInfo,
+      vectorCache: input.vectorCache,
+    });
+
+    if (review) spinner.succeed("Taxonomy agent: taxonomy updated");
+    else spinner.stop();
+
+    return review;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    spinner.warn(`Taxonomy agent skipped this batch: ${message}`);
+    return null;
+  }
+}
+
+/** One-line description of an applied agent decision, for the run log. */
+function describeChange(change: AgentChange): string {
+  if (change.action === "add") {
+    return `added 「${change.added.name}」 for ${change.members.length} repositories - ${change.reason}`;
+  }
+  const parts = change.parts.map((part) => `「${part.name}」`).join(", ");
+  return `split 「${change.removed.name}」 into ${parts} (${change.members.length} repositories) - ${change.reason}`;
 }
 
 /** Renders the assignment table collected so far (used after every batch). */

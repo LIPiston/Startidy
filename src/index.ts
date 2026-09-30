@@ -17,7 +17,7 @@ const program = new Command();
 program
   .name("startidy")
   .description("AI-powered CLI tool to automatically organize your GitHub Stars into Markdown categories")
-  .version("1.1.0")
+  .version("1.2.0")
   .option("--token <token>", "GitHub Personal Access Token")
   .option("--username <username>", "GitHub Username")
   .option("--ai-provider <provider>", "AI provider: openai (default) or gemini")

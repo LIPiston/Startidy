@@ -33,7 +33,7 @@ export function extractJsonPayload(text: string): string {
 /**
  * Best-effort repair of JSON that was cut off by an output token limit.
  */
-function repairTruncatedJson(jsonStr: string): string {
+export function repairTruncatedJson(jsonStr: string): string {
   if (jsonStr.endsWith("}")) return jsonStr;
 
   const openBraces = (jsonStr.match(/\{/g) || []).length;

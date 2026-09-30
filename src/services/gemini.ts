@@ -136,4 +136,28 @@ export class GeminiService implements AIService {
 
     return parseBatchClassifierResponse(text, repos, categories, this.config);
   }
+
+  /**
+   * Asks the model to review the taxonomy mid-run (taxonomy agent).
+   * Returns the raw JSON text; validation lives in taxonomy-agent.ts
+   */
+  async reviewTaxonomy(prompt: string): Promise<string> {
+    const response = await this.ai.models.generateContent({
+      model: this.model,
+      contents: prompt,
+      config: {
+        temperature: 0.2,
+        maxOutputTokens: this.config.maxTokensClassify,
+        responseMimeType: "application/json",
+      },
+    });
+
+    const text = response.text || "";
+
+    if (this.config.logApiResponses) {
+      console.log("\n[DEBUG] Gemini Taxonomy Review Response:", text);
+    }
+
+    return text;
+  }
 }

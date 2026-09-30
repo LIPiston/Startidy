@@ -19,6 +19,7 @@ AI 기반 CLI 도구로 GitHub Stars를 자동으로 Markdown 카테고리로 �
 - **단계별 또는 자동화 실행**: 개별 단계 실행 또는 전체 워크플로우 한 번에 실행
 - **배치 처리**: 한 번에 20개 저장소를 병렬 처리하여 빠른 분류
 - **이어서 실행 (체크포인트)**: 배치가 끝날 때마다 Markdown과 진행 상황을 기록합니다; 중단 후 같은 명령을 다시 실행하면 완료된 배치는 자동으로 건너뛰고, 완료되면 진행 파일이 삭제됩니다
+- **분류 에이전트**: 배치 분류가 끝날 때마다 분류가 여전히 적절한지 자동으로 다시 살펴봅니다 — 이번 배치의 저장소를 벡터화하고 각 카테고리의 **이전** 벡터 중심과 비교하여, AI가 "어디에도 넣을 수 없는" 저장소를 위한 새 카테고리를 만들지, 아니면 구성원이 이미 두 덩어리로 갈라진 큰 카테고리를 `대분류-소분류` 로 분할할지 결정하게 합니다; 영향을 받은 저장소는 자동으로 다시 대기열에 들어가 새 카테고리로 다시 분류됩니다. embedding이 설정되어 있지 않으면 자동으로 건너뛰며 정상 흐름에 영향을 주지 않습니다
 
 ## 카테고리 예시
 
@@ -310,6 +311,57 @@ startidy classify
 startidy classify --only-new
 ```
 
+## 분류 에이전트 (embedding)
+
+분류는 한 번에 만들어지고 배치끼리 서로 참고하지 않기 때문에, "어느 카테고리가 슬그머니 너무 잡다해진다"거나 "한 배치의 저장소가 어느 카테고리에 억지로 밀어 넣어진다"는 상황을 알아채기 어렵습니다. 에이전트가 바로 이 부분을 채웁니다: **배치 분류가 끝날 때마다 전역을 한 번 살펴보고**, 벡터 유사도로 문제를 찾은 다음 AI에게 확인받습니다.
+
+한 번의 점검은 두 가지를 합니다:
+
+1. **"갈 곳 없음" 발견**: 이번 배치의 저장소를 벡터화하고 각 카테고리의 벡터 중심과 비교합니다. 비교 대상은 이번 배치 저장소가 **들어오기 전** 의 카테고리 중심이라는 점에 주의하세요 — 그렇지 않으면 방금 밀어 넣은 저장소가 스스로를 합리적인 구성원으로 "인증"하게 됩니다. 유사도가 `AGENT_SIMILARITY_THRESHOLD` 보다 낮은 저장소는 후보 그룹으로 묶이고, 그룹이 충분히 크면 (≥ `AGENT_MIN_NEW_MEMBERS`) AI에게 새 카테고리를 만들지 결정하게 넘깁니다.
+2. **"이제 분할할 때" 발견**: 구성원이 충분히 많은 카테고리 (≥ `AGENT_MIN_SPLIT_MEMBERS × 2`) 에 대해 한 번 이중 클러스터링을 수행하고, 두 클러스터가 내부적으로는 매우 비슷하고 서로는 비슷하지 않으면 (격차 ≥ `AGENT_SPLIT_GAP`), AI에게 `대분류-소분류` 로 분할할지 결정하게 넘깁니다. 예를 들어 `游戏` 를 `游戏-Minecraft`, `游戏-CSGO` 로 나누는 식입니다.
+
+AI가 확인하면 영향을 받은 저장소는 **다시 대기열에 들어가** 새 카테고리로 다시 분류됩니다; 새 카테고리도 진행 파일에 기록되므로 중단 후 이어서 실행할 때는 최초 계획이 아니라 최신 카테고리 집합을 사용합니다.
+
+실제 예시:
+
+```
+🤖 split 「游戏」 into 「游戏-Minecraft」, 「游戏-CSGO」 (18 repositories) - members drifted into separate clusters
+🔁 18 repositories queued for re-classification
+```
+
+### 무엇이 필요한가
+
+embedding 인터페이스 하나만 있으면 됩니다. 기본적으로 현재 AI 제공자를 따르며 `OPENAI_BASE_URL` / `OPENAI_API_KEY` (또는 `GEMINI_API_KEY`) 를 그대로 재사용하므로, 로컬 서비스에 연결하는 데는 보통 몇 줄이면 충분합니다:
+
+```env
+# Ollama 로컬 embedding
+EMBEDDING_PROVIDER=openai
+EMBEDDING_BASE_URL=http://localhost:11434/v1
+EMBEDDING_API_KEY=ollama
+EMBEDDING_MODEL=nomic-embed-text
+```
+
+```env
+# OpenAI
+EMBEDDING_MODEL=text-embedding-3-small
+```
+
+```env
+# Gemini
+EMBEDDING_PROVIDER=gemini
+EMBEDDING_MODEL=text-embedding-004
+```
+
+**embedding이 설정되어 있지 않으면 에이전트는 자동으로 건너뛰고** 한 줄 안내만 출력하며 분류는 평소대로 끝까지 실행됩니다 — embedding은 결코 필수가 아닙니다. embedding 인터페이스나 모델이 일시적으로 오류를 내도 이번 배치의 점검에만 영향을 줄 뿐 전체 실행이 중단되지는 않습니다.
+
+### 안전 경계
+
+- 카테고리를 만들거나 분할할 뿐, 카테고리를 **삭제하지는 않습니다**; 분할할 때는 반드시 기존의 그 하나를 정확히 대체해야 합니다
+- 언어 카테고리 (`Lang-Python`, `Python` 등) 는 일괄 거부되며, 계획 단계와 같은 규칙입니다
+- 새 카테고리와 분할 후의 각 하위 카테고리는 모두 최소 구성원 수를 충족해야 하고 기존 카테고리와 이름이 겹치면 안 됩니다
+- 배치마다 최대 `AGENT_MAX_DECISIONS` 개의 결정만 적용됩니다; 같은 저장소는 최대 2번까지만 다시 대기열에 들어가 왕복 진동을 피합니다
+- 에이전트가 수정한 카테고리 집합은 진행 상황과 함께 저장되며, 이어서 실행할 때는 이를 기준으로 합니다 (최초 계획보다 최신)
+
 ## 실행 예시
 
 ```
@@ -403,6 +455,19 @@ OUTPUT_DIR=stars                      # Markdown 출력 디렉터리 (기본값:
 CLASSIFY_BATCH_SIZE=20                # 분류당 배치 저장소 수
 BATCH_DELAY=2000                      # 배치 간 딜레이 (ms)
 
+# 분류 에이전트 (embedding)
+AGENT_ENABLED=true                    # 에이전트가 분류 과정을 감시하도록 할지 여부
+EMBEDDING_PROVIDER=openai             # openai (기본) 또는 gemini
+EMBEDDING_BASE_URL=https://api.openai.com/v1  # embedding 엔드포인트
+EMBEDDING_API_KEY=sk-xxxxxxxxxxxx     # embedding 엔드포인트 키
+EMBEDDING_MODEL=text-embedding-3-small        # embedding 모델
+AGENT_SIMILARITY_THRESHOLD=0.35       # 이 값보다 낮으면 어느 카테고리에도 맞지 않음
+AGENT_CLUSTER_SIMILARITY=0.72         # 갈 곳 없는 저장소를 묶는 데 필요한 유사도
+AGENT_SPLIT_GAP=0.18                  # 카테고리를 분할하는 데 필요한 클러스터 격차
+AGENT_MIN_SPLIT_MEMBERS=6             # 분할을 고려하기 위한 최소 구성원 수
+AGENT_MIN_NEW_MEMBERS=4               # 새 카테고리/분할된 카테고리의 최소 구성원 수
+AGENT_MAX_DECISIONS=2                 # 배치마다 적용하는 결정 수
+
 # 모델 설정
 GEMINI_MODEL=gemini-2.5-flash         # Gemini 모델
 GEMINI_RPM=15                         # 분당 요청 수 (무료 티어)
@@ -429,6 +494,7 @@ LOG_API_RESPONSES=false               # 원시 API 응답 로깅
 ## 제한 사항
 
 - AI가 분류하지 못한 저장소는 별도의 `无法分类.md`(미분류) 파일로 기록되고 인덱스에 표시됩니다
+- 분류 에이전트는 embedding 인터페이스가 필요하며, embedding 요청과 소량의 AI 요청이 추가로 발생합니다; 영향을 받은 것으로 판단된 저장소는 다시 분류되므로 실행 시간이 순수 분류보다 약간 깁니다
 - Gemini API 무료 티어: 분당 15 요청 (`AI_RPM` 으로 조정 가능하며 두 제공자 모두에 적용됩니다)
 - OpenAI 호환 모델은 JSON 출력을 지원해야 원활하게 동작 (미지원 시 텍스트 파싱 폴백)
 

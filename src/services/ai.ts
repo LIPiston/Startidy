@@ -30,6 +30,11 @@ export interface AIService {
     categories: Category[],
   ): Promise<Map<string, string[]>>;
 
+  /**
+   * Asks the model to review the taxonomy mid-run (taxonomy agent).
+   * Returns the raw JSON text; parsing/validation lives in taxonomy-agent.ts
+   */
+  reviewTaxonomy(prompt: string): Promise<string>;
 }
 
 /**
@@ -58,5 +63,6 @@ function withRateLimit(service: AIService, rpm: number): AIService {
       limiter.throttle(() => service.planCategories(repos)),
     classifyRepositoriesBatch: (repos, categories) =>
       limiter.throttle(() => service.classifyRepositoriesBatch(repos, categories)),
+    reviewTaxonomy: (prompt) => limiter.throttle(() => service.reviewTaxonomy(prompt)),
   };
 }

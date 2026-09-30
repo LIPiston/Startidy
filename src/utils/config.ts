@@ -9,6 +9,13 @@ export type AIProvider = "gemini" | "openai";
 /** How the OpenAI-compatible request should constrain the response format */
 export type OpenAIResponseFormat = "json_object" | "json_schema" | "none";
 
+/**
+ * Provider used to embed repositories and categories for the taxonomy agent.
+ * Defaults to the active AI provider and can be pointed at a separate
+ * endpoint (Ollama, vLLM, LM Studio, ...) with the EMBEDDING_* variables.
+ */
+export type EmbeddingProvider = "openai" | "gemini";
+
 export interface Config {
   // Required credentials
   githubToken: string;
@@ -27,6 +34,21 @@ export interface Config {
   openaiModel: string;
   openaiResponseFormat: OpenAIResponseFormat;
   openaiTimeoutMs: number;
+
+  // Embedding model (taxonomy agent)
+  embeddingProvider: EmbeddingProvider;
+  embeddingApiKey: string;
+  embeddingBaseUrl: string;
+  embeddingModel: string;
+
+  // Taxonomy agent (supervises the classification run)
+  agentEnabled: boolean; // Review the taxonomy after every batch (default: true)
+  agentSimilarityThreshold: number; // Below this similarity a repo fits no category (default: 0.35)
+  agentClusterSimilarity: number; // Similarity for grouping unclassified repos (default: 0.72)
+  agentSplitGap: number; // intra - cross similarity needed to propose a split (default: 0.18)
+  agentMinSplitMembers: number; // Members a category needs before a split is considered (default: 6)
+  agentMinNewMembers: number; // Members a new/part category needs (default: 4)
+  agentMaxDecisions: number; // Decisions the agent may apply per batch (default: 2)
 
   // Category settings
   maxCategories: number; // Maximum number of categories (default: 32, GitHub limit)
@@ -114,6 +136,26 @@ function parseNumberSetting(
 
 function normalizeBaseUrl(url: string): string {
   return url.replace(/\/+$/, "");
+}
+
+/** Embedding provider: EMBEDDING_PROVIDER, else the active AI provider. */
+function resolveEmbeddingProvider(aiProvider: AIProvider): EmbeddingProvider {
+  const raw = (process.env.EMBEDDING_PROVIDER || "").trim().toLowerCase();
+  if (raw === "") return aiProvider;
+
+  switch (raw) {
+    case "gemini":
+    case "google":
+      return "gemini";
+    case "openai":
+    case "openai-compatible":
+    case "compatible":
+      return "openai";
+    default:
+      throw new Error(
+        `Unsupported EMBEDDING_PROVIDER "${raw}". Use "gemini" or "openai".`,
+      );
+  }
 }
 
 function resolveProvider(): AIProvider {
@@ -208,6 +250,14 @@ export function loadConfig(): Config {
     );
   }
 
+  // Embeddings for the taxonomy agent. They may point at a different endpoint
+  // than the chat model (e.g. a local Ollama instance) and are optional: an
+  // empty key simply disables the agent on that run.
+  const embeddingProvider = resolveEmbeddingProvider(aiProvider);
+  const embeddingApiKey =
+    firstEnv("EMBEDDING_API_KEY") ||
+    (embeddingProvider === "gemini" ? geminiApiKey : openaiApiKey);
+
   return {
     // Required credentials
     githubToken,
@@ -226,6 +276,27 @@ export function loadConfig(): Config {
     openaiModel: firstEnv("OPENAI_MODEL", "AI_MODEL") || "gpt-4o-mini",
     openaiResponseFormat: responseFormatRaw,
     openaiTimeoutMs: parseIntEnv("OPENAI_TIMEOUT_MS", 120000),
+
+    // Embedding model (taxonomy agent)
+    embeddingProvider,
+    embeddingApiKey,
+    embeddingBaseUrl: normalizeBaseUrl(
+      firstEnv("EMBEDDING_BASE_URL") || openaiBaseUrl,
+    ),
+    embeddingModel:
+      firstEnv("EMBEDDING_MODEL") ||
+      (embeddingProvider === "gemini"
+        ? "text-embedding-004"
+        : "text-embedding-3-small"),
+
+    // Taxonomy agent
+    agentEnabled: parseBoolEnv("AGENT_ENABLED", true),
+    agentSimilarityThreshold: parseFloatEnv("AGENT_SIMILARITY_THRESHOLD", 0.35),
+    agentClusterSimilarity: parseFloatEnv("AGENT_CLUSTER_SIMILARITY", 0.72),
+    agentSplitGap: parseFloatEnv("AGENT_SPLIT_GAP", 0.18),
+    agentMinSplitMembers: parseIntEnv("AGENT_MIN_SPLIT_MEMBERS", 6),
+    agentMinNewMembers: parseIntEnv("AGENT_MIN_NEW_MEMBERS", 4),
+    agentMaxDecisions: parseIntEnv("AGENT_MAX_DECISIONS", 2),
 
     // Category settings
     maxCategories: parseIntEnv("MAX_CATEGORIES", 32),
