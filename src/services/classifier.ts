@@ -10,6 +10,7 @@
  * Afterwards the whole assignment table is rendered to `<outputDir>/`.
  */
 import ora from "ora";
+import { createHash } from "crypto";
 import type { Config } from "../utils/config";
 import { delay } from "../utils/rate-limiter";
 import type { AIService } from "./ai";
@@ -73,6 +74,7 @@ export async function classifyAndWrite(
 ): Promise<ClassifyStats> {
   const { repos, allRepos, merge } = options;
   const batchSize = config.classifyBatchSize;
+  const runIdentity = createRunIdentity(repos, options.categories);
 
   // ---- Resume from an interrupted run -------------------------------
   const saved = loadCheckpoint(config.outputDir);
@@ -82,8 +84,9 @@ export async function classifyAndWrite(
     // A taxonomy the agent changed mid-run is newer than the plan, so it
     // always wins. Otherwise the plan has to match the checkpoint.
     if (
-      saved.agentModifiedCategories ||
-      sameCategories(saved.categories, options.categories)
+      saved.runIdentity === runIdentity &&
+      saved.totalRepos === repos.length &&
+      (saved.agentModifiedCategories || sameCategories(saved.categories, options.categories))
     ) {
       resumeState = saved;
     } else {
@@ -160,7 +163,9 @@ export async function classifyAndWrite(
     allRepos.map((repo) => [repoId(repo), repo]),
   );
   const vectorCache = new Map<string, number[]>();
-  const requeueCounts = new Map<string, number>();
+  const requeueCounts = new Map<string, number>(
+    resumeState ? Object.entries(resumeState.requeueCounts) : [],
+  );
 
   // ---- Work queue: the agent can push repositories back in -------------
   const queue: Repo[] = [...pendingRepos];
@@ -262,6 +267,8 @@ export async function classifyAndWrite(
       failedIds: [...failedIds],
       pendingIds: queue.map(repoId),
       totalRepos: repos.length,
+      runIdentity,
+      requeueCounts: Object.fromEntries(requeueCounts),
       agentModifiedCategories: agentTouched,
     });
 
@@ -278,6 +285,25 @@ export async function classifyAndWrite(
     }
   }
 
+  const incomplete = queue.length > 0;
+  if (incomplete) {
+    failed += queue.length;
+    for (const repo of queue) failedIds.add(repoId(repo));
+    saveCheckpoint(config.outputDir, {
+      version: CHECKPOINT_VERSION,
+      updatedAt: new Date().toISOString(),
+      categories,
+      assignments: Object.fromEntries(assignments),
+      failedIds: [...failedIds],
+      pendingIds: queue.map(repoId),
+      totalRepos: repos.length,
+      runIdentity,
+      requeueCounts: Object.fromEntries(requeueCounts),
+      agentModifiedCategories: agentTouched,
+    });
+    console.log(`\n⚠️ Batch limit reached with ${queue.length} repositories still queued; checkpoint retained.`);
+  }
+
   console.log("\n📊 Results:");
   console.log(`  ✅ Classified: ${success}`);
   console.log(`  ❌ Failed: ${failed}`);
@@ -287,7 +313,7 @@ export async function classifyAndWrite(
 
   if (assignments.size === 0) {
     console.log("\n⚠️ Nothing to write - no repository could be classified.");
-    clearCheckpoint(config.outputDir);
+    if (!incomplete && failed === 0) clearCheckpoint(config.outputDir);
     return { success, failed, uncategorized, output: null };
   }
 
@@ -326,6 +352,18 @@ export async function classifyAndWrite(
 
 function repoId(repo: Repo): string {
   return `${repo.owner.login}/${repo.name}`;
+}
+
+function createRunIdentity(repos: Repo[], categories: Category[]): string {
+  const payload = JSON.stringify({
+    repos: repos.map(repoId).sort(),
+    categories: categories.map((category) => ({
+      name: category.name,
+      description: category.description,
+      keywords: category.keywords,
+    })),
+  });
+  return createHash("sha256").update(payload).digest("hex");
 }
 
 interface AgentRunInput {

@@ -25,6 +25,7 @@ npm-debug.log*
 .github-stars-plan.json
 .startidy-plan.json
 .startidy-state.json
+.startidy-stars.json
 
 # Bun
 bun.lockb

@@ -52,14 +52,17 @@ export function categoryEmbeddingText(category: {
 }
 
 export function cosineSimilarity(a: number[], b: number[]): number {
-  const length = Math.min(a.length, b.length);
+  if (a.length !== b.length || a.length === 0) return 0;
   let dot = 0;
   let normA = 0;
   let normB = 0;
-  for (let i = 0; i < length; i++) {
-    dot += a[i] * b[i];
-    normA += a[i] * a[i];
-    normB += b[i] * b[i];
+  for (let i = 0; i < a.length; i++) {
+    const left = a[i];
+    const right = b[i];
+    if (!Number.isFinite(left) || !Number.isFinite(right)) return 0;
+    dot += left * right;
+    normA += left * left;
+    normB += right * right;
   }
   if (normA === 0 || normB === 0) return 0;
   return dot / (Math.sqrt(normA) * Math.sqrt(normB));
@@ -194,9 +197,27 @@ async function embedWithOpenAI(
   }
 
   const ordered: number[][] = new Array(texts.length);
+  const seen = new Set<number>();
+  let dimension: number | null = null;
   data.forEach((item, position) => {
-    ordered[item.index ?? position] = item.embedding ?? [];
+    const index = item.index ?? position;
+    if (!Number.isInteger(index) || index < 0 || index >= texts.length || seen.has(index)) {
+      throw new Error(`Embedding endpoint returned an invalid or duplicate index: ${String(index)}`);
+    }
+    const vector = item.embedding;
+    if (!Array.isArray(vector) || vector.length === 0 || vector.some((value) => !Number.isFinite(value))) {
+      throw new Error(`Embedding endpoint returned an invalid vector at index ${index}`);
+    }
+    if (dimension === null) dimension = vector.length;
+    if (vector.length !== dimension) {
+      throw new Error(`Embedding endpoint returned inconsistent vector dimensions: expected ${dimension}, got ${vector.length}`);
+    }
+    seen.add(index);
+    ordered[index] = vector;
   });
+  if (seen.size !== texts.length || ordered.some((vector) => !vector)) {
+    throw new Error("Embedding endpoint returned an incomplete vector mapping");
+  }
   return ordered;
 }
 

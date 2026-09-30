@@ -1,4 +1,4 @@
-import { restPaginated, GitHubAPIError } from "./client";
+import { restPaginated, restPaginatedIncremental, GitHubAPIError, type IncrementalPageCache } from "./client";
 import type { Repo } from "./types";
 
 export type ProgressCallback = (current: number, message?: string) => void;
@@ -33,14 +33,13 @@ export async function fetchAllMyStarredRepos(
   token: string,
   owner: string,
   onProgress?: ProgressCallback,
-): Promise<{ repos?: Repo[]; status: number }> {
+  cache?: IncrementalPageCache<Repo>,
+): Promise<{ repos?: Repo[]; status: number; cache?: IncrementalPageCache<Repo> }> {
   try {
-    const repos = await restPaginated<Repo>(
-      token,
-      "/user/starred?sort=updated",
-      onProgress,
-    );
-    return { status: 200, repos };
+    const result = cache
+      ? await restPaginatedIncremental<Repo>(token, "/user/starred?sort=updated", cache, onProgress)
+      : await restPaginatedIncremental<Repo>(token, "/user/starred?sort=updated", undefined, onProgress);
+    return { status: 200, repos: result.items, cache: result.cache };
   } catch (error) {
     if (error instanceof GitHubAPIError && error.statusCode) {
       return { status: error.statusCode };

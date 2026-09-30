@@ -8,6 +8,7 @@ import { loadCheckpoint } from "../services/checkpoint";
 import { categoryFileName, readExistingOutput } from "../services/markdown";
 import type { Category, RepoSummary } from "../types";
 import { fetchAllMyStarredRepos, type Repo } from "../api";
+import { loadStarData, saveStarData } from "../utils/star-storage";
 
 export const runCommand = new Command("run")
   .description("Run the full workflow automatically (plan → classify → write Markdown)")
@@ -119,6 +120,7 @@ export const runCommand = new Command("run")
 
 async function fetchStarredRepos(config: Config): Promise<Repo[]> {
   const spinner = ora("Fetching starred repositories...").start();
+  const cached = loadStarData();
 
   const result = await fetchAllMyStarredRepos(
     config.githubToken,
@@ -126,6 +128,7 @@ async function fetchStarredRepos(config: Config): Promise<Repo[]> {
     (count) => {
       spinner.text = `Fetching starred repositories... (${count})`;
     },
+    cached ? { pages: cached.pages, etags: cached.etags } : undefined,
   );
 
   if (result.status !== 200 || !result.repos) {
@@ -133,6 +136,7 @@ async function fetchStarredRepos(config: Config): Promise<Repo[]> {
     throw new Error(`Failed to fetch starred repos: status ${result.status}`);
   }
 
+  if (result.cache) saveStarData(result.repos, result.cache.pages, result.cache.etags);
   spinner.succeed(`Fetched ${result.repos.length} starred repositories.`);
   return result.repos;
 }

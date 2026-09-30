@@ -9,6 +9,7 @@ import { clearCheckpoint, loadCheckpoint } from "../services/checkpoint";
 import { clearOutput, readExistingOutput } from "../services/markdown";
 import type { Category } from "../types";
 import { fetchAllMyStarredRepos } from "../api";
+import { loadStarData, saveStarData } from "../utils/star-storage";
 
 export const classifyCommand = new Command("classify")
   .description("Classify Stars and write the Markdown category files")
@@ -68,12 +69,14 @@ export const classifyCommand = new Command("classify")
 
       // Step 3: Fetch starred repos
       const repoSpinner = ora("Fetching starred repositories...").start();
+      const cached = loadStarData();
       const result = await fetchAllMyStarredRepos(
         config.githubToken,
         config.githubUsername,
         (count) => {
           repoSpinner.text = `Fetching starred repositories... (${count})`;
         },
+        cached ? { pages: cached.pages, etags: cached.etags } : undefined,
       );
 
       if (result.status !== 200 || !result.repos) {
@@ -82,6 +85,7 @@ export const classifyCommand = new Command("classify")
       }
 
       const allRepos = result.repos;
+      if (result.cache) saveStarData(allRepos, result.cache.pages, result.cache.etags);
       repoSpinner.succeed(`Fetched ${allRepos.length} starred repositories.`);
 
       // Step 4: --only-new filtering

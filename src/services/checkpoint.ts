@@ -18,7 +18,7 @@ import type { Category } from "../types";
 /** Name of the progress file inside the output directory */
 export const CHECKPOINT_FILE_NAME = ".startidy-state.json";
 /** Bumped when the on-disk shape changes */
-export const CHECKPOINT_VERSION = 1;
+export const CHECKPOINT_VERSION = 2;
 
 export interface CheckpointState {
   version: number;
@@ -34,6 +34,10 @@ export interface CheckpointState {
   pendingIds: string[];
   /** Size of the run this file belongs to */
   totalRepos: number;
+  /** Stable identity of the input repository set and initial category plan. */
+  runIdentity: string;
+  /** Number of times each repository has been requeued by the agent. */
+  requeueCounts: Record<string, number>;
   /**
    * The taxonomy agent added or split categories during this run, so the
    * categories here are newer than the plan and always win on resume.
@@ -54,15 +58,23 @@ export function loadCheckpoint(outputDir: string): CheckpointState | null {
     const parsed = JSON.parse(readFileSync(path, "utf-8")) as CheckpointState;
 
     if (!parsed || typeof parsed !== "object") return null;
+    if (parsed.version !== CHECKPOINT_VERSION) return null;
     if (!Array.isArray(parsed.categories) || parsed.categories.length === 0) {
       return null;
     }
-    if (!parsed.assignments || typeof parsed.assignments !== "object") {
+    if (!parsed.assignments || typeof parsed.assignments !== "object" || Array.isArray(parsed.assignments)) {
       return null;
     }
+    if (typeof parsed.runIdentity !== "string" || parsed.runIdentity.length === 0) {
+      return null;
+    }
+    if (!parsed.requeueCounts || typeof parsed.requeueCounts !== "object") {
+      return null;
+    }
+    if (!Number.isSafeInteger(parsed.totalRepos) || parsed.totalRepos < 0) return null;
 
     return {
-      version: parsed.version ?? CHECKPOINT_VERSION,
+      version: parsed.version,
       updatedAt: parsed.updatedAt ?? "",
       categories: parsed.categories.map((c) => ({
         name: c.name,
@@ -72,8 +84,13 @@ export function loadCheckpoint(outputDir: string): CheckpointState | null {
       assignments: parsed.assignments,
       failedIds: Array.isArray(parsed.failedIds) ? parsed.failedIds : [],
       pendingIds: Array.isArray(parsed.pendingIds) ? parsed.pendingIds : [],
-      totalRepos:
-        typeof parsed.totalRepos === "number" ? parsed.totalRepos : 0,
+      totalRepos: parsed.totalRepos,
+      runIdentity: parsed.runIdentity,
+      requeueCounts: Object.fromEntries(
+        Object.entries(parsed.requeueCounts).filter(
+          ([, count]) => Number.isSafeInteger(count) && count >= 0,
+        ),
+      ),
       agentModifiedCategories: parsed.agentModifiedCategories === true,
     };
   } catch {

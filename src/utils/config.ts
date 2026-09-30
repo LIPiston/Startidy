@@ -85,17 +85,59 @@ export interface Config {
 }
 
 function parseIntEnv(key: string, defaultValue: number): number {
-  const value = process.env[key];
+  const value = process.env[key]?.trim();
   if (!value) return defaultValue;
-  const parsed = parseInt(value, 10);
-  return isNaN(parsed) ? defaultValue : parsed;
+  if (!/^[+-]?\d+$/.test(value)) {
+    throw new Error(`${key} must be an integer, received "${value}".`);
+  }
+  const parsed = Number(value);
+  if (!Number.isSafeInteger(parsed)) {
+    throw new Error(`${key} must be a safe integer, received "${value}".`);
+  }
+  return parsed;
 }
 
 function parseFloatEnv(key: string, defaultValue: number): number {
-  const value = process.env[key];
+  const value = process.env[key]?.trim();
   if (!value) return defaultValue;
-  const parsed = parseFloat(value);
-  return isNaN(parsed) ? defaultValue : parsed;
+  if (!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/.test(value)) {
+    throw new Error(`${key} must be a finite number, received "${value}".`);
+  }
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed)) {
+    throw new Error(`${key} must be a finite number, received "${value}".`);
+  }
+  return parsed;
+}
+
+function requirePositiveInteger(key: string, value: number): number {
+  if (!Number.isSafeInteger(value) || value <= 0) {
+    throw new Error(`${key} must be a positive integer.`);
+  }
+  return value;
+}
+
+function requireFiniteRange(key: string, value: number, min: number, max: number): number {
+  if (!Number.isFinite(value) || value < min || value > max) {
+    throw new Error(`${key} must be between ${min} and ${max}.`);
+  }
+  return value;
+}
+
+function parseStrictFloat(raw: string): number {
+  const value = raw.trim();
+  if (!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/.test(value)) {
+    return Number.NaN;
+  }
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : Number.NaN;
+}
+
+function parseStrictInt(raw: string): number {
+  const value = raw.trim();
+  if (!/^[+-]?\d+$/.test(value)) return Number.NaN;
+  const parsed = Number(value);
+  return Number.isSafeInteger(parsed) ? parsed : Number.NaN;
 }
 
 function parseBoolEnv(key: string, defaultValue: boolean): boolean {
@@ -129,7 +171,10 @@ function parseNumberSetting(
     const value = process.env[key];
     if (value === undefined || value.trim() === "") continue;
     const parsed = parser(value);
-    if (!isNaN(parsed)) return parsed;
+    if (!Number.isFinite(parsed)) {
+      throw new Error(`${key} must be a finite number, received "${value}".`);
+    }
+    return parsed;
   }
   return defaultValue;
 }
@@ -253,10 +298,12 @@ export function loadConfig(): Config {
   // Embeddings for the taxonomy agent. They may point at a different endpoint
   // than the chat model (e.g. a local Ollama instance) and are optional: an
   // empty key simply disables the agent on that run.
+  const embeddingConfigured = Boolean(firstEnv("EMBEDDING_MODEL"));
   const embeddingProvider = resolveEmbeddingProvider(aiProvider);
-  const embeddingApiKey =
-    firstEnv("EMBEDDING_API_KEY") ||
-    (embeddingProvider === "gemini" ? geminiApiKey : openaiApiKey);
+  const embeddingApiKey = embeddingConfigured
+    ? firstEnv("EMBEDDING_API_KEY") ||
+      (embeddingProvider === "gemini" ? geminiApiKey : openaiApiKey)
+    : "";
 
   return {
     // Required credentials
@@ -275,7 +322,10 @@ export function loadConfig(): Config {
     openaiBaseUrl,
     openaiModel: firstEnv("OPENAI_MODEL", "AI_MODEL") || "gpt-4o-mini",
     openaiResponseFormat: responseFormatRaw,
-    openaiTimeoutMs: parseIntEnv("OPENAI_TIMEOUT_MS", 120000),
+    openaiTimeoutMs: requirePositiveInteger(
+      "OPENAI_TIMEOUT_MS",
+      parseIntEnv("OPENAI_TIMEOUT_MS", 120000),
+    ),
 
     // Embedding model (taxonomy agent)
     embeddingProvider,
@@ -291,22 +341,22 @@ export function loadConfig(): Config {
 
     // Taxonomy agent
     agentEnabled: parseBoolEnv("AGENT_ENABLED", true),
-    agentSimilarityThreshold: parseFloatEnv("AGENT_SIMILARITY_THRESHOLD", 0.35),
-    agentClusterSimilarity: parseFloatEnv("AGENT_CLUSTER_SIMILARITY", 0.72),
-    agentSplitGap: parseFloatEnv("AGENT_SPLIT_GAP", 0.18),
-    agentMinSplitMembers: parseIntEnv("AGENT_MIN_SPLIT_MEMBERS", 6),
-    agentMinNewMembers: parseIntEnv("AGENT_MIN_NEW_MEMBERS", 4),
-    agentMaxDecisions: parseIntEnv("AGENT_MAX_DECISIONS", 2),
+    agentSimilarityThreshold: requireFiniteRange("AGENT_SIMILARITY_THRESHOLD", parseFloatEnv("AGENT_SIMILARITY_THRESHOLD", 0.35), -1, 1),
+    agentClusterSimilarity: requireFiniteRange("AGENT_CLUSTER_SIMILARITY", parseFloatEnv("AGENT_CLUSTER_SIMILARITY", 0.72), -1, 1),
+    agentSplitGap: requireFiniteRange("AGENT_SPLIT_GAP", parseFloatEnv("AGENT_SPLIT_GAP", 0.18), -2, 2),
+    agentMinSplitMembers: requirePositiveInteger("AGENT_MIN_SPLIT_MEMBERS", parseIntEnv("AGENT_MIN_SPLIT_MEMBERS", 6)),
+    agentMinNewMembers: requirePositiveInteger("AGENT_MIN_NEW_MEMBERS", parseIntEnv("AGENT_MIN_NEW_MEMBERS", 4)),
+    agentMaxDecisions: requirePositiveInteger("AGENT_MAX_DECISIONS", parseIntEnv("AGENT_MAX_DECISIONS", 2)),
 
     // Category settings
-    maxCategories: parseIntEnv("MAX_CATEGORIES", 32),
-    maxCategoriesPerRepo: parseIntEnv("MAX_CATEGORIES_PER_REPO", 3),
-    minCategoriesPerRepo: parseIntEnv("MIN_CATEGORIES_PER_REPO", 1),
+    maxCategories: requirePositiveInteger("MAX_CATEGORIES", parseIntEnv("MAX_CATEGORIES", 32)),
+    maxCategoriesPerRepo: requirePositiveInteger("MAX_CATEGORIES_PER_REPO", parseIntEnv("MAX_CATEGORIES_PER_REPO", 3)),
+    minCategoriesPerRepo: requirePositiveInteger("MIN_CATEGORIES_PER_REPO", parseIntEnv("MIN_CATEGORIES_PER_REPO", 1)),
 
     // Batch processing settings
-    classifyBatchSize: parseIntEnv("CLASSIFY_BATCH_SIZE", 20),
-    readmeBatchSize: parseIntEnv("README_BATCH_SIZE", 20),
-    batchDelay: parseIntEnv("BATCH_DELAY", 2000),
+    classifyBatchSize: requirePositiveInteger("CLASSIFY_BATCH_SIZE", parseIntEnv("CLASSIFY_BATCH_SIZE", 20)),
+    readmeBatchSize: requirePositiveInteger("README_BATCH_SIZE", parseIntEnv("README_BATCH_SIZE", 20)),
+    batchDelay: requireFiniteRange("BATCH_DELAY", parseIntEnv("BATCH_DELAY", 2000), 0, 86400000),
 
     // Rate limiting
     aiRpm: resolveAiRpm(aiProvider),
@@ -316,25 +366,25 @@ export function loadConfig(): Config {
       "AI_TEMPERATURE_PLANNING",
       "GEMINI_TEMPERATURE_PLANNING",
       0.7,
-      parseFloat,
+      parseStrictFloat,
     ),
     temperatureClassify: parseNumberSetting(
       "AI_TEMPERATURE_CLASSIFY",
       "GEMINI_TEMPERATURE_CLASSIFY",
       0.3,
-      parseFloat,
+      parseStrictFloat,
     ),
     maxTokensPlanning: parseNumberSetting(
       "AI_MAX_TOKENS_PLANNING",
       "GEMINI_MAX_TOKENS_PLANNING",
       aiProvider === "openai" ? 8192 : 65536,
-      (raw) => parseInt(raw, 10),
+      parseStrictInt,
     ),
     maxTokensClassify: parseNumberSetting(
       "AI_MAX_TOKENS_CLASSIFY",
       "GEMINI_MAX_TOKENS_CLASSIFY",
       aiProvider === "openai" ? 8192 : 65536,
-      (raw) => parseInt(raw, 10),
+      parseStrictInt,
     ),
 
     // README settings

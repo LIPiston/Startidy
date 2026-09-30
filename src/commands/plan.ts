@@ -5,6 +5,7 @@ import { createAIService } from "../services/ai";
 import { savePlan, loadPlan, deletePlan } from "../utils/plan-storage";
 import { fetchAllMyStarredRepos } from "../api";
 import type { RepoSummary } from "../types";
+import { loadStarData, saveStarData } from "../utils/star-storage";
 
 export const planCommand = new Command("plan")
   .description("Plan categories (analyze Stars and create categories)")
@@ -41,12 +42,14 @@ export const planCommand = new Command("plan")
 
       // Step 1: Fetch starred repos
       const spinner = ora("Fetching starred repositories...").start();
+      const cached = loadStarData();
       const result = await fetchAllMyStarredRepos(
         config.githubToken,
         config.githubUsername,
         (count) => {
           spinner.text = `Fetching starred repositories... (${count})`;
         },
+        cached ? { pages: cached.pages, etags: cached.etags } : undefined,
       );
 
       if (result.status !== 200 || !result.repos) {
@@ -55,6 +58,7 @@ export const planCommand = new Command("plan")
       }
 
       const repos = result.repos;
+      if (result.cache) saveStarData(repos, result.cache.pages, result.cache.etags);
       spinner.succeed(`Fetched ${repos.length} starred repositories.`);
 
       // Step 2: AI category planning

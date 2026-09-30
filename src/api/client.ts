@@ -173,23 +173,80 @@ export async function restPaginated<T>(
   endpoint: string,
   onProgress?: (count: number) => void,
 ): Promise<T[]> {
+  const result = await restPaginatedIncremental<T>(token, endpoint, undefined, onProgress);
+  return result.items;
+}
+
+export interface IncrementalPageCache<T> {
+  pages: Record<string, T[]>;
+  etags: Record<string, string>;
+}
+
+export interface IncrementalPageResult<T> {
+  items: T[];
+  cache: IncrementalPageCache<T>;
+}
+
+/**
+ * Fetches a paginated endpoint with conditional requests. Unchanged pages are
+ * served from the local cache (304), while changed pages replace their cached
+ * contents. This avoids downloading unchanged GitHub pages on every run.
+ */
+export async function restPaginatedIncremental<T>(
+  token: string,
+  endpoint: string,
+  previous: IncrementalPageCache<T> | undefined,
+  onProgress?: (count: number) => void,
+): Promise<IncrementalPageResult<T>> {
+  const pages: Record<string, T[]> = {};
+  const etags: Record<string, string> = {};
   const allItems: T[] = [];
   let page = 1;
 
   while (true) {
+    const pageKey = String(page);
     const separator = endpoint.includes("?") ? "&" : "?";
     const paginatedEndpoint = `${endpoint}${separator}page=${page}&per_page=100`;
+    const url = paginatedEndpoint.startsWith("http")
+      ? paginatedEndpoint
+      : `${GITHUB_API_URL}${paginatedEndpoint}`;
+    const previousEtag = previous?.etags[pageKey];
+    const response = await fetchWithRetry(url, {
+      headers: {
+        "User-Agent": USER_AGENT,
+        Authorization: `token ${token}`,
+        "Content-Type": "application/json",
+        ...(previousEtag ? { "If-None-Match": previousEtag } : {}),
+      },
+    });
 
-    const { data: items } = await rest<T[]>(token, paginatedEndpoint);
+    let items: T[];
+    if (response.status === 304) {
+      items = previous?.pages[pageKey] ?? [];
+      if (!previous?.pages[pageKey]) {
+        throw new GitHubAPIError(`GitHub returned 304 for uncached page ${page}`, 304);
+      }
+      if (previousEtag) etags[pageKey] = previousEtag;
+    } else if (response.ok) {
+      items = (await response.json()) as T[];
+      pages[pageKey] = items;
+      const etag = response.headers.get("etag");
+      if (etag) etags[pageKey] = etag;
+    } else {
+      const errorText = await response.text();
+      throw new GitHubAPIError(
+        `GitHub API request failed (${response.status}): ${errorText}`,
+        response.status,
+      );
+    }
+
+    pages[pageKey] = items;
     allItems.push(...items);
-
     onProgress?.(allItems.length);
 
-    if (items.length < 100) {
-      break;
-    }
+    if (items.length < 100) break;
     page++;
   }
 
-  return allItems;
+  return { items: allItems, cache: { pages, etags } };
 }

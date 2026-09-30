@@ -405,15 +405,15 @@ function applyAdd(
 
   const minimum = input.config.agentMinNewMembers;
   const known = new Set(input.repoInfo.keys());
-  let members = (decision.members ?? []).filter((id) => known.has(id));
-
-  // A model that lists too few members still gets the benefit of the doubt:
-  // fall back to the group the evidence came from.
-  if (members.length < minimum) {
-    const signal = bestAddSignal(input.signals, members);
-    if (!signal) return null;
-    members = signal.members;
-  }
+  const listed = [...new Set((decision.members ?? []).filter((id) => known.has(id)))];
+  const signal = bestAddSignal(input.signals, listed);
+  if (!signal) return null;
+  const signalMembers = new Set(signal.members);
+  const overlap = listed.filter((id) => signalMembers.has(id));
+  // Add decisions may only materialize one concrete homeless evidence group;
+  // never let a single hallucinated/foreign ID select an unrelated signal.
+  if (overlap.length < minimum || listed.some((id) => !signalMembers.has(id))) return null;
+  const members = [...signalMembers];
   if (members.length < minimum) return null;
 
   return {
@@ -455,8 +455,9 @@ async function applySplit(
   const parent = categories.find((category) => category.name === parentName);
   if (!parent) return null;
 
-  const parentMembers = input.membersOf.get(parent.name) ?? [];
+  const parentMembers = [...new Set(input.membersOf.get(parent.name) ?? [])];
   const minimum = input.config.agentMinNewMembers;
+  if (parentMembers.length < minimum * 2) return null;
   const rawParts = (decision.parts ?? []).filter(
     (part) => part && typeof part === "object",
   );
@@ -480,15 +481,22 @@ async function applySplit(
   // Seed every part with the members the model listed, falling back to the
   // embedding clusters (which is where the evidence came from).
   const parentSet = new Set(parentMembers);
+  const claimedSeedMembers = new Set<string>();
   const seeds: string[][] = rawParts.map((part, index) => {
-    const listed = (part.members ?? []).filter((id) => parentSet.has(id));
-    if (listed.length >= minimum) return [...new Set(listed)];
+    const listed = [...new Set((part.members ?? []).filter((id) => parentSet.has(id)))];
     const cluster = signal?.clusters[index];
-    return cluster ? cluster.members : [];
+    const candidate = listed.length >= minimum ? listed : cluster ? cluster.members : [];
+    const unique = [...new Set(candidate.filter((id) => parentSet.has(id)))];
+    if (unique.some((id) => claimedSeedMembers.has(id))) return [];
+    unique.forEach((id) => claimedSeedMembers.add(id));
+    return unique;
   });
 
   if (seeds.some((members) => members.length < minimum)) return null;
+  if (claimedSeedMembers.size === 0 || claimedSeedMembers.size > parentMembers.length) return null;
 
+  // Every parent member must end up in exactly one replacement category.
+  // Disjoint seeds plus nearest-centroid assignment provide that invariant.
   // Assign every member of the parent to the nearest part centroid.
   const assignedSeeds = seeds.map((members) => [...new Set(members)]);
   const claimed = new Set(assignedSeeds.flat());
