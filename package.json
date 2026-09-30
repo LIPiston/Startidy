@@ -7,14 +7,10 @@
     "startidy": "./dist/index.js"
   },
   "main": "./dist/index.js",
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "bun build src/index.ts --outdir dist --target node --format esm",
     "start": "bun run src/index.ts",
-    "dev": "bun run src/index.ts",
-    "prepublishOnly": "npm run build"
+    "dev": "bun run src/index.ts"
   },
   "keywords": [
     "github",
@@ -30,12 +26,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hellosunghyun/startidy.git"
+    "url": "git+https://github.com/LIPiston/Startidy.git"
   },
   "bugs": {
-    "url": "https://github.com/hellosunghyun/startidy/issues"
+    "url": "https://github.com/LIPiston/Startidy/issues"
   },
-  "homepage": "https://github.com/hellosunghyun/startidy#readme",
+  "homepage": "https://github.com/LIPiston/Startidy#readme",
   "engines": {
     "node": ">=18.0.0"
   },

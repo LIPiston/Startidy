@@ -49,7 +49,6 @@ export interface Config {
 
   // README settings
   readmeMaxLength: number; // Maximum README length (default: 500, for batch)
-  readmeMaxLengthSingle: number; // Maximum README length for single classification (default: 2000)
 
   // Markdown output settings
   outputDir: string; // Directory the Markdown files are written to (default: "stars")
@@ -269,7 +268,6 @@ export function loadConfig(): Config {
 
     // README settings
     readmeMaxLength: parseIntEnv("README_MAX_LENGTH", 10000),
-    readmeMaxLengthSingle: parseIntEnv("README_MAX_LENGTH_SINGLE", 10000),
 
     // Markdown output settings
     outputDir: firstEnv("OUTPUT_DIR", "STARS_DIR") || "stars",

@@ -1,9 +1,4 @@
-import type {
-  Category,
-  ClassificationResult,
-  RepoDetail,
-  RepoSummary,
-} from "../types";
+import type { Category, RepoSummary } from "../types";
 import type { BatchRepoInfo } from "../prompts/classifier";
 import type { Config } from "../utils/config";
 import { RateLimiter } from "../utils/rate-limiter";
@@ -35,11 +30,6 @@ export interface AIService {
     categories: Category[],
   ): Promise<Map<string, string[]>>;
 
-  /** Classifies a single repository (fallback path) */
-  classifyRepository(
-    repo: RepoDetail,
-    categories: Category[],
-  ): Promise<ClassificationResult>;
 }
 
 /**
@@ -68,7 +58,5 @@ function withRateLimit(service: AIService, rpm: number): AIService {
       limiter.throttle(() => service.planCategories(repos)),
     classifyRepositoriesBatch: (repos, categories) =>
       limiter.throttle(() => service.classifyRepositoriesBatch(repos, categories)),
-    classifyRepository: (repo, categories) =>
-      limiter.throttle(() => service.classifyRepository(repo, categories)),
   };
 }

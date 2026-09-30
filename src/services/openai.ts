@@ -1,13 +1,7 @@
-import type {
-  Category,
-  ClassificationResult,
-  RepoDetail,
-  RepoSummary,
-} from "../types";
+import type { Category, RepoSummary } from "../types";
 import type { Config } from "../utils/config";
 import { buildCategoryPlannerPrompt } from "../prompts/category-planner";
 import {
-  buildClassifierPrompt,
   buildBatchClassifierPrompt,
   type BatchRepoInfo,
 } from "../prompts/classifier";
@@ -15,7 +9,6 @@ import type { AIService } from "./ai";
 import {
   parseBatchClassifierResponse,
   parseCategoryPlanResponse,
-  parseClassifierResponse,
 } from "./response-parser";
 
 /** Minimal typed view of the OpenAI Chat Completions response */
@@ -91,19 +84,6 @@ const BATCH_CLASSIFY_JSON_SCHEMA = {
     },
   },
   required: ["results"],
-};
-
-const SINGLE_CLASSIFY_JSON_SCHEMA = {
-  type: "object",
-  additionalProperties: false,
-  properties: {
-    categories: {
-      type: "array",
-      items: { type: "string" },
-      description: "Selected category names",
-    },
-  },
-  required: ["categories"],
 };
 
 /** 429 / 5xx / network errors are retried, everything else fails fast */
@@ -192,33 +172,6 @@ Include every one of the ${repos.length} repositories exactly once, using the re
     });
 
     return parseBatchClassifierResponse(text, repos, categories, this.config);
-  }
-
-  async classifyRepository(
-    repo: RepoDetail,
-    categories: Category[],
-  ): Promise<ClassificationResult> {
-    const prompt = buildClassifierPrompt(repo, categories, this.config);
-
-    const text = await this.chatJson({
-      messages: [
-        { role: "system", content: SYSTEM_PROMPT },
-        {
-          role: "user",
-          content: `${prompt}
-
-## Output format
-Return ONLY a JSON object matching this shape (no markdown fences, no commentary):
-{"categories":["<category name>"]}`,
-        },
-      ],
-      temperature: this.config.temperatureClassify,
-      maxTokens: 512,
-      schema: { name: "classification", schema: SINGLE_CLASSIFY_JSON_SCHEMA },
-      label: "Single classification",
-    });
-
-    return parseClassifierResponse(text, categories, this.config);
   }
 
   /**

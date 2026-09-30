@@ -1,4 +1,4 @@
-import type { Category, RepoDetail } from "../types";
+import type { Category } from "../types";
 import type { Config } from "../utils/config";
 
 export interface BatchRepoInfo {
@@ -50,43 +50,4 @@ ${repoList}
 - Use exact category names from the list above only
 
 Classify all ${repos.length} repositories without exception.`;
-}
-
-/**
- * Single repository classification prompt (fallback)
- */
-export function buildClassifierPrompt(
-  repo: RepoDetail,
-  categories: Category[],
-  config: Config,
-): string {
-  const categoryList = categories
-    .map(
-      (c, i) =>
-        `${i + 1}. ${c.name}: ${c.description} (keywords: ${c.keywords.join(", ")})`,
-    )
-    .join("\n");
-
-  const readmeSnippet = repo.readme
-    ? repo.readme.slice(0, config.readmeMaxLengthSingle) +
-      (repo.readme.length > config.readmeMaxLengthSingle ? "..." : "")
-    : "No README";
-
-  return `Analyze the following GitHub repository and select the most appropriate categories.
-
-## Repository Information:
-- Name: ${repo.owner}/${repo.name}
-- Description: ${repo.description || "None"}
-- Primary Language: ${repo.language || "None"}
-- Stars: ${repo.stars}
-
-## README (excerpt):
-${readmeSnippet}
-
-## Available Categories (${categories.length}):
-${categoryList}
-
-## Requirements:
-1. Select **${config.minCategoriesPerRepo}-${config.maxCategoriesPerRepo}** most appropriate categories for this repository
-2. Use exact category names from the list above`;
 }

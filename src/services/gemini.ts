@@ -1,14 +1,8 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import type {
-  Category,
-  ClassificationResult,
-  RepoDetail,
-  RepoSummary,
-} from "../types";
+import type { Category, RepoSummary } from "../types";
 import type { Config } from "../utils/config";
 import { buildCategoryPlannerPrompt } from "../prompts/category-planner";
 import {
-  buildClassifierPrompt,
   buildBatchClassifierPrompt,
   type BatchRepoInfo,
 } from "../prompts/classifier";
@@ -16,7 +10,6 @@ import type { AIService } from "./ai";
 import {
   parseBatchClassifierResponse,
   parseCategoryPlanResponse,
-  parseClassifierResponse,
 } from "./response-parser";
 
 /** Structured output schema for category planning */
@@ -73,21 +66,6 @@ const batchClassifySchema = {
     },
   },
   required: ["results"],
-};
-
-/** Structured output schema for single classification */
-const singleClassifySchema = {
-  type: Type.OBJECT,
-  properties: {
-    categories: {
-      type: Type.ARRAY,
-      items: {
-        type: Type.STRING,
-      },
-      description: "Selected category names",
-    },
-  },
-  required: ["categories"],
 };
 
 export class GeminiService implements AIService {
@@ -157,34 +135,5 @@ export class GeminiService implements AIService {
     }
 
     return parseBatchClassifierResponse(text, repos, categories, this.config);
-  }
-
-  /**
-   * Classifies a single repository into one or more categories (fallback)
-   */
-  async classifyRepository(
-    repo: RepoDetail,
-    categories: Category[],
-  ): Promise<ClassificationResult> {
-    const prompt = buildClassifierPrompt(repo, categories, this.config);
-
-    const response = await this.ai.models.generateContent({
-      model: this.model,
-      contents: prompt,
-      config: {
-        temperature: this.config.temperatureClassify,
-        maxOutputTokens: 512,
-        responseMimeType: "application/json",
-        responseSchema: singleClassifySchema,
-      },
-    });
-
-    const text = response.text || "";
-
-    if (this.config.logApiResponses) {
-      console.log("\n[DEBUG] Gemini Single Classify Response:", text);
-    }
-
-    return parseClassifierResponse(text, categories, this.config);
   }
 }

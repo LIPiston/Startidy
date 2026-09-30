@@ -1,4 +1,4 @@
-import type { Category, ClassificationResult } from "../types";
+import type { Category } from "../types";
 import { UNCATEGORIZED_CATEGORY_NAME } from "../types";
 import type { Config } from "../utils/config";
 import type { BatchRepoInfo } from "../prompts/classifier";
@@ -284,45 +284,4 @@ export function parseBatchClassifierResponse(
   }
 
   return resultMap;
-}
-
-/**
- * Parses a single repository classification response.
- * Never throws: unplaceable repositories fall back to the uncategorized bucket.
- */
-export function parseClassifierResponse(
-  text: string,
-  categories: Category[],
-  config: Config,
-): ClassificationResult {
-  try {
-    const parsed = JSON.parse(repairTruncatedJson(extractJsonPayload(text)));
-
-    if (!parsed.categories || !Array.isArray(parsed.categories)) {
-      throw new Error("Invalid response structure");
-    }
-
-    const validCategoryNames = new Set(categories.map((c) => c.name));
-    const validatedCategories = parsed.categories
-      .filter((c: string) => validCategoryNames.has(c))
-      .slice(0, config.maxCategoriesPerRepo);
-
-    if (validatedCategories.length === 0) {
-      validatedCategories.push(UNCATEGORIZED_CATEGORY_NAME);
-    }
-
-    return {
-      categories: validatedCategories,
-      reason: "",
-    };
-  } catch (error) {
-    console.error("Failed to parse classifier response:", error);
-    if (config.debug) {
-      console.error("Raw response:", text);
-    }
-    return {
-      categories: [UNCATEGORIZED_CATEGORY_NAME],
-      reason: "Parsing failed, using the uncategorized bucket",
-    };
-  }
 }
