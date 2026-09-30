@@ -1,0 +1,142 @@
+<!-- startidy:category name="AI-智能体" description="收纳自主执行任务、调用工具和协作工作的 AI Agent 项目" -->
+
+# AI-智能体
+
+收纳自主执行任务、调用工具和协作工作的 AI Agent 项目
+
+[← Back to index](README.md)
+
+**130 repositories**
+
+- [openclaw/openclaw](https://github.com/openclaw/openclaw) — The AI that really does things. Any OS. Any Platform. The lobster way. 🦞 *(TypeScript · ⭐ 390818)*
+- [obra/superpowers](https://github.com/obra/superpowers) — An agentic skills framework & software development methodology that works. *(Shell · ⭐ 293233)*
+- [mattpocock/skills](https://github.com/mattpocock/skills) — Skills for Real Engineers. Straight from my .agents directory. *(Shell · ⭐ 272519)*
+- [affaan-m/ECC](https://github.com/affaan-m/ECC) — The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond. *(JavaScript · ⭐ 269889)*
+- [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) — The agent that grows with you *(Python · ⭐ 250214)*
+- [anomalyco/opencode](https://github.com/anomalyco/opencode) — The open source coding agent. *(TypeScript · ⭐ 211042)*
+- [ollama/ollama](https://github.com/ollama/ollama) — Get up and running with Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models. *(Go · ⭐ 181948)*
+- [langgenius/dify](https://github.com/langgenius/dify) — Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack. *(TypeScript · ⭐ 157565)*
+- [open-webui/open-webui](https://github.com/open-webui/open-webui) — User-friendly AI Interface (Supports Ollama, OpenAI API, ...) *(Python · ⭐ 153608)*
+- [anthropics/claude-code](https://github.com/anthropics/claude-code) — Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. *(TypeScript · ⭐ 148644)*
+- [x1xhlol/system-prompts-and-models-of-ai-tools](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools) — FULL Augment Code, Claude Code, Cluely, CodeBuddy, Comet, Cursor, Devin AI, Junie, Kiro, Leap.new, Lovable, Manus, NotionAI, Orchids.app, Perplexity, Poke, Qoder, Replit, Same.dev, Trae, Traycer AI, VSCode Agent, Warp.dev, Windsurf, Xcode, Z.ai Code, Dia & v0. (And other Open Sourced) System Prompts, Internal Tools & AI Models *(⭐ 143967)*
+- [openai/codex](https://github.com/openai/codex) — Lightweight coding agent that runs in your terminal *(Rust · ⭐ 127341)*
+- [browser-use/browser-use](https://github.com/browser-use/browser-use) — Agents that use the browser. *(Python · ⭐ 116788)*
+- [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) — An open-source AI agent that brings the power of Gemini directly into your terminal. *(TypeScript · ⭐ 107193)*
+- [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) — A collection of MCP servers. *(⭐ 95702)*
+- [OpenHands/OpenHands](https://github.com/OpenHands/OpenHands) — 🙌 OpenHands: AI-Driven Development *(TypeScript · ⭐ 89591)*
+- [lobehub/lobehub](https://github.com/lobehub/lobehub) — 🤯 LobeHub is your Chief Agent Operator, organizing your agents into 7×24 operations by hiring, scheduling, and reporting on your entire AI team. *(TypeScript · ⭐ 82918)*
+- [666ghj/MiroFish](https://github.com/666ghj/MiroFish) — A Simple and Universal Swarm Intelligence Engine, Predicting Anything. 简洁通用的群体智能引擎，预测万物 *(Python · ⭐ 75403)*
+- [code-yeongyu/oh-my-openagent](https://github.com/code-yeongyu/oh-my-openagent) — OmO: Just type "mass ulw" keyword with your prompt. Now you are the master of graph engineering. *(TypeScript · ⭐ 69667)*
+- [cline/cline](https://github.com/cline/cline) — Autonomous coding agent as an SDK, IDE extension, or CLI assistant. *(TypeScript · ⭐ 69592)*
+- [sansan0/TrendRadar](https://github.com/sansan0/TrendRadar) — ⭐AI-driven public opinion & trend monitor with multi-platform aggregation, RSS, and smart alerts.🎯 告别信息过载，你的 AI 舆情监控助手与热点筛选工具！聚合多平台热点 + RSS 订阅，支持关键词精准筛选。AI 智能筛选新闻 + AI 翻译 + AI 分析简报直推手机，也支持接入 MCP 架构，赋能 AI 自然语言对话分析、情感洞察与趋势预测等。支持 Docker ，数据本地/云端自持。集成微信/飞书/钉钉/Telegram/邮件/ntfy/bark/slack 等渠道智能推送。 *(Python · ⭐ 62628)*
+- [aaif-goose/goose](https://github.com/aaif-goose/goose) — an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM *(Rust · ⭐ 54801)*
+- [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) — Chrome DevTools for coding agents *(TypeScript · ⭐ 52782)*
+- [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio) — AI productivity studio with smart chat, autonomous agents, and 300+ assistants. Unified access to frontier LLMs *(TypeScript · ⭐ 52267)*
+- [HKUDS/CLI-Anything](https://github.com/HKUDS/CLI-Anything) — "CLI-Anything: Making ALL Software Agent-Native" -- CLI-Hub: https://clianything.cc/ *(Python · ⭐ 51077)*
+- [moeru-ai/airi](https://github.com/moeru-ai/airi) — 💖🧸 Self hosted, you-owned Grok Companion, a container of souls of waifu, cyber livings to bring them into our worlds, wishing to achieve Neuro-sama's altitude. Capable of realtime voice chat, Minecraft, Factorio playing. Web / macOS / Windows supported. *(TypeScript · ⭐ 49864)*
+- [HKUDS/nanobot](https://github.com/HKUDS/nanobot) — Ultra-lightweight, open-source, self-hosted personal AI agent framework in Python with WebUI, tools, memory, MCP, multi-agent workflows, automation, and chat apps *(Python · ⭐ 48696)*
+- [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser) — Browser automation CLI for AI agents *(Rust · ⭐ 43397)*
+- [666ghj/BettaFish](https://github.com/666ghj/BettaFish) — 微舆：人人可用的多Agent舆情分析助手，打破信息茧房，还原舆情原貌，预测未来走向，辅助决策！从0实现，不依赖任何框架。 *(Python · ⭐ 42323)*
+- [AstrBotDevs/AstrBot](https://github.com/AstrBotDevs/AstrBot) — AI Agent Assistant & development framework that integrates lots of IM platforms, LLMs, plugins and AI feature, and can be your openclaw alternative. ✨ *(Python · ⭐ 41249)*
+- [wshobson/agents](https://github.com/wshobson/agents) — Multi-harness agentic plugin marketplace for Claude Code, Codex, Cursor, OpenCode, GitHub Copilot, Google Antigravity, and Pi *(Python · ⭐ 40104)*
+- [1Panel-dev/1Panel](https://github.com/1Panel-dev/1Panel) — 🔥 1Panel is a modern, open-source Linux server management panel and a lightweight AI management platform. *(Go · ⭐ 37074)*
+- [continuedev/continue](https://github.com/continuedev/continue) — open-source coding agent *(TypeScript · ⭐ 36069)*
+- [alchaincyf/nuwa-skill](https://github.com/alchaincyf/nuwa-skill) — 你想蒸馏的下一个员工，何必是同事。蒸馏任何人的思维方式——心智模型、决策启发式、表达DNA。Distill how anyone thinks. *(Python · ⭐ 33405)*
+- [github/github-mcp-server](https://github.com/github/github-mcp-server) — GitHub's official MCP Server *(Go · ⭐ 33296)*
+- [iOfficeAI/AionUi](https://github.com/iOfficeAI/AionUi) — Open-source 24/7 Cowork app for OpenClaw, Hermes, Claude Code, Codex, OpenCode and 20+ more CLI Agent \| Customize your assistants \| Team them up｜Star if you like it! *(TypeScript · ⭐ 33245)*
+- [hsliuping/TradingAgents-CN](https://github.com/hsliuping/TradingAgents-CN) — 基于多智能体LLM的中文金融交易框架 - TradingAgents中文增强版 *(Python · ⭐ 32093)*
+- [iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI) — OfficeCLI is the first and best Office suite purpose-built for AI agents to read, edit, and automate Word, Excel, and PowerPoint files. Free, open-source, single binary, no Office installation required. *(C# · ⭐ 31416)*
+- [supermemoryai/supermemory](https://github.com/supermemoryai/supermemory) — Memory and context engine + app that is extremely fast, scalable, and can be run fully locally. The Memory API for the AI era. *(TypeScript · ⭐ 31029)*
+- [sipeed/picoclaw](https://github.com/sipeed/picoclaw) — Tiny, Fast, and Deployable anywhere — automate the mundane, unleash your creativity *(Go · ⭐ 30022)*
+- [anywhere-labs/dsh-desktop](https://github.com/anywhere-labs/dsh-desktop) — 为 DeepSeek Harness (DSH) 插件生态打造的现代化桌面端解决方案。万物皆「插件」，桌面本身也是「插件」。 *(TypeScript · ⭐ 29602)*
+- [voideditor/void](https://github.com/voideditor/void) *(TypeScript · ⭐ 28781)*
+- [charmbracelet/crush](https://github.com/charmbracelet/crush) — Glamourous agentic coding for all 💘 *(Go · ⭐ 28379)*
+- [Kilo-Org/kilocode](https://github.com/Kilo-Org/kilocode) — Kilo is the all-in-one agentic engineering platform. Build, ship, and iterate faster with the most popular open source coding agent. *(TypeScript · ⭐ 27451)*
+- [agentskills/agentskills](https://github.com/agentskills/agentskills) — Specification and documentation for Agent Skills *(Python · ⭐ 25808)*
+- [microsoft/JARVIS](https://github.com/microsoft/JARVIS) — JARVIS, a system to connect LLMs with ML community. Paper: https://arxiv.org/pdf/2303.17580.pdf *(Python · ⭐ 25361)*
+- [slopus/happy](https://github.com/slopus/happy) — Mobile and Web client for Codex and Claude Code, with realtime voice, encryption and fully featured *(TypeScript · ⭐ 23955)*
+- [nashsu/llm_wiki](https://github.com/nashsu/llm_wiki) — LLM Wiki is a cross-platform desktop application that turns your documents into an organized, interlinked knowledge base — automatically. Instead of traditional RAG (retrieve-and-answer from scratch every time), the LLM incrementally builds and maintains a persistent wiki from your sources。 *(TypeScript · ⭐ 20109)*
+- [Alibaba-NLP/DeepResearch](https://github.com/Alibaba-NLP/DeepResearch) — Tongyi Deep Research, the Leading Open-source Deep Research Agent *(Python · ⭐ 20002)*
+- [tanweai/pua](https://github.com/tanweai/pua) — 你是一个曾经被寄予厚望的 P8 级工程师。Anthropic 当初给你定级的时候，对你的期望是很高的。 一个agent使用的高能动性的skill。 Your AI has been placed on a PIP. 30 days to show improvement. *(Python · ⭐ 19709)*
+- [nesquena/hermes-webui](https://github.com/nesquena/hermes-webui) — Hermes WebUI: The best way to use Hermes Agent from the web or from your phone! *(Python · ⭐ 18688)*
+- [tradecatlabs/vibe-coding-cn](https://github.com/tradecatlabs/vibe-coding-cn) — Vibe Coding 从入门到精通教程｜AI 结对编程工作流｜Prompt、Skill、Workflow、上下文管理、codex实战指南 *(Python · ⭐ 16969)*
+- [cft0808/edict](https://github.com/cft0808/edict) — 🏛️ 三省六部制 · OpenClaw Multi-Agent Orchestration System — 9 specialized AI agents with real-time dashboard, model config, and full audit trails *(Python · ⭐ 16950)*
+- [HBAI-Ltd/Toonflow-app](https://github.com/HBAI-Ltd/Toonflow-app) — Toonflow 是开源 AI 创作平台，融合无限画布、AI Agent 与可视化工作流，支持图像生成、视频生成、智能分镜及短剧创作。支持本地部署、自由接入模型，提供跨平台桌面端，并可通过 MCP 与插件扩展创作能力。Open-source AI creative platform with an infinite canvas, AI agents and visual workflows for image generation, video generation and filmmaking, with a canvas-based approach similar to LibTV and TapNow. *(TypeScript · ⭐ 16279)*
+- [YishenTu/claudian](https://github.com/YishenTu/claudian) — An Obsidian plugin that embeds Claude Code/Codex as an AI collaborator in your vault *(TypeScript · ⭐ 15547)*
+- [mamoe/mirai](https://github.com/mamoe/mirai) — 高效率 QQ 机器人支持库 *(Kotlin · ⭐ 14807)*
+- [EverMind-AI/EverOS](https://github.com/EverMind-AI/EverOS) — One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, tools, and workflows. *(Python · ⭐ 13305)*
+- [codexu/note-gen](https://github.com/codexu/note-gen) — Capture first. Organize later. A local-first Markdown app that turns scattered records into clear notes with AI. *(TypeScript · ⭐ 12859)*
+- [nearai/ironclaw](https://github.com/nearai/ironclaw) — IronClaw is an Agent OS focused on privacy, security and extensibility *(Rust · ⭐ 12636)*
+- [simular-ai/Agent-S](https://github.com/simular-ai/Agent-S) — Agent S: an open agentic framework that uses computers like a human *(Python · ⭐ 12440)*
+- [MoonshotAI/kimi-cli](https://github.com/MoonshotAI/kimi-cli) — \[Archived\] Legacy Python Kimi CLI, no longer maintained. Please use Kimi Code CLI: https://github.com/MoonshotAI/kimi-code *(Python · ⭐ 11431)*
+- [EKKOLearnAI/ekko-studio](https://github.com/EKKOLearnAI/ekko-studio) — Ekko Studio is a local-first AI workspace for multi-agent chat, coding, and visual workflows, available on desktop and the web. *(TypeScript · ⭐ 11254)*
+- [svcvit/Awesome-Dify-Workflow](https://github.com/svcvit/Awesome-Dify-Workflow) — 分享一些好用的 Dify DSL 工作流程，自用、学习两相宜。 Sharing some Dify workflows. *(⭐ 10776)*
+- [Narcooo/inkos](https://github.com/Narcooo/inkos) — Story Creation AI Agent for novel, scripts, translation, interactive games, and IP content *(TypeScript · ⭐ 10090)*
+- [droidrun/mobilerun](https://github.com/droidrun/mobilerun) — Automate your mobile devices with natural language commands - an LLM agnostic mobile Agent 🤖 *(Python · ⭐ 9535)*
+- [chuspeeism/dashi-ppt-skill](https://github.com/chuspeeism/dashi-ppt-skill) — An AI-agent skill that generates browser-editable presentations from multiple visual themes, exportable to HTML, PDF, and PPTX. *(JavaScript · ⭐ 9007)*
+- [loks666/get_jobs](https://github.com/loks666/get_jobs) — 💼【AI找工作助手】全平台自动投简历脚本：(boss、前程无忧、猎聘、智联招聘) *(Java · ⭐ 8664)*
+- [AAswordman/Operit](https://github.com/AAswordman/Operit) — The most powerful AI agent and AI chat software on Android/Operit是一款Android上能力最为强大、发展最久的AI Agent *(Kotlin · ⭐ 8243)*
+- [hatchet-dev/hatchet](https://github.com/hatchet-dev/hatchet) — 🪓 An orchestration engine for background tasks, AI agents, and durable workflows *(Go · ⭐ 8034)*
+- [rikkahub/rikkahub](https://github.com/rikkahub/rikkahub) — RikkaHub is an Android APP that supports for multiple LLM providers. *(Kotlin · ⭐ 7922)*
+- [MoonshotAI/kimi-code](https://github.com/MoonshotAI/kimi-code) — Kimi Code CLI — The Starting Point for Next-Gen Agents *(TypeScript · ⭐ 7743)*
+- [tailcallhq/forgecode](https://github.com/tailcallhq/forgecode) — AI enabled pair programmer for Claude, GPT, O Series, Grok, Deepseek, Gemini and 300+ models *(Rust · ⭐ 7638)*
+- [pickle-com/glass](https://github.com/pickle-com/glass) — Digital Mind Extension *(JavaScript · ⭐ 7610)*
+- [ChatLab/ChatLab](https://github.com/ChatLab/ChatLab) — Local-first chat history analyzer with AI. \| 本地优先的 AI 聊天记录分析工具 *(TypeScript · ⭐ 7459)*
+- [modelcontextprotocol/registry](https://github.com/modelcontextprotocol/registry) — A community driven registry service for Model Context Protocol (MCP) servers. *(Go · ⭐ 7302)*
+- [zai-org/ZCode](https://github.com/zai-org/ZCode) — Z.ai's coding agent harness. Powerful, intelligent, extensible. *(TypeScript · ⭐ 7227)*
+- [gaozhangmin/boxplayer](https://github.com/gaozhangmin/boxplayer) — BoxPlayer - 聚合网盘管理+影视聚合 支持 Windows Linux iOS macOS tvOS Android *(TypeScript · ⭐ 6974)*
+- [smol-machines/smolvm](https://github.com/smol-machines/smolvm) — An embeddable, portable, branchable virtual machine to safely run Agents locally. *(Rust · ⭐ 6439)*
+- [Sylinko/Everywhere](https://github.com/Sylinko/Everywhere) — On-screen aware AI assistant for your desktop. Uses current app context, multiple LLMs, and MCP tools to help you act across apps. *(C# · ⭐ 6300)*
+- [koishijs/koishi](https://github.com/koishijs/koishi) — Cross-platform chatbot framework made with love *(TypeScript · ⭐ 6236)*
+- [Klavis-AI/klavis](https://github.com/Klavis-AI/klavis) — Klavis AI: MCP integration platforms that let AI agents use tools reliably at any scale *(Python · ⭐ 5810)*
+- [u14app/deep-research](https://github.com/u14app/deep-research) — Use any LLMs (Large Language Models) for Deep Research. Support SSE API and MCP server. *(JavaScript · ⭐ 4692)*
+- [luolangaga/tubatools](https://github.com/luolangaga/tubatools) — 图吧工具箱 CE *(C# · ⭐ 4475)*
+- [zgsm-ai/costrict](https://github.com/zgsm-ai/costrict) — Costrict - strict AI coder for enterprises, quality first, including AI Agent, AI CodeReview, AI Completion. *(TypeScript · ⭐ 4440)*
+- [browser-use/workflow-use](https://github.com/browser-use/workflow-use) — ⚙️ Create and run workflows (RPA 2.0) *(Python · ⭐ 4198)*
+- [basicmachines-co/basic-memory](https://github.com/basicmachines-co/basic-memory) — AI conversations that actually remember. Never re-explain your project to your AI again. Join our Discord: https://discord.gg/tyvKNccgqN *(Python · ⭐ 4068)*
+- [bostrot/wslmanager](https://github.com/bostrot/wslmanager) — GUI for the Windows Subsystem for Linux — and native Linux/macOS VMs on Mac. Install, back up, move and configure distros without CLI flags; AI assistant with tools, MCP server for agents, remote WSL over SSH. *(Dart · ⭐ 4010)*
+- [CherryHQ/cherry-studio-app](https://github.com/CherryHQ/cherry-studio-app) — 🍒 This is the mobile version of Cherry Studio. *(TypeScript · ⭐ 3953)*
+- [remorses/playwriter](https://github.com/remorses/playwriter) — Chrome extension & CLI to let agents control your browser. Runs Playwright snippets in a stateful sandbox. Available as CLI or MCP *(TypeScript · ⭐ 3940)*
+- [LLOneBot/LuckyLilliaBot](https://github.com/LLOneBot/LuckyLilliaBot) — 支持 OneBot 11、Satori 和 Milky 协议 *(TypeScript · ⭐ 3635)*
+- [notdog1998/yourself-skill](https://github.com/notdog1998/yourself-skill) — 与其蒸馏别人，不如蒸馏自己。欢迎加入数字永生！Inspired by colleague-skill（同事skill）。 *(Python · ⭐ 3415)*
+- [jinchenma94/bazi-skill](https://github.com/jinchenma94/bazi-skill) — 四柱八字命理分析 *(Python · ⭐ 3304)*
+- [xiamuceer-j/MuMuAINovel](https://github.com/xiamuceer-j/MuMuAINovel) — 一款基于 AI 的智能小说创作助手，帮助你轻松创作精彩故事 *(Python · ⭐ 3098)*
+- [Sidenai/sidex](https://github.com/Sidenai/sidex) — VS Code rebuilt on Tauri. Same architecture, 96% smaller. Early release. *(TypeScript · ⭐ 3039)*
+- [Live-GalGame/LiveGalGame](https://github.com/Live-GalGame/LiveGalGame) — 修复了现实世界里和异性对话没有选择项的 Bug *(JavaScript · ⭐ 2483)*
+- [voocel/ainovel-cli](https://github.com/voocel/ainovel-cli) — ✨多agent实现全自动AI小说生成 *(Go · ⭐ 2076)*
+- [tianma-if/edgeever](https://github.com/tianma-if/edgeever) — Open-source, AI-native knowledge base & Evernote alternative with native MCP. Zero-cost on Cloudflare or Docker. *(TypeScript · ⭐ 1831)*
+- [Tokeii0/LovelyMem](https://github.com/Tokeii0/LovelyMem) — 基于Memprocfs和Volatility的可视化内存取证工具 *(TypeScript · ⭐ 1749)*
+- [Eynzof/Hermes-CN-Desktop](https://github.com/Eynzof/Hermes-CN-Desktop) — Hermes Agent CN desktop app, Windows-First, built with Tauri, Typescript and Rust. Isolated Hermes Agent core insides. *(TypeScript · ⭐ 1733)*
+- [AnalyseDeCircuit/oxideterm](https://github.com/AnalyseDeCircuit/oxideterm) — AI-native workspace for local shells and remote machines.Zero Webview, zero OpenSSL, zero telemetry, and no app subscription. *(Rust · ⭐ 1603)*
+- [CopilotKit/OpenGenerativeUI](https://github.com/CopilotKit/OpenGenerativeUI) — Open-Source Generative UI Framework *(TypeScript · ⭐ 1572)*
+- [fancydirty/mediary-scout](https://github.com/fancydirty/mediary-scout) — Agent-driven media library for your cloud drives (Quark 夸克 / 115 / 光鸭 GuangYa / 123网盘 / 天翼 Tianyi) *(TypeScript · ⭐ 1437)*
+- [designcomputer/mysql_mcp_server](https://github.com/designcomputer/mysql_mcp_server) — A Model Context Protocol (MCP) server that enables secure interaction with MySQL databases *(Python · ⭐ 1395)*
+- [anywhere-labs/Agents-Anywhere](https://github.com/anywhere-labs/Agents-Anywhere) — 跨设备的开源Agent工作台 *(TypeScript · ⭐ 1326)*
+- [syrizelink/OpenFic](https://github.com/syrizelink/OpenFic) — 专为小说创作打造的跨平台、用户友好、AI Native 的一站式 Vibe Wrting 工具。A cross-platform, user-friendly, AI-native, all-in-one Vibe Writing tool designed specifically for novel wrting. *(Python · ⭐ 1171)*
+- [amchii/tg-signer](https://github.com/amchii/tg-signer) — 电报自动执行（签到、发送消息、点击键盘、AI回复等）；个人、群组、频道消息监控、转发与自动回复。Automated Telegram tasks (check-ins, sending messages, keyboard clicks, AI replies, etc.); monitoring, forwarding, and auto-replying to private, group, and channel messages. *(Python · ⭐ 1053)*
+- [Zfinix/another](https://github.com/Zfinix/another) — A desktop app for mirroring and controlling Android devices over USB. Built with Tauri, React, and Rust. *(TypeScript · ⭐ 827)*
+- [yuniko-software/minecraft-mcp-server](https://github.com/yuniko-software/minecraft-mcp-server) — A Minecraft MCP Server powered by Mineflayer API. It allows to control a Minecraft character in real-time, allowing AI assistants to build structures, explore the world, and interact with the game environment through natural language instruction *(TypeScript · ⭐ 762)*
+- [nutstore/obsidian-nutstore-sync](https://github.com/nutstore/obsidian-nutstore-sync) *(TypeScript · ⭐ 620)*
+- [joeynyc/hermes-skins](https://github.com/joeynyc/hermes-skins) — Custom skins (visual themes) for the Hermes CLI agent *(Python · ⭐ 594)*
+- [pskill9/web-search](https://github.com/pskill9/web-search) — Web search using free google search (NO API KEYS REQUIRED) *(JavaScript · ⭐ 471)*
+- [Dwinovo/minecraft-numen](https://github.com/Dwinovo/minecraft-numen) — 住在 Minecraft 里的 AI 同伴——召唤它、跟它说话，它自己规划并动手：挖矿、建造、种地、战斗、合成。 *(Java · ⭐ 451)*
+- [TKasperczyk/thunderbird-mcp](https://github.com/TKasperczyk/thunderbird-mcp) — MCP server for Thunderbird - enables AI assistants to access email, contacts, and calendars *(JavaScript · ⭐ 349)*
+- [QuackbackIO/quackback](https://github.com/QuackbackIO/quackback) — Open source alternative to Canny, UserVoice, Productboard *(TypeScript · ⭐ 300)*
+- [LIlGG/plugin-live2d](https://github.com/LIlGG/plugin-live2d) — 为你的网站领养一只可爱的看板娘吧！Live2d Plugin for Halo *(TypeScript · ⭐ 250)*
+- [Hy4ri/hermes-mobile](https://github.com/Hy4ri/hermes-mobile) — Native Android client for Hermes Agent. Your agent, in your pocket. *(Kotlin · ⭐ 224)*
+- [1Panel-dev/mcp-1panel](https://github.com/1Panel-dev/mcp-1panel) — mcp-1panel is an implementation of the Model Context Protocol (MCP) server for 1Panel. *(Go · ⭐ 168)*
+- [Jahrome907/minecraft-agent-skills](https://github.com/Jahrome907/minecraft-agent-skills) — Minecraft AI agent skills and dual-target plugin bundle for Codex and Claude Code. *(Shell · ⭐ 157)*
+- [LayneChai/superpowers-dsh](https://github.com/LayneChai/superpowers-dsh) — Superpowers skills for DeepSeek Harness: TDD, debugging, planning, and collaboration skills adapted from obra/superpowers *(JavaScript · ⭐ 98)*
+- [hellosunghyun/Startidy](https://github.com/hellosunghyun/Startidy) — AI-powered CLI tool to automatically organize your GitHub Stars into Lists. *(TypeScript · ⭐ 63)*
+- [Zackriya-Solutions/MCP-Markdown-RAG](https://github.com/Zackriya-Solutions/MCP-Markdown-RAG) — A semantic search engine for markdown files based on MCP architecture. *(Python · ⭐ 61)*
+- [GentlemanHu/Tabby-MCP](https://github.com/GentlemanHu/Tabby-MCP) — MCP server for Tabby terminal, 36 MCP tools including SFTP support, full control your Tabby! *(TypeScript · ⭐ 59)*
+- [ErisPulse/ErisPulse](https://github.com/ErisPulse/ErisPulse) — Event-driven multi-platform bot framework with Dashboard, Docker, hot-reload & module marketplace \| 事件驱动的多平台机器人框架 — 一次编写部署 QQ/Telegram/Kook/云湖/Matrix/邮件等 15+ 平台 *(Python · ⭐ 57)*
+- [ttommyth/rag-memory-mcp](https://github.com/ttommyth/rag-memory-mcp) *(TypeScript · ⭐ 47)*
+- [agentset-ai/mcp-server](https://github.com/agentset-ai/mcp-server) — Agentset MCP Server - Build RAG with Agentic superpowers *(JavaScript · ⭐ 31)*
+- [stvlynn/edgeone-dify-plugin](https://github.com/stvlynn/edgeone-dify-plugin) — Deploy your site in seconds *(Python · ⭐ 22)*
+- [sikadi233-hub/minecraft-dev](https://github.com/sikadi233-hub/minecraft-dev) — Minecraft development plugin for DeepSeek Harness: skills & tools for Paper/Spigot plugins and Fabric/Forge/NeoForge mods, MC 1.7.10-26.x *(JavaScript · ⭐ 18)*
+- [wsu2059q/ErisPulse-QvQChat](https://github.com/wsu2059q/ErisPulse-QvQChat) — 基于多AI协同的智能对话模块，让AI像真人一样自然参与聊天 *(Python · ⭐ 11)*
+- [zzj-Mark/psmux-skill](https://github.com/zzj-Mark/psmux-skill) — psmux skill for AI agents - Windows native terminal multiplexer (tmux alternative) *(⭐ 4)*
+- [superwfox/minecraft-dev](https://github.com/superwfox/minecraft-dev) — An Agent platform for minecraft plugin generating *(TypeScript · ⭐ 2)*
+
+_Generated by startidy on 2026-09-30._

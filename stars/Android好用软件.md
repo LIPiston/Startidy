@@ -1,0 +1,302 @@
+<!-- startidy:category name="Android好用软件" description="收纳 Android 上的效率工具、系统工具和实用应用" -->
+
+# Android好用软件
+
+收纳 Android 上的效率工具、系统工具和实用应用
+
+[← Back to index](README.md)
+
+**290 repositories**
+
+- [Genymobile/scrcpy](https://github.com/Genymobile/scrcpy) — Display and control your Android device *(C · ⭐ 150675)*
+- [termux/termux-app](https://github.com/termux/termux-app) — Termux - a terminal emulator application for Android OS extendible by variety of packages. *(Java · ⭐ 61699)*
+- [chen08209/FlClash](https://github.com/chen08209/FlClash) — A multi-platform proxy client based on ClashMeta,simple and easy to use, open-source and ad-free. *(Dart · ⭐ 53923)*
+- [team-spotube/spotube](https://github.com/team-spotube/spotube) — 🎧 Open source music streaming app! Available for both desktop & mobile! *(Dart · ⭐ 49506)*
+- [gedoor/legado](https://github.com/gedoor/legado) — Legado 3.0 Book Reader with powerful controls & full functions❤️阅读3.0, 阅读是一款可以自定义来源阅读网络内容的工具，为广大网络文学爱好者提供一种方便、快捷舒适的试读体验。 *(Kotlin · ⭐ 47099)*
+- [MetaCubeX/ClashMetaForAndroid](https://github.com/MetaCubeX/ClashMetaForAndroid) — A rule-based tunnel for Android. *(Kotlin · ⭐ 46951)*
+- [gkd-kit/gkd](https://github.com/gkd-kit/gkd) — 基于无障碍，高级选择器，订阅规则的自定义屏幕点击安卓应用 \| An Android APP with custom screen tapping based on Accessibility, Advanced Selectors, and Subscription Rules *(Kotlin · ⭐ 42370)*
+- [barry-ran/QtScrcpy](https://github.com/barry-ran/QtScrcpy) — Android real-time display control software *(C++ · ⭐ 32185)*
+- [lizongying/my-tv](https://github.com/lizongying/my-tv) — 我的电视 电视直播软件，安装即可使用 *(C · ⭐ 31959)*
+- [RikkaApps/Shizuku](https://github.com/RikkaApps/Shizuku) — Using system APIs directly with adb/root privileges from normal apps through a Java process started with app_process. *(Kotlin · ⭐ 30814)*
+- [JunkFood02/Seal](https://github.com/JunkFood02/Seal) — 🦭 Video/Audio Downloader for Android, based on yt-dlp *(Kotlin · ⭐ 29322)*
+- [pppscn/SmsForwarder](https://github.com/pppscn/SmsForwarder) — 短信转发器——监控Android手机短信、来电、APP通知，并根据指定规则转发到其他手机：钉钉群自定义机器人、钉钉企业内机器人、企业微信群机器人、飞书机器人、企业微信应用消息、邮箱、bark、webhook、Telegram机器人、Server酱、PushPlus、手机短信等。包括主动控制服务端与客户端，让你轻松远程发短信、查短信、查通话、查话簿、查电量等。（V3.0 新增）PS.这个APK主要是学习与自用，如有BUG请提ISSUE，同时欢迎大家提PR指正 *(Kotlin · ⭐ 28204)*
+- [xiaojieonly/Ehviewer_CN_SXJ](https://github.com/xiaojieonly/Ehviewer_CN_SXJ) — ehviewer，用爱发电，快乐前行 *(C · ⭐ 27224)*
+- [maotoumao/MusicFree](https://github.com/maotoumao/MusicFree) — 插件化、定制化、无广告的免费音乐播放器 *(TypeScript · ⭐ 27199)*
+- [mihonapp/mihon](https://github.com/mihonapp/mihon) — Free and open source manga reader for Android *(Kotlin · ⭐ 23916)*
+- [MatsuriDayo/NekoBoxForAndroid](https://github.com/MatsuriDayo/NekoBoxForAndroid) — NekoBox for Android / sing-box / universal proxy toolchain for Android *(Kotlin · ⭐ 22919)*
+- [brunodev85/winlator](https://github.com/brunodev85/winlator) — Android application for running Windows applications with Wine and Box86/Box64 *(C · ⭐ 19242)*
+- [ActivityWatch/activitywatch](https://github.com/ActivityWatch/activitywatch) — The best free and open-source automated time tracker. Cross-platform, extensible, privacy-focused. *(Python · ⭐ 19023)*
+- [komi-store/komi-store](https://github.com/komi-store/komi-store) — 🩵 A free, open-source app store for developers' releases on GitHub, Codeberg & Forgejo — browse, discover, and install apps with one click. Formerly GitHub Store. *(Kotlin · ⭐ 18892)*
+- [bggRGjQaUbCoE/PiliPlus](https://github.com/bggRGjQaUbCoE/PiliPlus) — PiliPlus *(Dart · ⭐ 18842)*
+- [lyswhut/lx-music-mobile](https://github.com/lyswhut/lx-music-mobile) — 一个基于 React native 开发的音乐软件 *(TypeScript · ⭐ 18502)*
+- [j4Uq/TVBoxOSC](https://github.com/j4Uq/TVBoxOSC) *(⭐ 17656)*
+- [xiaye13579/BBLL](https://github.com/xiaye13579/BBLL) — 一个第三方哔哩哔哩客户端，A third-party bilibili client。 *(⭐ 17475)*
+- [xiaoyaocz/dart_simple_live](https://github.com/xiaoyaocz/dart_simple_live) — 简简单单的看直播 *(Dart · ⭐ 16053)*
+- [keiyoushi/extensions](https://github.com/keiyoushi/extensions) — Extension repository for Mihon and variants *(HTML · ⭐ 15083)*
+- [T8RIN/ImageToolbox](https://github.com/T8RIN/ImageToolbox) — 🖼️ Image Toolbox is a powerful app for advanced image manipulation. It offers dozens of features, from basic tools like crop and draw to filters, OCR, and a wide range of image processing options *(Kotlin · ⭐ 14801)*
+- [microg/GmsCore](https://github.com/microg/GmsCore) — Free implementation of Play Services *(Java · ⭐ 14725)*
+- [guozhigq/pilipala](https://github.com/guozhigq/pilipala) — PiliPala 是使用Flutter开发的BiliBili第三方客户端，感谢使用。 *(Dart · ⭐ 13815)*
+- [LawnchairLauncher/lawnchair](https://github.com/LawnchairLauncher/lawnchair) — No clever tagline needed. *(Java · ⭐ 13620)*
+- [Notsfsssf/pixez-flutter](https://github.com/Notsfsssf/pixez-flutter) — 一个支持免代理直连及查看动图的第三方Pixiv flutter客户端 *(Dart · ⭐ 12966)*
+- [XIU2/Yuedu](https://github.com/XIU2/Yuedu) — 📚「阅读」自用书源分享 *(⭐ 12374)*
+- [AIsouler/GKD_subscription](https://github.com/AIsouler/GKD_subscription) — GKD 第三方订阅规则 *(TypeScript · ⭐ 12016)*
+- [viarotel-org/escrcpy](https://github.com/viarotel-org/escrcpy) — 📱 Display and control your Android device graphically with scrcpy. *(JavaScript · ⭐ 11939)*
+- [ankidroid/Anki-Android](https://github.com/ankidroid/Anki-Android) — AnkiDroid: Anki flashcards on Android. Your secret trick to achieve superhuman information retention. *(Kotlin · ⭐ 11889)*
+- [breezy-weather/breezy-weather](https://github.com/breezy-weather/breezy-weather) — A feature-rich weather app with good visualizations and more than 50 sources. *(Kotlin · ⭐ 11528)*
+- [venera-app/venera](https://github.com/venera-app/venera) — A comic app *(Dart · ⭐ 11091)*
+- [utkarshdalal/GameNative](https://github.com/utkarshdalal/GameNative) — Native PC gaming with Steam, Epic, GOG and Amazon integrations on Android *(Kotlin · ⭐ 10833)*
+- [liu673cn/bug](https://github.com/liu673cn/bug) — TVbox开源版（空壳-自行配置） *(HTML · ⭐ 10345)*
+- [timschneeb/awesome-shizuku](https://github.com/timschneeb/awesome-shizuku) — Curated list of awesome Android apps making use of Shizuku *(Python · ⭐ 10305)*
+- [tonyantony300/dashbeam](https://github.com/tonyantony300/dashbeam) — Share files nearby and beyond. *(TypeScript · ⭐ 9794)*
+- [FongMi/TV](https://github.com/FongMi/TV) *(Java · ⭐ 9610)*
+- [droidrun/mobilerun](https://github.com/droidrun/mobilerun) — Automate your mobile devices with natural language commands - an LLM agnostic mobile Agent 🤖 *(Python · ⭐ 9535)*
+- [vfsfitvnm/ViMusic](https://github.com/vfsfitvnm/ViMusic) — An Android application for streaming music from YouTube Music *(Kotlin · ⭐ 9463)*
+- [PojavLauncherTeam/PojavLauncher](https://github.com/PojavLauncherTeam/PojavLauncher) — A Minecraft: Java Edition Launcher for Android and iOS based on Boardwalk. Succeeded by https://github.com/AngelAuraMC/Amethyst-Android *(Java · ⭐ 9404)*
+- [MuntashirAkon/AppManager](https://github.com/MuntashirAkon/AppManager) — A full-featured package manager and viewer for Android *(Java · ⭐ 9089)*
+- [KotatsuApp/Kotatsu](https://github.com/KotatsuApp/Kotatsu) — Manga reader for Android *(Kotlin · ⭐ 8880)*
+- [wgh136/PicaComic](https://github.com/wgh136/PicaComic) — A comic app built with Flutter, supporting multiple comic sources. *(Dart · ⭐ 8668)*
+- [ComicSparks/pikapika](https://github.com/ComicSparks/pikapika) — A comic browser，support Android / iOS / MacOS / Windows / Linux. *(Dart · ⭐ 8341)*
+- [AAswordman/Operit](https://github.com/AAswordman/Operit) — The most powerful AI agent and AI chat software on Android/Operit是一款Android上能力最为强大、发展最久的AI Agent *(Kotlin · ⭐ 8243)*
+- [CeuiLiSA/Pixiv-Shaft](https://github.com/CeuiLiSA/Pixiv-Shaft) — Pixiv第三方Android客户端 *(Kotlin · ⭐ 7961)*
+- [rikkahub/rikkahub](https://github.com/rikkahub/rikkahub) — RikkaHub is an Android APP that supports for multiple LLM providers. *(Kotlin · ⭐ 7922)*
+- [d4rken-org/sdmaid-se](https://github.com/d4rken-org/sdmaid-se) — SD Maid 2/SE is Android's most thorough cleaning tool. *(Kotlin · ⭐ 7628)*
+- [ReadYouApp/ReadYou](https://github.com/ReadYouApp/ReadYou) — An Android RSS reader presented in Material You style. *(Kotlin · ⭐ 7556)*
+- [Droid-ify/client](https://github.com/Droid-ify/client) — Clutterfree F-Droid client, \[mirror\] https://codeberg.org/droidify/client *(Kotlin · ⭐ 7523)*
+- [Moriafly/SaltPlayerSource](https://github.com/Moriafly/SaltPlayerSource) — A multi-platform local music player in continuous development since 2020, serving over one million users. This repository is used for issue tracking and official Android package releases. *(⭐ 7409)*
+- [XayahSuSuSu/Android-DataBackup](https://github.com/XayahSuSuSu/Android-DataBackup) — DataBackup for Android 7.0+ *(Kotlin · ⭐ 7399)*
+- [LibChecker/LibChecker](https://github.com/LibChecker/LibChecker) — An app to view libraries used in apps in your device. *(Kotlin · ⭐ 7206)*
+- [Acode-Foundation/Acode](https://github.com/Acode-Foundation/Acode) — Acode - powerful text/code editor for android *(JavaScript · ⭐ 7186)*
+- [aistra0528/Hail](https://github.com/aistra0528/Hail) — Disable / Hide / Suspend / Uninstall Android apps without root. *(Kotlin · ⭐ 6786)*
+- [wxxsfxyzm/InstallerX-Revived](https://github.com/wxxsfxyzm/InstallerX-Revived) — More Expressive InstallerX ! *(Kotlin · ⭐ 6773)*
+- [HapeLee/legado-with-MD3](https://github.com/HapeLee/legado-with-MD3) — 使用 Material Design 3 全新设计的阅读 3.0 *(Kotlin · ⭐ 6299)*
+- [Archmage83/tvapk](https://github.com/Archmage83/tvapk) — 收集各大AndroidTV的apk应用，可免费看vip和国外电影电视。如大家有也可以贡献一下。 *(Java · ⭐ 6270)*
+- [PhilippC/keepass2android](https://github.com/PhilippC/keepass2android) — Password manager app for Android *(C# · ⭐ 6266)*
+- [gsantner/markor](https://github.com/gsantner/markor) — Text editor - Notes & ToDo (for Android) - Markdown, todo.txt, plaintext, math, .. *(Java · ⭐ 6200)*
+- [samolego/Canta](https://github.com/samolego/Canta) — Uninstall any Android app without root (with power of Shizuku). Debloat your device as you wish, no PC required. *(Kotlin · ⭐ 6006)*
+- [czy0729/Bangumi](https://github.com/czy0729/Bangumi) — :electron: An unofficial https://bgm.tv ui first app client for Android and iOS, built with React Native. 一个无广告、以爱好为驱动、不以盈利为目的、专门做 ACG 的类似豆瓣的追番记录，bgm.tv 第三方客户端。为移动端重新设计，内置大量加强的网页端难以实现的功能，且提供了相当的自定义选项。 目前已适配 iOS / Android。 *(TypeScript · ⭐ 5998)*
+- [fcitx5-android/fcitx5-android](https://github.com/fcitx5-android/fcitx5-android) — Fcitx5 input method framework and engines ported to Android *(Kotlin · ⭐ 5709)*
+- [Lin-arm/GKD_subscription](https://github.com/Lin-arm/GKD_subscription) — 用于安卓 GKD 的第三方订阅规则 (👻Fork版) *(TypeScript · ⭐ 5603)*
+- [liriliri/aya](https://github.com/liriliri/aya) — Android ADB desktop app *(TypeScript · ⭐ 5487)*
+- [ComicSparks/jasmine](https://github.com/ComicSparks/jasmine) — A comic browser，support Android / iOS / MacOS / Windows / Linux. *(Dart · ⭐ 5444)*
+- [RetroMusicPlayer/RetroMusicPlayer](https://github.com/RetroMusicPlayer/RetroMusicPlayer) — Best Material You Design music player for Android *(Kotlin · ⭐ 5331)*
+- [zfdang/Android-Touch-Helper](https://github.com/zfdang/Android-Touch-Helper) — AdSkip — an Android assistant for automatically skipping app launch ads *(Java · ⭐ 5316)*
+- [NeoApplications/Neo-Store](https://github.com/NeoApplications/Neo-Store) — An F-Droid client with modern UI and an arsenal of extra features. *(Kotlin · ⭐ 5291)*
+- [xlucn/oh-my-foss-android](https://github.com/xlucn/oh-my-foss-android) — 个人收集的实用、良心开源安卓软件 *(⭐ 5130)*
+- [saber-notes/saber](https://github.com/saber-notes/saber) — The cross-platform open-source app built for handwriting *(Dart · ⭐ 4858)*
+- [FCL-Team/FoldCraftLauncher](https://github.com/FCL-Team/FoldCraftLauncher) — Fold Craft Launcher, an Android Minecraft : Java Edition launcher. *(Java · ⭐ 4802)*
+- [komikku-app/komikku](https://github.com/komikku-app/komikku) — Free and open source manga reader for Android *(Kotlin · ⭐ 4787)*
+- [osfans/trime](https://github.com/osfans/trime) — 同文安卓輸入法平臺3.x/Android-rime/Rime Input Method Engine for Android *(Kotlin · ⭐ 4677)*
+- [eritpchy/FingerprintPay](https://github.com/eritpchy/FingerprintPay) — 让微信、QQ、支付宝、淘宝、云闪付支持使用指纹支付 *(Java · ⭐ 4519)*
+- [jing332/tts-server-android](https://github.com/jing332/tts-server-android) — 这是一个Android系统TTS应用，内置微软演示接口，可自定义HTTP请求，可导入其他本地TTS引擎，以及根据中文双引号的简单旁白/对话识别朗读 ，还有自动重试，备用配置，文本替换等更多功能。 *(Kotlin · ⭐ 4509)*
+- [ThirtyDegreesRay/OpenHub](https://github.com/ThirtyDegreesRay/OpenHub) — An open source GitHub Android client app, faster and concise. *(Java · ⭐ 4376)*
+- [Swordfish90/Lemuroid](https://github.com/Swordfish90/Lemuroid) — All in one emulator on Android! *(Kotlin · ⭐ 4360)*
+- [ClassicOldSong/moonlight-android](https://github.com/ClassicOldSong/moonlight-android) — GameStream client for Android *(Java · ⭐ 4064)*
+- [easybangumiorg/EasyBangumi](https://github.com/easybangumiorg/EasyBangumi) — 纯纯看番，使用 Compose 开发的 Android 看番软件，支持多番剧源 *(Kotlin · ⭐ 4029)*
+- [CherryHQ/cherry-studio-app](https://github.com/CherryHQ/cherry-studio-app) — 🍒 This is the mobile version of Cherry Studio. *(TypeScript · ⭐ 3953)*
+- [oasisfeng/island](https://github.com/oasisfeng/island) — Island for Android *(Java · ⭐ 3942)*
+- [aaa1115910/bv](https://github.com/aaa1115910/bv) — 哔哩哔哩 的第三方 Android 应用。A third-party Android app for Bilibili. *(Kotlin · ⭐ 3934)*
+- [iamr0s/Dhizuku](https://github.com/iamr0s/Dhizuku) — A tool that can share DeviceOwner permissions to other application. *(Kotlin · ⭐ 3896)*
+- [tuyafeng/Via](https://github.com/tuyafeng/Via) — Via is a simple browser, and this repository is set for localization. *(⭐ 3894)*
+- [Aefyr/SAI](https://github.com/Aefyr/SAI) — Android split APKs installer *(Java · ⭐ 3876)*
+- [olegos2/mobox](https://github.com/olegos2/mobox) *(Shell · ⭐ 3748)*
+- [GuoXiCheng/SKIP](https://github.com/GuoXiCheng/SKIP) — 自动跳过APP开屏广告 *(Kotlin · ⭐ 3673)*
+- [gurecn/YuyanIme](https://github.com/gurecn/YuyanIme) — 语燕输入法-一款基于Rime定制开发的九键、全拼、双拼、手写、火星文等方案、支持悬浮、单手、数字行等键盘模式的中文输入法 *(Kotlin · ⭐ 3657)*
+- [cwuom/NeriPlayer](https://github.com/cwuom/NeriPlayer) — A native Android audio player that combines multi-source streaming, local control, rich lyrics, and self-hosted sync. / ✨ 一个把多源在线播放、本地管理、歌词体验和自建同步做进原生 Android 的音频播放器 🎵 *(Kotlin · ⭐ 3595)*
+- [etchdroid/etchdroid](https://github.com/etchdroid/etchdroid) — An application to write OS images to USB drives, on Android, no root required. *(Kotlin · ⭐ 3517)*
+- [Neamar/KISS](https://github.com/Neamar/KISS) — Lightning fast, open-source, < 250kb Android launcher *(Java · ⭐ 3508)*
+- [KOWX712/Tricky-Addon-Update-Target-List](https://github.com/KOWX712/Tricky-Addon-Update-Target-List) — A KSU WebUI to configure Tricky Store target.txt *(TypeScript · ⭐ 3470)*
+- [ferredoxin/QNotified](https://github.com/ferredoxin/QNotified) — 一个旨在使QQ变得更好用的开源Xposed模块 *(Java · ⭐ 3460)*
+- [yc9559/uperf](https://github.com/yc9559/uperf) — Userspace performance controller for android *(Shell · ⭐ 3419)*
+- [AChep/keyguard-app](https://github.com/AChep/keyguard-app) — A password manager that supports Bitwarden platform and KeePass (KDBX) files. It autofills your logins, supports passkeys, works offline, and runs a Watchtower that finds leaked and reused passwords and other issues. *(Kotlin · ⭐ 3332)*
+- [Tornaco/Thanox](https://github.com/Tornaco/Thanox) — I am thanos! 😈 👌 *(Java · ⭐ 3296)*
+- [deltazefiro/Amarok-Hider](https://github.com/deltazefiro/Amarok-Hider) — Hide your private files and apps with a single click. *(Java · ⭐ 3267)*
+- [Mahmud0808/Iconify](https://github.com/Mahmud0808/Iconify) — Iconify lets you customize your Android 12+ device easily. Change icons, colors, shapes, and even the notification panel for a personalized look that suits your style. *(Kotlin · ⭐ 3183)*
+- [f-droid/fdroidclient](https://github.com/f-droid/fdroidclient) — Android client application. *(Kotlin · ⭐ 3138)*
+- [takagen99/Box](https://github.com/takagen99/Box) — Experimental *(Java · ⭐ 3052)*
+- [hongchacha/cartoon](https://github.com/hongchacha/cartoon) — 全是漫画，免费漫画app *(⭐ 2993)*
+- [researchxxl/syncthing-android](https://github.com/researchxxl/syncthing-android) — Syncthing-Fork - A Syncthing Wrapper for Android. *(Java · ⭐ 2944)*
+- [IacobIonut01/ReFra](https://github.com/IacobIonut01/ReFra) — Media Gallery app for Android made with Jetpack Compose *(Kotlin · ⭐ 2835)*
+- [youniaogu/MangaReader](https://github.com/youniaogu/MangaReader) — 一个漫画 APP📱，基于 react-native 构建，兼容 Android、Ios 平台 *(TypeScript · ⭐ 2829)*
+- [LittleSurvival/copymanga-copy20](https://github.com/LittleSurvival/copymanga-copy20) — Mihon/Tachiyomi系列 拷貝漫畫等中文資源的書源 相關社群見readme *(Smali · ⭐ 2809)*
+- [lucinhu/bili_you](https://github.com/lucinhu/bili_you) — 一个用flutter制作的第三方B站客户端. *(Dart · ⭐ 2749)*
+- [openboard-team/openboard](https://github.com/openboard-team/openboard) *(Java · ⭐ 2743)*
+- [Uotan-Dev/UotanToolboxNT](https://github.com/Uotan-Dev/UotanToolboxNT) — 现代化 Android & OpenHarmony 工具箱 \| A Modern Toolbox for Android & OpenHarmony Devices *(C# · ⭐ 2734)*
+- [TwidereProject/Twidere-Android](https://github.com/TwidereProject/Twidere-Android) *(Kotlin · ⭐ 2719)*
+- [nakixii/Magisk_AsoulOpt](https://github.com/nakixii/Magisk_AsoulOpt) *(Shell · ⭐ 2710)*
+- [weixiansen574/HybridFileXfer](https://github.com/weixiansen574/HybridFileXfer) — 多轨快传，同时使用USB和5G与2.4GWIFI等通道传输文件到电脑，榨干手机IO！ *(Java · ⭐ 2695)*
+- [xoureldeen/Vectras-VM-Android](https://github.com/xoureldeen/Vectras-VM-Android) — It's a Virtual Machine App for Android Which is Based on QEMU *(Java · ⭐ 2663)*
+- [qidian55/bilibilitv1.6.6-repair](https://github.com/qidian55/bilibilitv1.6.6-repair) — 尝试修复经典的 bilibili tv 1.6.6 版本 *(Smali · ⭐ 2643)*
+- [FBlackBox/BlackBox](https://github.com/FBlackBox/BlackBox) — BlackBox is a virtual engine, it can clone and run virtual application on Android, users don't have to install APK file to run the application on devices. BlackBox control all virtual applications, so you can do anything you want by using BlackBox. *(⭐ 2619)*
+- [WangDaYeeeeee/GeometricWeather](https://github.com/WangDaYeeeeee/GeometricWeather) — A Material Design Weather Application *(Java · ⭐ 2523)*
+- [MatsuriDayo/Matsuri](https://github.com/MatsuriDayo/Matsuri) — Matsuri (茉莉) / V2Ray / universal proxy toolchain for Android / Fork of SagerNet *(Kotlin · ⭐ 2498)*
+- [tytydraco/LADB](https://github.com/tytydraco/LADB) — A local ADB shell for Android! *(Kotlin · ⭐ 2420)*
+- [VR-25/acc](https://github.com/VR-25/acc) — Advanced Charging Controller *(Shell · ⭐ 2412)*
+- [newhinton/Round-Sync](https://github.com/newhinton/Round-Sync) — An android cloud file manager, powered by rclone. Visit https://roundsync.com for more information! *(Java · ⭐ 2375)*
+- [Xed-Editor/Xed-Editor](https://github.com/Xed-Editor/Xed-Editor) — Advanced Text Editor for Android *(Kotlin · ⭐ 2341)*
+- [Katana-Official/SPatch-Update](https://github.com/Katana-Official/SPatch-Update) — Update for SPatch nightly *(Java · ⭐ 2310)*
+- [MasterDevX/Termux-ADB](https://github.com/MasterDevX/Termux-ADB) — Install ADB & FastBoot Tools in Termux! *(Shell · ⭐ 2161)*
+- [tumuyan/RealSR-NCNN-Android](https://github.com/tumuyan/RealSR-NCNN-Android) — An Android application for super-resolution & interpolation. Contains RealSR-NCNN, SRMD-NCNN, RealCUGAN-NCNN, Real-ESRGAN-NCNN, Waifu2x-NCNN, Anime4kcpp, nearest, bilinear, bicubic, AVIR... *(C++ · ⭐ 2143)*
+- [NeoApplications/Neo-Launcher](https://github.com/NeoApplications/Neo-Launcher) — Neo-Launcher *(Java · ⭐ 2135)*
+- [LawnchairLauncher/lawnicons](https://github.com/LawnchairLauncher/lawnicons) — Monochrome outlined brand icons for Android launchers. *(Kotlin · ⭐ 2107)*
+- [AyuGram/AyuGram4A](https://github.com/AyuGram/AyuGram4A) — Just an exteraGram based client with ToS breaking features in mind. *(Java · ⭐ 2053)*
+- [x0b/rcx](https://github.com/x0b/rcx) — Rclone for Android *(Java · ⭐ 2050)*
+- [670848654/SakuraAnime](https://github.com/670848654/SakuraAnime) — 使用jsoup爬取樱花动漫(Yhdm)、嘶哩嘶哩(SiliSili)部分内容编写的第三方Android客户端。 *(Java · ⭐ 2043)*
+- [Xposed-Modules-Repo/com.luckyzyx.luckytool](https://github.com/Xposed-Modules-Repo/com.luckyzyx.luckytool) — LuckyTool Xposed 免费模块 *(⭐ 1929)*
+- [ZalithLauncher/ZalithLauncher2](https://github.com/ZalithLauncher/ZalithLauncher2) — A Minecraft: Java Edition Launcher for Android *(Kotlin · ⭐ 1924)*
+- [CHIZI-0618/box4magisk](https://github.com/CHIZI-0618/box4magisk) — Use sing-box, clash, v2ray, xray tunnel proxy on Android devices. *(Shell · ⭐ 1917)*
+- [twoyi/twoyi](https://github.com/twoyi/twoyi) — A lightweight Android container on Android *(Java · ⭐ 1914)*
+- [adrcotfas/goodtime](https://github.com/adrcotfas/goodtime) — A productivity app that combines pomodoro timers and flow techniques to boost focus and efficiency. *(Kotlin · ⭐ 1912)*
+- [iamr0s/InstallerX](https://github.com/iamr0s/InstallerX) — A modern and functional Android app installer. (You know some birds are not meant to be caged, their feathers are just too bright.) *(Kotlin · ⭐ 1869)*
+- [rRemix/APlayer](https://github.com/rRemix/APlayer) — Android Music Player *(Kotlin · ⭐ 1838)*
+- [1250422131/bilibilias](https://github.com/1250422131/bilibilias) — 哔哩哔哩视频解析工具实验学习项目，不发布产物。 *(⭐ 1804)*
+- [termux/termux-boot](https://github.com/termux/termux-boot) — Termux add-on app allowing programs to be run at boot. *(Java · ⭐ 1789)*
+- [libxzr/KonaBess](https://github.com/libxzr/KonaBess) — A GPU overclock & undervolt tool for various Snapdragon chips *(Java · ⭐ 1787)*
+- [zhihulite/Hydrogen](https://github.com/zhihulite/Hydrogen) — 一个基于luajvm开发的第三方知乎安卓客户端 *(Lua · ⭐ 1787)*
+- [ZalithLauncher/ZalithLauncher](https://github.com/ZalithLauncher/ZalithLauncher) — Due to maintenance difficulties, this project has been archived. Check out the new project: https://github.com/ZalithLauncher/ZalithLauncher2 *(C · ⭐ 1748)*
+- [meefik/busybox](https://github.com/meefik/busybox) — BusyBox for Android *(Java · ⭐ 1739)*
+- [niuhuan/daisy](https://github.com/niuhuan/daisy) — 美观易用且无广告的漫画和轻小说客户端, 同时支持MacOS，Windows，Android，iOS。(动漫之家) *(Dart · ⭐ 1711)*
+- [15dd/wenku8reader](https://github.com/15dd/wenku8reader) — 第三方轻小说文库app *(Kotlin · ⭐ 1694)*
+- [timschneeb/RootlessJamesDSP](https://github.com/timschneeb/RootlessJamesDSP) — An implementation of the system-wide JamesDSP audio processing engine for non-rooted Android devices *(C · ⭐ 1684)*
+- [scovis/TVBox](https://github.com/scovis/TVBox) — 一个开源无广告的TVBox源，一个仓库全搞定。 *(⭐ 1659)*
+- [grbnb/xp_module](https://github.com/grbnb/xp_module) — 备份午夜神大佬分享的应用集 【下面是Gitee仓库链接】https://gitee.com/grbnb/xp_module.git *(HTML · ⭐ 1613)*
+- [LuckyPray/XAutoDaily](https://github.com/LuckyPray/XAutoDaily) — 一个基于QQ的全自动签到模块 *(Kotlin · ⭐ 1586)*
+- [devgianlu/Aria2App](https://github.com/devgianlu/Aria2App) — Aria2App is an advanced download manager based on aria2 that can handle remote servers too. *(Java · ⭐ 1558)*
+- [XiaoRanLiu3119/TVBoxOS-Mobile](https://github.com/XiaoRanLiu3119/TVBoxOS-Mobile) — TVBox手机版 *(Java · ⭐ 1551)*
+- [yinwanxi/Uperf-Game-Turbo](https://github.com/yinwanxi/Uperf-Game-Turbo) — Userspace performance controller for android *(Shell · ⭐ 1551)*
+- [swyefun/BBLLV5](https://github.com/swyefun/BBLLV5) — 一个第三方哔哩哔哩客户端修复 *(⭐ 1530)*
+- [getActivity/AndroidIndex](https://github.com/getActivity/AndroidIndex) — Android 资源大汇总 *(⭐ 1509)*
+- [jonjomckay/fritter](https://github.com/jonjomckay/fritter) — A privacy-friendly Twitter frontend for mobile devices *(Dart · ⭐ 1448)*
+- [j-fbriere/squawker](https://github.com/j-fbriere/squawker) — An open-source privacy oriented Twitter/X client *(Dart · ⭐ 1445)*
+- [cinit/TMoe](https://github.com/cinit/TMoe) — An Xposed module for Telegram clients *(Java · ⭐ 1424)*
+- [Tosencen/XMSLEEP](https://github.com/Tosencen/XMSLEEP) — 一款白噪音应用送给你，祝您牛掰，有的是钱 *(Kotlin · ⭐ 1373)*
+- [DUpdateSystem/UpgradeAll](https://github.com/DUpdateSystem/UpgradeAll) — Check updates for Android apps, Magisk modules and more! *(Kotlin · ⭐ 1343)*
+- [horsemail/yourtv](https://github.com/horsemail/yourtv) — 安卓电视直播APK：IPTV/網頁視頻支持X5，可自定義源(支持webview://格式)，IPTV支持畫中畫和熄屏播放。 Android TV Live APK: IPTV/web video supports X5, customizable sources (support webview:// format), IPTV supports picture-in-picture and off-screen playback. *(Kotlin · ⭐ 1340)*
+- [KieronQuinn/PixelLauncherMods](https://github.com/KieronQuinn/PixelLauncherMods) — A root app that enables you to add a number of features to the stock Pixel Launcher, without needing Xposed *(Kotlin · ⭐ 1307)*
+- [Stapxs/Stapxs-QQ-Lite-2.0](https://github.com/Stapxs/Stapxs-QQ-Lite-2.0) — 一个兼容 OneBot 协议的第三方 QQ 客户端。 Web、全平台实现！ *(Vue · ⭐ 1307)*
+- [WSTxda/ViperFX-RE-Releases](https://github.com/WSTxda/ViperFX-RE-Releases) — ViPER4Android FX with Material 3 Expressive design and improvements. *(⭐ 1276)*
+- [nightmare-space/code_lfa](https://github.com/nightmare-space/code_lfa) — Port VS Code to Android and support local operation *(Dart · ⭐ 1250)*
+- [suqi8/OShin](https://github.com/suqi8/OShin) — 一个专为ColorOS系统设计的辅助模块 *(Kotlin · ⭐ 1226)*
+- [fankes/TSBattery](https://github.com/fankes/TSBattery) — A new way to save your battery avoid cancer apps hacker it. *(Kotlin · ⭐ 1201)*
+- [bggRGjQaUbCoE/c001apk](https://github.com/bggRGjQaUbCoE/c001apk) — fake coolapk *(Kotlin · ⭐ 1195)*
+- [Block-Network/StatusBarLyric](https://github.com/Block-Network/StatusBarLyric) — \[Xposed\] Status Bar Lyric / 状态栏歌词 *(Kotlin · ⭐ 1184)*
+- [bszapp/android-wifi-pojie](https://github.com/bszapp/android-wifi-pojie) — Android使用密码本暴力破解wifi密码工具 *(Kotlin · ⭐ 1147)*
+- [SivanLaai/rime-pure](https://github.com/SivanLaai/rime-pure) — 基于 Rime（小狼毫 / 同文）的极简、优雅、好用的中英文输入方案整合包。 包含：四叶草九宫格拼音 / 四叶草拼音 / 小鹤双拼 / 极品五笔 / QQ五笔 / 徐码 / 郑码 等主流方案。 *(C++ · ⭐ 1133)*
+- [CyrilPeng/Venera-Next](https://github.com/CyrilPeng/Venera-Next) — VeneraNext 是一个跨平台漫画阅读器，支持本地漫画、WebDAV 漫画源、第三方网络漫画源，支持 Android、iOS、Windows、Linux、macOS 平台。 *(Dart · ⭐ 1120)*
+- [chr233/PureNGA](https://github.com/chr233/PureNGA) — NGA 去广告Xposed模块 支持 Lspatch *(Kotlin · ⭐ 1115)*
+- [shadow3aaa/fas-rs](https://github.com/shadow3aaa/fas-rs) — Frame aware scheduling for android. *(Rust · ⭐ 1111)*
+- [ximeiorg/Xime](https://github.com/ximeiorg/Xime) — 我的自用安卓输入法，基于Rime 构建，部分功能由本人设计的本地AI模型驱动，支持五笔/拼音/自定义方案。 *(Kotlin · ⭐ 1091)*
+- [tianma8023/XposedSmsCode](https://github.com/tianma8023/XposedSmsCode) — :lollipop: An Xposed Module which can recognize, parse verification code and copy it to clipboard when a new message arrives . / 识别短信验证码的Xposed模块，并将验证码拷贝到剪切板。 *(Java · ⭐ 1065)*
+- [Monica-Pass/Monica](https://github.com/Monica-Pass/Monica) — Monica Pass，Password Management, 2FA Generator *(Kotlin · ⭐ 1040)*
+- [chenxiaolong/RSAF](https://github.com/chenxiaolong/RSAF) — An Android Storage Access Framework document provider for rclone *(Kotlin · ⭐ 997)*
+- [Chimioo/InxLocker](https://github.com/Chimioo/InxLocker) — Xposed-based Installer Locker for Android (Powered by YukiHookAPI) *(Kotlin · ⭐ 958)*
+- [RikkaApps/StorageRedirect-assets](https://github.com/RikkaApps/StorageRedirect-assets) — Assets (rules, apks etc) for Storage Redirect app. *(Python · ⭐ 938)*
+- [ShiGuangSchedule/shiguangschedule](https://github.com/ShiGuangSchedule/shiguangschedule) — 一款开源、无广告、极简的课程表 APP，支持教务导入 *(Kotlin · ⭐ 929)*
+- [xjunz/AutoSkip](https://github.com/xjunz/AutoSkip) — 基于Shizuku授权的安卓"自动跳过"工具 *(Kotlin · ⭐ 923)*
+- [Xmader/aria-ng-gui-android](https://github.com/Xmader/aria-ng-gui-android) — 一个 Aria2 图形界面安卓客户端 \| An Aria2 GUI Android App *(HTML · ⭐ 881)*
+- [freedom-introvert/biliSendCommAntifraud](https://github.com/freedom-introvert/biliSendCommAntifraud) — 哔哩发评反诈 *(Java · ⭐ 880)*
+- [Delta-Icons/android](https://github.com/Delta-Icons/android) — 🤖 Icon Pack for Android *(Python · ⭐ 873)*
+- [HMCL-dev/HMCL-PE](https://github.com/HMCL-dev/HMCL-PE) — Hello Minecraft! Launcher for Android *(Java · ⭐ 846)*
+- [xlc520/MaoTV](https://github.com/xlc520/MaoTV) — 猫影视资源接口 *(⭐ 836)*
+- [Steve-Mr/EmojiFace](https://github.com/Steve-Mr/EmojiFace) — Identify faces in an image and replace them with emojis. *(Kotlin · ⭐ 832)*
+- [byxiaorun/Ruru](https://github.com/byxiaorun/Ruru) — An android sample app of detecting suspicious apps like magisk manager *(Kotlin · ⭐ 827)*
+- [fei-ke/HMSPush](https://github.com/fei-ke/HMSPush) — 让非华为设备支持 HMS 推送，同时避免唤醒目标应用 *(Kotlin · ⭐ 816)*
+- [lucasnlm/antimine-android](https://github.com/lucasnlm/antimine-android) — Antimine is an open source minesweeper-like puzzle game. *(Kotlin · ⭐ 801)*
+- [sunshine0523/Mi-Freeform](https://github.com/sunshine0523/Mi-Freeform) — Mi-Freeform 3 is an Android third-party freeform software that supports Android 8.1-Android 14 *(Kotlin · ⭐ 797)*
+- [lz233/Tarnhelm](https://github.com/lz233/Tarnhelm) — The magic to clean sharing links up. *(Kotlin · ⭐ 789)*
+- [OneB1ank/A1Memory](https://github.com/OneB1ank/A1Memory) — Android third-party memory management *(Shell · ⭐ 787)*
+- [jayjd/HuYaTv](https://github.com/jayjd/HuYaTv) — 聚合直播（FUSE）,支持虎牙/抖音/快手/哔哩哔哩/斗鱼/YY/网易CC/电视直播，支持手机/平板/电视/车机 *(⭐ 774)*
+- [KitsunePie/QQCleaner](https://github.com/KitsunePie/QQCleaner) — 瘦身模块 *(Kotlin · ⭐ 760)*
+- [qwq233/Nullgram](https://github.com/qwq233/Nullgram) — 3rd party client of Telegram *(Java · ⭐ 759)*
+- [kaajjo/LibreSudoku](https://github.com/kaajjo/LibreSudoku) — LibreSudoku - Sudoku app for android built with Kotlin + Jetpack Compose + Material3 *(Kotlin · ⭐ 735)*
+- [nikitasius/Telegraher](https://github.com/nikitasius/Telegraher) — Telegram fork with blackjack and hookers *(Java · ⭐ 731)*
+- [HorizonEmuTeam/Horizon-Emu](https://github.com/HorizonEmuTeam/Horizon-Emu) *(⭐ 709)*
+- [vvb2060/PackageInstaller](https://github.com/vvb2060/PackageInstaller) — A lightweight yet powerful package installer for Android. *(Kotlin · ⭐ 707)*
+- [afeimod/winlator-mod](https://github.com/afeimod/winlator-mod) — Android application for running Windows applications with Wine and Box86/Box64 *(C · ⭐ 699)*
+- [NihilityT/MiPushFramework](https://github.com/NihilityT/MiPushFramework) — Let supported push service run system-ly on every Android devices *(Java · ⭐ 694)*
+- [KusStar/rewind-apks](https://github.com/KusStar/rewind-apks) — 倒带 App｜应用安装包仓库 *(⭐ 686)*
+- [Nep-Timeline/Re-Telegram](https://github.com/Nep-Timeline/Re-Telegram) — An Xposed module to enhance the Telegram *(Java · ⭐ 667)*
+- [honmaple/maple-file](https://github.com/honmaple/maple-file) — Multi-protocol cloud file upload and management with serverless / 无服务端的多协议云盘文件上传和管理APP *(Dart · ⭐ 628)*
+- [InputShare/InputShare](https://github.com/InputShare/InputShare) — InputShare enables you to share the keyboard and mouse of your computer with an Android device via ADB in wired / wireless way. *(Python · ⭐ 613)*
+- [kaisar945/Xposed-GodMode](https://github.com/kaisar945/Xposed-GodMode) — A xposed module similar to AdBlock, You can edit the application user interface at will. *(Java · ⭐ 612)*
+- [ElishaAz/Sayboard](https://github.com/ElishaAz/Sayboard) — An open-source on-device voice IME (keyboard) for Android using the Vosk library. *(Kotlin · ⭐ 584)*
+- [ruffle-rs/ruffle-android](https://github.com/ruffle-rs/ruffle-android) — An Android application for ruffle.rs *(Kotlin · ⭐ 572)*
+- [zhaobozhen/Anywhere-](https://github.com/zhaobozhen/Anywhere-) *(Kotlin · ⭐ 565)*
+- [Archmage83/Android_apk](https://github.com/Archmage83/Android_apk) — 手机安卓手机端电影软件，希望大家一起维护 *(Java · ⭐ 557)*
+- [laurent22/joplin-android](https://github.com/laurent22/joplin-android) — Android releases for Joplin *(⭐ 552)*
+- [fankes/MIUINativeNotifyIcon](https://github.com/fankes/MIUINativeNotifyIcon) — Fix the native notification bar icon function abandoned by the MIUI development team. *(Kotlin · ⭐ 547)*
+- [DenverCoder1/latex-gboard-dictionary](https://github.com/DenverCoder1/latex-gboard-dictionary) — ⌨ Importable dictionary for typing math symbols more easily on your Android phone by using keyboard shortcuts inspired by LaTeX *(⭐ 529)*
+- [cofedream/extensions-copymanga](https://github.com/cofedream/extensions-copymanga) — Mihon的Copymanga扩展 *(HTML · ⭐ 489)*
+- [imknown/AndroidLowLevelDetector](https://github.com/imknown/AndroidLowLevelDetector) — Detect Treble, GSI, Mainline, APEX, system-as-root(SAR), A/B, etc. *(Kotlin · ⭐ 469)*
+- [Pzqqt/Magisk_Manager_Recovery_Tool](https://github.com/Pzqqt/Magisk_Manager_Recovery_Tool) — A Magisk Manager tool that can be used in Recovery mode base Aroma Installer. *(Python · ⭐ 459)*
+- [xiaiohuan/TiviMate](https://github.com/xiaiohuan/TiviMate) *(⭐ 458)*
+- [AOF-Dev/Boat](https://github.com/AOF-Dev/Boat) — Environment for running Minecraft Java Edition on Android *(Java · ⭐ 456)*
+- [chenzyadb/CuprumTurbo-Scheduler](https://github.com/chenzyadb/CuprumTurbo-Scheduler) — A Simple and Reliable Performance Scheduler. *(Shell · ⭐ 450)*
+- [BetterAndroid/android-notification-icon-project](https://github.com/BetterAndroid/android-notification-icon-project) — Provides standardized monochrome icon resources for apps and vendor systems that do not conform to the Android standard notification design. *(Kotlin · ⭐ 438)*
+- [zhufucdev/MotionEmulator](https://github.com/zhufucdev/MotionEmulator) — Xposed enabled location simulator with sensor support. *(Kotlin · ⭐ 419)*
+- [WuDi-ZhanShen/ShizukuRunner](https://github.com/WuDi-ZhanShen/ShizukuRunner) — 以shizuku身份执行命令的安卓小工具。A 50KB android app to run any commands via Shizuku. *(Java · ⭐ 418)*
+- [Xposed-Modules-Repo/org.hello.coolapk](https://github.com/Xposed-Modules-Repo/org.hello.coolapk) — FuckCoolapk R *(⭐ 411)*
+- [ModinMobileSTS/Sts2MobileLauncher](https://github.com/ModinMobileSTS/Sts2MobileLauncher) — an unofficial sts2 mobile launcher that support mods,optimized mobile control *(Java · ⭐ 408)*
+- [ModinMobileSTS/SlayTheAmethystModded](https://github.com/ModinMobileSTS/SlayTheAmethystModded) — A modded Slay the Spire experience on Android. *(Kotlin · ⭐ 381)*
+- [sub-store-org/subcase](https://github.com/sub-store-org/subcase) — A Powerful Wrapper for SubStore on Android. *(Kotlin · ⭐ 366)*
+- [andstatus/game2048](https://github.com/andstatus/game2048) — 2048 Open Fun Game - multiplatform implementation in Kotlin and KorGE game engine *(Kotlin · ⭐ 358)*
+- [Vera-Firefly/Pojav-Glow-Worm](https://github.com/Vera-Firefly/Pojav-Glow-Worm) — PojavLauncher with more practical functions,A modified Launcher from the PojavLauncher team *(C · ⭐ 356)*
+- [Doryoku1223/TabulaV3](https://github.com/Doryoku1223/TabulaV3) — Tabula V3 - 极简相册整理工具 \| Tinder风格卡片交互，单手滑动整理照片。100%本地处理，免费无广告，隐私安全。 *(Kotlin · ⭐ 343)*
+- [suzhelan/TimTool](https://github.com/suzhelan/TimTool) — Tim功能性增强XPosed模块，为Tim增加更多趣味功能 *(Kotlin · ⭐ 342)*
+- [CodeWorksCreativeHub/EasyLauncher](https://github.com/CodeWorksCreativeHub/EasyLauncher) — EasyLauncher - Minimal and Clutter Free Android launcher *(Kotlin · ⭐ 341)*
+- [bajrangCoder/acode-plugin-acodex](https://github.com/bajrangCoder/acode-plugin-acodex) — AcodeX - A Terminal plugin for Acode App *(JavaScript · ⭐ 335)*
+- [GSWXXN/RestoreSplashScreen](https://github.com/GSWXXN/RestoreSplashScreen) — 启动遮罩进化 / RestoreSplashScreen *(Kotlin · ⭐ 329)*
+- [XingC123/BackgroundOpt](https://github.com/XingC123/BackgroundOpt) — 这是一个通过调整进程oom_score_adj来骗过lmk从而实现保后台的模块。 *(Kotlin · ⭐ 326)*
+- [ShIroRRen/ShiroSU-Utils](https://github.com/ShIroRRen/ShiroSU-Utils) — Multi-platform Android Modding & Tweaking Utility \| 多平台 Android 玩机工具 *(V · ⭐ 304)*
+- [Angel-Studio/MaterialYou-Dynamic-Island](https://github.com/Angel-Studio/MaterialYou-Dynamic-Island) — Free Android version of Dynamic Island feature stylized with Material You. *(Kotlin · ⭐ 303)*
+- [liuran001/GJZS](https://github.com/liuran001/GJZS) — 搞机助手·R（原「搞机助手重制版」） *(Shell · ⭐ 293)*
+- [lizongying/my-tv-1](https://github.com/lizongying/my-tv-1) — 我的電視·一 電視視頻播放軟件，支持播放網頁視頻 *(Kotlin · ⭐ 288)*
+- [fankes/ColorOSNotifyIcon](https://github.com/fankes/ColorOSNotifyIcon) — Optimize notification icons for ColorOS and adapt to native notification icon specifications. *(Kotlin · ⭐ 273)*
+- [FreezeYou/FreezeYou](https://github.com/FreezeYou/FreezeYou) — 支持 ROOT、免 ROOT 与系统应用模式 *(Kotlin · ⭐ 273)*
+- [Open4Es/Open4Es-Shader-Android](https://github.com/Open4Es/Open4Es-Shader-Android) — This is a shader can running on Minecraft Java Edition For Phone project which uses GL4ES. This repository contains source code for Android platform. *(GLSL · ⭐ 263)*
+- [callng/TCQT](https://github.com/callng/TCQT) — 一个针对QQ与TIM的多功能XPosed(Zygisk)模块 *(Kotlin · ⭐ 260)*
+- [TGwear/TGwear](https://github.com/TGwear/TGwear) — ‎Telegram for Android watch & wearos *(Java · ⭐ 237)*
+- [FaIryFlower/FairyFlower.github.io](https://github.com/FaIryFlower/FairyFlower.github.io) — 菜花的小网站 *(⭐ 230)*
+- [Hy4ri/hermes-mobile](https://github.com/Hy4ri/hermes-mobile) — Native Android client for Hermes Agent. Your agent, in your pocket. *(Kotlin · ⭐ 224)*
+- [fxliang/fcitx5-android](https://github.com/fxliang/fcitx5-android) — Fcitx5 input method framework and engines ported to Android, with enhanced features *(Kotlin · ⭐ 214)*
+- [NihilityT/MiPush](https://github.com/NihilityT/MiPush) — 让 MiPushFramework 支持分应用 *(Kotlin · ⭐ 206)*
+- [lz233/OneText_For_Android](https://github.com/lz233/OneText_For_Android) — A neat little application that can display some custom sentences through widgets on the launcher. *(Java · ⭐ 189)*
+- [jaredcat/WiFiList](https://github.com/jaredcat/WiFiList) *(Kotlin · ⭐ 178)*
+- [Xposed-Modules-Repo/com.chrxw.purenga](https://github.com/Xposed-Modules-Repo/com.chrxw.purenga) — NGA玩家论坛去广告模块 *(⭐ 163)*
+- [cypressincloud/Tally](https://github.com/cypressincloud/Tally) *(Java · ⭐ 161)*
+- [fei-ke/HmsPushZygisk](https://github.com/fei-ke/HmsPushZygisk) — 一个 Zygisk 模块，为应用伪装华为设备，以便使用 HMSPush *(Rust · ⭐ 158)*
+- [kc0ed/SearchEVO](https://github.com/kc0ed/SearchEVO) — \[转载\]好用的搜索软件 *(⭐ 153)*
+- [taamarin/box.manager](https://github.com/taamarin/box.manager) — Optional *(Kotlin · ⭐ 148)*
+- [huzesama/ASGuard](https://github.com/huzesama/ASGuard) — Magisk模块，用于安卓的无障碍服务(或名:辅助功能)辅助管理模块 *(Shell · ⭐ 143)*
+- [NihilityT/MiPushConfigurations](https://github.com/NihilityT/MiPushConfigurations) *(PowerShell · ⭐ 137)*
+- [Magisk-Modules-Alt-Repo/Xtreme-Battery-Saver](https://github.com/Magisk-Modules-Alt-Repo/Xtreme-Battery-Saver) — An extreme battery saver Magisk Module for users who want to really stretch their battery life *(Shell · ⭐ 130)*
+- [Xposed-Modules-Repo/cn.myflv.noactive](https://github.com/Xposed-Modules-Repo/cn.myflv.noactive) — NoActive *(⭐ 124)*
+- [8Mi-Tech/LSPatch-ApkFactory](https://github.com/8Mi-Tech/LSPatch-ApkFactory) — 一个基于LSPatch的打包工具，自动为常见应用打LSPatch补丁的仓库，包括各类分支(详见readme) *(⭐ 123)*
+- [aivanovski/keepassvault](https://github.com/aivanovski/keepassvault) — KeePass client app for Android *(Kotlin · ⭐ 118)*
+- [eswd04/freeform_update](https://github.com/eswd04/freeform_update) — eswd custom Mi-freeform update *(Kotlin · ⭐ 111)*
+- [fcitx5-android/fcitx5-android-updater](https://github.com/fcitx5-android/fcitx5-android-updater) *(Kotlin · ⭐ 109)*
+- [KIPPUDESU/KIPPU_Trace](https://github.com/KIPPUDESU/KIPPU_Trace) — 一个记录重要时刻，功能简单且界面美观的安卓原生 App，将持续收取建议跟进开发。目的是在界面和体验上一定程度超越替代倒数日 *(Kotlin · ⭐ 108)*
+- [Doraemonliu/com.houvven.guise](https://github.com/Doraemonliu/com.houvven.guise) — Guise *(⭐ 107)*
+- [Acooldog/fuckschoolrun](https://github.com/Acooldog/fuckschoolrun) — 基于影梭打造的校园跑软件，支持模拟NFC *(Java · ⭐ 105)*
+- [Yubyf/QuoteLockX](https://github.com/Yubyf/QuoteLockX) — Displays quotes on your lockscreen, because why not. *(Kotlin · ⭐ 93)*
+- [ZTHA000/tvbox](https://github.com/ZTHA000/tvbox) *(JavaScript · ⭐ 93)*
+- [shichuanenhui/TvBox](https://github.com/shichuanenhui/TvBox) *(JavaScript · ⭐ 87)*
+- [Chzxxuanzheng/Stapxs-QQ-Lite-X](https://github.com/Chzxxuanzheng/Stapxs-QQ-Lite-X) — 一个跨协议的 Stapxs QQ Lite 发行版。 *(Vue · ⭐ 69)*
+- [wg-1337/NovelMaker](https://github.com/wg-1337/NovelMaker) — 一个调用llm写小说的软件 *(Kotlin · ⭐ 60)*
+- [Xposed-Modules-Repo/com.fankes.tsbattery](https://github.com/Xposed-Modules-Repo/com.fankes.tsbattery) — TSBattery *(⭐ 58)*
+- [youshen2/com.bandbbs.ebook-android](https://github.com/youshen2/com.bandbbs.ebook-android) *(Kotlin · ⭐ 56)*
+- [chase535/accurate_battery](https://github.com/chase535/accurate_battery) — 精准电量 *(C · ⭐ 54)*
+- [SchneeSchmitt/ADB-Android-Optimizer](https://github.com/SchneeSchmitt/ADB-Android-Optimizer) — Rootless (ADB) Android performance optimizer for every condition, from pure performance to power-saving *(Batchfile · ⭐ 48)*
+- [qh7574/Fcitx5-SyncClipboard](https://github.com/qh7574/Fcitx5-SyncClipboard) *(Kotlin · ⭐ 44)*
+- [huaxianyan/ComebackGooglePinyinInput](https://github.com/huaxianyan/ComebackGooglePinyinInput) — Google 拼音输入法 创造性 AI 版：面向 Android 16 / 17 的非商业兼容维护与现代化改造项目 *(Smali · ⭐ 36)*
+- [100pangci/Noxfold-Sync](https://github.com/100pangci/Noxfold-Sync) — Native Android syncing, powered by Syncthing. *(Kotlin · ⭐ 34)*
+- [Simplicity-Team/WooBoxForColorOS](https://github.com/Simplicity-Team/WooBoxForColorOS) — 一个基于 ColorOS12(Android 12) 适配的自定义工具 // A system extension Xposed module based on ColorOS12 (Android12) *(Kotlin · ⭐ 34)*
+- [Xposed-Modules-Repo/com.makino.cslyric](https://github.com/Xposed-Modules-Repo/com.makino.cslyric) — 词幕（CSLyric） *(⭐ 29)*
+- [rushiranpise/xmlpak-RE](https://github.com/rushiranpise/xmlpak-RE) *(Shell · ⭐ 26)*
+- [XYenon/catppuccin-fcitx5-android](https://github.com/XYenon/catppuccin-fcitx5-android) — 🐧 Soothing pastel theme for fcitx5-android *(Just · ⭐ 24)*
+- [OrangeX4/Termux-Finux](https://github.com/OrangeX4/Termux-Finux) — A file manager for mobile linux like termux. *(JavaScript · ⭐ 21)*
+- [LMODroid/platform_packages_apps_LMOFreeform](https://github.com/LMODroid/platform_packages_apps_LMOFreeform) *(Kotlin · ⭐ 12)*
+- [zixij644-elaborate/pickup-code-app](https://github.com/zixij644-elaborate/pickup-code-app) — 自动识别截屏 / 分享图片中的取餐码和取件码，通知提醒 + 一键标记已取。 *(Kotlin · ⭐ 11)*
+- [zuiwuchang/android-rimesync](https://github.com/zuiwuchang/android-rimesync) — Solution for syncing fcitx5-android vocabulary under Android SAF restrictions *(C++ · ⭐ 4)*
+- [robot00f/Flyme-FreeForm](https://github.com/robot00f/Flyme-FreeForm) *(⭐ 1)*
+
+_Generated by startidy on 2026-09-30._

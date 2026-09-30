@@ -1,0 +1,216 @@
+<!-- startidy:category name="游戏-Minecraft" description="收纳 Minecraft 启动器、服务端、模组、地图和相关工具" -->
+
+# 游戏-Minecraft
+
+收纳 Minecraft 启动器、服务端、模组、地图和相关工具
+
+[← Back to index](README.md)
+
+**204 repositories**
+
+- [louis-e/arnis](https://github.com/louis-e/arnis) — Generate any location from the real world in Minecraft with a high level of detail. *(Rust · ⭐ 18118)*
+- [itzg/docker-minecraft-server](https://github.com/itzg/docker-minecraft-server) — Docker image that provides a Minecraft Server for Java Edition that automatically installs/upgrades versions, modloaders, modpacks and more at startup *(Shell · ⭐ 14362)*
+- [PaperMC/Paper](https://github.com/PaperMC/Paper) — The most widely used, high performance Minecraft server that aims to fix gameplay and mechanics inconsistencies *(Java · ⭐ 12689)*
+- [Pumpkin-MC/Pumpkin](https://github.com/Pumpkin-MC/Pumpkin) — Empowering everyone to host fast and efficient Minecraft servers *(Rust · ⭐ 11719)*
+- [PrismLauncher/PrismLauncher](https://github.com/PrismLauncher/PrismLauncher) — A custom launcher for Minecraft that allows you to easily manage multiple installations of Minecraft at once (Fork of MultiMC) *(C++ · ⭐ 10538)*
+- [HMCL-dev/HMCL](https://github.com/HMCL-dev/HMCL) — A Minecraft Launcher which is multi-functional, cross-platform and popular *(Java · ⭐ 10154)*
+- [PojavLauncherTeam/PojavLauncher](https://github.com/PojavLauncherTeam/PojavLauncher) — A Minecraft: Java Edition Launcher for Android and iOS based on Boardwalk. Succeeded by https://github.com/AngelAuraMC/Amethyst-Android *(Java · ⭐ 9404)*
+- [Meloong-Git/PCL](https://github.com/Meloong-Git/PCL) — Minecraft 启动器 Plain Craft Launcher（PCL）。 *(Visual Basic .NET · ⭐ 7344)*
+- [CaffeineMC/sodium](https://github.com/CaffeineMC/sodium) — A high-performance rendering engine replacement for Minecraft, which greatly improves frame rates and reduces micro-stutter *(Java · ⭐ 5794)*
+- [MCSManager/MCSManager](https://github.com/MCSManager/MCSManager) — Quick deployment, distributed, multi-user, modern management panel for Minecraft and Steam game servers / 快速安装，分布式架构，多用户，现代化的 Minecraft 和 Steam 游戏服务器管理面板 *(TypeScript · ⭐ 4975)*
+- [Querz/mcaselector](https://github.com/Querz/mcaselector) — A tool to select chunks from Minecraft worlds for deletion or export. *(Java · ⭐ 4858)*
+- [FCL-Team/FoldCraftLauncher](https://github.com/FCL-Team/FoldCraftLauncher) — Fold Craft Launcher, an Android Minecraft : Java Edition launcher. *(Java · ⭐ 4802)*
+- [IrisShaders/Iris](https://github.com/IrisShaders/Iris) — A modern shaders mod for Minecraft compatible with existing OptiFine shader packs *(Java · ⭐ 3855)*
+- [mouse0w0/MinecraftDeveloperGuide](https://github.com/mouse0w0/MinecraftDeveloperGuide) — 📝Minecraft developer Chinese guide，我的世界开发者中文指南 *(⭐ 3371)*
+- [FabricMC/fabric-api](https://github.com/FabricMC/fabric-api) — Essential hooks for modding with Fabric. *(Java · ⭐ 3182)*
+- [PurpurMC/Purpur](https://github.com/PurpurMC/Purpur) — Purpur is a drop-in replacement for Paper servers designed for configurability, and new fun and exciting gameplay features. *(Java · ⭐ 2418)*
+- [CCBlueX/LiquidBounce](https://github.com/CCBlueX/LiquidBounce) — A free Minecraft hacked client (utility mod) for Fabric *(Kotlin · ⭐ 2400)*
+- [MCHPR/MCHPRS](https://github.com/MCHPR/MCHPRS) — A multithreaded Minecraft server built for redstone. *(Rust · ⭐ 2324)*
+- [PaperMC/Velocity](https://github.com/PaperMC/Velocity) — The modern, next-generation Minecraft server proxy. *(Java · ⭐ 2266)*
+- [webbukkit/dynmap](https://github.com/webbukkit/dynmap) — A set of Minecraft mods that provide a real time web-based map system for various Minecraft server implementations. *(Java · ⭐ 2224)*
+- [IzzelAliz/Arclight](https://github.com/IzzelAliz/Arclight) — A Bukkit(1.20/1.21) server implementation in modding environment using Mixin. ⚡ *(Java · ⭐ 2084)*
+- [gnembon/fabric-carpet](https://github.com/gnembon/fabric-carpet) — Fabric Carpet *(Java · ⭐ 2080)*
+- [ZalithLauncher/ZalithLauncher2](https://github.com/ZalithLauncher/ZalithLauncher2) — A Minecraft: Java Edition Launcher for Android *(Kotlin · ⭐ 1924)*
+- [ZalithLauncher/ZalithLauncher](https://github.com/ZalithLauncher/ZalithLauncher) — Due to maintenance difficulties, this project has been archived. Check out the new project: https://github.com/ZalithLauncher/ZalithLauncher2 *(C · ⭐ 1748)*
+- [Cubitect/cubiomes-viewer](https://github.com/Cubitect/cubiomes-viewer) — An efficient graphical Minecraft seed finder and map viewer. *(C++ · ⭐ 1705)*
+- [Hexeption/MCP-Reborn](https://github.com/Hexeption/MCP-Reborn) — MCP-Reborn is an MCP (Mod Coder Pack) for Minecraft for making modded clients and researching its code. (1.13-26.2) *(⭐ 1553)*
+- [mircokroon/minecraft-world-downloader](https://github.com/mircokroon/minecraft-world-downloader) — Download Minecraft worlds, extend server's render distance. 1.12.2 - 1.21 *(Java · ⭐ 1522)*
+- [TiangongCraft/Tenet](https://github.com/TiangongCraft/Tenet) — Minecraft Forge Hybrid server implementing the Spigot/Bukkit API, formerly known as Thermos/Cauldron/MCPC+ *(Java · ⭐ 1512)*
+- [PorkStudios/FarPlaneTwo](https://github.com/PorkStudios/FarPlaneTwo) — Level-of-Detail renderer in Minecraft. Allows for render distances of millions of blocks. (Cubic Chunks-compatible) (WIP) *(Java · ⭐ 1446)*
+- [lucko/spark](https://github.com/lucko/spark) — A performance profiler for Minecraft clients, servers, and proxies. *(Java · ⭐ 1335)*
+- [MobileGL-Dev/MobileGlues-release](https://github.com/MobileGL-Dev/MobileGlues-release) — MobileGlues, which stands for "(on) Mobile, GL uses ES", is a GL implementation running on top of host OpenGL ES 3.2, with running Minecraft Java Edition in mind. *(⭐ 1318)*
+- [Earthcomputer/clientcommands](https://github.com/Earthcomputer/clientcommands) — Adds useful client-side commands *(Java · ⭐ 1268)*
+- [CFPAOrg/Minecraft-Mod-Language-Package](https://github.com/CFPAOrg/Minecraft-Mod-Language-Package) — A language package for Minecraft Mods. *(C# · ⭐ 1202)*
+- [MCreator/MCreator](https://github.com/MCreator/MCreator) — MCreator is an open-source software used to make Minecraft Java Edition mods, Minecraft Bedrock Edition Add-Ons, resource packs, and data packs using an intuitive easy-to-learn interface or with an integrated code editor. It is used worldwide by Minecraft players, aspiring mod developers, for education, online classes, and STEM workshops. *(Java · ⭐ 1202)*
+- [teaSummer/MCiSEE](https://github.com/teaSummer/MCiSEE) — 所见皆是Minecraft，让获取MC资源更加轻便！All of Minecraft, EASILY get Minecraft resources! *(JavaScript · ⭐ 1202)*
+- [CardboardPowered/cardboard](https://github.com/CardboardPowered/cardboard) — The Bukkit/Spigot/Paper API implementation for Fabric *(Java · ⭐ 1182)*
+- [Fabulously-Optimized/fabulously-optimized](https://github.com/Fabulously-Optimized/fabulously-optimized) — A simple Minecraft modpack focusing on performance and graphics enhancements. *(Python · ⭐ 1177)*
+- [Minecraft-Radiance/Radiance](https://github.com/Minecraft-Radiance/Radiance) — Radiance is rebuilt of Minecraft renderer on a Vulkan C++ backend, featuring native Hardware Ray Tracing on Windows & Linux. Break free from OpenGL limits for Minecraft. *(Java · ⭐ 1113)*
+- [NEZNAMY/TAB](https://github.com/NEZNAMY/TAB) — "That" TAB plugin. *(Java · ⭐ 1102)*
+- [MCDReforged/MCDReforged](https://github.com/MCDReforged/MCDReforged) — A rewritten version of MCDaemon, a python tool to control your Minecraft server *(Python · ⭐ 1097)*
+- [GSManagerXZ/GameServerManager](https://github.com/GSManagerXZ/GameServerManager) — GameServerManager（简称GSManager）现代化游戏一键部署面板，专为简化游戏服务器的部署、管理和维护而设计；注重steam、MC游戏一键开服 *(TypeScript · ⭐ 1063)*
+- [ReplayMod/ReplayMod](https://github.com/ReplayMod/ReplayMod) — Minecraft ReplayMod *(Java · ⭐ 1020)*
+- [Aizistral-Studios/No-Chat-Reports](https://github.com/Aizistral-Studios/No-Chat-Reports) — Disable Player Chat Reporting and make user messages untrackable. *(Java · ⭐ 1017)*
+- [PlaceholderAPI/PlaceholderAPI](https://github.com/PlaceholderAPI/PlaceholderAPI) — The best and simplest way to add placeholders to your server! - 2M+ Downloads - 3.5k+ Placeholders *(Java · ⭐ 979)*
+- [yushijinhun/authlib-injector](https://github.com/yushijinhun/authlib-injector) — Build your own Minecraft authentication system. *(Java · ⭐ 944)*
+- [Lxtharia/minegrub-world-sel-theme](https://github.com/Lxtharia/minegrub-world-sel-theme) — A grub theme in the style of the Minecraft singleplayer (sp) world selection screen! *(Shell · ⭐ 934)*
+- [LeavesMC/Leaves](https://github.com/LeavesMC/Leaves) — Fork of Paper aimed at repairing broken vanilla properties. *(Java · ⭐ 851)*
+- [HMCL-dev/HMCL-PE](https://github.com/HMCL-dev/HMCL-PE) — Hello Minecraft! Launcher for Android *(Java · ⭐ 846)*
+- [RelativityMC/C2ME-fabric](https://github.com/RelativityMC/C2ME-fabric) — A Fabric mod designed to improve the chunk performance of Minecraft. *(Java · ⭐ 804)*
+- [yuniko-software/minecraft-mcp-server](https://github.com/yuniko-software/minecraft-mcp-server) — A Minecraft MCP Server powered by Mineflayer API. It allows to control a Minecraft character in real-time, allowing AI assistants to build structures, explore the world, and interact with the game environment through natural language instruction *(TypeScript · ⭐ 762)*
+- [Griefed/ServerPackCreator](https://github.com/Griefed/ServerPackCreator) — Create a server pack from a Minecraft Forge, NeoForge, Fabric, LegacyFabric or Quilt modpack! *(Kotlin · ⭐ 710)*
+- [LXYan2333/Fabric-Bedrock-Miner](https://github.com/LXYan2333/Fabric-Bedrock-Miner) — A fabric client mod to mine bedrock! *(Kotlin · ⭐ 683)*
+- [ViaVersion/ViaFabricPlus](https://github.com/ViaVersion/ViaFabricPlus) — Minecraft Fabric mod that allows you to join every Minecraft server version (Classic, Alpha, Beta, Release, April Fools, Bedrock) *(Java · ⭐ 673)*
+- [CommandAPI/CommandAPI](https://github.com/CommandAPI/CommandAPI) — A Bukkit/Spigot API for the command UI introduced in Minecraft 1.13 *(Java · ⭐ 651)*
+- [crpmax/mc-bots](https://github.com/crpmax/mc-bots) — A simple app for stress testing Minecraft servers with bots *(Java · ⭐ 540)*
+- [unmojang/drasl](https://github.com/unmojang/drasl) — Alternative API server for Minecraft *(Go · ⭐ 522)*
+- [jsorrell/CarpetSkyAdditions](https://github.com/jsorrell/CarpetSkyAdditions) — Empty world generation with new ways to obtain resources *(Java · ⭐ 514)*
+- [stefvanschie/IF](https://github.com/stefvanschie/IF) — An inventory framework for managing GUIs *(Java · ⭐ 513)*
+- [BakaXL-Launcher/BakaXL](https://github.com/BakaXL-Launcher/BakaXL) — BakaXL 项目门户 / BakaXL Project's Portal *(⭐ 507)*
+- [xenondevs/Nova](https://github.com/xenondevs/Nova) — Nova is a server-side modding framework for Paper servers that aims to streamline adding custom content like items, blocks, guis, and more, without client-side modifications, using resource pack tricks. *(Kotlin · ⭐ 496)*
+- [CaaMoe/MultiLogin](https://github.com/CaaMoe/MultiLogin) — 外置共存 *(Java · ⭐ 482)*
+- [GeForceLegend/Minecraft-3D-Default](https://github.com/GeForceLegend/Minecraft-3D-Default) — A Minecraft default-look resourcepack with 3D models. *(⭐ 460)*
+- [AOF-Dev/Boat](https://github.com/AOF-Dev/Boat) — Environment for running Minecraft Java Edition on Android *(Java · ⭐ 456)*
+- [Earthcomputer/multiconnect](https://github.com/Earthcomputer/multiconnect) — A mod to connect to multiple Minecraft server versions *(Java · ⭐ 454)*
+- [maruohon/minihud](https://github.com/maruohon/minihud) — A client-side Minecraft mod with configurable "info lines" ("mini-F3") and various overlays, such as light level and structure bounding boxes *(Java · ⭐ 454)*
+- [Dwinovo/minecraft-numen](https://github.com/Dwinovo/minecraft-numen) — 住在 Minecraft 里的 AI 同伴——召唤它、跟它说话，它自己规划并动手：挖矿、建造、种地、战斗、合成。 *(Java · ⭐ 451)*
+- [Moulberry/Flashback](https://github.com/Moulberry/Flashback) *(Java · ⭐ 437)*
+- [mc-meme/mc-meme](https://github.com/mc-meme/mc-meme) — some meme about Minecraft *(Python · ⭐ 408)*
+- [bangbang93/openbmclapi](https://github.com/bangbang93/openbmclapi) — BMCLAPI@Home *(TypeScript · ⭐ 395)*
+- [DynamicTreesTeam/DynamicTrees](https://github.com/DynamicTreesTeam/DynamicTrees) — Minecraft Forge mod providing dynamic trees that progressively grow from seed to maturity. *(Java · ⭐ 393)*
+- [squeek502/AppleSkin](https://github.com/squeek502/AppleSkin) — Food-related HUD improvements for Minecraft (AppleCore without the core) *(Java · ⭐ 390)*
+- [DreamingLri/masa-mods-chinese](https://github.com/DreamingLri/masa-mods-chinese) — 一个masa mods的汉化资源包 *(Python · ⭐ 377)*
+- [Light-Beacon/PCL2-NewsHomepage](https://github.com/Light-Beacon/PCL2-NewsHomepage) — Provides latest Minecraft news on Plain Craft Launcher 2 *(Markdown · ⭐ 360)*
+- [Vera-Firefly/Pojav-Glow-Worm](https://github.com/Vera-Firefly/Pojav-Glow-Worm) — PojavLauncher with more practical functions,A modified Launcher from the PojavLauncher team *(C · ⭐ 356)*
+- [TISUnion/Carpet-TIS-Addition](https://github.com/TISUnion/Carpet-TIS-Addition) — A Carpet mod (fabric-carpet) extension, a collection of carpet mod style useful tools and interesting features *(Java · ⭐ 336)*
+- [SoLegendary/reignofnether](https://github.com/SoLegendary/reignofnether) *(Java · ⭐ 335)*
+- [jpenilla/TabTPS](https://github.com/jpenilla/TabTPS) — Minecraft server mod/plugin to monitor TPS, MSPT, and other information in the tab menu, boss bar, and action bar. *(Java · ⭐ 330)*
+- [layou233/ZBProxy](https://github.com/layou233/ZBProxy) — 🚀Transfer your network data, bypassing the Hypixel unofficial address detection! *(Go · ⭐ 330)*
+- [maruohon/malilib](https://github.com/maruohon/malilib) — Library mod for masa's client-side Minecraft mods *(Java · ⭐ 329)*
+- [gnembon/carpet-extra](https://github.com/gnembon/carpet-extra) — Extra Features for Carpet Mod *(Java · ⭐ 328)*
+- [MCDReforged/PluginCatalogue](https://github.com/MCDReforged/PluginCatalogue) — The official MCDReforged plugin catalogue *(Python · ⭐ 325)*
+- [plusls/MasaGadget](https://github.com/plusls/MasaGadget) — Masa Gadget *(Java · ⭐ 324)*
+- [Jasons-impart/Create-Delight-Remake](https://github.com/Jasons-impart/Create-Delight-Remake) — Create Delight in 1.20.1! *(JavaScript · ⭐ 306)*
+- [WiIIiam278/HuskSync](https://github.com/WiIIiam278/HuskSync) — A modern, cross-server player data synchronisation system *(Java · ⭐ 292)*
+- [pterodactyl-china/panel](https://github.com/pterodactyl-china/panel) — 【翼龙面板汉化版】Pterodactyl®的中文汉化并国内本土化版本，并实时更新主分支的dev内容。 *(PHP · ⭐ 283)*
+- [Open4Es/Open4Es-Shader-Android](https://github.com/Open4Es/Open4Es-Shader-Android) — This is a shader can running on Minecraft Java Edition For Phone project which uses GL4ES. This repository contains source code for Android platform. *(GLSL · ⭐ 263)*
+- [dmitrymodder/minewire](https://github.com/dmitrymodder/minewire) — Proxy server that masquerades as a Minecraft server to establish encrypted tunnels and bypass network restrictions. *(Go · ⭐ 261)*
+- [Teahouse-Studios/mcwzh-meme-resourcepack](https://github.com/Teahouse-Studios/mcwzh-meme-resourcepack) — A pack that include meme translation in Chinese. \| 梗体中文 *(Python · ⭐ 251)*
+- [QuiltServerTools/Ledger](https://github.com/QuiltServerTools/Ledger) — A server-side logging mod for fabric 1.17+ *(Kotlin · ⭐ 250)*
+- [tr7zw/Exordium](https://github.com/tr7zw/Exordium) — There is no good reason to render the hotbar at 100+ fps *(Java · ⭐ 246)*
+- [astei/lazydfu](https://github.com/astei/lazydfu) — Fabric mod that makes Minecraft DataFixerUpper initialization lazy *(Java · ⭐ 243)*
+- [kaniol-lck/modmanager](https://github.com/kaniol-lck/modmanager) — A Qt-based mod manager for minecraft. *(C++ · ⭐ 236)*
+- [MincraftEinstein/SubtleEffects](https://github.com/MincraftEinstein/SubtleEffects) — Adding many new subtle details through particles and a few sounds *(Java · ⭐ 236)*
+- [lucko/BungeeGuard](https://github.com/lucko/BungeeGuard) — A plugin-based security/firewall solution for BungeeCord and Velocity proxies. *(Java · ⭐ 227)*
+- [Fallen-Breath/tweakermore](https://github.com/Fallen-Breath/tweakermore) — A collection of client-side tweak kits to enhance your Minecraft game experience. Tweak Minecraft and beyond! *(Java · ⭐ 226)*
+- [burningtnt/Terracotta](https://github.com/burningtnt/Terracotta) — Terracotta \| 陶瓦联机 *(Rust · ⭐ 219)*
+- [TouchController/TouchController](https://github.com/TouchController/TouchController) — The TouchController monorepo *(Kotlin · ⭐ 211)*
+- [ACGaming/UniversalTweaks](https://github.com/ACGaming/UniversalTweaks) — A community project to consolidate various bugfixes and tweaks into a single solution for Minecraft 1.12.2 ❗ Want to help out? Pull requests are more than welcome! 🤝 *(Java · ⭐ 195)*
+- [Stardust-Labs-MC/Terralith](https://github.com/Stardust-Labs-MC/Terralith) — A popular Minecraft worldgen datapack for the Overworld *(mcfunction · ⭐ 187)*
+- [senseiwells/ServerReplay](https://github.com/senseiwells/ServerReplay) — A completely server-side Minecraft fabric mod that allows you to record replays for replay mod or flashback. This mod allows you to record multiple players that are online on a server at a time, as well as any given chunk area. This will produce replay files which can then be used with the respective mod for viewing/rendering. *(Kotlin · ⭐ 184)*
+- [Nyan-Work/oh-my-minecraft-client](https://github.com/Nyan-Work/oh-my-minecraft-client) — oh-my-minecraft-client *(Java · ⭐ 174)*
+- [FxMorin/MemoryLeakFix](https://github.com/FxMorin/MemoryLeakFix) — A Fabric Mod that fixes multiple memory leaks in minecraft *(Java · ⭐ 163)*
+- [RelativityMC/VMP-fabric](https://github.com/RelativityMC/VMP-fabric) — A Fabric mod designed to improve server performance at high playercounts. *(Java · ⭐ 159)*
+- [Jahrome907/minecraft-agent-skills](https://github.com/Jahrome907/minecraft-agent-skills) — Minecraft AI agent skills and dual-target plugin bundle for Codex and Claude Code. *(Shell · ⭐ 157)*
+- [Test-Account666/PlugManX](https://github.com/Test-Account666/PlugManX) — Plugin manager for Bukkit servers. *(Java · ⭐ 156)*
+- [plusls/oh-my-minecraft-client](https://github.com/plusls/oh-my-minecraft-client) — oh-my-minecraft-client *(Java · ⭐ 151)*
+- [TISUnion/PrimeBackup](https://github.com/TISUnion/PrimeBackup) — A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world *(Python · ⭐ 145)*
+- [FxMorin/carpet-fixes](https://github.com/FxMorin/carpet-fixes) — fabric-carpet extension mod which attempts to fix as many vanilla minecraft bugs as possible. Feel free to add as many fixes as you want! Currently 220+ Fixes! *(Java · ⭐ 141)*
+- [natanfudge/Not-Enough-Crashes](https://github.com/natanfudge/Not-Enough-Crashes) — A mod that makes crashes so pleasant, you can't have enough of them! *(Java · ⭐ 130)*
+- [USS-Shenzhou/NotEnoughBandwidth](https://github.com/USS-Shenzhou/NotEnoughBandwidth) *(Java · ⭐ 128)*
+- [samolego/FabricTailor](https://github.com/samolego/FabricTailor) — A server-side or singleplayer skin changing mod for fabric. *(Java · ⭐ 121)*
+- [OKTW-Network/FabricProxy-Lite](https://github.com/OKTW-Network/FabricProxy-Lite) — Fabric mod for support forward player data from velocity. *(Java · ⭐ 119)*
+- [YiC200333/XConomy](https://github.com/YiC200333/XConomy) — An economy plugin that supports data synchronization between multiple servers *(Java · ⭐ 116)*
+- [plusls/plusls-carpet-addition](https://github.com/plusls/plusls-carpet-addition) — carpet addition for minecraft *(Java · ⭐ 112)*
+- [liquidbounceplusreborn/LiquidbouncePlus-Reborn](https://github.com/liquidbounceplusreborn/LiquidbouncePlus-Reborn) — Minecraft Forge 1.8.9 hacked client, Based on LiquidBounce+ *(Kotlin · ⭐ 107)*
+- [Axeryok/CocoaInput](https://github.com/Axeryok/CocoaInput) — A best way to input characters with native mac IM in Minecraft *(Java · ⭐ 102)*
+- [Hendrix-Shen/MagicLib](https://github.com/Hendrix-Shen/MagicLib) — To beat magic with magic :( *(Java · ⭐ 102)*
+- [reserveword/IMBlocker](https://github.com/reserveword/IMBlocker) — A mod for Minecraft helping control Input Methods *(Java · ⭐ 102)*
+- [AnzhiZhang/MCDReforgedPlugins](https://github.com/AnzhiZhang/MCDReforgedPlugins) — MCDReforged Plugins *(Python · ⭐ 101)*
+- [End-Tech/syncmatica](https://github.com/End-Tech/syncmatica) — Server-wide shared litematics. *(Java · ⭐ 99)*
+- [Andrews54757/tweakfork](https://github.com/Andrews54757/tweakfork) — A modified small client-side Minecraft mod that adds various configurable tweaks - plus some more *(Java · ⭐ 98)*
+- [senseiwells/EssentialClient](https://github.com/senseiwells/EssentialClient) — EssentialClient is a client-side mod that adds many client utilities as well as providing a gui to modify carpet rules! *(Kotlin · ⭐ 96)*
+- [CFPAOrg/I18nUpdateMod3](https://github.com/CFPAOrg/I18nUpdateMod3) — Brand new Minecraft Mod Language Package update mod *(Java · ⭐ 95)*
+- [vacla/Watson](https://github.com/vacla/Watson) — Updated Watson that displays LogBlock and CoreProtect query results in 3D. *(Java · ⭐ 93)*
+- [RelativityMC/ScalableLux](https://github.com/RelativityMC/ScalableLux) — A Fabric mod based on Starlight that improves the performance of light updates in Minecraft. *(Java · ⭐ 92)*
+- [AlessioDP/Parties](https://github.com/AlessioDP/Parties) — Party manager plugin for your Minecraft server! *(Java · ⭐ 89)*
+- [ZhuRuoLing/AcceleratedRendering-reFabricated](https://github.com/ZhuRuoLing/AcceleratedRendering-reFabricated) — Entity ModelPart Transform Accelerator *(Java · ⭐ 87)*
+- [mrjesen/ImBlockerFabric](https://github.com/mrjesen/ImBlockerFabric) — IMBlockerFabric is a mod that It can Hide IM(InputMethod) when you don't need to input text! This mod fixes the typing bug exist in Minecraft which annoying Asian players for a long time. *(Java · ⭐ 86)*
+- [Nuytemans-Dieter/BetterSleeping](https://github.com/Nuytemans-Dieter/BetterSleeping) — A Spigot plugin that will make sleeping on servers less of a hassle *(Java · ⭐ 83)*
+- [midnightfreddie/nbt2json](https://github.com/midnightfreddie/nbt2json) — A command line utitlity and module that reads NBT data and converts it to JSON or YAML for editing and then back to NBT again *(Go · ⭐ 71)*
+- [GlobeMC/crashmc.com](https://github.com/GlobeMC/crashmc.com) — CrashMC.com Website *(Vue · ⭐ 69)*
+- [TISUnion/ChatBridge](https://github.com/TISUnion/ChatBridge) — boardcast chat between mc servers or even discord server *(Python · ⭐ 67)*
+- [codehz/minecraft-unicode-font-texture-generator-online](https://github.com/codehz/minecraft-unicode-font-texture-generator-online) — minecraft unicode font texture generator online(Static Web Page) *(HTML · ⭐ 66)*
+- [GamerNoTitle/Minecraft-Server-Status](https://github.com/GamerNoTitle/Minecraft-Server-Status) — 【已重构，请前往GamerNoTitle/CraftMon】一个用于显示服务器在线信息及其他内容的网站 *(CSS · ⭐ 64)*
+- [SMNETSTUDIO/MCSP](https://github.com/SMNETSTUDIO/MCSP) — Minecraft Server Panel - Minecraft 服务器面板 *(JavaScript · ⭐ 58)*
+- [Hendrix-Shen/Tweak-My-Client](https://github.com/Hendrix-Shen/Tweak-My-Client) — Add something interesting <3 *(Java · ⭐ 57)*
+- [DichuuCraft/SReplay](https://github.com/DichuuCraft/SReplay) — Server-side recording mod for ReplayMod *(Java · ⭐ 54)*
+- [NLR-DevTeam/Fcitx5-Enhancer](https://github.com/NLR-DevTeam/Fcitx5-Enhancer) — A fcitx5 compatibility mod for Minecraft *(Java · ⭐ 52)*
+- [greyCloudTeam/MCDrink](https://github.com/greyCloudTeam/MCDrink) — 我的世界motd压测程序 *(Java · ⭐ 51)*
+- [skyrising/skyblock](https://github.com/skyrising/skyblock) — Minecraft mod for empty world generation and new ways to get certain items *(Java · ⭐ 51)*
+- [Super-Santa/EssentialAddons](https://github.com/Super-Santa/EssentialAddons) — Fabric Carpet extension that adds things from the Spigot plugin Essentials, or other features I think are needed for Minecraft *(Kotlin · ⭐ 50)*
+- [cao-awa/Conium](https://github.com/cao-awa/Conium) — Conium is a datapack and script framework for modern Minecraft, provides very diverse features without Java coding, lets mods complete only using datapacks. *(Kotlin · ⭐ 48)*
+- [OKTW-Network/FabricProxy](https://github.com/OKTW-Network/FabricProxy) — Fabric mod for support forward player data from proxy *(Java · ⭐ 44)*
+- [Extremelyd1/minecraft-bingo](https://github.com/Extremelyd1/minecraft-bingo) — Item bingo in Minecraft *(Java · ⭐ 43)*
+- [GamerNoTitle/CraftMon](https://github.com/GamerNoTitle/CraftMon) — A website that help you get Minecraft server status \| 一个用于显示Minecraft服务器在线信息及其他内容的网站 *(CSS · ⭐ 43)*
+- [Fallen-Breath/litematica-server-paster](https://github.com/Fallen-Breath/litematica-server-paster) — Let Litematica be able to paste tile entity data of block / entity data in a server *(Java · ⭐ 42)*
+- [TISUnion/StatsHelper](https://github.com/TISUnion/StatsHelper) — A Minecraft statistic helper *(Python · ⭐ 40)*
+- [wish131400/zstdnet](https://github.com/wish131400/zstdnet) — 这是一个MC JAVA版本mod，基于ZSTD无损压缩算法，它可以有效降低机械动力类含有大量重复数据的服务器带宽 *(Java · ⭐ 37)*
+- [KenRouKoro/C3H6N6O6](https://github.com/KenRouKoro/C3H6N6O6) — 这是一个用于实体多线程运算的模组 *(Java · ⭐ 36)*
+- [Conflux-Union/NotEnoughBandwidth](https://github.com/Conflux-Union/NotEnoughBandwidth) *(Java · ⭐ 34)*
+- [hotpad100c/yetanothercarpetaddition](https://github.com/hotpad100c/yetanothercarpetaddition) — Another carpet addition *(Java · ⭐ 34)*
+- [R1ckyH/ChatBridgeReforged](https://github.com/R1ckyH/ChatBridgeReforged) — Reforged of ChatBridge, interaction with other clients(such as Minecraft server, discord bot, or other things). *(Python · ⭐ 34)*
+- [wifi-left/Map-MiniGames](https://github.com/wifi-left/Map-MiniGames) — 一个Minecraft 小游戏地图（新仓库） *(mcfunction · ⭐ 33)*
+- [Finsider/starhud](https://github.com/Finsider/starhud) — a HUD mod for Minecraft. *(Java · ⭐ 32)*
+- [gbl/AntiGhost](https://github.com/gbl/AntiGhost) — Mod that requests the server to send surrounding blocks to you, to get rid of ghost blocks *(Java · ⭐ 32)*
+- [HMCL-dev/HMCL-docs](https://github.com/HMCL-dev/HMCL-docs) — Documentations for Hello Minecraft! Launcher *(JavaScript · ⭐ 30)*
+- [Iru21/Authy](https://github.com/Iru21/Authy) — A simple authentication plugin for Minecraft 1.17+! *(Kotlin · ⭐ 28)*
+- [Fallen-Breath/more-statistics](https://github.com/Fallen-Breath/more-statistics) — Add more statistics to Minecraft *(Java · ⭐ 25)*
+- [Tower-of-Sighs/AUI](https://github.com/Tower-of-Sighs/AUI) — Web UI for Minecraft *(Java · ⭐ 22)*
+- [sikadi233-hub/minecraft-dev](https://github.com/sikadi233-hub/minecraft-dev) — Minecraft development plugin for DeepSeek Harness: skills & tools for Paper/Spigot plugins and Fabric/Forge/NeoForge mods, MC 1.7.10-26.x *(JavaScript · ⭐ 18)*
+- [CloudLoaderMC/CloudLoader](https://github.com/CloudLoaderMC/CloudLoader) — A mod loader built for inter-loader compatibility and the end-user experience. *(Java · ⭐ 17)*
+- [Team-Jackdaw/Essential-PlayerInfo](https://github.com/Team-Jackdaw/Essential-PlayerInfo) — This is a very lightweight plugin for Velocity proxy. *(Java · ⭐ 17)*
+- [TeamVastsea/MultiLoginReloaded](https://github.com/TeamVastsea/MultiLoginReloaded) — 外置共存 *(Java · ⭐ 17)*
+- [Ayman-Isam/HungerGames](https://github.com/Ayman-Isam/HungerGames) — A modern HungerGames Plugin for Minecraft *(Java · ⭐ 16)*
+- [HMCL-dev/HMCL-Update](https://github.com/HMCL-dev/HMCL-Update) *(Java · ⭐ 16)*
+- [oldherl/fcitx5-pinyin-minecraft](https://github.com/oldherl/fcitx5-pinyin-minecraft) — 从 minecraft 中文 wiki 生成供 fcitx5 使用的拼音词库 *(Python · ⭐ 16)*
+- [Conflux-Union/conflux-map](https://github.com/Conflux-Union/conflux-map) — Client-side minimap and world map for Minecraft Fabric, with waypoints, radar, disk cache, and seed prediction. / Minecraft Fabric 客户端小地图与世界地图，支持路径点、雷达、磁盘缓存和种子预测 *(Java · ⭐ 15)*
+- [TISUnion/joinMOTD](https://github.com/TISUnion/joinMOTD) — send player a MOTD when he joins *(Python · ⭐ 15)*
+- [zhaose233/HMCL-Clean](https://github.com/zhaose233/HMCL-Clean) — Clean Version of HMCL, remove dev/nightly warnings, multiplayer(not FOSS), sponsor messages and so on. *(Java · ⭐ 15)*
+- [DerGamer009/PlayerDataSyncReloaded](https://github.com/DerGamer009/PlayerDataSyncReloaded) — PlayerDataSyncReloaded is a complete rewrite of PlayerDataSync with modern architecture, improved performance, and reliable cross-server synchronization, replacing the legacy project entirely *(Java · ⭐ 14)*
+- [Kahzerx/kcp-mod](https://github.com/Kahzerx/kcp-mod) — Mod to wrap KCPtun *(Java · ⭐ 14)*
+- [LYOfficial/MinecraftPlayGuide](https://github.com/LYOfficial/MinecraftPlayGuide) — Minecraft Play Chinese Guide - 我的世界游玩中文指南 *(⭐ 14)*
+- [MultiCoreNetwork/carpet-redcraft-addons](https://github.com/MultiCoreNetwork/carpet-redcraft-addons) — RedCraft 3 - Minecraft Fabric Mod *(Scala · ⭐ 14)*
+- [BakaXL-Support/BakaXL-QA-docs](https://github.com/BakaXL-Support/BakaXL-QA-docs) — 本存储库文档已全量转移至下一代文档仓库 *(JavaScript · ⭐ 13)*
+- [Ivan-1F/VillagerHelper](https://github.com/Ivan-1F/VillagerHelper) — A fabric mod to show villager's information. Including bed & job site and enchantment book trade *(Java · ⭐ 12)*
+- [GamerNoTitle/MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) — 基于MCDR的镜像服插件 *(Python · ⭐ 11)*
+- [SJMC-Dev/vanillang-compiler](https://github.com/SJMC-Dev/vanillang-compiler) — A compiler for Vanillang, a DSL designed for Minecraft datapack development. *(C++ · ⭐ 11)*
+- [cao-awa/ModMdo](https://github.com/cao-awa/ModMdo) — a fabric mod *(Java · ⭐ 10)*
+- [Gaming32/bingo](https://github.com/Gaming32/bingo) — A multiloader bingo mod *(Java · ⭐ 9)*
+- [Hismeo/Project-Crystal-Fracture](https://github.com/Hismeo/Project-Crystal-Fracture) — 结晶破碎的开发模组存放位置 *(Java · ⭐ 9)*
+- [Noryea/fast-items](https://github.com/Noryea/fast-items) — Make items always face to the camera *(Java · ⭐ 9)*
+- [PFingan-Code/PF-MCDR-WebUI](https://github.com/PFingan-Code/PF-MCDR-WebUI) — PF MCDR的WebUI *(TypeScript · ⭐ 7)*
+- [bdsm-technology/BDSM](https://github.com/bdsm-technology/BDSM) — Bedrock Dedicated Server Manager (Unofficial) *(Go · ⭐ 6)*
+- [cao-awa/Medical-mc](https://github.com/cao-awa/Medical-mc) *(Kotlin · ⭐ 6)*
+- [TerminalMC/AutoReconnect](https://github.com/TerminalMC/AutoReconnect) — A client-side multi-loader Minecraft mod that automatically reconnects the client to a server after unintentional disconnection. *(Java · ⭐ 6)*
+- [ApliNi/IpacLinker](https://github.com/ApliNi/IpacLinker) — IpacLinker 是一款点对点网络连接工具, 基于 WebRTC. 可用于 Minecraft 联机和开服, 或者远程桌面 / 网络驱动器等应用的连接 *(Go · ⭐ 5)*
+- [cao-awa/Outbreak](https://github.com/cao-awa/Outbreak) *(Kotlin · ⭐ 5)*
+- [Pairman/PTP](https://github.com/Pairman/PTP) — Official Pear Textures Pack Project. Copyright Pairman and 2017 RainbowPixel. *(⭐ 5)*
+- [cao-awa/Lycoris](https://github.com/cao-awa/Lycoris) — Foo! *(Java · ⭐ 4)*
+- [HyperZoneLogin/MultiLogin](https://github.com/HyperZoneLogin/MultiLogin) — 接入新框架的取代产物 *(Java · ⭐ 4)*
+- [Live-Block/IngameIME-PVP](https://github.com/Live-Block/IngameIME-PVP) — 别问为什么移植这东西到1.8.9，问就是为了玩PVP打字能舒服点（ *(Java · ⭐ 4)*
+- [TecoStudio/Frozen_Pear_Pack](https://github.com/TecoStudio/Frozen_Pear_Pack) — The continuation package of PTP, adding some functions. *(⭐ 4)*
+- [candydale/candy-pickaxe](https://github.com/candydale/candy-pickaxe) — 镐击榜数据包 对每个玩家使用各钟材料的镐子破坏方块数量的总和进行排名 *(mcfunction · ⭐ 3)*
+- [LYOfficial/QNRtoWL](https://github.com/LYOfficial/QNRtoWL) — Questionnaire to Whitelist of Minecraft. *(Python · ⭐ 3)*
+- [Syncanid/ZSTD_Compresser](https://github.com/Syncanid/ZSTD_Compresser) — 使用zstd代替zlib压缩 *(Java · ⭐ 3)*
+- [yelle233/Liubai](https://github.com/yelle233/Liubai) — Liubai is a client-side render optimizer for large technical bases. It conservatively culls fully occluded entities and block entities, reduces distant secondary effects, and adapts its quality pressure to the configured frame-rate target. *(Java · ⭐ 3)*
+- [Lintha437/conium-beapis-samples](https://github.com/Lintha437/conium-beapis-samples) — Some samples of the Minecraft Bedrock APIs part of the Conium framework. *(TypeScript · ⭐ 2)*
+- [Pairman/Lithonate](https://github.com/Pairman/Lithonate) — Tweaks to update your suppression. *(Java · ⭐ 2)*
+- [superwfox/minecraft-dev](https://github.com/superwfox/minecraft-dev) — An Agent platform for minecraft plugin generating *(TypeScript · ⭐ 2)*
+- [TISUnion/daycount](https://github.com/TISUnion/daycount) *(Python · ⭐ 2)*
+- [wifi-left/HMCL-docs-website](https://github.com/wifi-left/HMCL-docs-website) — HMCL 文档的网站版本 *(JavaScript · ⭐ 2)*
+- [Pairman/OneClickCrafting-1.16.5](https://github.com/Pairman/OneClickCrafting-1.16.5) — A Minecraft Fabric mod to make crafting with the recipe book faster *(Java · ⭐ 1)*
+- [rewrite-va/villager-helper](https://github.com/rewrite-va/villager-helper) *(Java · ⭐ 1)*
+- [TecoStudio/minerogue](https://github.com/TecoStudio/minerogue) *(Java · ⭐ 1)*
+
+_Generated by startidy on 2026-09-30._

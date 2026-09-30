@@ -1,0 +1,238 @@
+<!-- startidy:category name="Android系统玩机" description="收纳 Root、Magisk、LSPosed、Shizuku 和系统修改项目" -->
+
+# Android系统玩机
+
+收纳 Root、Magisk、LSPosed、Shizuku 和系统修改项目
+
+[← Back to index](README.md)
+
+**226 repositories**
+
+- [topjohnwu/Magisk](https://github.com/topjohnwu/Magisk) — The Magic Mask for Android *(Kotlin · ⭐ 63007)*
+- [gkd-kit/gkd](https://github.com/gkd-kit/gkd) — 基于无障碍，高级选择器，订阅规则的自定义屏幕点击安卓应用 \| An Android APP with custom screen tapping based on Accessibility, Advanced Selectors, and Subscription Rules *(Kotlin · ⭐ 42370)*
+- [RikkaApps/Shizuku](https://github.com/RikkaApps/Shizuku) — Using system APIs directly with adb/root privileges from normal apps through a Java process started with app_process. *(Kotlin · ⭐ 30814)*
+- [LSPosed/LSPosed](https://github.com/LSPosed/LSPosed) — LSPosed Framework *(Java · ⭐ 24864)*
+- [tiann/KernelSU](https://github.com/tiann/KernelSU) — A Kernel based root solution for Android *(Kotlin · ⭐ 18718)*
+- [MustardChef/WSABuilds](https://github.com/MustardChef/WSABuilds) — Run Windows Subsystem For Android on your Windows 10 and Windows 11 PC using prebuilt binaries with Google Play Store (MindTheGapps) and/or Magisk or KernelSU (root solutions) built in. *(Python · ⭐ 18584)*
+- [JingMatrix/Vector](https://github.com/JingMatrix/Vector) — Modern Xposed Framework *(Kotlin · ⭐ 12577)*
+- [AIsouler/GKD_subscription](https://github.com/AIsouler/GKD_subscription) — GKD 第三方订阅规则 *(TypeScript · ⭐ 12016)*
+- [LSPosed/MagiskOnWSALocal](https://github.com/LSPosed/MagiskOnWSALocal) — Integrate Magisk root and Google Apps into WSA (Windows Subsystem for Android) *(Shell · ⭐ 10610)*
+- [timschneeb/awesome-shizuku](https://github.com/timschneeb/awesome-shizuku) — Curated list of awesome Android apps making use of Shizuku *(Python · ⭐ 10305)*
+- [MiCode/Xiaomi_Kernel_OpenSource](https://github.com/MiCode/Xiaomi_Kernel_OpenSource) — Xiaomi Mobile Phone Kernel OpenSource *(⭐ 9876)*
+- [LSPosed/LSPatch](https://github.com/LSPosed/LSPatch) — LSPatch: A non-root Xposed framework extending from LSPosed *(Java · ⭐ 9394)*
+- [MuntashirAkon/AppManager](https://github.com/MuntashirAkon/AppManager) — A full-featured package manager and viewer for Android *(Java · ⭐ 9089)*
+- [bmax121/APatch](https://github.com/bmax121/APatch) — The patching of Android kernel and Android system *(Kotlin · ⭐ 7989)*
+- [d4rken-org/sdmaid-se](https://github.com/d4rken-org/sdmaid-se) — SD Maid 2/SE is Android's most thorough cleaning tool. *(Kotlin · ⭐ 7628)*
+- [XayahSuSuSu/Android-DataBackup](https://github.com/XayahSuSuSu/Android-DataBackup) — DataBackup for Android 7.0+ *(Kotlin · ⭐ 7399)*
+- [LibChecker/LibChecker](https://github.com/LibChecker/LibChecker) — An app to view libraries used in apps in your device. *(Kotlin · ⭐ 7206)*
+- [aistra0528/Hail](https://github.com/aistra0528/Hail) — Disable / Hide / Suspend / Uninstall Android apps without root. *(Kotlin · ⭐ 6786)*
+- [wxxsfxyzm/InstallerX-Revived](https://github.com/wxxsfxyzm/InstallerX-Revived) — More Expressive InstallerX ! *(Kotlin · ⭐ 6773)*
+- [SukiSU-Ultra/SukiSU-Ultra](https://github.com/SukiSU-Ultra/SukiSU-Ultra) — Kernel-based Android Root Solution & KPM *(Kotlin · ⭐ 6407)*
+- [kdrag0n/safetynet-fix](https://github.com/kdrag0n/safetynet-fix) — Google SafetyNet attestation workarounds for Magisk *(C++ · ⭐ 6397)*
+- [5ec1cff/TrickyStore](https://github.com/5ec1cff/TrickyStore) *(⭐ 6389)*
+- [LSPosed/LSPosed.github.io](https://github.com/LSPosed/LSPosed.github.io) *(HTML · ⭐ 6347)*
+- [samolego/Canta](https://github.com/samolego/Canta) — Uninstall any Android app without root (with power of Shizuku). Debloat your device as you wish, no PC required. *(Kotlin · ⭐ 6006)*
+- [cinit/QAuxiliary](https://github.com/cinit/QAuxiliary) — QNotified phoenix - To make OICQ great again *(Java · ⭐ 5764)*
+- [Lin-arm/GKD_subscription](https://github.com/Lin-arm/GKD_subscription) — 用于安卓 GKD 的第三方订阅规则 (👻Fork版) *(TypeScript · ⭐ 5603)*
+- [K11MCH1/AdrenoToolsDrivers](https://github.com/K11MCH1/AdrenoToolsDrivers) — A repository for Skyline, Strato, Vita3K and Yuzu Android compatible Adreno drivers. *(⭐ 5118)*
+- [eritpchy/FingerprintPay](https://github.com/eritpchy/FingerprintPay) — 让微信、QQ、支付宝、淘宝、云闪付支持使用指纹支付 *(Java · ⭐ 4519)*
+- [KernelSU-Next/KernelSU-Next](https://github.com/KernelSU-Next/KernelSU-Next) — An advanced Kernel based root solution for Android *(Kotlin · ⭐ 4317)*
+- [mywalkb/LSPosed_mod](https://github.com/mywalkb/LSPosed_mod) — My changes to LSPosed *(Java · ⭐ 4313)*
+- [nining377/dolby_beta](https://github.com/nining377/dolby_beta) — 杜比大喇叭的β版迎来了重大的革新，合并了UnblockMusic Pro的所有功能且更加强大，同时UnblockMusicPro_Xposed项目将会停止维护，让我们欢送这位老朋友！ *(Java · ⭐ 4264)*
+- [RikkaApps/Sui](https://github.com/RikkaApps/Sui) — Modern super user interface implementation on Android. *(Java · ⭐ 4246)*
+- [Cateners/tiny_container](https://github.com/Cateners/tiny_container) — Click-to-run debian 13 with desktop environment on android! *(Kotlin · ⭐ 4226)*
+- [MlgmXyysd/Xiaomi-BootLoader-Questionnaire](https://github.com/MlgmXyysd/Xiaomi-BootLoader-Questionnaire) — 小米 BootLoader《解锁资格答题测试》更新记录 *(⭐ 4200)*
+- [oasisfeng/island](https://github.com/oasisfeng/island) — Island for Android *(Java · ⭐ 3942)*
+- [abcz316/SKRoot-linuxKernelRoot](https://github.com/abcz316/SKRoot-linuxKernelRoot) — 新一代 SKRoot，完美隐藏Root功能，无视全网检测手段，实现SELinux零触碰、无挂载！ 通杀所有内核，免源码直接 Patch 原厂内核，完美保留官方内核所有特性。 *(C++ · ⭐ 3941)*
+- [KOWX712/PlayIntegrityFix](https://github.com/KOWX712/PlayIntegrityFix) — Fix Play Integrity verdicts. *(TypeScript · ⭐ 3937)*
+- [iamr0s/Dhizuku](https://github.com/iamr0s/Dhizuku) — A tool that can share DeviceOwner permissions to other application. *(Kotlin · ⭐ 3896)*
+- [Xposed-Modules-Repo/top.hookvip.pro](https://github.com/Xposed-Modules-Repo/top.hookvip.pro) — NewHookVip *(⭐ 3847)*
+- [ssut/payload-dumper-go](https://github.com/ssut/payload-dumper-go) — an android OTA payload dumper written in Go *(Go · ⭐ 3528)*
+- [termux/proot-distro](https://github.com/termux/proot-distro) — A utility for managing proot containers. *(Python · ⭐ 3512)*
+- [KOWX712/Tricky-Addon-Update-Target-List](https://github.com/KOWX712/Tricky-Addon-Update-Target-List) — A KSU WebUI to configure Tricky Store target.txt *(TypeScript · ⭐ 3470)*
+- [ferredoxin/QNotified](https://github.com/ferredoxin/QNotified) — 一个旨在使QQ变得更好用的开源Xposed模块 *(Java · ⭐ 3460)*
+- [yc9559/uperf](https://github.com/yc9559/uperf) — Userspace performance controller for android *(Shell · ⭐ 3419)*
+- [LSPosed/CorePatch](https://github.com/LSPosed/CorePatch) — Disable signature verification For Android *(Kotlin · ⭐ 3399)*
+- [Tornaco/Thanox](https://github.com/Tornaco/Thanox) — I am thanos! 😈 👌 *(Java · ⭐ 3296)*
+- [deltazefiro/Amarok-Hider](https://github.com/deltazefiro/Amarok-Hider) — Hide your private files and apps with a single click. *(Java · ⭐ 3267)*
+- [Mahmud0808/Iconify](https://github.com/Mahmud0808/Iconify) — Iconify lets you customize your Android 12+ device easily. Change icons, colors, shapes, and even the notification panel for a personalized look that suits your style. *(Kotlin · ⭐ 3183)*
+- [kyujin-cho/pixel-volte-patch](https://github.com/kyujin-cho/pixel-volte-patch) — Pixel IMS: Rootless replacement for Tensor Pixel VoLTE patch *(Kotlin · ⭐ 3049)*
+- [wuhgit/CustomPinyinDictionary](https://github.com/wuhgit/CustomPinyinDictionary) — 自建拼音输入法词库，百万常用词汇量，适配 Fcitx5 (Linux / Android) 及 Gboard (Android + Magisk or KernelSU) 。 *(⭐ 2838)*
+- [Uotan-Dev/UotanToolboxNT](https://github.com/Uotan-Dev/UotanToolboxNT) — 现代化 Android & OpenHarmony 工具箱 \| A Modern Toolbox for Android & OpenHarmony Devices *(C# · ⭐ 2734)*
+- [nakixii/Magisk_AsoulOpt](https://github.com/nakixii/Magisk_AsoulOpt) *(Shell · ⭐ 2710)*
+- [re-zero001/LSPosed-Irena](https://github.com/re-zero001/LSPosed-Irena) — Useless LSPosed Framework Fork *(Java · ⭐ 2685)*
+- [FBlackBox/BlackBox](https://github.com/FBlackBox/BlackBox) — BlackBox is a virtual engine, it can clone and run virtual application on Android, users don't have to install APK file to run the application on devices. BlackBox control all virtual applications, so you can do anything you want by using BlackBox. *(⭐ 2619)*
+- [taamarin/box_for_magisk](https://github.com/taamarin/box_for_magisk) — Transparent Proxy for Android(root) *(Shell · ⭐ 2523)*
+- [JingMatrix/TEESimulator](https://github.com/JingMatrix/TEESimulator) — Software simulation for Android hardware-backed key pairs with key attestation *(C++ · ⭐ 2510)*
+- [siavash79/PixelXpert](https://github.com/siavash79/PixelXpert) — mixed Xposed+Magisk module for customization of Google Pixel rom of Android 12+ *(Java · ⭐ 2445)*
+- [GitMetaio/Surfing](https://github.com/GitMetaio/Surfing) — Magisk and KernelSU modules for Clash/mihomo services. *(Shell · ⭐ 2433)*
+- [tytydraco/LADB](https://github.com/tytydraco/LADB) — A local ADB shell for Android! *(Kotlin · ⭐ 2420)*
+- [VR-25/acc](https://github.com/VR-25/acc) — Advanced Charging Controller *(Shell · ⭐ 2412)*
+- [Katana-Official/SPatch-Update](https://github.com/Katana-Official/SPatch-Update) — Update for SPatch nightly *(Java · ⭐ 2310)*
+- [MasterDevX/Termux-ADB](https://github.com/MasterDevX/Termux-ADB) — Install ADB & FastBoot Tools in Termux! *(Shell · ⭐ 2161)*
+- [NeoApplications/Neo-Launcher](https://github.com/NeoApplications/Neo-Launcher) — Neo-Launcher *(Java · ⭐ 2135)*
+- [zsh2401/AutumnBox](https://github.com/zsh2401/AutumnBox) — 图形化ADB工具箱 *(C# · ⭐ 1932)*
+- [Xposed-Modules-Repo/com.luckyzyx.luckytool](https://github.com/Xposed-Modules-Repo/com.luckyzyx.luckytool) — LuckyTool Xposed 免费模块 *(⭐ 1929)*
+- [CHIZI-0618/box4magisk](https://github.com/CHIZI-0618/box4magisk) — Use sing-box, clash, v2ray, xray tunnel proxy on Android devices. *(Shell · ⭐ 1917)*
+- [twoyi/twoyi](https://github.com/twoyi/twoyi) — A lightweight Android container on Android *(Java · ⭐ 1914)*
+- [gloeyisk/universal-gms-doze](https://github.com/gloeyisk/universal-gms-doze) — Patches Google Play services app and certain processes/services to be able to use battery optimization *(Shell · ⭐ 1877)*
+- [Enginex0/TEESimulator-RS](https://github.com/Enginex0/TEESimulator-RS) — Software simulation for Android hardware-backed key pairs with key attestation \| https://t.me/superpowers9 *(Kotlin · ⭐ 1867)*
+- [ycccccccy/wx_key](https://github.com/ycccccccy/wx_key) — 获取微信4.0版本以上数据库密钥和图片密钥的工具 \| A tool for obtaining database keys and image keys for WeChat versions 4.0 and above *(⭐ 1828)*
+- [libxzr/KonaBess](https://github.com/libxzr/KonaBess) — A GPU overclock & undervolt tool for various Snapdragon chips *(Java · ⭐ 1787)*
+- [Xposed-Modules-Repo/com.bug.hookvip](https://github.com/Xposed-Modules-Repo/com.bug.hookvip) — Fuck for VIP *(⭐ 1760)*
+- [meefik/busybox](https://github.com/meefik/busybox) — BusyBox for Android *(Java · ⭐ 1739)*
+- [kooritea/fcmfix](https://github.com/kooritea/fcmfix) — \[xposed\]让fcm唤醒已完全停止的应用 *(Java · ⭐ 1660)*
+- [BaltiApps/Pixelify-Google-Photos](https://github.com/BaltiApps/Pixelify-Google-Photos) — Pixelify GPhotos *(Kotlin · ⭐ 1635)*
+- [grbnb/xp_module](https://github.com/grbnb/xp_module) — 备份午夜神大佬分享的应用集 【下面是Gitee仓库链接】https://gitee.com/grbnb/xp_module.git *(HTML · ⭐ 1613)*
+- [boxproxy/box](https://github.com/boxproxy/box) — 安卓代理模块，使用方法看wiki *(Shell · ⭐ 1588)*
+- [LuckyPray/XAutoDaily](https://github.com/LuckyPray/XAutoDaily) — 一个基于QQ的全自动签到模块 *(Kotlin · ⭐ 1586)*
+- [yinwanxi/Uperf-Game-Turbo](https://github.com/yinwanxi/Uperf-Game-Turbo) — Userspace performance controller for android *(Shell · ⭐ 1551)*
+- [twoone-3/AdGuardHomeForRoot](https://github.com/twoone-3/AdGuardHomeForRoot) — A module to easily execute AdGuardHome on Android *(Shell · ⭐ 1436)*
+- [cinit/TMoe](https://github.com/cinit/TMoe) — An Xposed module for Telegram clients *(Java · ⭐ 1424)*
+- [backslashxx/mountify](https://github.com/backslashxx/mountify) — Globally mounted modules via OverlayFS. *(Shell · ⭐ 1414)*
+- [libxzr/FastbootEnhance](https://github.com/libxzr/FastbootEnhance) — A user-friendly Fastboot ToolBox & Payload Dumper for Windows *(C# · ⭐ 1358)*
+- [DUpdateSystem/UpgradeAll](https://github.com/DUpdateSystem/UpgradeAll) — Check updates for Android apps, Magisk modules and more! *(Kotlin · ⭐ 1343)*
+- [JiGuroLGC/BetterVia](https://github.com/JiGuroLGC/BetterVia) — 让Via变得更好 / Make Via Better *(JavaScript · ⭐ 1341)*
+- [MobileGL-Dev/MobileGlues-release](https://github.com/MobileGL-Dev/MobileGlues-release) — MobileGlues, which stands for "(on) Mobile, GL uses ES", is a GL implementation running on top of host OpenGL ES 3.2, with running Minecraft Java Edition in mind. *(⭐ 1318)*
+- [KieronQuinn/PixelLauncherMods](https://github.com/KieronQuinn/PixelLauncherMods) — A root app that enables you to add a number of features to the stock Pixel Launcher, without needing Xposed *(Kotlin · ⭐ 1307)*
+- [WSTxda/ViperFX-RE-Releases](https://github.com/WSTxda/ViperFX-RE-Releases) — ViPER4Android FX with Material 3 Expressive design and improvements. *(⭐ 1276)*
+- [ReChronoRain/Cemiuiler](https://github.com/ReChronoRain/Cemiuiler) — Make MIUI Great Again! *(Java · ⭐ 1246)*
+- [suqi8/OShin](https://github.com/suqi8/OShin) — 一个专为ColorOS系统设计的辅助模块 *(Kotlin · ⭐ 1226)*
+- [Fanju6/NetProxy-Magisk](https://github.com/Fanju6/NetProxy-Magisk) — Based on the sing-box core, this Android proxy module supports one-click start/stop of transparent proxy and is designed for Android devices. *(Go · ⭐ 1218)*
+- [fankes/TSBattery](https://github.com/fankes/TSBattery) — A new way to save your battery avoid cancer apps hacker it. *(Kotlin · ⭐ 1201)*
+- [Block-Network/StatusBarLyric](https://github.com/Block-Network/StatusBarLyric) — \[Xposed\] Status Bar Lyric / 状态栏歌词 *(Kotlin · ⭐ 1184)*
+- [Magisk-Modules-Repo/busybox-ndk](https://github.com/Magisk-Modules-Repo/busybox-ndk) — busybox-ndk *(Shell · ⭐ 1169)*
+- [chr233/PureNGA](https://github.com/chr233/PureNGA) — NGA 去广告Xposed模块 支持 Lspatch *(Kotlin · ⭐ 1115)*
+- [shadow3aaa/fas-rs](https://github.com/shadow3aaa/fas-rs) — Frame aware scheduling for android. *(Rust · ⭐ 1111)*
+- [programminghoch10/ViPER4AndroidRepackaged](https://github.com/programminghoch10/ViPER4AndroidRepackaged) — A refined ViPER4Android installer. *(Shell · ⭐ 1077)*
+- [tianma8023/XposedSmsCode](https://github.com/tianma8023/XposedSmsCode) — :lollipop: An Xposed Module which can recognize, parse verification code and copy it to clipboard when a new message arrives . / 识别短信验证码的Xposed模块，并将验证码拷贝到剪切板。 *(Java · ⭐ 1065)*
+- [skittles9823/QuickSwitch](https://github.com/skittles9823/QuickSwitch) *(Shell · ⭐ 1061)*
+- [zjyzip/AdClose](https://github.com/zjyzip/AdClose) — Block ads and remove app limit for Xposed. *(C · ⭐ 1022)*
+- [lingeringsound/10007](https://github.com/lingeringsound/10007) — hosts of block ads *(HTML · ⭐ 1017)*
+- [Alex4SSB/ADB-Explorer](https://github.com/Alex4SSB/ADB-Explorer) — A fluent UI for ADB on Windows *(C# · ⭐ 982)*
+- [kasnria001/qualcomm_gbl_exploit_poc](https://github.com/kasnria001/qualcomm_gbl_exploit_poc) — Unlocking qualcomm bootloader via gbl exploit. *(C · ⭐ 971)*
+- [ShirkNeko/GKI_KernelSU_SUSFS](https://github.com/ShirkNeko/GKI_KernelSU_SUSFS) — 使用 SukiSU 和 SUSFS 的 GKI 内核 *(C · ⭐ 971)*
+- [Chimioo/InxLocker](https://github.com/Chimioo/InxLocker) — Xposed-based Installer Locker for Android (Powered by YukiHookAPI) *(Kotlin · ⭐ 958)*
+- [RikkaApps/StorageRedirect-assets](https://github.com/RikkaApps/StorageRedirect-assets) — Assets (rules, apks etc) for Storage Redirect app. *(Python · ⭐ 938)*
+- [xjunz/AutoSkip](https://github.com/xjunz/AutoSkip) — 基于Shizuku授权的安卓"自动跳过"工具 *(Kotlin · ⭐ 923)*
+- [freedom-introvert/biliSendCommAntifraud](https://github.com/freedom-introvert/biliSendCommAntifraud) — 哔哩发评反诈 *(Java · ⭐ 880)*
+- [Cabbagec/termux-ohmyzsh](https://github.com/Cabbagec/termux-ohmyzsh) — Colorize your termux! Oh-my-zsh included! *(Shell · ⭐ 879)*
+- [nohajc/termux-adb](https://github.com/nohajc/termux-adb) — Run adb in Termux without root permissions! *(Shell · ⭐ 842)*
+- [byxiaorun/Ruru](https://github.com/byxiaorun/Ruru) — An android sample app of detecting suspicious apps like magisk manager *(Kotlin · ⭐ 827)*
+- [fei-ke/HMSPush](https://github.com/fei-ke/HMSPush) — 让非华为设备支持 HMS 推送，同时避免唤醒目标应用 *(Kotlin · ⭐ 816)*
+- [DanGLVK/Hide-Navbar](https://github.com/DanGLVK/Hide-Navbar) — Hide Navbar *(JavaScript · ⭐ 809)*
+- [RohitVerma882/termux-miunlock](https://github.com/RohitVerma882/termux-miunlock) — A program that can be used to retrieve the bootloader unlock token for Xiaomi devices. (and unlock the bootloader) using Termux *(Shell · ⭐ 799)*
+- [sunshine0523/Mi-Freeform](https://github.com/sunshine0523/Mi-Freeform) — Mi-Freeform 3 is an Android third-party freeform software that supports Android 8.1-Android 14 *(Kotlin · ⭐ 797)*
+- [OneB1ank/A1Memory](https://github.com/OneB1ank/A1Memory) — Android third-party memory management *(Shell · ⭐ 787)*
+- [Magisk-Modules-Repo/wifi-bonding](https://github.com/Magisk-Modules-Repo/wifi-bonding) — Double your bandwith on your Qualcomm devices. *(Shell · ⭐ 766)*
+- [KitsunePie/QQCleaner](https://github.com/KitsunePie/QQCleaner) — 瘦身模块 *(Kotlin · ⭐ 760)*
+- [xiaowine/Lyric-Getter](https://github.com/xiaowine/Lyric-Getter) — Lyric Getter \| 酒域-歌词获取 *(Kotlin · ⭐ 736)*
+- [HChenX/AppRetention](https://github.com/HChenX/AppRetention) — Hook 系统 kill 逻辑来实现后台保活 \| Hook system kill logic to implement background keep alive *(Java · ⭐ 718)*
+- [vvb2060/PackageInstaller](https://github.com/vvb2060/PackageInstaller) — A lightweight yet powerful package installer for Android. *(Kotlin · ⭐ 707)*
+- [bkerler/oppo_decrypt](https://github.com/bkerler/oppo_decrypt) — Oppo .ofp Firmware decrypter and oneplus .ops de-/encrypter *(Python · ⭐ 695)*
+- [NihilityT/MiPushFramework](https://github.com/NihilityT/MiPushFramework) — Let supported push service run system-ly on every Android devices *(Java · ⭐ 694)*
+- [taamarin/ClashforMagisk](https://github.com/taamarin/ClashforMagisk) — Transparent proxy(Tproxy) for android (root) *(Shell · ⭐ 694)*
+- [XtrLumen/FS-Enhancer-Extreme](https://github.com/XtrLumen/FS-Enhancer-Extreme) — Enhancer of ForgeStore, Extreme hiding of detection points from unlocking bootloader. *(Rust · ⭐ 687)*
+- [jiqiu2022/Zygisk-MyInjector](https://github.com/jiqiu2022/Zygisk-MyInjector) — 一个自定义注入so的脚手架,现在已经支持了界面化使用。 *(Java · ⭐ 667)*
+- [Nep-Timeline/Re-Telegram](https://github.com/Nep-Timeline/Re-Telegram) — An Xposed module to enhance the Telegram *(Java · ⭐ 667)*
+- [Magisk-Modules-Repo/adb-ndk](https://github.com/Magisk-Modules-Repo/adb-ndk) — adb-ndk *(Shell · ⭐ 657)*
+- [MIUI-Monet-Project/Module](https://github.com/MIUI-Monet-Project/Module) — Material You wallpaper-based dynamic theme for MIUI & HyperOS system apps on Android 12+ *(Shell · ⭐ 646)*
+- [410154425/AdGuardHome_magisk](https://github.com/410154425/AdGuardHome_magisk) — 去广告magisk模块，通过DNS层面过滤广告、防DNS劫持，使用前请先详读mode.conf文件，使用前需关闭私人dns，不可用wap接入点，支持订阅过滤规则，可兼容VPN、免模块、翻模块、校园网等特殊使用环境。top大佬(酷安) *(Shell · ⭐ 624)*
+- [kaisar945/Xposed-GodMode](https://github.com/kaisar945/Xposed-GodMode) — A xposed module similar to AdBlock, You can edit the application user interface at will. *(Java · ⭐ 612)*
+- [fankes/MIUINativeNotifyIcon](https://github.com/fankes/MIUINativeNotifyIcon) — Fix the native notification bar icon function abandoned by the MIUI development team. *(Kotlin · ⭐ 547)*
+- [anasfanani/magisk-tailscaled](https://github.com/anasfanani/magisk-tailscaled) — Magisk/KernelSU module for running Tailscale on rooted Android devices. The easiest, most secure way to use WireGuard and 2FA. *(Shell · ⭐ 531)*
+- [Xposed-Modules-Repo/com.github.dan.nostoragerestrict](https://github.com/Xposed-Modules-Repo/com.github.dan.nostoragerestrict) — NoStorageRestrict *(Java · ⭐ 520)*
+- [kingsollyu/AppEnv](https://github.com/kingsollyu/AppEnv) — 应用变量 *(Java · ⭐ 512)*
+- [pzcn/Perfect-Icons-Completion-Project](https://github.com/pzcn/Perfect-Icons-Completion-Project) — MIUI 完美图标补全计划 *(Shell · ⭐ 471)*
+- [imknown/AndroidLowLevelDetector](https://github.com/imknown/AndroidLowLevelDetector) — Detect Treble, GSI, Mainline, APEX, system-as-root(SAR), A/B, etc. *(Kotlin · ⭐ 469)*
+- [std-microblock/TGStickerProvider](https://github.com/std-microblock/TGStickerProvider) — A Xposed/LSPosed plugin to dump stickers from Telegram. Almost all 3rd-party telegram clients are supported. *(Java · ⭐ 464)*
+- [Zackptg5/Disable_Dm-Verity_ForceEncrypt](https://github.com/Zackptg5/Disable_Dm-Verity_ForceEncrypt) — Disables dm-verity and forceencrypt *(Shell · ⭐ 462)*
+- [Pzqqt/Magisk_Manager_Recovery_Tool](https://github.com/Pzqqt/Magisk_Manager_Recovery_Tool) — A Magisk Manager tool that can be used in Recovery mode base Aroma Installer. *(Python · ⭐ 459)*
+- [symbuzzer/livebootmodule](https://github.com/symbuzzer/livebootmodule) — A Magisk, KernelSU and APatch module that enables unix-style (verbose) boot animation for Android devices *(Shell · ⭐ 452)*
+- [chenzyadb/CuprumTurbo-Scheduler](https://github.com/chenzyadb/CuprumTurbo-Scheduler) — A Simple and Reliable Performance Scheduler. *(Shell · ⭐ 450)*
+- [BetterAndroid/android-notification-icon-project](https://github.com/BetterAndroid/android-notification-icon-project) — Provides standardized monochrome icon resources for apps and vendor systems that do not conform to the Android standard notification design. *(Kotlin · ⭐ 438)*
+- [zhufucdev/MotionEmulator](https://github.com/zhufucdev/MotionEmulator) — Xposed enabled location simulator with sensor support. *(Kotlin · ⭐ 419)*
+- [WuDi-ZhanShen/ShizukuRunner](https://github.com/WuDi-ZhanShen/ShizukuRunner) — 以shizuku身份执行命令的安卓小工具。A 50KB android app to run any commands via Shizuku. *(Java · ⭐ 418)*
+- [Xposed-Modules-Repo/org.hello.coolapk](https://github.com/Xposed-Modules-Repo/org.hello.coolapk) — FuckCoolapk R *(⭐ 411)*
+- [wacko1805/MagiskGapps](https://github.com/wacko1805/MagiskGapps) — Convert a regular GApps package into a Magisk flashable package using a simple website *(HTML · ⭐ 388)*
+- [WSTxda/ViPERFX_RE](https://github.com/WSTxda/ViPERFX_RE) — Reverse Engineering of ViPER4Android FX *(C · ⭐ 379)*
+- [YifePlayte/SteamGuardDump](https://github.com/YifePlayte/SteamGuardDump) — Dump your SteamGuard data into your clipboard. *(Kotlin · ⭐ 344)*
+- [suzhelan/TimTool](https://github.com/suzhelan/TimTool) — Tim功能性增强XPosed模块，为Tim增加更多趣味功能 *(Kotlin · ⭐ 342)*
+- [GSWXXN/RestoreSplashScreen](https://github.com/GSWXXN/RestoreSplashScreen) — 启动遮罩进化 / RestoreSplashScreen *(Kotlin · ⭐ 329)*
+- [XingC123/BackgroundOpt](https://github.com/XingC123/BackgroundOpt) — 这是一个通过调整进程oom_score_adj来骗过lmk从而实现保后台的模块。 *(Kotlin · ⭐ 326)*
+- [neoblackxt/AnyWebView](https://github.com/neoblackxt/AnyWebView) — Any WebView is OK! *(Java · ⭐ 322)*
+- [ShIroRRen/ShiroSU-Utils](https://github.com/ShIroRRen/ShiroSU-Utils) — Multi-platform Android Modding & Tweaking Utility \| 多平台 Android 玩机工具 *(V · ⭐ 304)*
+- [Magisk-Modules-Alt-Repo/BuiltIn-BusyBox](https://github.com/Magisk-Modules-Alt-Repo/BuiltIn-BusyBox) — Systemless Magisk module that installs and symlinks BusyBox with its applets to the Magisk built-in busybox binary *(Shell · ⭐ 294)*
+- [liuran001/GJZS](https://github.com/liuran001/GJZS) — 搞机助手·R（原「搞机助手重制版」） *(Shell · ⭐ 293)*
+- [fankes/ColorOSNotifyIcon](https://github.com/fankes/ColorOSNotifyIcon) — Optimize notification icons for ColorOS and adapt to native notification icon specifications. *(Kotlin · ⭐ 273)*
+- [FreezeYou/FreezeYou](https://github.com/FreezeYou/FreezeYou) — 支持 ROOT、免 ROOT 与系统应用模式 *(Kotlin · ⭐ 273)*
+- [lxgw/advanced-cjk-font-magisk-module-template](https://github.com/lxgw/advanced-cjk-font-magisk-module-template) — \[DEPRECATED\] A Magisk module template to systemlessly replace system fonts. Supports CJK Fonts. 用于制作字体模块的 Magisk 模块模板，支持中日韩字体的替换。 *(Shell · ⭐ 272)*
+- [YumeYucca/Tritium](https://github.com/YumeYucca/Tritium) — 最大化Soc的潜力 Maximize the potential of Soc *(Shell · ⭐ 263)*
+- [callng/TCQT](https://github.com/callng/TCQT) — 一个针对QQ与TIM的多功能XPosed(Zygisk)模块 *(Kotlin · ⭐ 260)*
+- [lxgw/simple-cjk-font-magisk-module-template](https://github.com/lxgw/simple-cjk-font-magisk-module-template) — \[DEPRECATED & ARCHIVED\] A Magisk module template to systemlessly replace system fonts. Supports CJK Fonts. 用于制作字体模块的 Magisk 模块模板，支持中日韩字体的替换。 *(Shell · ⭐ 253)*
+- [Xposed-Modules-Repo/com.variable.apkhook](https://github.com/Xposed-Modules-Repo/com.variable.apkhook) — 应用伪装 *(⭐ 253)*
+- [syntaxticsugr/ViPER4Android-Presets](https://github.com/syntaxticsugr/ViPER4Android-Presets) — Largest collection of DDC, Kernel & Preset for ViPER4Android *(Python · ⭐ 247)*
+- [Magisk-Modules-Repo/ssh](https://github.com/Magisk-Modules-Repo/ssh) — ssh *(Shell · ⭐ 240)*
+- [chase535/turbo-charge](https://github.com/chase535/turbo-charge) — Magisk模块，关闭阶梯式充电，持续修改电池温度及充电电流，以达到最快充电速度 *(C · ⭐ 237)*
+- [xiaohuangbo/SoterFixer](https://github.com/xiaohuangbo/SoterFixer) — 修复一加骁龙系解锁bl导致Soter key失败的问题 *(Shell · ⭐ 211)*
+- [Magisk-Modules-Alt-Repo/Magisk-Tailscaled](https://github.com/Magisk-Modules-Alt-Repo/Magisk-Tailscaled) — Magisk/KernelSU module for running Tailscale on rooted Android devices. *(Shell · ⭐ 210)*
+- [NihilityT/MiPush](https://github.com/NihilityT/MiPush) — 让 MiPushFramework 支持分应用 *(Kotlin · ⭐ 206)*
+- [null-dev/UniversalAuth](https://github.com/null-dev/UniversalAuth) — Add custom auth options (e.g. face unlock) to your phone using Xposed. *(Java · ⭐ 204)*
+- [LangQi99/dlut-FakeRun](https://github.com/LangQi99/dlut-FakeRun) — ✨一键刷校园跑脚本 \| 虚拟定位校园跑刷跑软件 *(Java · ⭐ 202)*
+- [Xposed-Modules-Repo/balti.xposed.pixelifygooglephotos](https://github.com/Xposed-Modules-Repo/balti.xposed.pixelifygooglephotos) — Pixelify GPhotos *(Kotlin · ⭐ 199)*
+- [Goooler/systemless-fcm-hosts](https://github.com/Goooler/systemless-fcm-hosts) — A Magisk module integrated with FCM hosts for Chinese users. *(Shell · ⭐ 191)*
+- [Live-Block/Flyme-FreeForm](https://github.com/Live-Block/Flyme-FreeForm) — A FlymeOS style freeform *(Kotlin · ⭐ 181)*
+- [LIznzn/FuckRunning](https://github.com/LIznzn/FuckRunning) — 用于劫持《运动世界校园》实现屏蔽Xposed框架检测和模拟跑步。 *(Java · ⭐ 167)*
+- [Xposed-Modules-Repo/com.chrxw.purenga](https://github.com/Xposed-Modules-Repo/com.chrxw.purenga) — NGA玩家论坛去广告模块 *(⭐ 163)*
+- [ColdWindScholar/D.N.A3](https://github.com/ColdWindScholar/D.N.A3) — 【开源】安卓一般固件解包打包助手【 Droid Normal Assistant 】 *(Python · ⭐ 159)*
+- [fei-ke/HmsPushZygisk](https://github.com/fei-ke/HmsPushZygisk) — 一个 Zygisk 模块，为应用伪装华为设备，以便使用 HMSPush *(Rust · ⭐ 158)*
+- [taamarin/box.manager](https://github.com/taamarin/box.manager) — Optional *(Kotlin · ⭐ 148)*
+- [MlgmXyysd/android-bootloader-kernel-source](https://github.com/MlgmXyysd/android-bootloader-kernel-source) — 各 Android 手机厂商 Bootloader 解锁 / 内核开源 / 解锁后保修情况 *(⭐ 146)*
+- [Freezer-Team/Freezer](https://github.com/Freezer-Team/Freezer) — Third party Android Tombstone *(⭐ 145)*
+- [huzesama/ASGuard](https://github.com/huzesama/ASGuard) — Magisk模块，用于安卓的无障碍服务(或名:辅助功能)辅助管理模块 *(Shell · ⭐ 143)*
+- [kirklin/magisk-brick-guardian](https://github.com/kirklin/magisk-brick-guardian) — 救砖模块，用于防止您的设备因模块导致的启动问题而变砖。 *(Shell · ⭐ 142)*
+- [Magisk-Modules-Repo/CloudflareDNS4Magisk](https://github.com/Magisk-Modules-Repo/CloudflareDNS4Magisk) — CloudflareDNS4Magisk *(Shell · ⭐ 142)*
+- [pzcn/Perfect-Icons-APP](https://github.com/pzcn/Perfect-Icons-APP) *(Kotlin · ⭐ 139)*
+- [NihilityT/MiPushConfigurations](https://github.com/NihilityT/MiPushConfigurations) *(PowerShell · ⭐ 137)*
+- [auag0/DisableAudioFocus](https://github.com/auag0/DisableAudioFocus) — Xposed module for Android to Disable audio focus *(Kotlin · ⭐ 136)*
+- [Magisk-Modules-Alt-Repo/Xtreme-Battery-Saver](https://github.com/Magisk-Modules-Alt-Repo/Xtreme-Battery-Saver) — An extreme battery saver Magisk Module for users who want to really stretch their battery life *(Shell · ⭐ 130)*
+- [xudazhu1/NoticeFix](https://github.com/xudazhu1/NoticeFix) — 这是一个用于原生/类原生的Xposed模块 修复(类)原生安卓通知图标在墙内水土不服等功能 *(Java · ⭐ 129)*
+- [Unofficial-Life/Lawnchair-Launcher-Module](https://github.com/Unofficial-Life/Lawnchair-Launcher-Module) — Replace your stock launcher with Lawnchair Launcher module (Q to U) for Magisk and KSU (Quickswitch included) *(Shell · ⭐ 128)*
+- [Magisk-Modules-Repo/acp](https://github.com/Magisk-Modules-Repo/acp) — acp *(Shell · ⭐ 127)*
+- [Xposed-Modules-Repo/cn.myflv.noactive](https://github.com/Xposed-Modules-Repo/cn.myflv.noactive) — NoActive *(⭐ 124)*
+- [8Mi-Tech/LSPatch-ApkFactory](https://github.com/8Mi-Tech/LSPatch-ApkFactory) — 一个基于LSPatch的打包工具，自动为常见应用打LSPatch补丁的仓库，包括各类分支(详见readme) *(⭐ 123)*
+- [eswd04/freeform_update](https://github.com/eswd04/freeform_update) — eswd custom Mi-freeform update *(Kotlin · ⭐ 111)*
+- [Doraemonliu/com.houvven.guise](https://github.com/Doraemonliu/com.houvven.guise) — Guise *(⭐ 107)*
+- [Acooldog/fuckschoolrun](https://github.com/Acooldog/fuckschoolrun) — 基于影梭打造的校园跑软件，支持模拟NFC *(Java · ⭐ 105)*
+- [LeanxModulostk/wifi-bonding-nolog](https://github.com/LeanxModulostk/wifi-bonding-nolog) — This module doubles your bandwidth, disables Wi-Fi packet logging (has high overhead and several related security issues) and other logging for less background load and perhaps some battery life. *(Shell · ⭐ 97)*
+- [Yubyf/QuoteLockX](https://github.com/Yubyf/QuoteLockX) — Displays quotes on your lockscreen, because why not. *(Kotlin · ⭐ 93)*
+- [urdarling/guise.backup](https://github.com/urdarling/guise.backup) — Guise备份 *(⭐ 87)*
+- [relimus/Z-Flow](https://github.com/relimus/Z-Flow) — 最卡顿的米窗在此 *(Kotlin · ⭐ 80)*
+- [ztc1997/FakeDCBacklight](https://github.com/ztc1997/FakeDCBacklight) — Enable Extra dim when the brightness is lower than the minimum screen brightness. 在亮度低于最低屏幕亮度时启用极暗。 *(Kotlin · ⭐ 78)*
+- [myflavor/NoActive-V2](https://github.com/myflavor/NoActive-V2) — NoActive UI版本 *(Java · ⭐ 74)*
+- [kazutoiris/infinite-illusion](https://github.com/kazutoiris/infinite-illusion) — Infinite Illusion （无限幻境） *(Kotlin · ⭐ 73)*
+- [NewFuture/rclone-fuse3-magisk](https://github.com/NewFuture/rclone-fuse3-magisk) — magisk rclone module (with libfuse3) *(Shell · ⭐ 72)*
+- [relimus/TAssistant](https://github.com/relimus/TAssistant) — Make TIM Great Again! *(Kotlin · ⭐ 71)*
+- [muink/Magisk-Captive-Manager](https://github.com/muink/Magisk-Captive-Manager) — 修改Captive Portal服务器, 可解Android 网络感叹号问题 *(Shell · ⭐ 64)*
+- [Xposed-Modules-Repo/com.fankes.tsbattery](https://github.com/Xposed-Modules-Repo/com.fankes.tsbattery) — TSBattery *(⭐ 58)*
+- [chase535/accurate_battery](https://github.com/chase535/accurate_battery) — 精准电量 *(C · ⭐ 54)*
+- [SchneeSchmitt/ADB-Android-Optimizer](https://github.com/SchneeSchmitt/ADB-Android-Optimizer) — Rootless (ADB) Android performance optimizer for every condition, from pure performance to power-saving *(Batchfile · ⭐ 48)*
+- [notxx/MiPushZygisk](https://github.com/notxx/MiPushZygisk) — 一个 Zygisk 模块，为应用伪装小米设备，以便使用 MiPush *(C++ · ⭐ 41)*
+- [yin-ol/MiPushFaker](https://github.com/yin-ol/MiPushFaker) — Xposed模块，伪装机型让普通应用能够正确识别到MiPush，搭配MiPushFramework使用 *(Kotlin · ⭐ 41)*
+- [powerAn2020/crond4android](https://github.com/powerAn2020/crond4android) — 支持 KernelSU、APatch、Magisk下运行的Crond。带UI界面/The Crond program that supports running on KernelSU, APatch and Magisk. *(JavaScript · ⭐ 40)*
+- [788009/termux-sandbox](https://github.com/788009/termux-sandbox) — Native-performance Linux sandboxes for Termux. Auto-configures Chroot to bypass Proot overhead. Docker-like export/import included. 基于 Termux 的原生性能 Linux 沙盒，自动配置 Chroot 实现彻底跳过 Proot 开销，支持类 Docker 的导入导出。 *(Shell · ⭐ 38)*
+- [Simplicity-Team/WooBoxForColorOS](https://github.com/Simplicity-Team/WooBoxForColorOS) — 一个基于 ColorOS12(Android 12) 适配的自定义工具 // A system extension Xposed module based on ColorOS12 (Android12) *(Kotlin · ⭐ 34)*
+- [Coolapk-Code9527/F2FS-Optimizer](https://github.com/Coolapk-Code9527/F2FS-Optimizer) *(Shell · ⭐ 30)*
+- [Xposed-Modules-Repo/com.makino.cslyric](https://github.com/Xposed-Modules-Repo/com.makino.cslyric) — 词幕（CSLyric） *(⭐ 29)*
+- [rushiranpise/xmlpak-RE](https://github.com/rushiranpise/xmlpak-RE) *(Shell · ⭐ 26)*
+- [Skorpion96/KernelSU-APatch-Manager-for-Recovery-Mode](https://github.com/Skorpion96/KernelSU-APatch-Manager-for-Recovery-Mode) — A fork of https://github.com/Rikj000/Magisk-Manager-for-Recovery-Mode and https://github.com/Magisk-Modules-Repo/mm that enables the script to work with KernelSU and APatch *(Shell · ⭐ 20)*
+- [Xposed-Modules-Repo/cn.yhfcn.mipushfaker](https://github.com/Xposed-Modules-Repo/cn.yhfcn.mipushfaker) — MiPushFaker *(⭐ 20)*
+- [100pangci/Syncthing-for-magisk](https://github.com/100pangci/Syncthing-for-magisk) *(Shell · ⭐ 19)*
+- [mengshouer/crond_start_jobs](https://github.com/mengshouer/crond_start_jobs) — Magisk/KernelSu/Apatch Module: 使用 crond 定时启动任务 *(Shell · ⭐ 18)*
+- [LMODroid/platform_packages_apps_LMOFreeform](https://github.com/LMODroid/platform_packages_apps_LMOFreeform) *(Kotlin · ⭐ 12)*
+- [liangsai12/crontab](https://github.com/liangsai12/crontab) — Magisk crontabs *(Shell · ⭐ 11)*
+- [aimerneige/FZFWZhuZiAYuan-Magisk-Simple](https://github.com/aimerneige/FZFWZhuZiAYuan-Magisk-Simple) — 使用「CJK 字体 Magisk 模块模板 简易版」制作的「方正FW筑紫A圆」字体模块。 *(Shell · ⭐ 9)*
+- [Tufmoc/W.Tools-Ver.Bat](https://github.com/Tufmoc/W.Tools-Ver.Bat) — 初代工具箱雏形 *(Batchfile · ⭐ 2)*
+- [robot00f/Flyme-FreeForm](https://github.com/robot00f/Flyme-FreeForm) *(⭐ 1)*
+
+_Generated by startidy on 2026-09-30._

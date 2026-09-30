@@ -1,0 +1,208 @@
+<!-- startidy:category name="终端-shell" description="收纳终端模拟器、Shell、命令行工具和终端增强配置" -->
+
+# 终端-shell
+
+收纳终端模拟器、Shell、命令行工具和终端增强配置
+
+[← Back to index](README.md)
+
+**196 repositories**
+
+- [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) — The agent that grows with you *(Python · ⭐ 250214)*
+- [anomalyco/opencode](https://github.com/anomalyco/opencode) — The open source coding agent. *(TypeScript · ⭐ 211042)*
+- [massgravel/Microsoft-Activation-Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts) — Open-source Windows and Office activator featuring HWID, Ohook, TSforge, and Online KMS activation methods, along with advanced troubleshooting. *(Batchfile · ⭐ 192445)*
+- [ohmyzsh/ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) — 🙃 A delightful community-driven (with 2,500+ contributors) framework for managing your zsh configuration. Includes 300+ optional plugins (rails, git, macOS, hub, docker, homebrew, node, php, python, etc), 140+ themes to spice up your morning, and an auto-update tool that makes it easy to keep up with the latest updates from the community. *(Shell · ⭐ 189996)*
+- [anthropics/claude-code](https://github.com/anthropics/claude-code) — Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. *(TypeScript · ⭐ 148644)*
+- [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) — LLM inference in C/C++ *(C++ · ⭐ 129951)*
+- [openai/codex](https://github.com/openai/codex) — Lightweight coding agent that runs in your terminal *(Rust · ⭐ 127341)*
+- [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) — An open-source AI agent that brings the power of Gemini directly into your terminal. *(TypeScript · ⭐ 107193)*
+- [microsoft/terminal](https://github.com/microsoft/terminal) — The new Windows Terminal and the original Windows console host, all in the same place! *(C++ · ⭐ 105035)*
+- [neovim/neovim](https://github.com/neovim/neovim) — Vim-fork focused on extensibility and usability *(Vim Script · ⭐ 102682)*
+- [nvm-sh/nvm](https://github.com/nvm-sh/nvm) — Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions. *(Shell · ⭐ 95221)*
+- [sherlock-project/sherlock](https://github.com/sherlock-project/sherlock) — Hunt down social media accounts by username across social networks *(Python · ⭐ 93056)*
+- [jesseduffield/lazygit](https://github.com/jesseduffield/lazygit) — simple terminal UI for git commands *(Go · ⭐ 82788)*
+- [Eugeny/tabby](https://github.com/Eugeny/tabby) — A terminal for a more modern age *(TypeScript · ⭐ 74755)*
+- [cline/cline](https://github.com/cline/cline) — Autonomous coding agent as an SDK, IDE extension, or CLI assistant. *(TypeScript · ⭐ 69592)*
+- [tw93/Mole](https://github.com/tw93/Mole) — 🐹 Clean, uninstall, analyze, optimize, and monitor your Mac. Free open-source CLI, plus a native Mac app. *(Shell · ⭐ 68809)*
+- [git/git](https://github.com/git/git) — Git Source Code Mirror - This is a publish-only repository but pull requests can be turned into patches to the mailing list via GitGitGadget (https://gitgitgadget.github.io/). Please follow Documentation/SubmittingPatches procedure for any of your improvements. *(C · ⭐ 63466)*
+- [ghostty-org/ghostty](https://github.com/ghostty-org/ghostty) — 👻 Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration. *(Zig · ⭐ 61727)*
+- [termux/termux-app](https://github.com/termux/termux-app) — Termux - a terminal emulator application for Android OS extendible by variety of packages. *(Java · ⭐ 61699)*
+- [sharkdp/bat](https://github.com/sharkdp/bat) — A cat(1) clone with wings. *(Rust · ⭐ 60612)*
+- [starship/starship](https://github.com/starship/starship) — ☄🌌️ The minimal, blazing-fast, and infinitely customizable prompt for any shell! *(Rust · ⭐ 60099)*
+- [rclone/rclone](https://github.com/rclone/rclone) — "rsync for cloud storage" - Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Azure Blob, Azure Files, Yandex Files *(Go · ⭐ 60021)*
+- [agalwood/Motrix](https://github.com/agalwood/Motrix) — A full-featured download manager. *(TypeScript · ⭐ 55995)*
+- [romkatv/powerlevel10k](https://github.com/romkatv/powerlevel10k) — A Zsh theme *(Shell · ⭐ 55169)*
+- [jesseduffield/lazydocker](https://github.com/jesseduffield/lazydocker) — The lazier way to manage everything docker *(Go · ⭐ 52992)*
+- [HKUDS/CLI-Anything](https://github.com/HKUDS/CLI-Anything) — "CLI-Anything: Making ALL Software Agent-Native" -- CLI-Hub: https://clianything.cc/ *(Python · ⭐ 51077)*
+- [Aider-AI/aider](https://github.com/Aider-AI/aider) — aider is AI pair programming in your terminal *(Python · ⭐ 49292)*
+- [charmbracelet/bubbletea](https://github.com/charmbracelet/bubbletea) — A powerful little TUI framework 🏗 *(Go · ⭐ 45197)*
+- [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser) — Browser automation CLI for AI agents *(Rust · ⭐ 43397)*
+- [aria2/aria2](https://github.com/aria2/aria2) — aria2 is a lightweight multi-protocol & multi-source, cross platform download utility operated in command-line. It supports HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink. *(C++ · ⭐ 42863)*
+- [sxyazi/yazi](https://github.com/sxyazi/yazi) — 💥 Blazing fast terminal file manager written in Rust, based on async I/O. *(Rust · ⭐ 42507)*
+- [vim/vim](https://github.com/vim/vim) — The official Vim repository *(Vim Script · ⭐ 41004)*
+- [schollz/croc](https://github.com/schollz/croc) — Easily and securely send things from one computer to another :crocodile: :package: *(Go · ⭐ 40486)*
+- [lapce/lapce](https://github.com/lapce/lapce) — Lightning-fast and Powerful Code Editor written in Rust *(Rust · ⭐ 38872)*
+- [soxoj/maigret](https://github.com/soxoj/maigret) — 🕵️‍♂️ Collect a dossier on a person by username from 6K websites *(Python · ⭐ 38165)*
+- [Textualize/textual](https://github.com/Textualize/textual) — The lean application framework for Python. Build sophisticated user interfaces with a simple Python API. Run your apps in the terminal and a web browser. *(Python · ⭐ 37373)*
+- [AlexsJones/llmfit](https://github.com/AlexsJones/llmfit) — Hundreds of models & providers. One command to find what runs on your hardware. *(Rust · ⭐ 37369)*
+- [jaywcjlove/linux-command](https://github.com/jaywcjlove/linux-command) — Linux命令大全搜索工具，内容包含Linux命令手册、详解、学习、搜集。https://git.io/linux *(Markdown · ⭐ 37038)*
+- [zsh-users/zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) — Fish-like autosuggestions for zsh *(Shell · ⭐ 36101)*
+- [kovidgoyal/kitty](https://github.com/kovidgoyal/kitty) — If you live in the terminal, kitty is made for you! Cross-platform, fast, feature-rich, GPU based. *(Python · ⭐ 35122)*
+- [aristocratos/btop](https://github.com/aristocratos/btop) — A monitor of resources *(C++ · ⭐ 34806)*
+- [fish-shell/fish-shell](https://github.com/fish-shell/fish-shell) — The user-friendly command line shell. *(Rust · ⭐ 34245)*
+- [microsoft/WSL](https://github.com/microsoft/WSL) — Windows Subsystem for Linux *(C++ · ⭐ 33830)*
+- [dandavison/delta](https://github.com/dandavison/delta) — A syntax-highlighting pager for git, diff, grep, rg --json, and blame output *(Rust · ⭐ 32386)*
+- [kingToolbox/WindTerm](https://github.com/kingToolbox/WindTerm) — A professional cross-platform SSH/Sftp/Shell/Telnet/Tmux/Serial terminal. *(C · ⭐ 32351)*
+- [chubin/wttr.in](https://github.com/chubin/wttr.in) — :partly_sunny: The right way to check the weather *(Go · ⭐ 30608)*
+- [sipeed/picoclaw](https://github.com/sipeed/picoclaw) — Tiny, Fast, and Deployable anywhere — automate the mundane, unleash your creativity *(Go · ⭐ 30022)*
+- [233boy/v2ray](https://github.com/233boy/v2ray) — 最好用的 V2Ray 一键安装脚本 & 管理脚本 *(Shell · ⭐ 29688)*
+- [XIU2/CloudflareSpeedTest](https://github.com/XIU2/CloudflareSpeedTest) — 🌩「自选优选 IP」测试 Cloudflare CDN 延迟和速度，获取最快 IP ！当然也支持其他 CDN / 多个解析 IP 的网站 ~ *(Go · ⭐ 29234)*
+- [NvChad/NvChad](https://github.com/NvChad/NvChad) — Blazing fast Neovim framework providing solid defaults and a beautiful UI, enhancing your neovim experience. *(Lua · ⭐ 28503)*
+- [charmbracelet/crush](https://github.com/charmbracelet/crush) — Glamourous agentic coding for all 💘 *(Go · ⭐ 28379)*
+- [LazyVim/LazyVim](https://github.com/LazyVim/LazyVim) — Neovim config for the lazy *(Lua · ⭐ 27574)*
+- [hashcat/hashcat](https://github.com/hashcat/hashcat) — World's fastest and most advanced password recovery utility *(C · ⭐ 26903)*
+- [microsoft/winget-cli](https://github.com/microsoft/winget-cli) — WinGet is the Windows Package Manager. This project includes a CLI (Command Line Interface), PowerShell modules, and a COM (Component Object Model) API (Application Programming Interface). *(C++ · ⭐ 26468)*
+- [gpakosz/.tmux](https://github.com/gpakosz/.tmux) — Oh my tmux! My self-contained, pretty & versatile tmux configuration made with 💛🩷💙🖤❤️🤍 *(Shell · ⭐ 25410)*
+- [fastfetch-cli/fastfetch](https://github.com/fastfetch-cli/fastfetch) — A maintained, feature-rich and performance oriented, neofetch like system information tool. *(C · ⭐ 24833)*
+- [ScoopInstaller/Scoop](https://github.com/ScoopInstaller/Scoop) — A command-line installer for Windows. *(PowerShell · ⭐ 24708)*
+- [zsh-users/zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) — Fish shell like syntax highlighting for Zsh. *(Shell · ⭐ 23017)*
+- [pranshuparmar/witr](https://github.com/pranshuparmar/witr) — Why is this running? Trace any process, port, container, or file back to what started it - CLI + TUI. *(Go · ⭐ 22544)*
+- [gitui-org/gitui](https://github.com/gitui-org/gitui) — Blazing 💥 fast terminal-ui for git written in rust 🦀 *(Rust · ⭐ 22538)*
+- [wavetermdev/waveterm](https://github.com/wavetermdev/waveterm) — An open-source, AI-integrated, cross-platform terminal for seamless workflows *(Go · ⭐ 22387)*
+- [bee-san/Ciphey](https://github.com/bee-san/Ciphey) — ⚡ Automatically decrypt encryptions without knowing the key or cipher, decode encodings, and crack hashes ⚡ *(Rust · ⭐ 21645)*
+- [ish-app/ish](https://github.com/ish-app/ish) — Linux shell for iOS *(C · ⭐ 20518)*
+- [yudai/gotty](https://github.com/yudai/gotty) — Share your terminal as a web application *(Go · ⭐ 19554)*
+- [browsh-org/browsh](https://github.com/browsh-org/browsh) — A fully-modern text-based browser, rendering to TTY and browsers *(JavaScript · ⭐ 19078)*
+- [ImageMagick/ImageMagick](https://github.com/ImageMagick/ImageMagick) — ImageMagick is a free, open-source software suite for creating, editing, converting, and displaying images. It supports 200+ formats and offers powerful command-line tools and APIs for automation, scripting, and integration across platforms. *(C · ⭐ 17556)*
+- [LGUG2Z/komorebi](https://github.com/LGUG2Z/komorebi) — A tiling window manager for Windows 🍉 *(Rust · ⭐ 15232)*
+- [OpenEthan/SMSBoom](https://github.com/OpenEthan/SMSBoom) — SMSBoom - Deprecate: Due to judicial reasons, the repository has been suspended! *(Python · ⭐ 15127)*
+- [XAMPPRocky/tokei](https://github.com/XAMPPRocky/tokei) — Count your code, quickly. *(Rust · ⭐ 14959)*
+- [shadow1ng/fscan](https://github.com/shadow1ng/fscan) — 一款内网综合扫描工具，方便一键自动化、全方位漏扫扫描。(An intranet comprehensive scanning tool, enabling one-click automated, all-round vulnerability scanning) *(Go · ⭐ 14602)*
+- [bin456789/reinstall](https://github.com/bin456789/reinstall) — 一键DD/重装脚本 (One-click reinstall OS on VPS) *(Shell · ⭐ 13402)*
+- [newren/git-filter-repo](https://github.com/newren/git-filter-repo) — Quickly rewrite git repository history (filter-branch replacement) *(Python · ⭐ 13344)*
+- [juewuy/ShellCrash](https://github.com/juewuy/ShellCrash) — Run sing-box/mihomo as client in shell *(Shell · ⭐ 13321)*
+- [be5invis/Sarasa-Gothic](https://github.com/be5invis/Sarasa-Gothic) — Sarasa Gothic / 更纱黑体 / 更紗黑體 / 更紗ゴシック / 사라사 고딕 *(JavaScript · ⭐ 12824)*
+- [dbcli/mycli](https://github.com/dbcli/mycli) — Rich MySQL Terminal Client with AutoCompletion, Syntax Highlighting, and Dataframes *(Python · ⭐ 11979)*
+- [MoonshotAI/kimi-cli](https://github.com/MoonshotAI/kimi-cli) — \[Archived\] Legacy Python Kimi CLI, no longer maintained. Please use Kimi Code CLI: https://github.com/MoonshotAI/kimi-code *(Python · ⭐ 11431)*
+- [vicinaehq/vicinae](https://github.com/vicinaehq/vicinae) — A focused launcher for your desktop - native, fast, extensible *(C++ · ⭐ 10084)*
+- [darknessomi/musicbox](https://github.com/darknessomi/musicbox) — 网易云音乐命令行版本 *(Python · ⭐ 9853)*
+- [HyDE-Project/HyDE](https://github.com/HyDE-Project/HyDE) — HyDE, your Development Environment 🖥️💻 *(Shell · ⭐ 9630)*
+- [sinelaw/fresh](https://github.com/sinelaw/fresh) — Terminal based IDE & text editor: easy, powerful and fast *(Rust · ⭐ 9067)*
+- [Maciek-roboblog/Claude-Code-Usage-Monitor](https://github.com/Maciek-roboblog/Claude-Code-Usage-Monitor) — Real-time Claude Code usage monitor with predictions and warnings *(Python · ⭐ 8731)*
+- [archlinux/archinstall](https://github.com/archlinux/archinstall) — Arch Linux installer - guided, templates etc. *(Python · ⭐ 8470)*
+- [xwmx/nb](https://github.com/xwmx/nb) — CLI and local web plain text note‑taking, bookmarking, and archiving with linking, tagging, filtering, search, Git versioning & syncing, Pandoc conversion, + more, in a single portable script. *(Shell · ⭐ 8418)*
+- [PowerShell/Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) — Win32 port of OpenSSH *(⭐ 8294)*
+- [pinokiocomputer/pinokio](https://github.com/pinokiocomputer/pinokio) — AI Browser *(JavaScript · ⭐ 8185)*
+- [mmulet/term.everything](https://github.com/mmulet/term.everything) — Run any GUI app in the terminal❗ *(Go · ⭐ 8102)*
+- [SuperManito/LinuxMirrors](https://github.com/SuperManito/LinuxMirrors) — GNU/Linux 更换系统软件源脚本及 Docker 安装与换源脚本 *(Shell · ⭐ 7775)*
+- [MoonshotAI/kimi-code](https://github.com/MoonshotAI/kimi-code) — Kimi Code CLI — The Starting Point for Next-Gen Agents *(TypeScript · ⭐ 7743)*
+- [tailcallhq/forgecode](https://github.com/tailcallhq/forgecode) — AI enabled pair programmer for Claude, GPT, O Series, Grok, Deepseek, Gemini and 300+ models *(Rust · ⭐ 7638)*
+- [oldratlee/useful-scripts](https://github.com/oldratlee/useful-scripts) — 🐌 useful scripts for making developer's everyday life easier and happier, involved java, shell etc. *(Shell · ⭐ 7523)*
+- [yuk7/ArchWSL](https://github.com/yuk7/ArchWSL) — ArchLinux based WSL Distribution. Supports multiple install. *(Makefile · ⭐ 7398)*
+- [RipplePiam/MobaXterm-Chinese-Simplified](https://github.com/RipplePiam/MobaXterm-Chinese-Simplified) — MobaXterm 简体中文汉化版🌏🖥🖥🖥 【💌慢工精心制作，"提示"也汉化💻】 【😍控件布局精细调整】 *(⭐ 7323)*
+- [Done-0/fuck-u-code](https://github.com/Done-0/fuck-u-code) — Legacy-Mess Detector – assess the “legacy-mess level” of your code and output a beautiful report *(TypeScript · ⭐ 7293)*
+- [Acode-Foundation/Acode](https://github.com/Acode-Foundation/Acode) — Acode - powerful text/code editor for android *(JavaScript · ⭐ 7186)*
+- [nordtheme/nord](https://github.com/nordtheme/nord) — An arctic, north-bluish color palette. *(SCSS · ⭐ 6887)*
+- [RubyMetric/chsrc](https://github.com/RubyMetric/chsrc) — chsrc 全平台通用换源工具与框架. Change Source everywhere for every software *(C · ⭐ 6885)*
+- [moudey/Shell](https://github.com/moudey/Shell) — Powerful context menu manager for Windows File Explorer *(C++ · ⭐ 6860)*
+- [microsoft/sudo](https://github.com/microsoft/sudo) — It's sudo, for Windows *(Rust · ⭐ 5862)*
+- [xykt/NetQuality](https://github.com/xykt/NetQuality) — 网络质量检测脚本 - Network Quality Check Script *(Shell · ⭐ 5764)*
+- [kornelski/pngquant](https://github.com/kornelski/pngquant) — Lossy PNG compressor — pngquant command based on libimagequant library *(C · ⭐ 5756)*
+- [binpash/try](https://github.com/binpash/try) — Inspect, control, and manipulate a command's effects before modifying your live system. *(Shell · ⭐ 5495)*
+- [hpjansson/chafa](https://github.com/hpjansson/chafa) — 📺🗿 Terminal graphics for the 21st century. *(C · ⭐ 5288)*
+- [huashengdun/webssh](https://github.com/huashengdun/webssh) — :seedling: Web based ssh client *(Python · ⭐ 5147)*
+- [lmc999/RegionRestrictionCheck](https://github.com/lmc999/RegionRestrictionCheck) — A bash script to check the status of your IP on various geo-restricted services. *(Shell · ⭐ 5137)*
+- [lwch/natpass](https://github.com/lwch/natpass) — 🔥居家办公，远程开发神器 *(Go · ⭐ 4444)*
+- [lakinduakash/linux-wifi-hotspot](https://github.com/lakinduakash/linux-wifi-hotspot) — Feature-rich wifi hotspot creator for Linux which provides both GUI and command-line interface. It is also able to create a hotspot using the same wifi card which is connected to an AP already ( Similar to Windows 10). *(Shell · ⭐ 4408)*
+- [Cateners/tiny_container](https://github.com/Cateners/tiny_container) — Click-to-run debian 13 with desktop environment on android! *(Kotlin · ⭐ 4226)*
+- [zu1k/nali](https://github.com/zu1k/nali) — An offline tool for querying IP geographic information and CDN provider. 一个查询IP地理信息和CDN服务提供商的离线终端工具. *(Go · ⭐ 4106)*
+- [chxuan/vimplus](https://github.com/chxuan/vimplus) — :rocket:An automatic configuration program for vim *(Vim script · ⭐ 3940)*
+- [leitbogioro/Tools](https://github.com/leitbogioro/Tools) — Something about tools *(Shell · ⭐ 3893)*
+- [TermoraDev/termora](https://github.com/TermoraDev/termora) — Termora is a terminal emulator and SSH client for Windows, macOS and Linux. *(Kotlin · ⭐ 3829)*
+- [ssut/payload-dumper-go](https://github.com/ssut/payload-dumper-go) — an android OTA payload dumper written in Go *(Go · ⭐ 3528)*
+- [termux/proot-distro](https://github.com/termux/proot-distro) — A utility for managing proot containers. *(Python · ⭐ 3512)*
+- [SteamRE/DepotDownloader](https://github.com/SteamRE/DepotDownloader) — Steam depot downloader utilizing the SteamKit2 library. *(C# · ⭐ 3418)*
+- [lxgr-linux/pokete](https://github.com/lxgr-linux/pokete) — A terminal based Pokemon like game *(Python · ⭐ 3160)*
+- [veeso/termscp](https://github.com/veeso/termscp) — 🖥 A feature rich terminal UI file transfer and explorer with support for SCP/SFTP/FTP/S3/SMB/WebDAV *(Rust · ⭐ 3108)*
+- [metakirby5/codi.vim](https://github.com/metakirby5/codi.vim) — :notebook_with_decorative_cover: The interactive scratchpad for hackers. *(Vim Script · ⭐ 3059)*
+- [urwid/urwid](https://github.com/urwid/urwid) — Console user interface library for Python (official repo) *(Python · ⭐ 3020)*
+- [control-theory/gonzo](https://github.com/control-theory/gonzo) — Gonzo! The Go based TUI log analysis tool *(Go · ⭐ 2775)*
+- [trzsz/trzsz-ssh](https://github.com/trzsz/trzsz-ssh) — trzsz-ssh ( tssh ) is an ssh client designed as a drop-in replacement for the openssh client. It aims to provide complete compatibility with openssh, mirroring all its features, while also offering additional useful features. Such as login prompt, batch login, remember password, automated interaction, trzsz, zmodem(rz/sz), udp mode like mosh, etc. *(Go · ⭐ 2727)*
+- [yassinebenaid/bunster](https://github.com/yassinebenaid/bunster) — Compile shell scripts to static binaries. *(Go · ⭐ 2679)*
+- [sinclairtarget/git-who](https://github.com/sinclairtarget/git-who) — Git blame for file trees *(Go · ⭐ 2677)*
+- [theopfr/somo](https://github.com/theopfr/somo) — A human-friendly alternative to netstat for socket and port monitoring on Linux and macOS. *(Rust · ⭐ 2622)*
+- [go-musicfox/go-musicfox](https://github.com/go-musicfox/go-musicfox) — go-musicfox是用Go写的又一款网易云音乐命令行客户端，支持UnblockNeteaseMusic、各种音质级别、lastfm、MPRIS、MacOS交互响应（睡眠暂停、蓝牙耳机连接断开响应、菜单栏控制等）... *(Go · ⭐ 2571)*
+- [atuinsh/desktop](https://github.com/atuinsh/desktop) — 📖 Runbooks that run *(TypeScript · ⭐ 2453)*
+- [tytydraco/LADB](https://github.com/tytydraco/LADB) — A local ADB shell for Android! *(Kotlin · ⭐ 2420)*
+- [Xed-Editor/Xed-Editor](https://github.com/Xed-Editor/Xed-Editor) — Advanced Text Editor for Android *(Kotlin · ⭐ 2341)*
+- [Karben233/bili-hardcore](https://github.com/Karben233/bili-hardcore) — bilibili 硬核会员 AI 自动答题脚本 *(Rust · ⭐ 2328)*
+- [Zouuup/landrun](https://github.com/Zouuup/landrun) — Run any Linux process in a secure, unprivileged sandbox using Landlock. Think firejail, but lightweight, user-friendly, and baked into the kernel. *(Go · ⭐ 2311)*
+- [romkatv/zsh4humans](https://github.com/romkatv/zsh4humans) — A turnkey configuration for Zsh *(⭐ 2297)*
+- [MiniMax-AI/cli](https://github.com/MiniMax-AI/cli) — Generate text, images, video, speech, and music by MiniMax. *(TypeScript · ⭐ 2179)*
+- [MasterDevX/Termux-ADB](https://github.com/MasterDevX/Termux-ADB) — Install ADB & FastBoot Tools in Termux! *(Shell · ⭐ 2161)*
+- [yutto-dev/yutto](https://github.com/yutto-dev/yutto) — :ice_cube: 一个可爱且任性的 B 站视频下载器 *(Python · ⭐ 2051)*
+- [afar1/fieldtheory-cli](https://github.com/afar1/fieldtheory-cli) — Field Theory CLI for bookmarks, Library, commands, and agent workflows *(TypeScript · ⭐ 2031)*
+- [LazyVim/starter](https://github.com/LazyVim/starter) — Starter template for LazyVim *(Lua · ⭐ 2011)*
+- [simonhaenisch/md-to-pdf](https://github.com/simonhaenisch/md-to-pdf) — Hackable CLI tool for converting Markdown files to PDF using Node.js and headless Chrome. *(TypeScript · ⭐ 1961)*
+- [termux/termux-boot](https://github.com/termux/termux-boot) — Termux add-on app allowing programs to be run at boot. *(Java · ⭐ 1789)*
+- [lextm/windowsterminal-shell](https://github.com/lextm/windowsterminal-shell) — Install/uninstall scripts for Windows Terminal context menu items *(PowerShell · ⭐ 1776)*
+- [bohanwood/debi](https://github.com/bohanwood/debi) — Reinstall your VPS to minimal Debian *(Shell · ⭐ 1763)*
+- [meefik/busybox](https://github.com/meefik/busybox) — BusyBox for Android *(Java · ⭐ 1739)*
+- [Eugeny/tabby-web](https://github.com/Eugeny/tabby-web) — Tabby Web - an SSH/Telnet/Serial client in your browser. *(Python · ⭐ 1505)*
+- [Gu1llaum-3/sshm](https://github.com/Gu1llaum-3/sshm) — SSHM is a beautiful command-line tool that transforms how you manage and connect to your SSH hosts. Built with Go and featuring an intuitive TUI interface, it makes SSH connection management effortless and enjoyable. *(Go · ⭐ 1402)*
+- [nxshell/nxshell](https://github.com/nxshell/nxshell) — An easy to use new terminal. *(JavaScript · ⭐ 1258)*
+- [laishulu/Sarasa-Term-SC-Nerd](https://github.com/laishulu/Sarasa-Term-SC-Nerd) — 简体中文终端更纱黑体+Nerd图标字体库。中英文宽度完美2:1，图标长宽经过调整，不会出现对齐问题，尤其适合作为终端字体。 *(Python · ⭐ 1214)*
+- [topcss/docker-pull-tar](https://github.com/topcss/docker-pull-tar) — 无需 Docker 环境，就能直接搜索、下载多架构（如 arm、x86）的 Docker 镜像并保存为 tar 包。Search and download multi-architecture (e.g., arm, x86) Docker images directly as tar files without needing a Docker environment. *(Python · ⭐ 1181)*
+- [Magisk-Modules-Repo/busybox-ndk](https://github.com/Magisk-Modules-Repo/busybox-ndk) — busybox-ndk *(Shell · ⭐ 1169)*
+- [amchii/tg-signer](https://github.com/amchii/tg-signer) — 电报自动执行（签到、发送消息、点击键盘、AI回复等）；个人、群组、频道消息监控、转发与自动回复。Automated Telegram tasks (check-ins, sending messages, keyboard clicks, AI replies, etc.); monitoring, forwarding, and auto-replying to private, group, and channel messages. *(Python · ⭐ 1053)*
+- [2moe/tmoe](https://github.com/2moe/tmoe) — TMOE, More Optional Environments. *(Shell · ⭐ 984)*
+- [lint-md/lint-md](https://github.com/lint-md/lint-md) — :books: 检查中文 markdown 编写格式规范的命令行工具，基于 AST，方便集成 CI，写博客 / 文档必备。支持 API 调用！ *(TypeScript · ⭐ 959)*
+- [Lxtharia/minegrub-world-sel-theme](https://github.com/Lxtharia/minegrub-world-sel-theme) — A grub theme in the style of the Minecraft singleplayer (sp) world selection screen! *(Shell · ⭐ 934)*
+- [Cabbagec/termux-ohmyzsh](https://github.com/Cabbagec/termux-ohmyzsh) — Colorize your termux! Oh-my-zsh included! *(Shell · ⭐ 879)*
+- [nohajc/termux-adb](https://github.com/nohajc/termux-adb) — Run adb in Termux without root permissions! *(Shell · ⭐ 842)*
+- [RohitVerma882/termux-miunlock](https://github.com/RohitVerma882/termux-miunlock) — A program that can be used to retrieve the bootloader unlock token for Xiaomi devices. (and unlock the bootloader) using Termux *(Shell · ⭐ 799)*
+- [x0rzavi/github-readme-terminal](https://github.com/x0rzavi/github-readme-terminal) — ✨ Elevate your GitHub Profile ReadMe with Minimalistic Retro Terminal GIFs 🚀 *(Python · ⭐ 759)*
+- [hardhackerlabs/themes](https://github.com/hardhackerlabs/themes) — 🧑🏾‍🚀 One Theme to Rule Them All 🌈 *(⭐ 725)*
+- [JohanChane/clashtui](https://github.com/JohanChane/clashtui) — Mihomo (Clash.Meta) / sing-box TUI Client *(Rust · ⭐ 689)*
+- [Magisk-Modules-Repo/adb-ndk](https://github.com/Magisk-Modules-Repo/adb-ndk) — adb-ndk *(Shell · ⭐ 657)*
+- [joeynyc/hermes-skins](https://github.com/joeynyc/hermes-skins) — Custom skins (visual themes) for the Hermes CLI agent *(Python · ⭐ 594)*
+- [trzsz/tsshd](https://github.com/trzsz/tsshd) — tsshd is a UDP-based SSH server built for unreliable networks. It supports seamless roaming across networks and IP changes, and works well on high-latency links such as cellular connections and unstable Wi-Fi. *(Go · ⭐ 545)*
+- [Angey40/BaiduPCS-Go](https://github.com/Angey40/BaiduPCS-Go) — 百度网盘工具箱 - Go语言编写 *(Go · ⭐ 435)*
+- [taganaka/SpeedTest](https://github.com/taganaka/SpeedTest) — Yet another unofficial speedtest.net client cli interface *(C++ · ⭐ 399)*
+- [bloznelis/kbt](https://github.com/bloznelis/kbt) — Keyboard tester in terminal *(Rust · ⭐ 391)*
+- [nordtheme/terminal-app](https://github.com/nordtheme/terminal-app) — An arctic, north-bluish clean and elegant Terminal.app color theme. *(JavaScript · ⭐ 373)*
+- [jonz94/Sarasa-Gothic-Nerd-Fonts](https://github.com/jonz94/Sarasa-Gothic-Nerd-Fonts) — Nerd fonts patched Sarasa Gothic font. *(Python · ⭐ 357)*
+- [eendroroy/alien](https://github.com/eendroroy/alien) — An asynchronous zsh prompt *(Shell · ⭐ 349)*
+- [bajrangCoder/acode-plugin-acodex](https://github.com/bajrangCoder/acode-plugin-acodex) — AcodeX - A Terminal plugin for Acode App *(JavaScript · ⭐ 335)*
+- [izabera/bitwise-challenge-2048](https://github.com/izabera/bitwise-challenge-2048) — 2048 with only 64 bits of state *(Shell · ⭐ 297)*
+- [Magisk-Modules-Alt-Repo/BuiltIn-BusyBox](https://github.com/Magisk-Modules-Alt-Repo/BuiltIn-BusyBox) — Systemless Magisk module that installs and symlinks BusyBox with its applets to the Magisk built-in busybox binary *(Shell · ⭐ 294)*
+- [topjohnwu/ndk-busybox](https://github.com/topjohnwu/ndk-busybox) — BusyBox building with command ndk-build *(C · ⭐ 291)*
+- [zhucaidan/mtr_trace](https://github.com/zhucaidan/mtr_trace) — Linux MTR route trace script \| 检测VPS回程国内三网路由 *(Shell · ⭐ 285)*
+- [vufa/deepin-wine-qq-arch](https://github.com/vufa/deepin-wine-qq-arch) — Tencent QQ on Deepin Wine5(com.qq.im.deepin) For Archlinux *(Shell · ⭐ 246)*
+- [RuriOSS/rurima](https://github.com/RuriOSS/rurima) — Run docker & LXC images without docker or LXC program, without kernel features support, even without root privileges! *(C · ⭐ 243)*
+- [skanehira/github-tui](https://github.com/skanehira/github-tui) — TUI client for GitHub *(Go · ⭐ 216)*
+- [ColdWindScholar/D.N.A3](https://github.com/ColdWindScholar/D.N.A3) — 【开源】安卓一般固件解包打包助手【 Droid Normal Assistant 】 *(Python · ⭐ 159)*
+- [YanamiNeko/NekoSportsWorldTool](https://github.com/YanamiNeko/NekoSportsWorldTool) — 基于运动世界v7.3.70协议实现的纯自动化神秘工具 *(Rust · ⭐ 98)*
+- [thuanpham582002/tabby-mcp-server](https://github.com/thuanpham582002/tabby-mcp-server) — MCP server for control Tabby terminal *(TypeScript · ⭐ 93)*
+- [FLHonker/vim-plus-plus](https://github.com/FLHonker/vim-plus-plus) — Frank的至尊vim配置，基于vim-plus改造，一键部署。 *(Vim script · ⭐ 89)*
+- [midnightfreddie/nbt2json](https://github.com/midnightfreddie/nbt2json) — A command line utitlity and module that reads NBT data and converts it to JSON or YAML for editing and then back to NBT again *(Go · ⭐ 71)*
+- [GentlemanHu/Tabby-MCP](https://github.com/GentlemanHu/Tabby-MCP) — MCP server for Tabby terminal, 36 MCP tools including SFTP support, full control your Tabby! *(TypeScript · ⭐ 59)*
+- [powerAn2020/crond4android](https://github.com/powerAn2020/crond4android) — 支持 KernelSU、APatch、Magisk下运行的Crond。带UI界面/The Crond program that supports running on KernelSU, APatch and Magisk. *(JavaScript · ⭐ 40)*
+- [shipinbaoku/ikev2-vpn-setup-bash](https://github.com/shipinbaoku/ikev2-vpn-setup-bash) — 使用bash脚本一键搭建Ikev2的vpn服务端. *(Shell · ⭐ 39)*
+- [woaigitee/123pan-](https://github.com/woaigitee/123pan-) — 123云盘，使用安卓客户端协议，绕开流量限制，解决123云盘自用流量不足 *(⭐ 39)*
+- [788009/termux-sandbox](https://github.com/788009/termux-sandbox) — Native-performance Linux sandboxes for Termux. Auto-configures Chroot to bypass Proot overhead. Docker-like export/import included. 基于 Termux 的原生性能 Linux 沙盒，自动配置 Chroot 实现彻底跳过 Proot 开销，支持类 Docker 的导入导出。 *(Shell · ⭐ 38)*
+- [AdEx-Partners-DE/OpenNiri-Windows](https://github.com/AdEx-Partners-DE/OpenNiri-Windows) — Scrollable tiling window manager for Windows 10/11 in Rust - Niri-style horizontal workspace, global hotkeys, and multi-monitor support. *(Rust · ⭐ 38)*
+- [KURANADO2/lazyssh](https://github.com/KURANADO2/lazyssh) — An ssh server manages TUI tools. *(Rust · ⭐ 29)*
+- [Skorpion96/KernelSU-APatch-Manager-for-Recovery-Mode](https://github.com/Skorpion96/KernelSU-APatch-Manager-for-Recovery-Mode) — A fork of https://github.com/Rikj000/Magisk-Manager-for-Recovery-Mode and https://github.com/Magisk-Modules-Repo/mm that enables the script to work with KernelSU and APatch *(Shell · ⭐ 20)*
+- [mengshouer/crond_start_jobs](https://github.com/mengshouer/crond_start_jobs) — Magisk/KernelSu/Apatch Module: 使用 crond 定时启动任务 *(Shell · ⭐ 18)*
+- [nonebot/cli-plugin-docker](https://github.com/nonebot/cli-plugin-docker) — docker support for nb-cli *(Python · ⭐ 15)*
+- [GamerNoTitle/Hitokoto-Spider](https://github.com/GamerNoTitle/Hitokoto-Spider) — 还在用八爪鱼抓一言吗？这样的时代要结束啦！开发日记链接→ *(Python · ⭐ 12)*
+- [liangsai12/crontab](https://github.com/liangsai12/crontab) — Magisk crontabs *(Shell · ⭐ 11)*
+- [Oublie-le/iTerm](https://github.com/Oublie-le/iTerm) *(TypeScript · ⭐ 8)*
+- [zengbo/chatlog](https://github.com/zengbo/chatlog) *(Go · ⭐ 8)*
+- [zzj-Mark/psmux-skill](https://github.com/zzj-Mark/psmux-skill) — psmux skill for AI agents - Windows native terminal multiplexer (tmux alternative) *(⭐ 4)*
+- [lkkone/tlinker](https://github.com/lkkone/tlinker) — headscale&derp auto deploy and manage *(Shell · ⭐ 3)*
+- [yaokui2018/ConsoleQRcode](https://github.com/yaokui2018/ConsoleQRcode) — 在终端/控制台里输出二维码，打印二维码字符（非图片），Java实现 *(Java · ⭐ 2)*
+- [jhl-hk/nix-config](https://github.com/jhl-hk/nix-config) *(Nix · ⭐ 1)*
+
+_Generated by startidy on 2026-09-30._

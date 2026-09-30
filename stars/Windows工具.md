@@ -1,0 +1,217 @@
+<!-- startidy:category name="Windows工具" description="收纳 Windows 系统优化、管理、清理和增强工具" -->
+
+# Windows工具
+
+收纳 Windows 系统优化、管理、清理和增强工具
+
+[← Back to index](README.md)
+
+**205 repositories**
+
+- [massgravel/Microsoft-Activation-Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts) — Open-source Windows and Office activator featuring HWID, Ohook, TSforge, and Online KMS activation methods, along with advanced troubleshooting. *(Batchfile · ⭐ 192445)*
+- [2dust/v2rayN](https://github.com/2dust/v2rayN) — A GUI client for Windows, Linux and macOS, support Xray and sing-box and others *(C# · ⭐ 117322)*
+- [microsoft/terminal](https://github.com/microsoft/terminal) — The new Windows Terminal and the original Windows console host, all in the same place! *(C++ · ⭐ 105035)*
+- [ventoy/Ventoy](https://github.com/ventoy/Ventoy) — A new bootable USB solution. *(C · ⭐ 79626)*
+- [zhongyang219/TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor) — 这是一个用于显示当前网速、CPU及内存利用率的桌面悬浮窗软件，并支持任务栏显示，支持更换皮肤。 *(C++ · ⭐ 46351)*
+- [files-community/Files](https://github.com/files-community/Files) — A modern file manager that helps users organize their files and folders. *(C# · ⭐ 45755)*
+- [zbezj/HEU_KMS_Activator](https://github.com/zbezj/HEU_KMS_Activator) *(⭐ 43766)*
+- [huiyadanli/RevokeMsgPatcher](https://github.com/huiyadanli/RevokeMsgPatcher) — :trollface: A hex editor for WeChat/QQ/TIM - PC版微信/QQ/TIM防撤回补丁（我已经看到了，撤回也没用了） *(C# · ⭐ 38873)*
+- [qishibo/AnotherRedisDesktopManager](https://github.com/qishibo/AnotherRedisDesktopManager) — 🚀🚀🚀A faster, better and more stable Redis desktop manager \[GUI client\], compatible with Linux, Windows, Mac. *(JavaScript · ⭐ 34790)*
+- [microsoft/WSL](https://github.com/microsoft/WSL) — Windows Subsystem for Linux *(C++ · ⭐ 33830)*
+- [oldj/SwitchHosts](https://github.com/oldj/SwitchHosts) — Switch hosts quickly! *(Rust · ⭐ 27248)*
+- [BeyondDimension/SteamTools](https://github.com/BeyondDimension/SteamTools) — 🛠「Watt Toolkit」是一个开源跨平台的多功能 Steam 工具箱。 *(C# · ⭐ 27002)*
+- [hashcat/hashcat](https://github.com/hashcat/hashcat) — World's fastest and most advanced password recovery utility *(C · ⭐ 26903)*
+- [microsoft/winget-cli](https://github.com/microsoft/winget-cli) — WinGet is the Windows Package Manager. This project includes a CLI (Command Line Interface), PowerShell modules, and a COM (Component Object Model) API (Application Programming Interface). *(C++ · ⭐ 26468)*
+- [QL-Win/QuickLook](https://github.com/QL-Win/QuickLook) — Bring macOS “Quick Look” feature to Windows *(C# · ⭐ 25071)*
+- [ScoopInstaller/Scoop](https://github.com/ScoopInstaller/Scoop) — A command-line installer for Windows. *(PowerShell · ⭐ 24708)*
+- [ayangweb/BongoCat](https://github.com/ayangweb/BongoCat) — 🐱 BongoCat — A cross-platform interactive desktop pet that brings fun to your desktop! *(Rust · ⭐ 23702)*
+- [Atlas-OS/Atlas](https://github.com/Atlas-OS/Atlas) — 🚀 An open and lightweight modification to Windows, designed to optimize performance, privacy and usability. *(Batchfile · ⭐ 21709)*
+- [BCUninstaller/Bulk-Crap-Uninstaller](https://github.com/BCUninstaller/Bulk-Crap-Uninstaller) — Remove large amounts of unwanted applications quickly. *(C# · ⭐ 21623)*
+- [BluePointLilac/ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager) — 🖱️ 纯粹的Windows右键菜单管理程序 *(C# · ⭐ 20171)*
+- [ntdevlabs/tiny11builder](https://github.com/ntdevlabs/tiny11builder) — Scripts to build a trimmed-down Windows 11 image. *(PowerShell · ⭐ 19678)*
+- [sandboxie-plus/Sandboxie](https://github.com/sandboxie-plus/Sandboxie) — Sandboxie Plus & Classic *(C · ⭐ 19583)*
+- [ActivityWatch/activitywatch](https://github.com/ActivityWatch/activitywatch) — The best free and open-source automated time tracker. Cross-platform, extensible, privacy-focused. *(Python · ⭐ 19023)*
+- [MustardChef/WSABuilds](https://github.com/MustardChef/WSABuilds) — Run Windows Subsystem For Android on your Windows 10 and Windows 11 PC using prebuilt binaries with Google Play Store (MindTheGapps) and/or Magisk or KernelSU (root solutions) built in. *(Python · ⭐ 18584)*
+- [reactos/reactos](https://github.com/reactos/reactos) — A free Windows-compatible Operating System *(C · ⭐ 18144)*
+- [eythaann/Seelen-UI](https://github.com/eythaann/Seelen-UI) — The Fully Customizable Desktop Environment for Windows 10/11. *(Rust · ⭐ 17919)*
+- [winsiderss/systeminformer](https://github.com/winsiderss/systeminformer) — A free, powerful, multi-purpose tool that helps you monitor system resources, debug software and detect malware. Brought to you by Winsider Seminars & Solutions, Inc. @ https://windows-internals.com *(C · ⭐ 16136)*
+- [M2Team/NanaZip](https://github.com/M2Team/NanaZip) — The 7-Zip derivative intended for the modern Windows experience *(C++ · ⭐ 15659)*
+- [MatsuriDayo/nekoray](https://github.com/MatsuriDayo/nekoray) — 不再维护，自寻替代品。 Qt based cross-platform GUI proxy configuration manager (backend: sing-box) *(C++ · ⭐ 15339)*
+- [Tichau/FileConverter](https://github.com/Tichau/FileConverter) — File Converter is a very simple tool which allows you to convert and compress files using the context menu in windows explorer. *(C# · ⭐ 15287)*
+- [LGUG2Z/komorebi](https://github.com/LGUG2Z/komorebi) — A tiling window manager for Windows 🍉 *(Rust · ⭐ 15232)*
+- [dyang886/Game-Cheats-Manager](https://github.com/dyang886/Game-Cheats-Manager) — Easily download and manage single-player game cheats for your convenience *(C++ · ⭐ 14900)*
+- [srwi/EverythingToolbar](https://github.com/srwi/EverythingToolbar) — Everything integration for the Windows taskbar. *(C# · ⭐ 14824)*
+- [YerongAI/Office-Tool](https://github.com/YerongAI/Office-Tool) — Office Tool Plus localization projects. *(PowerShell · ⭐ 14328)*
+- [glzr-io/glazewm](https://github.com/glzr-io/glazewm) — GlazeWM is a tiling window manager for macOS and Windows inspired by i3wm. *(Rust · ⭐ 12824)*
+- [OdysseusYuan/LKY_OfficeTools](https://github.com/OdysseusYuan/LKY_OfficeTools) — 一键自动化 下载、安装、激活 Office 的利器。 *(C# · ⭐ 12777)*
+- [chocolatey/choco](https://github.com/chocolatey/choco) — Chocolatey - the package manager for Windows *(C# · ⭐ 11529)*
+- [mRemoteNG/mRemoteNG](https://github.com/mRemoteNG/mRemoteNG) — mRemoteNG is the next generation of mRemote, open source, tabbed, multi-protocol, remote connections manager. *(C# · ⭐ 11133)*
+- [LSPosed/MagiskOnWSALocal](https://github.com/LSPosed/MagiskOnWSALocal) — Integrate Magisk root and Google Apps into WSA (Windows Subsystem for Android) *(Shell · ⭐ 10610)*
+- [runcat-dev/RunCat365](https://github.com/runcat-dev/RunCat365) — A cute running cat animation on your windows taskbar. *(C# · ⭐ 10324)*
+- [itsfatduck/optimizerDuck](https://github.com/itsfatduck/optimizerDuck) — Free, open-source Windows optimization tool for performance, privacy, and simplicity. *(C# · ⭐ 9777)*
+- [mulaRahul/keyviz](https://github.com/mulaRahul/keyviz) — Keyviz is a free and open-source tool to visualize your keystrokes ⌨️ and 🖱️ mouse actions in real-time. *(TypeScript · ⭐ 9677)*
+- [Open-Shell/Open-Shell-Menu](https://github.com/Open-Shell/Open-Shell-Menu) — Classic Shell Reborn. *(C++ · ⭐ 9348)*
+- [Nevcairiel/LAVFilters](https://github.com/Nevcairiel/LAVFilters) — LAV Filters - Open-Source DirectShow Media Splitter and Decoders *(C++ · ⭐ 9177)*
+- [ramensoftware/windhawk](https://github.com/ramensoftware/windhawk) — The customization marketplace for Windows programs: https://windhawk.net/ *(Rust · ⭐ 9169)*
+- [bottlesdevs/Bottles](https://github.com/bottlesdevs/Bottles) — Run Windows software and games on Linux *(Python · ⭐ 8913)*
+- [ionuttbara/windows-defender-remover](https://github.com/ionuttbara/windows-defender-remover) — A tool which is uses to remove Windows Defender in Windows 8.x, Windows 10 (every version) and Windows 11. *(Batchfile · ⭐ 8472)*
+- [ZyperWave/ZyperWinOptimize](https://github.com/ZyperWave/ZyperWinOptimize) — ZyperWin++是一个轻便的Windows优化工具，适用于Win7-Win11最新版的优化，包括性能优化、服务项优化、垃圾清理等操作，还支持系统激活和Office快速安装。 *(C# · ⭐ 8418)*
+- [PowerShell/Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) — Win32 port of OpenSSH *(⭐ 8294)*
+- [rime/weasel](https://github.com/rime/weasel) — 【小狼毫】Rime for Windows *(C++ · ⭐ 8090)*
+- [ChrisAnd1998/TaskbarX](https://github.com/ChrisAnd1998/TaskbarX) — Center Windows taskbar icons with a variety of animations and options. *(Visual Basic .NET · ⭐ 7987)*
+- [CursorTouch/Windows-MCP](https://github.com/CursorTouch/Windows-MCP) — MCP Server for Computer Use in Windows *(Python · ⭐ 7541)*
+- [xM4ddy/OFGB](https://github.com/xM4ddy/OFGB) — GUI Tool To Remove Ads From Various Places Around Windows 11 *(C# · ⭐ 7437)*
+- [mcmilk/7-Zip-zstd](https://github.com/mcmilk/7-Zip-zstd) — 7-Zip with support for Brotli, Fast-LZMA2, Lizard, LZ4, LZ5 and Zstandard *(C++ · ⭐ 7401)*
+- [yuk7/ArchWSL](https://github.com/yuk7/ArchWSL) — ArchLinux based WSL Distribution. Supports multiple install. *(Makefile · ⭐ 7398)*
+- [Meloong-Git/PCL](https://github.com/Meloong-Git/PCL) — Minecraft 启动器 Plain Craft Launcher（PCL）。 *(Visual Basic .NET · ⭐ 7344)*
+- [RipplePiam/MobaXterm-Chinese-Simplified](https://github.com/RipplePiam/MobaXterm-Chinese-Simplified) — MobaXterm 简体中文汉化版🌏🖥🖥🖥 【💌慢工精心制作，"提示"也汉化💻】 【😍控件布局精细调整】 *(⭐ 7323)*
+- [win12-online/win12](https://github.com/win12-online/win12) — Win12 Online *(JavaScript · ⭐ 7270)*
+- [LiteLoaderQQNT/LiteLoaderQQNT](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT) — QQNT 插件加载器：LiteLoaderQQNT —— 轻量 · 简洁 · 开源 · 福瑞 *(JavaScript · ⭐ 7084)*
+- [HaujetZhao/CapsWriter-Offline](https://github.com/HaujetZhao/CapsWriter-Offline) — PC 端语音输入工具，离线识别，高准确率、低延迟，支持热词、LLM润色。按住CapsLock或鼠标侧键X2说话，松开自动上屏。 *(Python · ⭐ 6892)*
+- [moudey/Shell](https://github.com/moudey/Shell) — Powerful context menu manager for Windows File Explorer *(C++ · ⭐ 6860)*
+- [rizonesoft/Notepad3](https://github.com/rizonesoft/Notepad3) — Notepad like text editor based on the Scintilla source code. Notepad3 based on code from Notepad2 and MiniPath on code from metapath. Download Notepad3: *(C · ⭐ 6678)*
+- [mgth/LittleBigMouse](https://github.com/mgth/LittleBigMouse) — DPI Aware mouse move across screens *(C# · ⭐ 6648)*
+- [Uahh/ToastFish](https://github.com/Uahh/ToastFish) — 一个利用摸鱼时间背单词的软件。 *(C# · ⭐ 6575)*
+- [Diorser/LiteMonitor](https://github.com/Diorser/LiteMonitor) — 一款轻量级、高度可定制的 Windows桌面和任务栏硬件性能监控工具，支持监测 CPU、GPU、内存、磁盘、网速、FPS 计数、插件扩展及内存清理。A lightweight, customizable hardware monitor for the Windows desktop & taskbar. Features CPU/GPU/RAM/Network monitoring, FPS counter, plugin support, and memory optimization. *(C# · ⭐ 6521)*
+- [builtbybel/FluentCleaner](https://github.com/builtbybel/FluentCleaner) — FluentCleaner is the transparent, community-powered CCleaner alternative for Windows. *(C# · ⭐ 6242)*
+- [ldqk/Masuit.Tools](https://github.com/ldqk/Masuit.Tools) — 全龄段友好的C#万能工具库，码数吐司库，包含一些常用的操作类，大都是静态类，加密解密，反射操作，权重随机筛选算法，分布式短id，表达式树，linq扩展，文件压缩，多线程下载，硬件信息，字符串扩展方法，日期时间扩展操作，中国农历，大文件拷贝，图像裁剪，验证码，断点续传，集合扩展、Excel导出等常用封装。诸多功能集一身，代码量不到2MB！ *(C# · ⭐ 6188)*
+- [dorssel/usbipd-win](https://github.com/dorssel/usbipd-win) — Windows software for sharing locally connected USB devices to other machines, including Hyper-V guests and WSL 2. *(C# · ⭐ 6184)*
+- [cteamx/Thief](https://github.com/cteamx/Thief) — 一款创新跨平台摸鱼神器，支持小说、股票、网页、视频、直播、PDF、游戏等摸鱼模式，为上班族打造的上班必备神器，使用此软件可以让上班倍感轻松，远离 ICU。 *(JavaScript · ⭐ 6138)*
+- [Tianyu199509/DeskBox](https://github.com/Tianyu199509/DeskBox) — A free, open-source Windows desktop organizer with native-feeling WinUI 3 widgets. *(C# · ⭐ 5959)*
+- [rcmaehl/MSEdgeRedirect](https://github.com/rcmaehl/MSEdgeRedirect) — A Tool to Redirect News, Search, Widgets, Weather and More to Your Default Browser *(AutoIt · ⭐ 5894)*
+- [microsoft/sudo](https://github.com/microsoft/sudo) — It's sudo, for Windows *(Rust · ⭐ 5862)*
+- [amnweb/yasb](https://github.com/amnweb/yasb) — A highly configurable Windows status bar written in Python. *(Python · ⭐ 5567)*
+- [rayenghanmi/RyTuneX](https://github.com/rayenghanmi/RyTuneX) — RyTuneX is a cutting-edge optimizer built with the WinUI 3 framework, designed to amplify the performance of Windows devices. Crafted for both Windows 10 and 11. *(C# · ⭐ 5525)*
+- [ShadowWhisperer/Remove-MS-Edge](https://github.com/ShadowWhisperer/Remove-MS-Edge) — Uninstall Microsoft Edge with a batch script. *(Batchfile · ⭐ 5494)*
+- [liriliri/aya](https://github.com/liriliri/aya) — Android ADB desktop app *(TypeScript · ⭐ 5487)*
+- [Richasy/Bili.Copilot](https://github.com/Richasy/Bili.Copilot) — B站第三方 Windows 桌面客户端，使用 Windows App SDK 构建的原生应用 *(GLSL · ⭐ 5234)*
+- [kwsch/PKHeX](https://github.com/kwsch/PKHeX) — Pokémon Save File Editor *(C# · ⭐ 5156)*
+- [zufuliu/notepad4](https://github.com/zufuliu/notepad4) — Notepad4 (Notepad2⨯2, Notepad2++) is a light-weight Scintilla based text editor for Windows with syntax highlighting, code folding, auto-completion and API list for many programming languages and documents, bundled with file browser plugin matepath. *(C++ · ⭐ 5022)*
+- [indiff/qttabbar](https://github.com/indiff/qttabbar) — QTTabBar is a small tool that allows you to use tab multi label function in Windows Explorer. https://www.yuque.com/indiff/qttabbar *(C# · ⭐ 4910)*
+- [vladelaina/Catime](https://github.com/vladelaina/Catime) — 💌A tiny (995KB) but mighty timer in **pure C** ! — almost no memory usage!❤️‍🔥 Supports clock, countdown, stopwatch, Pomodoro, and fully customizable tray animations (GIFs, CPU/Mem%) 💘 Don't be shy, join here🧸: https://discord.com/invite/W3tW2gtp6g *(C · ⭐ 4875)*
+- [BililiveRecorder/BililiveRecorder](https://github.com/BililiveRecorder/BililiveRecorder) — 录播姬 \| mikufans 生放送录制 *(C# · ⭐ 4858)*
+- [darkmatter2048/WindowsCleaner](https://github.com/darkmatter2048/WindowsCleaner) — Windows Cleaner——专治C盘爆红及各种不服！ *(TypeScript · ⭐ 4798)*
+- [unchihugo/FluentFlyout](https://github.com/unchihugo/FluentFlyout) — The modern Flyout app for Windows 11, built with Fluent 2 Design principles. Media Flyouts, Taskbar Widgets and more. *(C# · ⭐ 4610)*
+- [cmliu/SubsCheck-Win-GUI](https://github.com/cmliu/SubsCheck-Win-GUI) — SubsCheck 为 Windows 用户设计的 GUI 程序界面。 *(C# · ⭐ 4554)*
+- [luolangaga/tubatools](https://github.com/luolangaga/tubatools) — 图吧工具箱 CE *(C# · ⭐ 4475)*
+- [huynhsontung/Screenbox](https://github.com/huynhsontung/Screenbox) — LibVLC-based media player for the Universal Windows Platform *(C# · ⭐ 4458)*
+- [Bill-Stewart/SyncthingWindowsSetup](https://github.com/Bill-Stewart/SyncthingWindowsSetup) — Syncthing Windows Setup *(Inno Setup · ⭐ 4352)*
+- [201853910/VMwareWorkstation](https://github.com/201853910/VMwareWorkstation) — 手动上传官网的VMwareWorkstation安装包 *(⭐ 4302)*
+- [OpenTabletDriver/OpenTabletDriver](https://github.com/OpenTabletDriver/OpenTabletDriver) — Open source, cross-platform, user-mode tablet driver *(C# · ⭐ 4138)*
+- [kkkgo/LTSC-Add-MicrosoftStore](https://github.com/kkkgo/LTSC-Add-MicrosoftStore) — Add Windows Store for LTSC *(Batchfile · ⭐ 4051)*
+- [bozbez/win-capture-audio](https://github.com/bozbez/win-capture-audio) — An OBS plugin that allows capture of independant application audio streams on Windows, in a similar fashion to OBS's game capture and Discord's application streaming. *(C++ · ⭐ 4020)*
+- [bostrot/wslmanager](https://github.com/bostrot/wslmanager) — GUI for the Windows Subsystem for Linux — and native Linux/macOS VMs on Mac. Install, back up, move and configure distros without CLI flags; AI assistant with tools, MCP server for agents, remote WSL over SSH. *(Dart · ⭐ 4010)*
+- [uncle-novel/uncle-novel](https://github.com/uncle-novel/uncle-novel) *(Java · ⭐ 3879)*
+- [DavidXanatos/TaskExplorer](https://github.com/DavidXanatos/TaskExplorer) — Power full Task Manager for Windows and Linux *(C · ⭐ 3787)*
+- [olegos2/mobox](https://github.com/olegos2/mobox) *(Shell · ⭐ 3748)*
+- [mon5termatt/medicat_installer](https://github.com/mon5termatt/medicat_installer) — Medicat Installer Repo *(C++ · ⭐ 3299)*
+- [1357310795/MyComputerManager](https://github.com/1357310795/MyComputerManager) — 管理“此电脑”里删不掉的流氓“快捷方式”（包括侧边栏），同时可自己添加这类“快捷方式” *(C# · ⭐ 3106)*
+- [dezem/SAK](https://github.com/dezem/SAK) — Switch Army Knife (SAK) *(⭐ 3002)*
+- [kapitainsky/RcloneBrowser](https://github.com/kapitainsky/RcloneBrowser) — Simple cross platform GUI for rclone. Supports macOS, GNU/Linux, BSD family and Windows. *(C++ · ⭐ 2953)*
+- [jimuzhe/tiez-clipboard](https://github.com/jimuzhe/tiez-clipboard) — TieZ 是一款基于 Tauri 的跨平台剪贴板管理器 / A cross-platform clipboard manager with history, tags, sync, privacy protection, and fast daily workflows. *(TypeScript · ⭐ 2914)*
+- [JamesCJ60/Universal-x86-Tuning-Utility](https://github.com/JamesCJ60/Universal-x86-Tuning-Utility) — Your Hardware. Your Rules. Open. Powerful. Unrestricted Tuning. *(HLSL · ⭐ 2855)*
+- [ClassIsland/ClassIsland](https://github.com/ClassIsland/ClassIsland) — 一款功能强、可定制、跨平台，适用于班级多媒体屏幕的课表信息显示工具，可以一目了然地显示各种信息。 *(C# · ⭐ 2835)*
+- [std-microblock/BetterNCM-Installer](https://github.com/std-microblock/BetterNCM-Installer) — 一键安装 Better 系软件 *(Rust · ⭐ 2409)*
+- [DavidS95/Smokeless_UMAF](https://github.com/DavidS95/Smokeless_UMAF) *(⭐ 2387)*
+- [bobranten/Ext4Fsd](https://github.com/bobranten/Ext4Fsd) — Ext4 file system driver for Windows *(C · ⭐ 2216)*
+- [jayfunc/BetterLyrics](https://github.com/jayfunc/BetterLyrics) — An elegant and deeply customizable lyrics visualizer & versatile music player, built with WinUI3/Win2D \| 一款优雅且高度自定义的歌词可视化与全能音乐播放应用，基于 WinUI3/Win2D 构建 *(C# · ⭐ 2179)*
+- [etherized/GenP](https://github.com/etherized/GenP) — GenP 非官方汉化版 *(AutoIt · ⭐ 2161)*
+- [microsoft/DirectXTex](https://github.com/microsoft/DirectXTex) — DirectXTex texture processing library *(C++ · ⭐ 2159)*
+- [SYJun404/frank](https://github.com/SYJun404/frank) — A bran-new League of Legends assistant software, a replacement for WeGame. *(TypeScript · ⭐ 1941)*
+- [zsh2401/AutumnBox](https://github.com/zsh2401/AutumnBox) — 图形化ADB工具箱 *(C# · ⭐ 1932)*
+- [sxzxs/Real-time-translation-typing](https://github.com/sxzxs/Real-time-translation-typing) — 实时打字翻译软件、语音实时打字、语音实时翻译、LOL 语音打字 *(AutoHotkey · ⭐ 1837)*
+- [kmonkeyhead/MORT](https://github.com/kmonkeyhead/MORT) — MORT 번역기 프로젝트 - Real-time game translator with OCR *(C# · ⭐ 1776)*
+- [lextm/windowsterminal-shell](https://github.com/lextm/windowsterminal-shell) — Install/uninstall scripts for Windows Terminal context menu items *(PowerShell · ⭐ 1776)*
+- [Tokeii0/LovelyMem](https://github.com/Tokeii0/LovelyMem) — 基于Memprocfs和Volatility的可视化内存取证工具 *(TypeScript · ⭐ 1749)*
+- [Gaoyifei1011/GetStoreApp](https://github.com/Gaoyifei1011/GetStoreApp) — 离线下载 Microsoft Store 商店应用 *(C# · ⭐ 1440)*
+- [HyPlayer/HyPlayer](https://github.com/HyPlayer/HyPlayer) — 仅供学习交流使用 \| 第三方网易云音乐播放器 \| A Netease Cloud Music Player *(C# · ⭐ 1434)*
+- [brookhong/KeyCastOW](https://github.com/brookhong/KeyCastOW) — keystroke visualizer for Windows, lets you easily display your keystrokes while recording screencasts. *(C++ · ⭐ 1404)*
+- [libxzr/FastbootEnhance](https://github.com/libxzr/FastbootEnhance) — A user-friendly Fastboot ToolBox & Payload Dumper for Windows *(C# · ⭐ 1358)*
+- [pubpub-zz/ppInk](https://github.com/pubpub-zz/ppInk) — Fork from Gink *(C# · ⭐ 1299)*
+- [jark006/JarkViewer](https://github.com/jark006/JarkViewer) — 一款简约且飞快的看图软件，支持 AVIF、HEIC、JPEG-XL 和 实况照片 等超多新兴图像格式！A minimalist and lightning-fast image viewer that supports a wide range of emerging image formats such as AVIF, HEIC, JPEG-XL, and Live Photos! *(C++ · ⭐ 1290)*
+- [marchaesen/vcxsrv](https://github.com/marchaesen/vcxsrv) — Windows X-server based on the xorg git sources (like xming or cygwin's xwin), but compiled with Visual Studio 2012 Community Edition. *(C · ⭐ 1262)*
+- [JasonWei512/EnergyStarX](https://github.com/JasonWei512/EnergyStarX) — 🔋 Improve your Windows 11 device's battery life. A WinUI 3 GUI for https://github.com/imbushuo/EnergyStar. *(C# · ⭐ 1230)*
+- [EdgelessPE/Edgeless](https://github.com/EdgelessPE/Edgeless) — 🏠 The opensource repository of Edgeless PE Project *(Batchfile · ⭐ 1196)*
+- [Nigh/I-wanna-clean-keyboard](https://github.com/Nigh/I-wanna-clean-keyboard) — Block the keyboard input while you were eating instant noodles on your laptop keyboard. *(AutoHotkey · ⭐ 1172)*
+- [FrankBijnen/ExifToolGui](https://github.com/FrankBijnen/ExifToolGui) — A GUI for ExifTool *(Pascal · ⭐ 1028)*
+- [Alex4SSB/ADB-Explorer](https://github.com/Alex4SSB/ADB-Explorer) — A fluent UI for ADB on Windows *(C# · ⭐ 982)*
+- [sharoue/chinawareblock](https://github.com/sharoue/chinawareblock) — 国产流氓、娱乐软件和不受欢迎的软件屏蔽工具 *(Batchfile · ⭐ 931)*
+- [huanfeng/WindInput](https://github.com/huanfeng/WindInput) — 清风输入法 \| 轻量、快速、可定制的开源中文输入法，专为五笔和码表输入方案设计（Windows / macOS） *(Rust · ⭐ 924)*
+- [Widdit/now-playing-service](https://github.com/Widdit/now-playing-service) — 一款全能的「正在播放」歌曲展示工具。支持检测 20+ 款音乐软件的歌曲信息，内置精美歌曲组件、歌词组件、播放器，提供 API 接口。适配 OBS 等直播软件以及日常桌面使用。 *(Java · ⭐ 896)*
+- [tiagonmas/Windows-Loopback-Exemption-Manager](https://github.com/tiagonmas/Windows-Loopback-Exemption-Manager) *(C# · ⭐ 870)*
+- [H3d9/sguard_limit](https://github.com/H3d9/sguard_limit) — 限制ACE-Guard Client EXE占用系统资源，支持各种腾讯游戏 *(C++ · ⭐ 869)*
+- [PrelinaMontelli/Edge-Monitor](https://github.com/PrelinaMontelli/Edge-Monitor) — 一个监控并弄死异常Edge的程序 *(C# · ⭐ 792)*
+- [Class-Widgets/Class-Widgets](https://github.com/Class-Widgets/Class-Widgets) — 请转用 Class Widgets 2，谢谢。 *(Python · ⭐ 768)*
+- [ping11700/LOLkit](https://github.com/ping11700/LOLkit) — One gift for all LOL gamers， League of Legends工具 *(Shell · ⭐ 768)*
+- [Upinel/BetterRDP](https://github.com/Upinel/BetterRDP) — This is to enable 60fps and GPU acceleration on RDP connection *(PowerShell · ⭐ 764)*
+- [Fervent-Tempo/AF-Media-Bar](https://github.com/Fervent-Tempo/AF-Media-Bar) — Windows 10/11 桌面上的媒体控制与轻度美化软件。 Media control and minor beautification software for Windows 10/11 desktops. *(C# · ⭐ 748)*
+- [SimonvBez/CPUSetSetter](https://github.com/SimonvBez/CPUSetSetter) — Make your games and apps run on the right CPU cores - for smoother performance on AMD Dual-CCD and Intel Hybrid processors. *(C# · ⭐ 736)*
+- [mir1ce/Hawkeye](https://github.com/mir1ce/Hawkeye) — Windows应急响应工具---Hawkeye(鹰眼)。集Windows日志分析，进程扫描，主机信息于一体的综合应急响应分析工具 *(⭐ 710)*
+- [bkerler/oppo_decrypt](https://github.com/bkerler/oppo_decrypt) — Oppo .ofp Firmware decrypter and oneplus .ops de-/encrypter *(Python · ⭐ 695)*
+- [lmintlcx/pvztoolkit](https://github.com/lmintlcx/pvztoolkit) — 植物大战僵尸 PC 版综合修改器 *(C++ · ⭐ 695)*
+- [ZYY817/YuqiEngine](https://github.com/ZYY817/YuqiEngine) — 宇奇引擎 - 游戏性能优化工具 *(C# · ⭐ 613)*
+- [helloworldpxy/thunder-https](https://github.com/helloworldpxy/thunder-https) — 专业的链接转换工具，可将thunder://等开头的加密链接转换为可直接使用的HTTP/HTTPS下载地址。支持多平台，提供优雅的现代化界面和高效稳定的转换服务。 *(JavaScript · ⭐ 600)*
+- [87owo/PYAS](https://github.com/87owo/PYAS) — A hybrid Windows endpoint security platform powered by machine learning, YARA rules, cloud analysis, and kernel-level behavioral protection. *(YARA · ⭐ 559)*
+- [awesome-iwb/awesome-iwb](https://github.com/awesome-iwb/awesome-iwb) — ✨ 「Awesome Iwb」是专为广大中小学电教打造的班级希沃/鸿合等一体机/数字白板/班班通一站式软件推荐清单和实用知识手册，助你在新学期快速上手班级一体机新玩法！ --- ✨ Useful Open-Sources Softwares & Tutorials for Iwb Devices (Bytello/MAXHUB/HiteVision) *(⭐ 550)*
+- [shshouse/FuckACE](https://github.com/shshouse/FuckACE) — 一个免安装工具，用来降低ACE对电脑性能影响，持续适配所有ACE游戏中~ *(TypeScript · ⭐ 542)*
+- [he3als/EdgeRemover](https://github.com/he3als/EdgeRemover) — A PowerShell script that correctly uninstalls or reinstalls Microsoft Edge on Windows 10 & 11. *(PowerShell · ⭐ 495)*
+- [Aira-Sakuranomiya/CleanFlashInstaller](https://github.com/Aira-Sakuranomiya/CleanFlashInstaller) — Please see https://gitlab.com/cleanflash/installer/-/releases *(⭐ 488)*
+- [wgpsec/CreateHiddenAccount](https://github.com/wgpsec/CreateHiddenAccount) — A tool for creating hidden accounts using the registry \|\| 一个使用注册表创建隐藏帐户的工具 *(Go · ⭐ 488)*
+- [uberhalit/SekiroFpsUnlockAndMore](https://github.com/uberhalit/SekiroFpsUnlockAndMore) — A small utility to remove frame rate limit, add custom resolutions (widescreen support), increase FOV, borderless window, display and log stats and various game modifications for Sekiro *(C# · ⭐ 467)*
+- [AZ-Studio-2023/AZMusicDownloader](https://github.com/AZ-Studio-2023/AZMusicDownloader) — AZ音乐下载器 - 优雅地下载音乐 - 多API集成客户端 \| Download music gracefully *(Python · ⭐ 433)*
+- [weiyourumeng/RM-Toolbox](https://github.com/weiyourumeng/RM-Toolbox) — 入梦工具箱 *(C# · ⭐ 424)*
+- [bloznelis/kbt](https://github.com/bloznelis/kbt) — Keyboard tester in terminal *(Rust · ⭐ 391)*
+- [marie-systems/win7-sp2](https://github.com/marie-systems/win7-sp2) — UNOFFICIAL Windows 7 Service Pack 2, to improve basic Windows 7 usability on modern systems and fully update Windows 7. *(Rich Text Format · ⭐ 362)*
+- [Wilenty/7zTC-7-ZIP-NanaZip-Theme-Changer](https://github.com/Wilenty/7zTC-7-ZIP-NanaZip-Theme-Changer) — Easy-to-use 7-Zip/NanaZip manager for toolbar, file-types and icons. *(⭐ 334)*
+- [duorua/narutomobile](https://github.com/duorua/narutomobile) — 火影忍者手游MAN一键日常小助手 *(Python · ⭐ 330)*
+- [zoicware/RepairBadTweaks](https://github.com/zoicware/RepairBadTweaks) — Fix Commonly Used Windows Tweaks *(PowerShell · ⭐ 310)*
+- [XQGIN/Hibit-uninstall](https://github.com/XQGIN/Hibit-uninstall) — HiBitSoftware官网备份 *(⭐ 282)*
+- [kintaro00/InstallWindowsWithoutUSB](https://github.com/kintaro00/InstallWindowsWithoutUSB) — New method of installation ANY windows iso without USB stick / CD-DVD. *(Batchfile · ⭐ 218)*
+- [Kuroba-Sayuki/VMware-Workstation-Chinese-Localization](https://github.com/Kuroba-Sayuki/VMware-Workstation-Chinese-Localization) — VMware Workstation Pro 25H2「中文翻译」「中文汉化」「旧版本翻译导入方案」「26H1已测试可用」 *(C++ · ⭐ 218)*
+- [assortest/Leigod_Auto_Pause](https://github.com/assortest/Leigod_Auto_Pause) — 雷神加速器自动暂停小插件，退出程序自动暂停加速。 *(JavaScript · ⭐ 212)*
+- [faintonce/open-revo](https://github.com/faintonce/open-revo) — OpenRevo - Lightweight Mechrevo Control Center for 40/50 Series Laptops.OpenRevo - 适用于 40/50 系机械革命笔记本的轻量级控制中心 零官方组件依赖，提供更轻、更快、更透明的硬件控制体验 *(⭐ 186)*
+- [DmitriySalnikov/OBSNotifier](https://github.com/DmitriySalnikov/OBSNotifier) — Simple program for displaying notifications from OBS on your desktop. *(C# · ⭐ 177)*
+- [HugoAura/Seewo-HugoAura](https://github.com/HugoAura/Seewo-HugoAura) — This repository was taken down due to DMCA violation. *(⭐ 169)*
+- [InkCanvasForClass/community](https://github.com/InkCanvasForClass/community) — InkCanvasForClass Community Open Source Project *(C# · ⭐ 168)*
+- [EthanZer0/FaceLogin](https://github.com/EthanZer0/FaceLogin) — 基于 Windows Credential Provider 框架的摄像头人脸识别解锁工具。让不支持Windows Hello的的电脑也能够体验“人脸登录”。 *(C++ · ⭐ 147)*
+- [jhl337/QQNTHookBypass](https://github.com/jhl337/QQNTHookBypass) — QQNT 绕过环境检测，防止冻结/踢下线。 *(Java · ⭐ 115)*
+- [InkCanvas/Ink-Canvas-Artistry](https://github.com/InkCanvas/Ink-Canvas-Artistry) — A fantastic Ink Canvas in WPF/C#, based on WXRIW/Ink-Canvas. *(C# · ⭐ 98)*
+- [YanamiNeko/NekoSportsWorldTool](https://github.com/YanamiNeko/NekoSportsWorldTool) — 基于运动世界v7.3.70协议实现的纯自动化神秘工具 *(Rust · ⭐ 98)*
+- [GitMetaio/SurfingWin](https://github.com/GitMetaio/SurfingWin) — A lightweight Clash runtime environment for Windows built with a portable structure no installation needed、ready to run immediately *(VBScript · ⭐ 96)*
+- [XBJF-X/Xuan-s-UltilityAutoNaruto](https://github.com/XBJF-X/Xuan-s-UltilityAutoNaruto) — 火影忍者自动化日常工具 *(Python · ⭐ 91)*
+- [HenryChiao/Windows-Simple-Tool-Kit](https://github.com/HenryChiao/Windows-Simple-Tool-Kit) — Windows Simple Tool Kit 是一套实用的 Windows 工具合集，涵盖 系统优化、硬件检测、存储管理、桌面美化、病毒查杀、运行库 等多个领域，帮助用户更高效地管理 Windows 系统。 所有工具均按需下载 & 使用，优化你的 Windows 体验！ *(⭐ 73)*
+- [allrobot/KeyCastOW_chinese](https://github.com/allrobot/KeyCastOW_chinese) — 按键击键可视化，感谢Brook Hong的贡献 Keystroke visualization, thanks to Brook Hong *(C++ · ⭐ 72)*
+- [angel333/infinimouse](https://github.com/angel333/infinimouse) — If you move mouse to one border, it'll come from the other. *(AutoIt · ⭐ 71)*
+- [Liu8Can/FileTypesMan_Chinese](https://github.com/Liu8Can/FileTypesMan_Chinese) — 用于存放文件类型图标管理工具FileTypesMan的汉化版本 *(⭐ 66)*
+- [qianjiachun/cs-match-helper](https://github.com/qianjiachun/cs-match-helper) — 🦇 CS Match Helper: analyze both teams' pre-match data, use AI to predict match outcomes, and improve your counter-strafing skills with the HUD. *(TypeScript · ⭐ 62)*
+- [toorux/steam-frame-6ghz-tool](https://github.com/toorux/steam-frame-6ghz-tool) *(Rust · ⭐ 62)*
+- [clover-yan/Ink-Canvas-Plus](https://github.com/clover-yan/Ink-Canvas-Plus) — Ink Canvas Plus (IC+) 是一款由 Clover Yan 维护、复刻自 WXRIW/Ink Canvas 的 Windows 画板应用，旨在优化各方面的使用体验，并尽可能保留原版 Ink Canvas 的操作体验。 *(C# · ⭐ 56)*
+- [nufeng1999/WSL_GNOME](https://github.com/nufeng1999/WSL_GNOME) — Environment configuration for WSL running Gnome *(Shell · ⭐ 56)*
+- [SuGar0218/PreLaunchTaskr](https://github.com/SuGar0218/PreLaunchTaskr) — 通过映像劫持，在应用程序启动前做一些事情，例如：更改启动参数、设置环境变量、执行程序或脚本。 *(C# · ⭐ 54)*
+- [GamerNoTitle/BiliLive-Utility](https://github.com/GamerNoTitle/BiliLive-Utility) — 新一代 B 站小主播直播助手！开启 B 站直播并获得推流链接与推流密钥（推流码），一键修改标题、标签和直播分区，是给不满足 B 站新规定 5k 粉丝要求的用户使用的实用工具 (ˊ•͈ꇴ•͈ˋ) *(Python · ⭐ 52)*
+- [SchneeSchmitt/ADB-Android-Optimizer](https://github.com/SchneeSchmitt/ADB-Android-Optimizer) — Rootless (ADB) Android performance optimizer for every condition, from pure performance to power-saving *(Batchfile · ⭐ 48)*
+- [Sticky-attention/Sticky-attention](https://github.com/Sticky-attention/Sticky-attention) — 一款新作业贴软件 新增了原版没有的新功能 *(C# · ⭐ 45)*
+- [LiangyuLu-lly/L-Mechrevo](https://github.com/LiangyuLu-lly/L-Mechrevo) *(⭐ 43)*
+- [Legacy-Edge/Legacy-Edge-Launcher](https://github.com/Legacy-Edge/Legacy-Edge-Launcher) — Used to allow to run Legacy Edge again *(C# · ⭐ 41)*
+- [markmckinnon/Leveldb-py](https://github.com/markmckinnon/Leveldb-py) — Leveldb Dumper/Viewer *(Python · ⭐ 41)*
+- [AdEx-Partners-DE/OpenNiri-Windows](https://github.com/AdEx-Partners-DE/OpenNiri-Windows) — Scrollable tiling window manager for Windows 10/11 in Rust - Niri-style horizontal workspace, global hotkeys, and multi-monitor support. *(Rust · ⭐ 38)*
+- [LittleDeng1/NoMoreCNMalware](https://github.com/LittleDeng1/NoMoreCNMalware) — Windows流氓软件收录 *(⭐ 38)*
+- [InkCanvas/InkCanvasForClass](https://github.com/InkCanvas/InkCanvasForClass) — InkCanvasForClass 是一款开源易用的电子教鞭软件 *(C# · ⭐ 34)*
+- [Purple-CSGO/CSGO-Toolbox](https://github.com/Purple-CSGO/CSGO-Toolbox) — CSGO工具箱：一个为CSGO游戏的各个方面带来便利的工具集合 *(Vue · ⭐ 32)*
+- [bennyyip/Rime-See-Me](https://github.com/bennyyip/Rime-See-Me) — Skin editor for Weasel(Rime frontend on Windows). All credit goes to http://tieba.baidu.com/p/2491103778 *(JavaScript · ⭐ 25)*
+- [HickoryTrail/IslandCaller](https://github.com/HickoryTrail/IslandCaller) — 基于ClassIsland 2.x 插件的轻量级点名器 *(C# · ⭐ 25)*
+- [ertuil/windows-powerplan](https://github.com/ertuil/windows-powerplan) *(PowerShell · ⭐ 21)*
+- [FirTech/ReWindsys](https://github.com/FirTech/ReWindsys) — Rebirth of Windsys Project *(PowerShell · ⭐ 18)*
+- [liltyfe/yasb-config](https://github.com/liltyfe/yasb-config) — a yasb config *(CSS · ⭐ 9)*
+- [YingxueSec/Active-mouse](https://github.com/YingxueSec/Active-mouse) — 防止电脑休眠锁屏，可无害通过模拟->绕过目前所有主流行为监控管理，强制电脑永久亮屏。 *(⭐ 8)*
+- [SlimeNull/EasyConv](https://github.com/SlimeNull/EasyConv) — 将基于 ffmpeg 的多媒体格式转换功能集成到右键菜单 *(C# · ⭐ 6)*
+- [MeowCracker/MobaGenkey](https://github.com/MeowCracker/MobaGenkey) — 一个 MobaXterm 的许可证生成器 *(HTML · ⭐ 5)*
+- [Warscroll/Win11-ClassicRightClick](https://github.com/Warscroll/Win11-ClassicRightClick) — Easily restore the classic Windows 10-style right-click context menu in Windows 11 with a PowerShell script. *(PowerShell · ⭐ 4)*
+- [zzj-Mark/psmux-skill](https://github.com/zzj-Mark/psmux-skill) — psmux skill for AI agents - Windows native terminal multiplexer (tmux alternative) *(⭐ 4)*
+- [Asultop/Re-AsulCFGManager](https://github.com/Asultop/Re-AsulCFGManager) — Rewrite AsulCFGManager Project (translate .pro 2 CMakeLists.txt ) \[CMakeLists.txt Generated passed!\] *(C++ · ⭐ 2)*
+- [Tufmoc/W.Tools-Ver.Bat](https://github.com/Tufmoc/W.Tools-Ver.Bat) — 初代工具箱雏形 *(Batchfile · ⭐ 2)*
+- [anamaxlec/LaptopBatteryTest](https://github.com/anamaxlec/LaptopBatteryTest) — 基于Python和UL Procyon的笔记本续航自动化测试脚本 *(Python · ⭐ 1)*
+- [IceFireIcer/Course-Thru](https://github.com/IceFireIcer/Course-Thru) — 课速通 丨 一款专门为解决现代大学生连OCS等脚本都不会安装，懒人开箱即用的刷课专用浏览器 *(JavaScript · ⭐ 1)*
+- [ZerothRound/Zed-FileIconsOverlay](https://github.com/ZerothRound/Zed-FileIconsOverlay) — Windows Explorer file-icon overlay for official Stable Zed, using VS Code-style .ico assets and per-extension DefaultIcon registry entries. *(PowerShell · ⭐ 1)*
+
+_Generated by startidy on 2026-09-30._
