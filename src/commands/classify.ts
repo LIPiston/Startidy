@@ -3,80 +3,54 @@ import { confirm } from "@inquirer/prompts";
 import ora from "ora";
 import { loadConfig } from "../utils/config";
 import { loadPlan } from "../utils/plan-storage";
-import { delay } from "../utils/rate-limiter";
-import { GeminiService } from "../services/gemini";
-import { classifyAndAddRepos } from "../services/classifier";
-import type { Category, CreatedList } from "../types";
-import {
-  fetchAllMyStarredRepos,
-  fetchGitHubLists,
-  getRepositoryNodeId,
-  removeRepoFromAllLists,
-} from "../api";
+import { createAIService } from "../services/ai";
+import { classifyAndWrite } from "../services/classifier";
+import { clearOutput, readExistingOutput } from "../services/markdown";
+import type { Category } from "../types";
+import { fetchAllMyStarredRepos } from "../api";
 
 export const classifyCommand = new Command("classify")
-  .description("Classify Stars and add to Lists")
-  .option("--only-new", "Process only Stars not yet added to Lists")
-  .option("--use-existing", "Use existing Lists as categories (no plan file needed)")
-  .option("--reset", "Remove all Stars from Lists (undo)")
+  .description("Classify Stars and write the Markdown category files")
+  .option("--only-new", "Process only Stars missing from the Markdown output")
+  .option("--use-existing", "Reuse the existing Markdown output as categories (no plan file needed)")
+  .option("--reset", "Delete the generated Markdown output (undo)")
   .action(async (options) => {
     try {
       const config = loadConfig();
 
-      // --reset: Remove Stars from Lists
+      // --reset: delete the generated Markdown output
       if (options.reset) {
-        await handleReset(config);
+        await handleReset(config.outputDir);
         return;
       }
 
-      const gemini = new GeminiService(config);
+      const ai = createAIService(config);
 
       console.log("\n📂 Starting Stars classification.\n");
 
-      // Step 1: Check existing Lists and create mapping
-      const spinner = ora("Checking existing Lists...").start();
-      const listsData = await fetchGitHubLists(config.githubUsername, config.githubToken);
+      // Step 1: Load the existing output (reused for --only-new / --use-existing)
+      const existing = readExistingOutput(config.outputDir);
 
-      if (listsData.totalLists === 0) {
-        spinner.fail("No Lists found.");
-        console.log("   Please create Lists first using 'create-lists' command.");
-        return;
-      }
-
-      const createdLists = new Map<string, CreatedList>();
-      const addedRepoNames = new Set<string>();
-
-      for (const list of listsData.lists) {
-        createdLists.set(list.name, {
-          id: list.id,
-          name: list.name,
-          description: list.description,
-        });
-
-        for (const repo of list.repositories) {
-          addedRepoNames.add(`${repo.owner}/${repo.name}`);
-        }
-      }
-
-      spinner.succeed(`${createdLists.size} Lists found`);
-
-      // Step 2: Determine categories (--use-existing or plan file)
+      // Step 2: Determine categories
       let categories: Category[];
 
       if (options.useExisting) {
-        // Use existing Lists as categories
-        categories = listsData.lists.map((list) => ({
-          name: list.name,
-          description: list.description || "",
+        if (existing.categories.length === 0) {
+          console.log(`❌ No existing categories found in ${existing.dir}`);
+          console.log("   Run 'startidy plan' first, or drop --use-existing.");
+          return;
+        }
+        categories = existing.categories.map((c) => ({
+          name: c.name,
+          description: c.description,
           keywords: [],
         }));
-        console.log(`📋 Using existing ${categories.length} Lists as categories`);
+        console.log(`📋 Using existing ${categories.length} categories from the Markdown output`);
       } else {
-        // Load categories from plan file
         const plan = loadPlan();
         if (!plan) {
           console.log("❌ No saved plan found.");
-          console.log("   Run 'plan' command or use --use-existing option.");
+          console.log("   Run 'startidy plan' first, or use --use-existing.");
           return;
         }
         categories = plan.categories;
@@ -98,17 +72,30 @@ export const classifyCommand = new Command("classify")
         throw new Error(`Failed to fetch starred repos: status ${result.status}`);
       }
 
-      let repos = result.repos;
-      repoSpinner.succeed(`Fetched ${repos.length} starred repositories.`);
+      const allRepos = result.repos;
+      repoSpinner.succeed(`Fetched ${allRepos.length} starred repositories.`);
 
       // Step 4: --only-new filtering
+      let repos = allRepos;
       if (options.onlyNew) {
-        const beforeCount = repos.length;
-        repos = repos.filter(
-          (repo) => !addedRepoNames.has(`${repo.owner.login}/${repo.name}`),
+        repos = allRepos.filter(
+          (repo) => !existing.repoIds.has(`${repo.owner.login}/${repo.name}`),
         );
-        const skipped = beforeCount - repos.length;
-        console.log(`  → ${skipped} already added, ${repos.length} to process`);
+        console.log(
+          `  → ${allRepos.length - repos.length} already in the output, ${repos.length} to process`,
+        );
+      } else if (existing.categories.length > 0) {
+        console.log(
+          `\n⚠️ The existing output (${existing.categories.length} categories) will be replaced.`,
+        );
+        const confirmed = await confirm({
+          message: `Overwrite ${existing.dir}?`,
+          default: true,
+        });
+        if (!confirmed) {
+          console.log("Cancelled.");
+          return;
+        }
       }
 
       if (repos.length === 0) {
@@ -116,8 +103,13 @@ export const classifyCommand = new Command("classify")
         return;
       }
 
-      // Step 5: Batch classification and add
-      await classifyAndAddRepos(config, gemini, repos, categories, createdLists);
+      // Step 5: Classify and write Markdown
+      await classifyAndWrite(config, ai, {
+        repos,
+        allRepos,
+        categories,
+        merge: Boolean(options.onlyNew),
+      });
 
       console.log("\n✅ Classification complete!");
     } catch (error) {
@@ -126,40 +118,11 @@ export const classifyCommand = new Command("classify")
     }
   });
 
-async function handleReset(config: ReturnType<typeof loadConfig>) {
-  console.log("\n🔄 Removing Stars from Lists.\n");
-
-  // Check Lists
-  const spinner = ora("Checking existing Lists...").start();
-  const listsData = await fetchGitHubLists(config.githubUsername, config.githubToken);
-
-  if (listsData.totalLists === 0) {
-    spinner.fail("No Lists found.");
-    return;
-  }
-
-  // Collect all repos in Lists
-  const reposInLists = new Map<string, { owner: string; name: string }>();
-  for (const list of listsData.lists) {
-    for (const repo of list.repositories) {
-      const key = `${repo.owner}/${repo.name}`;
-      if (!reposInLists.has(key)) {
-        reposInLists.set(key, { owner: repo.owner, name: repo.name });
-      }
-    }
-  }
-
-  spinner.stop();
-
-  if (reposInLists.size === 0) {
-    console.log("No repositories added to Lists.");
-    return;
-  }
-
-  console.log(`Found ${reposInLists.size} repositories in ${listsData.totalLists} Lists`);
+async function handleReset(outputDir: string) {
+  console.log("\n🔄 Deleting the generated Markdown output.\n");
 
   const confirmed = await confirm({
-    message: `Remove ${reposInLists.size} repositories from all Lists?`,
+    message: `Delete startidy-generated files in "${outputDir}"?`,
     default: false,
   });
 
@@ -168,29 +131,15 @@ async function handleReset(config: ReturnType<typeof loadConfig>) {
     return;
   }
 
-  // Execute removal
-  const removeSpinner = ora(`Removing from Lists... (0/${reposInLists.size})`).start();
-  let removed = 0;
-  let failed = 0;
+  const removed = clearOutput(outputDir);
 
-  for (const [, repo] of reposInLists) {
-    try {
-      const repoNodeId = await getRepositoryNodeId(
-        config.githubToken,
-        repo.owner,
-        repo.name,
-      );
-      await removeRepoFromAllLists(config.githubToken, repoNodeId);
-      removed++;
-      await delay(config.githubRequestDelay);
-    } catch {
-      failed++;
-    }
-    removeSpinner.text = `Removing from Lists... (${removed + failed}/${reposInLists.size})`;
+  if (removed.length === 0) {
+    console.log("Nothing to delete.");
+    return;
   }
 
-  removeSpinner.succeed("Removal complete");
-  console.log("\n📊 Results:");
-  console.log(`  ✅ Success: ${removed}`);
-  console.log(`  ❌ Failed: ${failed}`);
+  console.log(`\n✅ Removed ${removed.length} generated item(s):`);
+  for (const item of removed) {
+    console.log(`  - ${item}`);
+  }
 }

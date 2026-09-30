@@ -24,9 +24,3 @@ export interface RepoSummary {
 export interface RepoDetail extends RepoSummary {
   readme: string | null;
 }
-
-export interface CreatedList {
-  id: string;
-  name: string;
-  description: string | null;
-}

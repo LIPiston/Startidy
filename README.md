@@ -1,80 +1,89 @@
 # Startidy
 
-English | [한국어](README.ko.md)
+[English](README-en.md) | [한국어](README-ko.md) | 中文
 
-> If you find this project useful, please consider giving it a star! Your support means a lot.
+> 如果这个项目对你有帮助，欢迎点个 Star！你的支持很重要。
 
-AI-powered CLI tool to automatically organize your GitHub Stars into Lists.
+用 AI 自动把你的 GitHub Stars 整理成 Markdown 分类的 CLI 工具。
 
-## Features
+它会生成一套扁平、方便浏览的 Markdown 文件：一个带目录的 `README.md` 索引，加上每个分类一个 `<分类名>.md` 文件 —— 可以直接提交到你的 "my stars" 仓库。
 
-- **Automatic Category Planning**: Gemini AI analyzes your starred repositories and creates 32 optimal categories
-- **Smart Classification**: Analyzes each repository's title, description, and README to place them in appropriate categories
-- **Hierarchical Naming**: Uses `Major: Minor` format like `Lang: Python`, `AI: LLM & Chatbot` (20 char limit)
-- **Step-by-Step or Full Automation**: Run individual steps or execute the entire workflow at once
-- **Batch Processing**: Parallel processing of 20 repositories at a time for faster classification
+## 功能特性
 
-## Category Examples
+- **可插拔的 AI 后端**：支持 Google Gemini，也支持**任何 OpenAI 兼容 API**（OpenAI、DeepSeek、OpenRouter、Groq、Ollama、vLLM、LM Studio 等）
+- **Markdown 输出**：生成 `stars/README.md`（索引）以及每个分类一个 `stars/<分类名>.md`
+- **自动规划分类**：AI 分析你 Star 的仓库，最多生成 32 个合适的分类
+- **智能归类**：分析每个仓库的标题、描述和 README，把它们放进合适的分类
+- **中文、自由命名**：像 `windows工具`、`好用软件`、`阅读/小说/epub/漫画` 这样的简短中文名（也支持 `大类: 小类`，最长 20 字符）
+- **不按语言分类**：按平台、用途或主题分组，AI 永远不会生成 `Lang: Python` 这类语言分类
+- **分步执行或全自动**：既可以单独运行每一步，也可以一次性跑完整流程
+- **批量处理**：每次并行处理 20 个仓库，分类更快
+
+## 分类示例
 
 ```
-Lang: Python       Lang: JS & TS      Lang: Go           Lang: Rust
-Lang: Java         Lang: C & C++      Lang: ETC
-
-AI: LLM & Chatbot  AI: Agent          AI: Image & Video  AI: RAG & Data
-AI: Voice & Audio  AI: ETC
-
-Web: Frontend      Web: Backend       Web: Crawler       Web: Mobile App
-Web: ETC
-
-Infra: Docker      Infra: Security    Infra: DB          Infra: Data & ML
-Infra: ETC
-
-Type: Self-Hosted  Type: App & Tool   Type: Starter      Type: Resource
-Type: ETC
+windows工具         Android好用软件     macOS工具
+好用软件             框架/库             配置/脚本
+shell相关            编辑器相关          浏览器相关
+ai相关               游戏相关            音乐
+阅读/小说/epub/漫画   obsidian/笔记软件   vps服务
+运维                 一堆awesome         有用但不多
+生活                 主题美化            电视
 ```
 
-## Installation
+分类会从四个角度灵活组合，根据你 Stars 的实际情况自由取舍：
 
-### Global Install via npm (Recommended)
+- **平台 / 系统**：`windows工具`、`Android好用软件`、`电视`
+- **用途 / 软件类型**：`好用软件`、`框架/库`、`配置/脚本`、`shell相关`、`编辑器相关`、`笔记软件`
+- **主题 / 领域**：`ai相关`、`游戏相关`、`音乐`、`阅读/小说/epub/漫画`、`vps服务`、`运维`
+- **个人化 / 兜底**（最多 1-2 个）：`一堆awesome`、`有用但不多`、`生活`、`学习/大学生`
+
+## 安装
+
+### 通过 npm 全局安装（推荐）
 
 ```bash
 npm install -g startidy
 ```
 
-After installation, you can use the `startidy` command directly:
+安装后可以直接使用 `startidy` 命令：
 
 ```bash
 startidy run
 ```
 
-### From Source
+### 从源码构建
 
 ```bash
-# Clone the repository
+# 克隆仓库
 git clone https://github.com/hellosunghyun/startidy.git
 cd startidy
 
-# Install dependencies
+# 安装依赖
 npm install
 
-# Build
+# 构建
 npm run build
 
-# Link globally
+# 全局链接
 npm link
 ```
 
-## Configuration
+## 配置
 
-You can configure Startidy in three ways:
+有三种方式配置 Startidy：
 
-### Option 1: CLI Arguments (Recommended for one-time use)
+### 方式 1：命令行参数（适合一次性使用）
 
 ```bash
 startidy --token ghp_xxx --username your-name --gemini-key AIza_xxx run
+
+# 或者使用 OpenAI 兼容接口
+startidy --token ghp_xxx --username your-name \
+  --ai-provider openai --openai-key sk-xxx --openai-model gpt-4o-mini run
 ```
 
-### Option 2: Environment Variables
+### 方式 2：环境变量
 
 ```bash
 # Linux/macOS
@@ -92,165 +101,196 @@ set GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
 set GITHUB_USERNAME=your-username
 set GEMINI_API_KEY=AIzaxxxxxxxxxxxxxxxxxxxxxxxx
 
-# Then run
+# 然后运行
 startidy run
 ```
 
-### Option 3: `.env` File (Recommended for repeated use)
+### 方式 3：`.env` 文件（适合反复使用）
 
-Create a `.env` file in your current directory:
+在当前目录创建 `.env` 文件：
 
 ```env
 GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
 GITHUB_USERNAME=your-username
+
+# AI 提供方：gemini（默认）或 openai
+AI_PROVIDER=openai
+
+# Gemini（AI_PROVIDER=gemini 时必填）
 GEMINI_API_KEY=AIzaxxxxxxxxxxxxxxxxxxxxxxxx
+
+# OpenAI 兼容接口（AI_PROVIDER=openai 时必填）
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxx
+OPENAI_BASE_URL=https://api.openai.com/v1
+OPENAI_MODEL=gpt-4o-mini
 ```
 
-### Global CLI Options
+### 全局命令行参数
 
-| Option | Description |
-|--------|-------------|
+| 参数 | 说明 |
+|------|------|
 | `--token <token>` | GitHub Personal Access Token |
-| `--username <username>` | GitHub Username |
+| `--username <username>` | GitHub 用户名 |
+| `--ai-provider <provider>` | AI 提供方：`gemini`（默认）或 `openai` |
 | `--gemini-key <key>` | Google Gemini API Key |
-| `--max-categories <n>` | Maximum categories (default: 32) |
-| `--batch-size <n>` | Batch size for classification (default: 20) |
-| `--private` | Create private Lists |
-| `--debug` | Enable debug mode |
+| `--openai-key <key>` | OpenAI 兼容 API Key |
+| `--openai-base-url <url>` | OpenAI 兼容接口地址（默认：`https://api.openai.com/v1`） |
+| `--openai-model <model>` | OpenAI 兼容模型（默认：`gpt-4o-mini`） |
+| `--ai-model <model>` | 当前提供方使用的模型名 |
+| `--max-categories <n>` | 最大分类数（默认：32） |
+| `--batch-size <n>` | 分类批大小（默认：20） |
+| `--output-dir <dir>` | Markdown 文件输出目录（默认：`stars`） |
+| `--debug` | 开启调试模式 |
 
-### Getting a GitHub Token
+### 获取 GitHub Token
 
-1. Go to [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens)
-2. Click "Generate new token (classic)"
-3. Select scopes: `repo`, `read:user`
-4. Generate and copy the token
+1. 打开 [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens)
+2. 点击 "Generate new token (classic)"
+3. 勾选权限：`repo`、`read:user`
+4. 生成并复制 token
 
-### Getting a Gemini API Key
+### 获取 Gemini API Key
 
-1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
-2. Click "Create API Key"
-3. Copy the API key
+1. 打开 [Google AI Studio](https://aistudio.google.com/app/apikey)
+2. 点击 "Create API Key"
+3. 复制 API Key
 
-## Usage
+### 使用 OpenAI 兼容 API
 
-### Full Automation (`run` command)
+Startidy 可以对接任何实现了 OpenAI Chat Completions API 的服务
+（`POST {baseUrl}/chat/completions`）。设置 `AI_PROVIDER=openai`，并把
+`OPENAI_BASE_URL` 指向你的提供方：
+
+| 提供方 | `OPENAI_BASE_URL` | `OPENAI_MODEL` 示例 |
+|--------|-------------------|----------------------|
+| OpenAI | `https://api.openai.com/v1` | `gpt-4o-mini` |
+| DeepSeek | `https://api.deepseek.com/v1` | `deepseek-chat` |
+| OpenRouter | `https://openrouter.ai/api/v1` | `openai/gpt-4o-mini` |
+| Groq | `https://api.groq.com/openai/v1` | `llama-3.3-70b-versatile` |
+| Ollama（本地） | `http://localhost:11434/v1` | `llama3.1` |
+| LM Studio（本地） | `http://localhost:1234/v1` | `local-model` |
+| vLLM（本地） | `http://localhost:8000/v1` | 你部署的模型 |
+
+本地服务通常会忽略 API Key，但 `OPENAI_API_KEY` 仍必须设置为非空值
+（随便填一个字符串即可，例如 `ollama`）。
 
 ```bash
-# Run the full workflow (plan → delete → create → classify)
+AI_PROVIDER=openai
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxx
+OPENAI_BASE_URL=https://api.openai.com/v1
+OPENAI_MODEL=gpt-4o-mini
+```
+
+说明：
+
+- 默认以 JSON 模式请求（`OPENAI_RESPONSE_FORMAT=json_object`）。如果提供方不支持
+  `response_format`，会自动去掉该参数重试，并对返回的原始文本做容错解析。
+- 支持结构化输出的提供方可以设置 `OPENAI_RESPONSE_FORMAT=json_schema`，
+  设为 `none` 则完全关闭 JSON 模式。
+- 限流（`429`）和服务端（`5xx`）错误会按指数退避重试；如果响应里带
+  `Retry-After`，会优先遵守。
+
+## 使用方式
+
+### 全自动（`run` 命令）
+
+```bash
+# 运行完整流程（规划 → 分类 → 写出 Markdown）
 startidy run
 
-# With inline credentials
+# 直接带上凭据
 startidy --token ghp_xxx --username myname --gemini-key AIza_xxx run
 
-# Process only newly starred repositories (keep existing Lists)
+# 只处理新 Star 的仓库（保留已有的 Markdown 文件）
 startidy run --only-new
 
-# Simulation mode (preview categories only)
+# 模拟运行（只预览分类）
 startidy run --dry-run
 ```
 
-### Step-by-Step Execution
+### 分步执行
 
-#### 1. Plan Categories (`plan`)
+#### 1. 规划分类（`plan`）
 
 ```bash
-# Analyze Stars and plan categories (saved to file)
+# 分析 Stars 并规划分类（会保存到文件）
 startidy plan
 
-# View saved plan
+# 查看已保存的分类方案
 startidy plan --show
 
-# Delete saved plan
+# 删除已保存的分类方案
 startidy plan --delete
 ```
 
-#### 2. Manage Lists (`lists`)
+#### 2. 分类并写出 Markdown（`classify`）
 
 ```bash
-# View all Lists
-startidy lists
-
-# Create a new List
-startidy lists --create "Lang: Python" -d "Python projects"
-
-# Delete a specific List
-startidy lists --delete "Lang: Python"
-
-# Delete all Lists
-startidy lists --delete-all
-```
-
-#### 3. Create Lists (`create-lists`)
-
-```bash
-# Create Lists from planned categories
-startidy create-lists
-
-# Create Lists even if some already exist
-startidy create-lists --force
-```
-
-#### 4. Classify Stars (`classify`)
-
-```bash
-# Classify Stars into Lists
+# 对 Stars 分类并写出 Markdown 文件（使用已保存的方案）
 startidy classify
 
-# Process only unclassified Stars
+# 只处理还没有出现在 Markdown 里的 Stars（保留已有文件）
 startidy classify --only-new
 
-# Use existing Lists as categories (no plan file needed)
+# 直接以现有的 Markdown 文件作为分类（无需方案文件）
 startidy classify --use-existing
 
-# Classify new Stars using existing Lists
+# 把新 Star 的仓库并入已有分类
 startidy classify --use-existing --only-new
 
-# Reset: Remove all Stars from Lists
+# 重置：删除输出目录里由 Startidy 生成的全部内容
 startidy classify --reset
 ```
 
-### Command Options Summary
+#### 3. 输出结构
 
-| Command | Option | Description |
-|---------|--------|-------------|
-| `run` | (none) | Full automation |
-| `run` | `--only-new` | Process new Stars only |
-| `run` | `--dry-run` | Simulation mode |
-| `plan` | (none) | Plan categories |
-| `plan` | `--show` | View saved plan |
-| `plan` | `--delete` | Delete saved plan |
-| `lists` | (none) | View all Lists |
-| `lists` | `--create <name>` | Create new List |
-| `lists` | `--delete <name>` | Delete specific List |
-| `lists` | `--delete-all` | Delete all Lists |
-| `lists` | `-d, --description` | List description (with --create) |
-| `create-lists` | (none) | Create Lists from plan |
-| `create-lists` | `--force` | Create even if Lists exist |
-| `classify` | (none) | Classify Stars |
-| `classify` | `--only-new` | Process unclassified only |
-| `classify` | `--use-existing` | Use existing Lists as categories |
-| `classify` | `--reset` | Remove all Stars from Lists |
+`classify` 会写入 `OUTPUT_DIR`（默认 `stars`）：
 
-### Manual Workflow Example
-
-```bash
-# 1. Plan categories
-startidy plan
-
-# 2. Review the plan
-startidy plan --show
-
-# 3. Delete existing Lists (if needed)
-startidy lists --delete-all
-
-# 4. Create Lists
-startidy create-lists
-
-# 5. Classify Stars
-startidy classify
+```
+stars/
+├── README.md                 # 索引：链接到每个分类的目录表
+├── windows工具.md            # 每个分类一个 Markdown 文件
+├── ai相关.md
+└── 阅读-小说-epub-漫画.md
 ```
 
-## Execution Example
+- 分类文件名由分类名推导而来：`"阅读/小说/epub/漫画"` → `阅读-小说-epub-漫画.md`。
+- 不会生成编程语言分类（`Lang: Python`、`Lang: Go` 等）：AI 会按用途和领域分组。如果模型仍然返回了这类分类，会在规划阶段被剔除并给出警告。
+- 每个生成的文件都带有 HTML 注释标记，因此 `--reset` 和过期文件清理只会动 Startidy 自己生成的文件。
+- 可以放心把 `OUTPUT_DIR` 指向你同时在手工维护的仓库 —— 没有标记的文件永远不会被修改或删除。
+
+### 命令参数一览
+
+| 命令 | 参数 | 说明 |
+|------|------|------|
+| `run` | （无） | 全自动执行 |
+| `run` | `--only-new` | 只处理新的 Stars |
+| `run` | `--dry-run` | 模拟运行 |
+| `plan` | （无） | 规划分类 |
+| `plan` | `--show` | 查看已保存的方案 |
+| `plan` | `--delete` | 删除已保存的方案 |
+| `classify` | （无） | 分类 Stars 并写出 Markdown |
+| `classify` | `--only-new` | 只处理未分类的（合并） |
+| `classify` | `--use-existing` | 以现有 Markdown 输出作为分类 |
+| `classify` | `--reset` | 删除生成的 Markdown 文件 |
+
+### 手动工作流示例
+
+```bash
+# 1. 规划分类
+startidy plan
+
+# 2. 检查分类方案
+startidy plan --show
+
+# 3. 分类 Stars 并写出 Markdown 文件
+startidy classify
+
+# 4. 之后：追加新 Star 的仓库
+startidy classify --only-new
+```
+
+## 运行示例
 
 ```
 🚀 Starting GitHub Stars auto-organization.
@@ -258,106 +298,128 @@ startidy classify
 ✔ Fetched 523 starred repositories.
 ✔ 32 categories have been planned.
 
-? Delete existing 32 Lists? Yes
-✔ 32 Lists deleted
-✔ 32 Lists created
-
 📂 Classifying 523 repositories in batches of 20...
 
 ── Batch 1/27 (1-20) ──
 ✔ README fetched
 ✔ Classification complete
-  ✅ facebook/react → Web: Frontend
-  ✅ tensorflow/tensorflow → AI: Data & ML
+  ✅ facebook/react → 框架/库
+  ✅ tensorflow/tensorflow → ai相关
   ...
 
 📊 Results:
-  ✅ Success: 520
+  ✅ Classified: 520
   ❌ Failed: 3
 
-✅ Done! Stars have been organized into Lists.
+✔ Markdown written (33 files)
+
+📁 Output: stars
+  - Categories: 32
+  - Repositories: 520
+
+✅ Done! Stars have been organized into Markdown categories.
 ```
 
-## Project Structure
+## 项目结构
 
 ```
 startidy/
 ├── package.json
 ├── tsconfig.json
 ├── .env.example
-├── README.md
+├── README.md               # 中文说明（本文件）
+├── README-en.md            # 英文说明
+├── README-ko.md            # 韩文说明
 └── src/
-    ├── index.ts              # CLI entry point
-    ├── types.ts              # Type definitions
+    ├── index.ts              # CLI 入口
+    ├── types.ts              # 类型定义
     ├── api/
-    │   ├── index.ts          # API exports
-    │   ├── client.ts         # GitHub API client
-    │   ├── types.ts          # API types
-    │   ├── lists.ts          # Lists CRUD
-    │   ├── repos.ts          # Repository queries
-    │   └── readme.ts         # README fetching
+    │   ├── index.ts          # API 导出
+    │   ├── client.ts         # GitHub API 客户端
+    │   ├── types.ts          # API 类型
+    │   ├── repos.ts          # 仓库查询
+    │   └── readme.ts         # README 获取
     ├── commands/
-    │   ├── lists.ts          # lists command
-    │   ├── plan.ts           # plan command
-    │   ├── create-lists.ts   # create-lists command
-    │   ├── classify.ts       # classify command
-    │   └── run.ts            # run command (full automation)
+    │   ├── plan.ts           # plan 命令
+    │   ├── classify.ts       # classify 命令（写出 Markdown）
+    │   └── run.ts            # run 命令（全自动）
     ├── services/
-    │   ├── index.ts          # Services exports
-    │   ├── gemini.ts         # Gemini AI service
-    │   └── classifier.ts     # Classification service
+    │   ├── index.ts          # services 导出
+    │   ├── ai.ts             # AIService 接口 + 提供方工厂
+    │   ├── gemini.ts         # Google Gemini 服务
+    │   ├── openai.ts         # OpenAI 兼容服务
+    │   ├── response-parser.ts # 共用的 JSON 响应解析/修复
+    │   ├── markdown.ts       # Markdown 文件渲染 / 清理
+    │   └── classifier.ts     # 分类服务
     ├── prompts/
     │   ├── category-planner.ts
     │   └── classifier.ts
     └── utils/
-        ├── config.ts         # Environment config
-        ├── rate-limiter.ts   # Rate limiting
-        └── plan-storage.ts   # Plan save/load
+        ├── config.ts         # 环境配置
+        ├── rate-limiter.ts   # 限流
+        └── plan-storage.ts   # 方案保存/读取
 ```
 
-## Environment Variables Reference
+## 环境变量参考
 
-All available environment variables:
+全部可用的环境变量：
 
 ```env
-# Required
+# 必填
 GITHUB_TOKEN=ghp_xxxxxxxxxxxx        # GitHub Personal Access Token
-GITHUB_USERNAME=your-username         # Your GitHub username
-GEMINI_API_KEY=AIzaxxxxxxxxxx         # Google Gemini API Key
+GITHUB_USERNAME=your-username         # 你的 GitHub 用户名
 
-# Category Settings
-MAX_CATEGORIES=32                     # Maximum categories (GitHub limit: 32)
-MAX_CATEGORIES_PER_REPO=3             # Max categories per repo
-MIN_CATEGORIES_PER_REPO=1             # Min categories per repo
+# AI 提供方
+AI_PROVIDER=gemini                    # gemini（默认）或 openai
+GEMINI_API_KEY=AIzaxxxxxxxxxx         # Google Gemini API Key（AI_PROVIDER=gemini）
+OPENAI_API_KEY=sk-xxxxxxxxxxxx        # OpenAI 兼容 API Key（AI_PROVIDER=openai）
+OPENAI_BASE_URL=https://api.openai.com/v1  # OpenAI 兼容接口地址
+OPENAI_MODEL=gpt-4o-mini              # OpenAI 兼容模型
+OPENAI_RESPONSE_FORMAT=json_object    # json_object | json_schema | none
+OPENAI_TIMEOUT_MS=120000              # 请求超时（毫秒）
 
-# Batch Processing
-CLASSIFY_BATCH_SIZE=20                # Repos per batch for classification
-BATCH_DELAY=2000                      # Delay between batches (ms)
+# 分类设置
+MAX_CATEGORIES=32                     # 最大分类数
+CATEGORY_NAME_MAX_LENGTH=20           # 分类名最大长度
+MAX_CATEGORIES_PER_REPO=3             # 每个仓库最多归入几个分类
+MIN_CATEGORIES_PER_REPO=1             # 每个仓库至少归入几个分类
 
-# List Settings
-LIST_IS_PRIVATE=false                 # Create private Lists
+# 输出设置
+OUTPUT_DIR=stars                      # Markdown 输出目录（默认：stars）
 
-# Gemini Settings
-GEMINI_MODEL=gemini-2.5-flash         # Model to use
-GEMINI_RPM=15                         # Requests per minute (Free tier)
+# 批处理
+CLASSIFY_BATCH_SIZE=20                # 分类时每批处理的仓库数
+BATCH_DELAY=2000                      # 批次之间的延迟（毫秒）
 
-# Debug
-DEBUG=false                           # Enable debug output
-LOG_API_RESPONSES=false               # Log raw API responses
+# 模型设置
+GEMINI_MODEL=gemini-2.5-flash         # Gemini 模型
+GEMINI_RPM=15                         # Gemini 每分钟请求数（免费额度）
+AI_TEMPERATURE_PLANNING=0.7           # 规划分类的温度
+AI_TEMPERATURE_CLASSIFY=0.3           # 分类的温度
+AI_MAX_TOKENS_PLANNING=8192           # 规划的最大输出 token
+AI_MAX_TOKENS_CLASSIFY=8192           # 分类的最大输出 token
+
+# 调试
+DEBUG=false                           # 开启调试输出
+LOG_API_RESPONSES=false               # 打印原始 API 响应
 ```
 
-## Tech Stack
+> `GEMINI_TEMPERATURE_*` / `GEMINI_MAX_TOKENS_*` 仍可作为旧版别名使用；
+> 两者同时存在时，通用的 `AI_*` 变量优先。
 
-- **Runtime**: Node.js / [Bun](https://bun.sh/)
-- **Language**: TypeScript
-- **AI**: Google Gemini (gemini-2.5-flash)
-- **CLI**: Commander.js, @inquirer/prompts, ora
+## 技术栈
 
-## Limitations
+- **运行时**：Node.js / [Bun](https://bun.sh/)
+- **语言**：TypeScript
+- **AI**：Google Gemini（gemini-2.5-flash）或任何 OpenAI 兼容的 Chat Completions API
+- **CLI**：Commander.js、@inquirer/prompts、ora
 
-- GitHub Lists are limited to 32 maximum
-- Each List name has a 20 character limit
-- Gemini API Free tier: 15 requests per minute
+## 已知限制
+
+- 分类名默认最长 20 个字符（`CATEGORY_NAME_MAX_LENGTH`）
+- 分类名默认使用中文（由提示词决定）
+- Gemini API 免费额度：每分钟 15 次请求
+- AI 无法归类的仓库会被放进规划出的第一个分类
 
 ## License
 

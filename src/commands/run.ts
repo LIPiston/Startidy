@@ -2,32 +2,28 @@ import { Command } from "commander";
 import { confirm } from "@inquirer/prompts";
 import ora from "ora";
 import { loadConfig, type Config } from "../utils/config";
-import { delay } from "../utils/rate-limiter";
-import { GeminiService } from "../services/gemini";
-import { classifyAndAddRepos } from "../services/classifier";
-import type { Category, CreatedList, RepoSummary } from "../types";
-import {
-  fetchAllMyStarredRepos,
-  fetchGitHubLists,
-  deleteAllGitHubLists,
-  createGitHubList,
-  type Repo,
-} from "../api";
+import { createAIService, type AIService } from "../services/ai";
+import { classifyAndWrite } from "../services/classifier";
+import { categoryFileName, readExistingOutput } from "../services/markdown";
+import type { Category, RepoSummary } from "../types";
+import { fetchAllMyStarredRepos, type Repo } from "../api";
 
 export const runCommand = new Command("run")
-  .description("Run full workflow automatically (plan → delete → create → classify)")
-  .option("--only-new", "Process only Stars not yet added to Lists (keep existing Lists)")
+  .description("Run the full workflow automatically (plan → classify → write Markdown)")
+  .option("--only-new", "Process only Stars missing from the Markdown output (keep existing files)")
   .option("--dry-run", "Simulation mode (only preview category planning)")
   .action(async (options) => {
     try {
       const config = loadConfig();
-      const gemini = new GeminiService(config);
+      const ai = createAIService(config);
 
       if (config.debug) {
         console.log("\n[DEBUG] Config:", {
           maxCategories: config.maxCategories,
           classifyBatchSize: config.classifyBatchSize,
-          geminiModel: config.geminiModel,
+          outputDir: config.outputDir,
+          aiProvider: config.aiProvider,
+          aiModel: ai.model,
         });
       }
 
@@ -40,65 +36,68 @@ export const runCommand = new Command("run")
         return;
       }
 
-      // Step 2: For --only-new, check existing Lists and filter
-      let repos: Repo[];
-      let existingLists: Map<string, CreatedList> | null = null;
-      let existingCategories: Category[] | null = null;
+      // Step 2: Inspect the existing Markdown output
+      const existing = readExistingOutput(config.outputDir);
 
-      if (options.onlyNew) {
-        const result = await filterNewReposOnly(config, allRepos);
-        repos = result.newRepos;
-        existingLists = result.existingLists;
-        existingCategories = result.existingCategories;
-
-        if (repos.length === 0) {
-          console.log("\n✅ All Stars are already added to Lists.");
-          return;
-        }
-
-        if (existingCategories.length === 0) {
-          console.log("\n⚠️ No existing Lists found. Please run again without --only-new.");
-          return;
-        }
-      } else {
-        repos = allRepos;
-      }
-
-      // Step 3: Plan categories (if not --only-new)
+      let repos: Repo[] = allRepos;
       let categories: Category[];
 
-      if (options.onlyNew && existingCategories) {
-        categories = existingCategories;
-        console.log(`\n📋 Using existing ${categories.length} categories`);
+      if (options.onlyNew) {
+        repos = allRepos.filter(
+          (repo) => !existing.repoIds.has(`${repo.owner.login}/${repo.name}`),
+        );
+
+        if (repos.length === 0) {
+          console.log("\n✅ All Stars are already in the Markdown output.");
+          return;
+        }
+
+        if (existing.categories.length === 0) {
+          console.log(
+            `\n⚠️ No existing categories in ${existing.dir}. Run again without --only-new.`,
+          );
+          return;
+        }
+
+        categories = existing.categories.map((c) => ({
+          name: c.name,
+          description: c.description,
+          keywords: [],
+        }));
+        console.log(
+          `\n📋 ${repos.length} new Star(s); reusing ${categories.length} existing categories`,
+        );
       } else {
-        categories = await planCategories(gemini, repos, config);
+        categories = await planCategories(ai, allRepos, config);
       }
 
-      // Step 4: Exit here for dry run
+      // Step 3: Exit here for dry run
       if (options.dryRun) {
-        displayDryRunResults(categories, config, repos.length);
+        displayDryRunResults(categories, config, repos.length, existing);
         return;
       }
 
-      // Step 5: Delete existing Lists (if not --only-new)
-      if (!options.onlyNew) {
-        await deleteExistingLists(config);
+      // Step 4: Confirm replacing existing output
+      if (!options.onlyNew && existing.categories.length > 0) {
+        const shouldOverwrite = await confirm({
+          message: `Overwrite the existing Markdown output in ${existing.dir}?`,
+          default: true,
+        });
+        if (!shouldOverwrite) {
+          console.log("Cancelled.");
+          process.exit(0);
+        }
       }
 
-      // Step 6: Create Lists (if not --only-new)
-      let createdLists: Map<string, CreatedList>;
+      // Step 5: Classify and write Markdown
+      await classifyAndWrite(config, ai, {
+        repos,
+        allRepos,
+        categories,
+        merge: Boolean(options.onlyNew),
+      });
 
-      if (options.onlyNew && existingLists && existingLists.size > 0) {
-        createdLists = existingLists;
-        console.log(`\n📁 Using existing ${createdLists.size} Lists`);
-      } else {
-        createdLists = await createLists(config, categories);
-      }
-
-      // Step 7: Classify and add to Lists
-      await classifyAndAddRepos(config, gemini, repos, categories, createdLists);
-
-      console.log("\n✅ Done! Stars have been organized into Lists.");
+      console.log("\n✅ Done! Stars have been organized into Markdown categories.");
     } catch (error) {
       console.error("\n❌ Error:", (error as Error).message);
       process.exit(1);
@@ -129,52 +128,8 @@ async function fetchStarredRepos(config: Config): Promise<Repo[]> {
   return result.repos;
 }
 
-async function filterNewReposOnly(
-  config: Config,
-  allRepos: Repo[],
-): Promise<{
-  newRepos: Repo[];
-  existingLists: Map<string, CreatedList>;
-  existingCategories: Category[];
-}> {
-  const spinner = ora("Checking existing Lists...").start();
-
-  const listsData = await fetchGitHubLists(config.githubUsername, config.githubToken);
-
-  const addedRepoNames = new Set<string>();
-  const existingLists = new Map<string, CreatedList>();
-  const existingCategories: Category[] = [];
-
-  for (const list of listsData.lists) {
-    existingLists.set(list.name, {
-      id: list.id,
-      name: list.name,
-      description: list.description,
-    });
-
-    existingCategories.push({
-      name: list.name,
-      description: list.description || "",
-      keywords: [],
-    });
-
-    for (const repo of list.repositories) {
-      addedRepoNames.add(`${repo.owner}/${repo.name}`);
-    }
-  }
-
-  const newRepos = allRepos.filter(
-    (repo) => !addedRepoNames.has(`${repo.owner.login}/${repo.name}`),
-  );
-
-  const skipped = allRepos.length - newRepos.length;
-  spinner.succeed(`${skipped} already added → ${newRepos.length} new repositories to process`);
-
-  return { newRepos, existingLists, existingCategories };
-}
-
 async function planCategories(
-  gemini: GeminiService,
+  ai: AIService,
   repos: Repo[],
   config: Config,
 ): Promise<Category[]> {
@@ -189,7 +144,7 @@ async function planCategories(
   }));
 
   try {
-    const categories = await gemini.planCategories(repoSummaries);
+    const categories = await ai.planCategories(repoSummaries);
     spinner.succeed(`${categories.length} categories have been planned.`);
     return categories;
   } catch (error) {
@@ -198,12 +153,18 @@ async function planCategories(
   }
 }
 
-function displayDryRunResults(categories: Category[], config: Config, repoCount: number) {
+function displayDryRunResults(
+  categories: Category[],
+  config: Config,
+  repoCount: number,
+  existing: { dir: string; categories: unknown[] },
+) {
   console.log("\n📋 [Dry Run] Planned Categories:\n");
   console.log("─".repeat(60));
 
   categories.forEach((c, i) => {
     console.log(`${(i + 1).toString().padStart(2)}. ${c.name}`);
+    console.log(`    → ${categoryFileName(c.name)}`);
     if (c.description) {
       console.log(`    ${c.description}`);
     }
@@ -214,74 +175,11 @@ function displayDryRunResults(categories: Category[], config: Config, repoCount:
   console.log(`  - Categories: ${categories.length}`);
   console.log(`  - Target repositories: ${repoCount}`);
   console.log(`  - Batch size: ${config.classifyBatchSize}`);
-  console.log(`  - Gemini model: ${config.geminiModel}`);
-  console.log("\n(Dry run mode - no actual execution.)");
-}
-
-async function deleteExistingLists(config: Config) {
-  const spinner = ora("Checking existing Lists...").start();
-  const data = await fetchGitHubLists(config.githubUsername, config.githubToken);
-
-  if (data.totalLists === 0) {
-    spinner.succeed("No existing Lists");
-    return;
-  }
-
-  spinner.stop();
-
-  const shouldDelete = await confirm({
-    message: `Delete existing ${data.totalLists} Lists?`,
-    default: true,
-  });
-
-  if (!shouldDelete) {
-    console.log("Cancelled.");
-    process.exit(0);
-  }
-
-  const deleteSpinner = ora(`Deleting Lists... (0/${data.totalLists})`).start();
-  const deletedCount = await deleteAllGitHubLists(
-    config.githubUsername,
-    config.githubToken,
-    (deleted, total) => {
-      deleteSpinner.text = `Deleting Lists... (${deleted}/${total})`;
-    },
+  console.log(`  - Output directory: ${existing.dir}`);
+  console.log(`  - Existing categories on disk: ${existing.categories.length}`);
+  console.log(`  - AI provider: ${config.aiProvider}`);
+  console.log(
+    `  - AI model: ${config.aiProvider === "openai" ? config.openaiModel : config.geminiModel}`,
   );
-  deleteSpinner.succeed(`${deletedCount} Lists deleted`);
-}
-
-async function createLists(
-  config: Config,
-  categories: Category[],
-): Promise<Map<string, CreatedList>> {
-  const spinner = ora("Creating Lists...").start();
-  const createdLists = new Map<string, CreatedList>();
-  let created = 0;
-
-  for (const category of categories) {
-    try {
-      const result = await createGitHubList(
-        config.githubToken,
-        category.name,
-        category.description,
-        config.listIsPrivate,
-      );
-
-      createdLists.set(category.name, {
-        id: result.list.id,
-        name: result.list.name,
-        description: result.list.description,
-      });
-
-      created++;
-      spinner.text = `Creating Lists... (${created}/${categories.length})`;
-
-      await delay(config.listCreateDelay);
-    } catch (error) {
-      console.warn(`\n  ⚠️ Failed to create "${category.name}"`);
-    }
-  }
-
-  spinner.succeed(`${created} Lists created`);
-  return createdLists;
+  console.log("\n(Dry run mode - no actual execution.)");
 }

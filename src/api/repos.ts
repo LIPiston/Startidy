@@ -1,4 +1,4 @@
-import { graphql, restPaginated, GitHubAPIError } from "./client";
+import { restPaginated, GitHubAPIError } from "./client";
 import type { Repo } from "./types";
 
 export type ProgressCallback = (current: number, message?: string) => void;
@@ -47,39 +47,4 @@ export async function fetchAllMyStarredRepos(
     }
     throw error;
   }
-}
-
-interface RepositoryNodeIdResponse {
-  repository: {
-    id: string;
-  } | null;
-}
-
-/**
- * Gets the Node ID for a repository (needed for list operations)
- */
-export async function getRepositoryNodeId(
-  token: string,
-  owner: string,
-  name: string,
-): Promise<string> {
-  if (!owner || !name) {
-    throw new Error("Missing repository owner or name parameter");
-  }
-
-  const query = `
-    query GetRepositoryNodeId($owner: String!, $name: String!) {
-      repository(owner: $owner, name: $name) {
-        id
-      }
-    }
-  `;
-
-  const data = await graphql<RepositoryNodeIdResponse>(token, query, { owner, name });
-
-  if (!data.repository?.id) {
-    throw new Error("Repository not found or ID not available");
-  }
-
-  return data.repository.id;
 }

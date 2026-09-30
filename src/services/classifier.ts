@@ -1,43 +1,56 @@
+/**
+ * Classifies starred repositories and writes the result as flat Markdown files.
+ *
+ * Pipeline per batch:
+ *   1. fetch the READMEs of the batch (extra signal for the model)
+ *   2. ask the AI to map every repository to 1..N categories
+ *   3. collect the assignments
+ * Afterwards the whole assignment table is rendered to `<outputDir>/`.
+ */
 import ora from "ora";
 import type { Config } from "../utils/config";
-import { delay, retryWithBackoff, runWithConcurrency } from "../utils/rate-limiter";
-import { GeminiService } from "./gemini";
-import type { Category, CreatedList } from "../types";
+import { delay } from "../utils/rate-limiter";
+import type { AIService } from "./ai";
+import type { Category } from "../types";
 import type { BatchRepoInfo } from "../prompts/classifier";
 import type { Repo } from "../api/types";
-import {
-  fetchRepositoryReadme,
-  getRepositoryNodeId,
-  addRepoToGitHubLists,
-} from "../api";
-
-export interface ClassifyResult {
-  repoId: string;
-  success: boolean;
-  categories?: string[];
-  error?: string;
-}
+import { fetchRepositoryReadme } from "../api";
+import { buildRepoEntries, writeOutput, type WriteOutputResult } from "./markdown";
 
 export interface ClassifyStats {
   success: number;
   failed: number;
+  output: WriteOutputResult | null;
+}
+
+export interface ClassifyOptions {
+  /** Repositories to classify in this run */
+  repos: Repo[];
+  /** Every starred repository - metadata source for rendering */
+  allRepos: Repo[];
+  categories: Category[];
+  /** Merge into existing files instead of replacing the output */
+  merge: boolean;
 }
 
 /**
- * Classifies repositories and adds them to GitHub Lists
+ * Classifies repositories and writes `<outputDir>/README.md`
+ * plus one README.md per category.
  */
-export async function classifyAndAddRepos(
+export async function classifyAndWrite(
   config: Config,
-  gemini: GeminiService,
-  repos: Repo[],
-  categories: Category[],
-  createdLists: Map<string, CreatedList>,
+  ai: AIService,
+  options: ClassifyOptions,
 ): Promise<ClassifyStats> {
+  const { repos, allRepos, categories, merge } = options;
   const batchSize = config.classifyBatchSize;
   const totalBatches = Math.ceil(repos.length / batchSize);
 
-  console.log(`\n📂 Classifying ${repos.length} repositories in batches of ${batchSize}...\n`);
+  console.log(
+    `\n📂 Classifying ${repos.length} repositories in batches of ${batchSize}...\n`,
+  );
 
+  const assignments = new Map<string, string[]>();
   let success = 0;
   let failed = 0;
 
@@ -52,24 +65,25 @@ export async function classifyAndAddRepos(
     const batchRepoInfos = await fetchReadmesForBatch(config, batchRepos);
 
     // Step 2: AI classification
-    const results = await classifyBatch(gemini, batchRepoInfos, categories);
+    const results = await classifyBatch(ai, batchRepoInfos, categories);
     if (!results) {
       failed += batchRepos.length;
       continue;
     }
 
-    // Step 3: Add to Lists
-    const addResults = await addReposToLists(config, batchRepos, results, createdLists);
+    for (const repo of batchRepos) {
+      const id = `${repo.owner.login}/${repo.name}`;
+      const names = results.get(id) ?? [];
 
-    // Count and display results
-    for (const result of addResults) {
-      if (result.success) {
-        success++;
-        console.log(`  ✅ ${result.repoId} → ${result.categories?.slice(0, 2).join(", ")}`);
-      } else {
+      if (names.length === 0) {
         failed++;
-        console.log(`  ❌ ${result.repoId} (${result.error})`);
+        console.log(`  ❌ ${id} (no category returned)`);
+        continue;
       }
+
+      assignments.set(id, names);
+      success++;
+      console.log(`  ✅ ${id} → ${names.slice(0, 2).join(", ")}`);
     }
 
     // Delay between batches
@@ -79,10 +93,34 @@ export async function classifyAndAddRepos(
   }
 
   console.log("\n📊 Results:");
-  console.log(`  ✅ Success: ${success}`);
+  console.log(`  ✅ Classified: ${success}`);
   console.log(`  ❌ Failed: ${failed}`);
 
-  return { success, failed };
+  if (assignments.size === 0) {
+    console.log("\n⚠️ Nothing to write - no repository could be classified.");
+    return { success, failed, output: null };
+  }
+
+  // Step 3: Render the Markdown output
+  const writeSpinner = ora("Writing Markdown...").start();
+  const output = writeOutput({
+    outputDir: config.outputDir,
+    categories,
+    assignments,
+    repos: buildRepoEntries(allRepos),
+    merge,
+    username: config.githubUsername,
+  });
+  writeSpinner.succeed(`Markdown written (${output.files.length} files)`);
+
+  console.log(`\n📁 Output: ${output.dir}`);
+  console.log(`  - Categories: ${output.categories}`);
+  console.log(`  - Repositories: ${output.repositories}`);
+  if (output.removedFiles.length > 0) {
+    console.log(`  - Removed stale files: ${output.removedFiles.join(", ")}`);
+  }
+
+  return { success, failed, output };
 }
 
 async function fetchReadmesForBatch(
@@ -116,64 +154,18 @@ async function fetchReadmesForBatch(
 }
 
 async function classifyBatch(
-  gemini: GeminiService,
+  ai: AIService,
   batchRepoInfos: BatchRepoInfo[],
   categories: Category[],
 ): Promise<Map<string, string[]> | null> {
   const spinner = ora("AI classifying...").start();
 
   try {
-    const results = await gemini.classifyRepositoriesBatch(batchRepoInfos, categories);
+    const results = await ai.classifyRepositoriesBatch(batchRepoInfos, categories);
     spinner.succeed("Classification complete");
     return results;
   } catch (error) {
     spinner.fail("Classification failed");
     return null;
   }
-}
-
-async function addReposToLists(
-  config: Config,
-  batchRepos: Repo[],
-  results: Map<string, string[]>,
-  createdLists: Map<string, CreatedList>,
-): Promise<ClassifyResult[]> {
-  const spinner = ora("Adding to Lists...").start();
-
-  const addResults = await runWithConcurrency(
-    batchRepos,
-    async (repo): Promise<ClassifyResult> => {
-      const repoId = `${repo.owner.login}/${repo.name}`;
-      const categoryNames = results.get(repoId) || [];
-
-      try {
-        const listIds = categoryNames
-          .map((name) => createdLists.get(name)?.id)
-          .filter((id): id is string => !!id);
-
-        if (listIds.length === 0) {
-          return { repoId, success: false, error: "No matching category" };
-        }
-
-        // Retry with exponential backoff for GitHub API errors
-        await retryWithBackoff(async () => {
-          const repoNodeId = await getRepositoryNodeId(
-            config.githubToken,
-            repo.owner.login,
-            repo.name,
-          );
-          await addRepoToGitHubLists(config.githubToken, repoNodeId, listIds);
-        }, { maxRetries: 3, initialDelayMs: 500 });
-
-        return { repoId, success: true, categories: categoryNames };
-      } catch (error) {
-        const errMsg = error instanceof Error ? error.message : String(error);
-        return { repoId, success: false, error: errMsg };
-      }
-    },
-    5, // Concurrency limit
-  );
-
-  spinner.succeed(`Added to Lists (${batchRepos.length})`);
-  return addResults;
 }

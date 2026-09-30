@@ -1,7 +1,7 @@
 import { Command } from "commander";
 import ora from "ora";
 import { loadConfig } from "../utils/config";
-import { GeminiService } from "../services/gemini";
+import { createAIService } from "../services/ai";
 import { savePlan, loadPlan, deletePlan } from "../utils/plan-storage";
 import { fetchAllMyStarredRepos } from "../api";
 import type { RepoSummary } from "../types";
@@ -35,7 +35,7 @@ export const planCommand = new Command("plan")
 
       // Default: Create new plan
       const config = loadConfig();
-      const gemini = new GeminiService(config);
+      const ai = createAIService(config);
 
       console.log("\n🎯 Starting category planning.\n");
 
@@ -68,7 +68,7 @@ export const planCommand = new Command("plan")
         stars: r.stargazers_count,
       }));
 
-      const categories = await gemini.planCategories(repoSummaries);
+      const categories = await ai.planCategories(repoSummaries);
       planSpinner.succeed(`${categories.length} categories have been planned.`);
 
       // Step 3: Save plan
@@ -79,9 +79,8 @@ export const planCommand = new Command("plan")
       displayPlan(categories, repos.length, new Date().toISOString());
 
       console.log("\n📌 Next steps:");
-      console.log("  1. Delete existing Lists: startidy lists --delete-all");
-      console.log("  2. Create Lists: startidy create-lists");
-      console.log("  3. Classify Stars: startidy classify");
+      console.log("  1. Classify Stars and write Markdown: startidy classify");
+      console.log(`     (output directory: ${config.outputDir}/)`);
       console.log("\n  Or run full automation: startidy run");
     } catch (error) {
       console.error("\n❌ Error:", (error as Error).message);
