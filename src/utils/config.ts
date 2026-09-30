@@ -39,7 +39,7 @@ export interface Config {
   batchDelay: number; // Delay between batches in ms (default: 2000)
 
   // Rate limiting
-  geminiRpm: number; // Gemini API requests per minute limit (default: 15)
+  aiRpm: number; // Max AI requests per minute, shared by every provider (0 = unlimited)
 
   // AI model settings (provider agnostic)
   temperaturePlanning: number; // Category planning temperature (default: 0.7)
@@ -53,7 +53,6 @@ export interface Config {
 
   // Markdown output settings
   outputDir: string; // Directory the Markdown files are written to (default: "stars")
-  categoryNameMaxLength: number; // Maximum category name length (default: 20)
 
   // Retry settings
   maxRetries: number; // Maximum retry count (default: 3)
@@ -119,7 +118,11 @@ function normalizeBaseUrl(url: string): string {
 }
 
 function resolveProvider(): AIProvider {
-  const raw = (process.env.AI_PROVIDER || process.env.AI_BACKEND || "gemini")
+  const raw = (
+    process.env.AI_PROVIDER ||
+    process.env.AI_BACKEND ||
+    "openai"
+  )
     .trim()
     .toLowerCase();
 
@@ -136,6 +139,21 @@ function resolveProvider(): AIProvider {
         `Unsupported AI_PROVIDER "${raw}". Use "gemini" or "openai".`,
       );
   }
+}
+
+/**
+ * Maximum AI requests per minute, shared by every provider.
+ *
+ * `AI_RPM` applies to whichever provider is active; otherwise the
+ * provider-specific variable is used. 0 disables throttling entirely.
+ * Defaults: Gemini 15 (free tier), OpenAI unlimited (opt in with OPENAI_RPM).
+ */
+function resolveAiRpm(provider: AIProvider): number {
+  const isSet = (key: string) => (process.env[key] ?? "").trim() !== "";
+
+  if (isSet("AI_RPM")) return Math.max(0, parseIntEnv("AI_RPM", 0));
+  if (provider === "gemini") return Math.max(0, parseIntEnv("GEMINI_RPM", 15));
+  return Math.max(0, parseIntEnv("OPENAI_RPM", 0));
 }
 
 export function loadConfig(): Config {
@@ -163,14 +181,14 @@ export function loadConfig(): Config {
   if (aiProvider === "gemini" && !geminiApiKey) {
     throw new Error(
       "GEMINI_API_KEY environment variable is required when AI_PROVIDER=gemini. " +
-        "Set AI_PROVIDER=openai to use an OpenAI-compatible endpoint instead.",
+        "Remove AI_PROVIDER to use the default OpenAI-compatible provider instead.",
     );
   }
 
   if (aiProvider === "openai" && !openaiApiKey) {
     throw new Error(
-      "OPENAI_API_KEY environment variable is required when AI_PROVIDER=openai. " +
-        "Please check your .env file.",
+      "OPENAI_API_KEY environment variable is required when AI_PROVIDER=openai (the default). " +
+        "Set AI_PROVIDER=gemini to use Google Gemini instead, or add OPENAI_API_KEY to your .env file.",
     );
   }
 
@@ -221,7 +239,7 @@ export function loadConfig(): Config {
     batchDelay: parseIntEnv("BATCH_DELAY", 2000),
 
     // Rate limiting
-    geminiRpm: parseIntEnv("GEMINI_RPM", 15),
+    aiRpm: resolveAiRpm(aiProvider),
 
     // AI model settings (AI_* wins, GEMINI_* kept for backwards compatibility)
     temperaturePlanning: parseNumberSetting(
@@ -255,10 +273,6 @@ export function loadConfig(): Config {
 
     // Markdown output settings
     outputDir: firstEnv("OUTPUT_DIR", "STARS_DIR") || "stars",
-    categoryNameMaxLength: parseIntEnv(
-      firstEnv("CATEGORY_NAME_MAX_LENGTH") ? "CATEGORY_NAME_MAX_LENGTH" : "LIST_NAME_MAX_LENGTH",
-      20,
-    ),
 
     // Retry settings
     maxRetries: parseIntEnv("MAX_RETRIES", 3),

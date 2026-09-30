@@ -40,24 +40,12 @@ ai相关               游戏相关            音乐
 
 ## 安装
 
-### 通过 npm 全局安装（推荐）
+本项目是 fork 版本，**不发布到 npm**，只支持从源码运行。
 
 ```bash
-npm install -g startidy
-```
-
-安装后可以直接使用 `startidy` 命令：
-
-```bash
-startidy run
-```
-
-### 从源码构建
-
-```bash
-# 克隆仓库
-git clone https://github.com/hellosunghyun/startidy.git
-cd startidy
+# 克隆本仓库（fork）
+git clone https://github.com/LIPiston/Startidy.git
+cd Startidy
 
 # 安装依赖
 npm install
@@ -65,8 +53,24 @@ npm install
 # 构建
 npm run build
 
-# 全局链接
+# 全局链接（可选）：链接后可以直接使用 startidy 命令
 npm link
+```
+
+链接后即可直接使用 `startidy`；没有链接时，用 `node dist/index.js` 代替即可：
+
+```bash
+startidy run
+# 等价于
+node dist/index.js run
+```
+
+也可以用 Bun 直接运行源码（跳过构建步骤）：
+
+```bash
+npm run dev -- run
+# 等价于
+bun run src/index.ts run
 ```
 
 ## 配置
@@ -89,17 +93,17 @@ startidy --token ghp_xxx --username your-name \
 # Linux/macOS
 export GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
 export GITHUB_USERNAME=your-username
-export GEMINI_API_KEY=AIzaxxxxxxxxxxxxxxxxxxxxxxxx
+export OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxx
 
 # Windows (PowerShell)
 $env:GITHUB_TOKEN="ghp_xxxxxxxxxxxxxxxxxxxx"
 $env:GITHUB_USERNAME="your-username"
-$env:GEMINI_API_KEY="AIzaxxxxxxxxxxxxxxxxxxxxxxxx"
+$env:OPENAI_API_KEY="sk-xxxxxxxxxxxxxxxxxxxx"
 
 # Windows (CMD)
 set GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
 set GITHUB_USERNAME=your-username
-set GEMINI_API_KEY=AIzaxxxxxxxxxxxxxxxxxxxxxxxx
+set OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxx
 
 # 然后运行
 startidy run
@@ -113,16 +117,25 @@ startidy run
 GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
 GITHUB_USERNAME=your-username
 
-# AI 提供方：gemini（默认）或 openai
+# AI 提供方：openai（默认）或 gemini
 AI_PROVIDER=openai
 
-# Gemini（AI_PROVIDER=gemini 时必填）
-GEMINI_API_KEY=AIzaxxxxxxxxxxxxxxxxxxxxxxxx
-
-# OpenAI 兼容接口（AI_PROVIDER=openai 时必填）
+# OpenAI 兼容接口（AI_PROVIDER=openai 时必填，默认提供方）
 OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxx
 OPENAI_BASE_URL=https://api.openai.com/v1
 OPENAI_MODEL=gpt-4o-mini
+
+# Gemini（AI_PROVIDER=gemini 时必填）
+# GEMINI_API_KEY=AIzaxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+仓库里还提供了两份可直接复制、逐项注释的模板：
+
+- `.env.example` —— 英文注释版，每个变量的作用、取值范围、默认值都有说明
+- `.env.example.zh` —— 中文注释版，内容与英文版一一对应
+
+```bash
+cp .env.example .env        # 或 cp .env.example.zh .env
 ```
 
 ### 全局命令行参数
@@ -131,7 +144,7 @@ OPENAI_MODEL=gpt-4o-mini
 |------|------|
 | `--token <token>` | GitHub Personal Access Token |
 | `--username <username>` | GitHub 用户名 |
-| `--ai-provider <provider>` | AI 提供方：`gemini`（默认）或 `openai` |
+| `--ai-provider <provider>` | AI 提供方：`openai`（默认）或 `gemini` |
 | `--gemini-key <key>` | Google Gemini API Key |
 | `--openai-key <key>` | OpenAI 兼容 API Key |
 | `--openai-base-url <url>` | OpenAI 兼容接口地址（默认：`https://api.openai.com/v1`） |
@@ -158,8 +171,8 @@ OPENAI_MODEL=gpt-4o-mini
 ### 使用 OpenAI 兼容 API
 
 Startidy 可以对接任何实现了 OpenAI Chat Completions API 的服务
-（`POST {baseUrl}/chat/completions`）。设置 `AI_PROVIDER=openai`，并把
-`OPENAI_BASE_URL` 指向你的提供方：
+（`POST {baseUrl}/chat/completions`）。OpenAI 兼容是默认提供方
+（不设置 `AI_PROVIDER` 时即为 `openai`），只需把 `OPENAI_BASE_URL` 指向你的提供方：
 
 | 提供方 | `OPENAI_BASE_URL` | `OPENAI_MODEL` 示例 |
 |--------|-------------------|----------------------|
@@ -326,7 +339,8 @@ startidy classify --only-new
 startidy/
 ├── package.json
 ├── tsconfig.json
-├── .env.example
+├── .env.example            # 环境变量模板（英文注释）
+├── .env.example.zh         # 环境变量模板（中文注释）
 ├── README.md               # 中文说明（本文件）
 ├── README-en.md            # 英文说明
 ├── README-ko.md            # 韩文说明
@@ -370,17 +384,17 @@ GITHUB_TOKEN=ghp_xxxxxxxxxxxx        # GitHub Personal Access Token
 GITHUB_USERNAME=your-username         # 你的 GitHub 用户名
 
 # AI 提供方
-AI_PROVIDER=gemini                    # gemini（默认）或 openai
-GEMINI_API_KEY=AIzaxxxxxxxxxx         # Google Gemini API Key（AI_PROVIDER=gemini）
+AI_PROVIDER=openai                    # openai（默认）或 gemini
 OPENAI_API_KEY=sk-xxxxxxxxxxxx        # OpenAI 兼容 API Key（AI_PROVIDER=openai）
 OPENAI_BASE_URL=https://api.openai.com/v1  # OpenAI 兼容接口地址
 OPENAI_MODEL=gpt-4o-mini              # OpenAI 兼容模型
 OPENAI_RESPONSE_FORMAT=json_object    # json_object | json_schema | none
 OPENAI_TIMEOUT_MS=120000              # 请求超时（毫秒）
+GEMINI_API_KEY=AIzaxxxxxxxxxx         # Google Gemini API Key（AI_PROVIDER=gemini）
+AI_RPM=15                             # 每分钟最多 AI 请求数（0=不限；两个提供方通用）
 
 # 分类设置
 MAX_CATEGORIES=32                     # 最大分类数
-CATEGORY_NAME_MAX_LENGTH=20           # 分类名最大长度
 MAX_CATEGORIES_PER_REPO=3             # 每个仓库最多归入几个分类
 MIN_CATEGORIES_PER_REPO=1             # 每个仓库至少归入几个分类
 
@@ -416,10 +430,9 @@ LOG_API_RESPONSES=false               # 打印原始 API 响应
 
 ## 已知限制
 
-- 分类名默认最长 20 个字符（`CATEGORY_NAME_MAX_LENGTH`）
-- 分类名默认使用中文（由提示词决定）
-- Gemini API 免费额度：每分钟 15 次请求
-- AI 无法归类的仓库会被放进规划出的第一个分类
+- AI 无法归类的仓库会单独写进 `无法分类.md`，并在索引中单独列出
+- Gemini API 免费额度：每分钟 15 次请求（可用 `AI_RPM` 调整，对两个提供方都生效）
+- OpenAI 兼容模型需要支持 JSON 输出，否则会退化为文本解析
 
 ## License
 

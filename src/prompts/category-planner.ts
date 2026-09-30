@@ -25,7 +25,7 @@ Plan **exactly ${config.maxCategories}** categories to effectively classify thes
 - 用**中文**命名，简短、口语化，像给自己看的收藏夹名字（例如 "windows工具"、"好用软件"、"浏览器相关"）
 - 单一主题用短名；包含多个相近主题时用 "/" 连接（例如 "阅读/小说/epub/漫画"、"obsidian/笔记软件"）
 - 也可以使用 "大类: 小类" 分层写法（例如 "AI: 绘画"），但不要为了分层而强行分层
-- **最多 ${config.categoryNameMaxLength} 个字符**（含空格、斜杠与冒号）
+- 名称保持简短：几个字到十来个字，能一眼看懂装的是什么（没有硬性长度限制）
 - 不要使用 emoji、序号或引号
 - **绝不按编程语言分类**：不要出现 "Lang: Python"、"Language: Go"、"Python 相关"、"JS & TS" 这类以语言为划分依据的分类。仓库列表里的语言只是背景信息，不是分类维度
 
@@ -39,9 +39,9 @@ Plan **exactly ${config.maxCategories}** categories to effectively classify thes
 ## Category Planning Principles:
 1. 让每个分类的仓库数量尽量均衡，避免出现只有一个仓库的分类
 2. 分类之间不要重复或高度重叠
-3. 覆盖所有仓库：实在无法归类的放进兜底分类（例如 "其他"、"有用但不多"）
+3. 覆盖所有仓库：尽量为每个仓库找到归属；确实判断不出来的可以不返回，工具会把它们单独放进「无法分类」文件
 4. 分类名要一眼看懂里面装的是什么，避免抽象的自造词
 5. 如果仓库只是语言不同，按"它是做什么的"区分（例如 "配置/脚本" 而不是 "Lang: Go"）
 
-Generate exactly ${config.maxCategories} categories. Each category name must be within ${config.categoryNameMaxLength} characters!`;
+Generate exactly ${config.maxCategories} categories. Category names have no length limit - keep them short and readable.`;
 }

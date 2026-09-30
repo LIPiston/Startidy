@@ -1,4 +1,5 @@
 import type { Category, ClassificationResult } from "../types";
+import { UNCATEGORIZED_CATEGORY_NAME } from "../types";
 import type { Config } from "../utils/config";
 import type { BatchRepoInfo } from "../prompts/classifier";
 
@@ -212,7 +213,8 @@ export function parseCategoryPlanResponse(text: string, config: Config): Categor
 
 /**
  * Parses a batch classification response into a repo id -> categories map.
- * Never throws: unknown repositories fall back to the first category.
+ * Never throws: repositories the model did not place (unknown name, missing
+ * entry, unparseable output) fall back to the uncategorized bucket.
  */
 export function parseBatchClassifierResponse(
   text: string,
@@ -222,7 +224,7 @@ export function parseBatchClassifierResponse(
 ): Map<string, string[]> {
   const resultMap = new Map<string, string[]>();
   const validCategoryNames = new Set(categories.map((c) => c.name));
-  const defaultCategory = categories[0]?.name || "ETC";
+  const fallbackCategory = UNCATEGORIZED_CATEGORY_NAME;
 
   try {
     const parsed = JSON.parse(repairTruncatedJson(extractJsonPayload(text)));
@@ -240,14 +242,14 @@ export function parseBatchClassifierResponse(
 
       resultMap.set(
         result.id,
-        validCategories.length > 0 ? validCategories : [defaultCategory],
+        validCategories.length > 0 ? validCategories : [fallbackCategory],
       );
     }
 
-    // Repos not in response get default
+    // Repos not in response get the fallback bucket
     for (const repo of repos) {
       if (!resultMap.has(repo.id)) {
-        resultMap.set(repo.id, [defaultCategory]);
+        resultMap.set(repo.id, [fallbackCategory]);
       }
     }
   } catch (error) {
@@ -273,10 +275,10 @@ export function parseBatchClassifierResponse(
       }
     }
 
-    // Remaining repos get default
+    // Remaining repos get the fallback bucket
     for (const repo of repos) {
       if (!resultMap.has(repo.id)) {
-        resultMap.set(repo.id, [defaultCategory]);
+        resultMap.set(repo.id, [fallbackCategory]);
       }
     }
   }
@@ -286,7 +288,7 @@ export function parseBatchClassifierResponse(
 
 /**
  * Parses a single repository classification response.
- * Never throws: falls back to the first category.
+ * Never throws: unplaceable repositories fall back to the uncategorized bucket.
  */
 export function parseClassifierResponse(
   text: string,
@@ -306,7 +308,7 @@ export function parseClassifierResponse(
       .slice(0, config.maxCategoriesPerRepo);
 
     if (validatedCategories.length === 0) {
-      validatedCategories.push(categories[0].name);
+      validatedCategories.push(UNCATEGORIZED_CATEGORY_NAME);
     }
 
     return {
@@ -319,8 +321,8 @@ export function parseClassifierResponse(
       console.error("Raw response:", text);
     }
     return {
-      categories: [categories[0].name],
-      reason: "Parsing failed, using default category",
+      categories: [UNCATEGORIZED_CATEGORY_NAME],
+      reason: "Parsing failed, using the uncategorized bucket",
     };
   }
 }

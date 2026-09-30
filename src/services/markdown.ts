@@ -21,6 +21,7 @@ import {
 } from "fs";
 import { join, resolve } from "path";
 import type { Category } from "../types";
+import { UNCATEGORIZED_CATEGORY_NAME } from "../types";
 
 /** Marker on the generated index file */
 export const INDEX_MARKER = "<!-- startidy:index -->";
@@ -36,6 +37,17 @@ const CATEGORY_MARKER_RE =
 const REPO_LINK_RE = /^-\s+\[[^\]]*\]\(https:\/\/github\.com\/([^/\s)]+)\/([^/\s)#?]+)\)/;
 
 const INDEX_TITLE = "# ⭐ Starred Repositories";
+
+/** Shown inside the bucket that collects what the AI could not place */
+const UNCATEGORIZED_DESCRIPTION = "AI 无法归类的仓库，已单独列出";
+
+/**
+ * File systems reject names longer than 255 bytes, and CJK category names cost
+ * 3 bytes per character, so the generated file name is capped well below that
+ * (measured in bytes, leaving room for the ".md" suffix and uniqueness suffix).
+ * Category names themselves have no length limit.
+ */
+const MAX_FILE_BASE_BYTES = 200;
 
 export interface RepoEntry {
   id: string; // owner/name
@@ -101,6 +113,14 @@ export function categoryFileName(name: string): string {
     .trim();
 
   if (!base || base === "." || base === "..") base = "ETC";
+  if (Buffer.byteLength(base, "utf8") > MAX_FILE_BASE_BYTES) {
+    let truncated = "";
+    for (const ch of base) {
+      if (Buffer.byteLength(truncated + ch, "utf8") > MAX_FILE_BASE_BYTES) break;
+      truncated += ch;
+    }
+    base = truncated.replace(/[.\s]+$/, "");
+  }
   if (/^(con|prn|aux|nul|com[1-9]|lpt[1-9])$/i.test(base)) base = `_${base}`;
   // Never collide with the index file and never end up with a bare ".md"
   if (base.toLowerCase() === "readme") base = "README-category";
@@ -381,6 +401,38 @@ export function writeOutput(options: WriteOutputOptions): WriteOutputResult {
       description: category.description || "",
       file,
       repos: sortedEntries(repoIds, repos),
+    });
+  }
+
+  // 1b. Repositories the AI could not place always get their own bucket, so
+  // they stay visible instead of being silently filed under a real category.
+  const uncategorizedIds = new Set<string>();
+  for (const [id, names] of assignments) {
+    if (names.includes(UNCATEGORIZED_CATEGORY_NAME)) uncategorizedIds.add(id);
+  }
+
+  if (
+    uncategorizedIds.size > 0 &&
+    !categories.some((c) => c.name === UNCATEGORIZED_CATEGORY_NAME)
+  ) {
+    if (merge) {
+      const previous = existing.categories.find(
+        (c) => c.name === UNCATEGORIZED_CATEGORY_NAME,
+      );
+      for (const id of previous?.repoIds ?? []) uncategorizedIds.add(id);
+    }
+
+    const file = uniqueFile(
+      categoryFileName(UNCATEGORIZED_CATEGORY_NAME),
+      usedFiles,
+    );
+    usedFiles.add(file);
+
+    sections.push({
+      name: UNCATEGORIZED_CATEGORY_NAME,
+      description: UNCATEGORIZED_DESCRIPTION,
+      file,
+      repos: sortedEntries(uncategorizedIds, repos),
     });
   }
 

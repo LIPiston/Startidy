@@ -20,7 +20,7 @@ program
   .version("1.1.0")
   .option("--token <token>", "GitHub Personal Access Token")
   .option("--username <username>", "GitHub Username")
-  .option("--ai-provider <provider>", "AI provider: gemini (default) or openai")
+  .option("--ai-provider <provider>", "AI provider: openai (default) or gemini")
   .option("--gemini-key <key>", "Google Gemini API Key")
   .option("--openai-key <key>", "OpenAI-compatible API Key")
   .option("--openai-base-url <url>", "OpenAI-compatible base URL (default: https://api.openai.com/v1)")

@@ -40,24 +40,12 @@ Categories are planned along four angles, mixed freely as your Stars require:
 
 ## Installation
 
-### Global Install via npm (Recommended)
+This repository is a fork and is **not published to npm** — run it from source.
 
 ```bash
-npm install -g startidy
-```
-
-After installation, you can use the `startidy` command directly:
-
-```bash
-startidy run
-```
-
-### From Source
-
-```bash
-# Clone the repository
-git clone https://github.com/hellosunghyun/startidy.git
-cd startidy
+# Clone this fork
+git clone https://github.com/LIPiston/Startidy.git
+cd Startidy
 
 # Install dependencies
 npm install
@@ -65,8 +53,24 @@ npm install
 # Build
 npm run build
 
-# Link globally
+# Link globally (optional): makes the `startidy` command available
 npm link
+```
+
+Once linked you can call `startidy` directly; without linking, use `node dist/index.js` instead:
+
+```bash
+startidy run
+# same as
+node dist/index.js run
+```
+
+You can also run the TypeScript source directly with Bun (no build step):
+
+```bash
+npm run dev -- run
+# same as
+bun run src/index.ts run
 ```
 
 ## Configuration
@@ -89,17 +93,17 @@ startidy --token ghp_xxx --username your-name \
 # Linux/macOS
 export GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
 export GITHUB_USERNAME=your-username
-export GEMINI_API_KEY=AIzaxxxxxxxxxxxxxxxxxxxxxxxx
+export OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxx
 
 # Windows (PowerShell)
 $env:GITHUB_TOKEN="ghp_xxxxxxxxxxxxxxxxxxxx"
 $env:GITHUB_USERNAME="your-username"
-$env:GEMINI_API_KEY="AIzaxxxxxxxxxxxxxxxxxxxxxxxx"
+$env:OPENAI_API_KEY="sk-xxxxxxxxxxxxxxxxxxxx"
 
 # Windows (CMD)
 set GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
 set GITHUB_USERNAME=your-username
-set GEMINI_API_KEY=AIzaxxxxxxxxxxxxxxxxxxxxxxxx
+set OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxx
 
 # Then run
 startidy run
@@ -113,16 +117,26 @@ Create a `.env` file in your current directory:
 GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
 GITHUB_USERNAME=your-username
 
-# AI provider: gemini (default) or openai
+# AI provider: openai (default) or gemini
 AI_PROVIDER=openai
 
-# Gemini (required when AI_PROVIDER=gemini)
-GEMINI_API_KEY=AIzaxxxxxxxxxxxxxxxxxxxxxxxx
-
-# OpenAI-compatible (required when AI_PROVIDER=openai)
+# OpenAI-compatible (required when AI_PROVIDER=openai, the default provider)
 OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxx
 OPENAI_BASE_URL=https://api.openai.com/v1
 OPENAI_MODEL=gpt-4o-mini
+
+# Gemini (required when AI_PROVIDER=gemini)
+# GEMINI_API_KEY=AIzaxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+The repository ships two copy-ready templates with a comment for every variable
+(what it does, its accepted values and its default):
+
+- `.env.example` — English comments
+- `.env.example.zh` — Chinese comments, same content
+
+```bash
+cp .env.example .env        # or: cp .env.example.zh .env
 ```
 
 ### Global CLI Options
@@ -131,7 +145,7 @@ OPENAI_MODEL=gpt-4o-mini
 |--------|-------------|
 | `--token <token>` | GitHub Personal Access Token |
 | `--username <username>` | GitHub Username |
-| `--ai-provider <provider>` | AI provider: `gemini` (default) or `openai` |
+| `--ai-provider <provider>` | AI provider: `openai` (default) or `gemini` |
 | `--gemini-key <key>` | Google Gemini API Key |
 | `--openai-key <key>` | OpenAI-compatible API Key |
 | `--openai-base-url <url>` | OpenAI-compatible base URL (default: `https://api.openai.com/v1`) |
@@ -158,8 +172,8 @@ OPENAI_MODEL=gpt-4o-mini
 ### Using an OpenAI-Compatible API
 
 Startidy talks to any endpoint that implements the OpenAI Chat Completions API
-(`POST {baseUrl}/chat/completions`). Set `AI_PROVIDER=openai` and point
-`OPENAI_BASE_URL` at your provider:
+(`POST {baseUrl}/chat/completions`). This is the default provider (used whenever
+`AI_PROVIDER` is unset); just point `OPENAI_BASE_URL` at your provider:
 
 | Provider | `OPENAI_BASE_URL` | Example `OPENAI_MODEL` |
 |----------|-------------------|------------------------|
@@ -327,7 +341,8 @@ startidy classify --only-new
 startidy/
 ├── package.json
 ├── tsconfig.json
-├── .env.example
+├── .env.example            # Environment template (English comments)
+├── .env.example.zh         # Environment template (Chinese comments)
 ├── README.md               # Chinese documentation (default)
 ├── README-en.md            # English documentation (this file)
 ├── README-ko.md            # Korean documentation
@@ -371,17 +386,17 @@ GITHUB_TOKEN=ghp_xxxxxxxxxxxx        # GitHub Personal Access Token
 GITHUB_USERNAME=your-username         # Your GitHub username
 
 # AI Provider
-AI_PROVIDER=gemini                    # gemini (default) or openai
-GEMINI_API_KEY=AIzaxxxxxxxxxx         # Google Gemini API Key (AI_PROVIDER=gemini)
+AI_PROVIDER=openai                    # openai (default) or gemini
 OPENAI_API_KEY=sk-xxxxxxxxxxxx        # OpenAI-compatible API Key (AI_PROVIDER=openai)
 OPENAI_BASE_URL=https://api.openai.com/v1  # OpenAI-compatible base URL
 OPENAI_MODEL=gpt-4o-mini              # OpenAI-compatible model
 OPENAI_RESPONSE_FORMAT=json_object    # json_object | json_schema | none
 OPENAI_TIMEOUT_MS=120000              # Request timeout (ms)
+GEMINI_API_KEY=AIzaxxxxxxxxxx         # Google Gemini API Key (AI_PROVIDER=gemini)
+AI_RPM=15                             # Max AI requests per minute (0 = unlimited; both providers)
 
 # Category Settings
 MAX_CATEGORIES=32                     # Maximum categories
-CATEGORY_NAME_MAX_LENGTH=20           # Max category name length
 MAX_CATEGORIES_PER_REPO=3             # Max categories per repo
 MIN_CATEGORIES_PER_REPO=1             # Min categories per repo
 
@@ -417,10 +432,9 @@ LOG_API_RESPONSES=false               # Log raw API responses
 
 ## Limitations
 
-- Category names are limited to 20 characters by default (`CATEGORY_NAME_MAX_LENGTH`)
-- Category names are generated in Chinese by default (defined in the planner prompt)
-- Gemini API Free tier: 15 requests per minute
-- Repositories the AI cannot match are filed into the first planned category
+- Repositories the AI cannot place are written to a separate `无法分类.md` (uncategorized) file and listed in the index
+- Gemini API free tier: 15 requests per minute (tune with `AI_RPM`, which applies to both providers)
+- OpenAI-compatible models should support JSON output; plain-text parsing is used as a fallback
 
 ## License
 

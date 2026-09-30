@@ -12,6 +12,7 @@ import type { Config } from "../utils/config";
 import { delay } from "../utils/rate-limiter";
 import type { AIService } from "./ai";
 import type { Category } from "../types";
+import { UNCATEGORIZED_CATEGORY_NAME } from "../types";
 import type { BatchRepoInfo } from "../prompts/classifier";
 import type { Repo } from "../api/types";
 import { fetchRepositoryReadme } from "../api";
@@ -20,6 +21,8 @@ import { buildRepoEntries, writeOutput, type WriteOutputResult } from "./markdow
 export interface ClassifyStats {
   success: number;
   failed: number;
+  /** Repositories written to the uncategorized bucket */
+  uncategorized: number;
   output: WriteOutputResult | null;
 }
 
@@ -53,6 +56,7 @@ export async function classifyAndWrite(
   const assignments = new Map<string, string[]>();
   let success = 0;
   let failed = 0;
+  let uncategorized = 0;
 
   for (let batchIdx = 0; batchIdx < totalBatches; batchIdx++) {
     const batchStart = batchIdx * batchSize;
@@ -74,16 +78,18 @@ export async function classifyAndWrite(
     for (const repo of batchRepos) {
       const id = `${repo.owner.login}/${repo.name}`;
       const names = results.get(id) ?? [];
+      const assignedNames =
+        names.length > 0 ? names : [UNCATEGORIZED_CATEGORY_NAME];
 
-      if (names.length === 0) {
-        failed++;
-        console.log(`  ❌ ${id} (no category returned)`);
-        continue;
+      assignments.set(id, assignedNames);
+
+      if (assignedNames.includes(UNCATEGORIZED_CATEGORY_NAME)) {
+        uncategorized++;
+        console.log(`  ⚠️  ${id} → ${UNCATEGORIZED_CATEGORY_NAME}`);
+      } else {
+        success++;
+        console.log(`  ✅ ${id} → ${assignedNames.slice(0, 2).join(", ")}`);
       }
-
-      assignments.set(id, names);
-      success++;
-      console.log(`  ✅ ${id} → ${names.slice(0, 2).join(", ")}`);
     }
 
     // Delay between batches
@@ -95,10 +101,13 @@ export async function classifyAndWrite(
   console.log("\n📊 Results:");
   console.log(`  ✅ Classified: ${success}`);
   console.log(`  ❌ Failed: ${failed}`);
+  if (uncategorized > 0) {
+    console.log(`  ⚠️  Uncategorized: ${uncategorized}`);
+  }
 
   if (assignments.size === 0) {
     console.log("\n⚠️ Nothing to write - no repository could be classified.");
-    return { success, failed, output: null };
+    return { success, failed, uncategorized, output: null };
   }
 
   // Step 3: Render the Markdown output
@@ -120,7 +129,7 @@ export async function classifyAndWrite(
     console.log(`  - Removed stale files: ${output.removedFiles.join(", ")}`);
   }
 
-  return { success, failed, output };
+  return { success, failed, uncategorized, output };
 }
 
 async function fetchReadmesForBatch(

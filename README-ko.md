@@ -40,24 +40,12 @@ ai相关               游戏相关            音乐
 
 ## 설치
 
-### npm을 통한 전역 설치 (권장)
+이 저장소는 fork 버전이며 **npm에 배포하지 않습니다** — 소스에서 직접 실행합니다.
 
 ```bash
-npm install -g startidy
-```
-
-설치 후 `startidy` 명령어를 바로 사용할 수 있습니다:
-
-```bash
-startidy run
-```
-
-### 소스에서 설치
-
-```bash
-# 저장소 클론
-git clone https://github.com/hellosunghyun/startidy.git
-cd startidy
+# 이 fork 저장소 클론
+git clone https://github.com/LIPiston/Startidy.git
+cd Startidy
 
 # 의존성 설치
 npm install
@@ -65,8 +53,24 @@ npm install
 # 빌드
 npm run build
 
-# 전역 링크
+# 전역 링크 (선택): startidy 명령어를 바로 사용할 수 있습니다
 npm link
+```
+
+링크하면 `startidy` 를 바로 쓸 수 있고, 링크하지 않으면 `node dist/index.js` 로 대체하면 됩니다:
+
+```bash
+startidy run
+# 같은 명령
+node dist/index.js run
+```
+
+Bun으로 빌드 없이 소스를 바로 실행할 수도 있습니다:
+
+```bash
+npm run dev -- run
+# 같은 명령
+bun run src/index.ts run
 ```
 
 ## 설정
@@ -89,17 +93,17 @@ startidy --token ghp_xxx --username your-name \
 # Linux/macOS
 export GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
 export GITHUB_USERNAME=your-username
-export GEMINI_API_KEY=AIzaxxxxxxxxxxxxxxxxxxxxxxxx
+export OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxx
 
 # Windows (PowerShell)
 $env:GITHUB_TOKEN="ghp_xxxxxxxxxxxxxxxxxxxx"
 $env:GITHUB_USERNAME="your-username"
-$env:GEMINI_API_KEY="AIzaxxxxxxxxxxxxxxxxxxxxxxxx"
+$env:OPENAI_API_KEY="sk-xxxxxxxxxxxxxxxxxxxx"
 
 # Windows (CMD)
 set GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
 set GITHUB_USERNAME=your-username
-set GEMINI_API_KEY=AIzaxxxxxxxxxxxxxxxxxxxxxxxx
+set OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxx
 
 # 실행
 startidy run
@@ -113,16 +117,25 @@ startidy run
 GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
 GITHUB_USERNAME=your-username
 
-# AI 제공자: gemini (기본값) 또는 openai
+# AI 제공자: openai (기본값) 또는 gemini
 AI_PROVIDER=openai
 
-# Gemini (AI_PROVIDER=gemini 일 때 필수)
-GEMINI_API_KEY=AIzaxxxxxxxxxxxxxxxxxxxxxxxx
-
-# OpenAI 호환 (AI_PROVIDER=openai 일 때 필수)
+# OpenAI 호환 (AI_PROVIDER=openai 일 때 필수, 기본 제공자)
 OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxx
 OPENAI_BASE_URL=https://api.openai.com/v1
 OPENAI_MODEL=gpt-4o-mini
+
+# Gemini (AI_PROVIDER=gemini 일 때 필수)
+# GEMINI_API_KEY=AIzaxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+저장소에는 모든 변수의 용도·허용값·기본값을 주석으로 설명한 복사용 템플릿 두 개가 있습니다:
+
+- `.env.example` — 영어 주석
+- `.env.example.zh` — 중국어 주석 (내용 동일)
+
+```bash
+cp .env.example .env        # 또는: cp .env.example.zh .env
 ```
 
 ### 전역 CLI 옵션
@@ -131,7 +144,7 @@ OPENAI_MODEL=gpt-4o-mini
 |------|------|
 | `--token <token>` | GitHub Personal Access Token |
 | `--username <username>` | GitHub 사용자명 |
-| `--ai-provider <provider>` | AI 제공자: `gemini` (기본값) 또는 `openai` |
+| `--ai-provider <provider>` | AI 제공자: `openai` (기본값) 또는 `gemini` |
 | `--gemini-key <key>` | Google Gemini API 키 |
 | `--openai-key <key>` | OpenAI 호환 API 키 |
 | `--openai-base-url <url>` | OpenAI 호환 Base URL (기본값: `https://api.openai.com/v1`) |
@@ -158,8 +171,8 @@ OPENAI_MODEL=gpt-4o-mini
 ### OpenAI 호환 API 사용
 
 Startidy는 OpenAI Chat Completions API(`POST {baseUrl}/chat/completions`)를
-구현한 모든 엔드포인트와 동작합니다. `AI_PROVIDER=openai` 로 설정하고
-`OPENAI_BASE_URL` 을 사용할 제공자에 맞게 지정하세요.
+구현한 모든 엔드포인트와 동작합니다. 이것이 기본 제공자이며(`AI_PROVIDER` 를
+설정하지 않으면 openai), `OPENAI_BASE_URL` 만 사용할 제공자에 맞게 지정하면 됩니다.
 
 | 제공자 | `OPENAI_BASE_URL` | `OPENAI_MODEL` 예시 |
 |--------|-------------------|----------------------|
@@ -317,7 +330,8 @@ startidy classify --only-new
 startidy/
 ├── package.json
 ├── tsconfig.json
-├── .env.example
+├── .env.example            # 환경 변수 템플릿 (영어 주석)
+├── .env.example.zh         # 환경 변수 템플릿 (중국어 주석)
 ├── README.md               # 중국어 설명 (기본)
 ├── README-en.md            # 영어 설명
 ├── README-ko.md            # 한국어 설명 (이 파일)
@@ -361,17 +375,17 @@ GITHUB_TOKEN=ghp_xxxxxxxxxxxx        # GitHub Personal Access Token
 GITHUB_USERNAME=your-username         # GitHub 사용자명
 
 # AI 제공자
-AI_PROVIDER=gemini                    # gemini (기본값) 또는 openai
-GEMINI_API_KEY=AIzaxxxxxxxxxx         # Google Gemini API 키 (AI_PROVIDER=gemini)
+AI_PROVIDER=openai                    # openai (기본값) 또는 gemini
 OPENAI_API_KEY=sk-xxxxxxxxxxxx        # OpenAI 호환 API 키 (AI_PROVIDER=openai)
 OPENAI_BASE_URL=https://api.openai.com/v1  # OpenAI 호환 Base URL
 OPENAI_MODEL=gpt-4o-mini              # OpenAI 호환 모델
 OPENAI_RESPONSE_FORMAT=json_object    # json_object | json_schema | none
 OPENAI_TIMEOUT_MS=120000              # 요청 타임아웃 (ms)
+GEMINI_API_KEY=AIzaxxxxxxxxxx         # Google Gemini API 키 (AI_PROVIDER=gemini)
+AI_RPM=15                             # 분당 최대 AI 요청 수 (0=무제한, 두 제공자 공통)
 
 # 카테고리 설정
 MAX_CATEGORIES=32                     # 최대 카테고리 수
-CATEGORY_NAME_MAX_LENGTH=20           # 카테고리 이름 최대 길이
 MAX_CATEGORIES_PER_REPO=3             # 저장소당 최대 카테고리 수
 MIN_CATEGORIES_PER_REPO=1             # 저장소당 최소 카테고리 수
 
@@ -407,11 +421,9 @@ LOG_API_RESPONSES=false               # 원시 API 응답 로깅
 
 ## 제한 사항
 
-- 카테고리 이름은 기본 20자로 제한 (`CATEGORY_NAME_MAX_LENGTH`)
-- 카테고리 이름은 기본적으로 중국어로 생성됩니다 (프롬프트에 정의됨)
-- Gemini API 무료 티어: 분당 15 요청
+- AI가 분류하지 못한 저장소는 별도의 `无法分类.md`(미분류) 파일로 기록되고 인덱스에 표시됩니다
+- Gemini API 무료 티어: 분당 15 요청 (`AI_RPM` 으로 조정 가능하며 두 제공자 모두에 적용됩니다)
 - OpenAI 호환 모델은 JSON 출력을 지원해야 원활하게 동작 (미지원 시 텍스트 파싱 폴백)
-- AI가 매칭하지 못한 저장소는 첫 번째 카테고리에 배치됨
 
 ## 라이선스
 
