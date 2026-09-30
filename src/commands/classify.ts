@@ -5,6 +5,7 @@ import { loadConfig } from "../utils/config";
 import { loadPlan } from "../utils/plan-storage";
 import { createAIService } from "../services/ai";
 import { classifyAndWrite } from "../services/classifier";
+import { clearCheckpoint, loadCheckpoint } from "../services/checkpoint";
 import { clearOutput, readExistingOutput } from "../services/markdown";
 import type { Category } from "../types";
 import { fetchAllMyStarredRepos } from "../api";
@@ -33,6 +34,8 @@ export const classifyCommand = new Command("classify")
 
       // Step 2: Determine categories
       let categories: Category[];
+      const checkpoint = loadCheckpoint(config.outputDir);
+      let resuming = false;
 
       if (options.useExisting) {
         if (existing.categories.length === 0) {
@@ -46,6 +49,12 @@ export const classifyCommand = new Command("classify")
           keywords: [],
         }));
         console.log(`📋 Using existing ${categories.length} categories from the Markdown output`);
+      } else if (checkpoint && checkpoint.categories.length > 0) {
+        categories = checkpoint.categories;
+        resuming = true;
+        console.log(
+          `⏩ Unfinished run found (${Object.keys(checkpoint.assignments).length} repositories already classified) - resuming with the saved categories.`,
+        );
       } else {
         const plan = loadPlan();
         if (!plan) {
@@ -84,7 +93,7 @@ export const classifyCommand = new Command("classify")
         console.log(
           `  → ${allRepos.length - repos.length} already in the output, ${repos.length} to process`,
         );
-      } else if (existing.categories.length > 0) {
+      } else if (!resuming && existing.categories.length > 0) {
         console.log(
           `\n⚠️ The existing output (${existing.categories.length} categories) will be replaced.`,
         );
@@ -132,6 +141,7 @@ async function handleReset(outputDir: string) {
   }
 
   const removed = clearOutput(outputDir);
+  clearCheckpoint(outputDir);
 
   if (removed.length === 0) {
     console.log("Nothing to delete.");

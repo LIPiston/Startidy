@@ -4,6 +4,7 @@ import ora from "ora";
 import { loadConfig, type Config } from "../utils/config";
 import { createAIService, type AIService } from "../services/ai";
 import { classifyAndWrite } from "../services/classifier";
+import { loadCheckpoint } from "../services/checkpoint";
 import { categoryFileName, readExistingOutput } from "../services/markdown";
 import type { Category, RepoSummary } from "../types";
 import { fetchAllMyStarredRepos, type Repo } from "../api";
@@ -38,9 +39,11 @@ export const runCommand = new Command("run")
 
       // Step 2: Inspect the existing Markdown output
       const existing = readExistingOutput(config.outputDir);
+      const checkpoint = loadCheckpoint(config.outputDir);
 
       let repos: Repo[] = allRepos;
       let categories: Category[];
+      let resuming = false;
 
       if (options.onlyNew) {
         repos = allRepos.filter(
@@ -67,6 +70,12 @@ export const runCommand = new Command("run")
         console.log(
           `\n📋 ${repos.length} new Star(s); reusing ${categories.length} existing categories`,
         );
+      } else if (checkpoint && checkpoint.categories.length > 0) {
+        categories = checkpoint.categories;
+        resuming = true;
+        console.log(
+          `\n⏩ Unfinished run found (${Object.keys(checkpoint.assignments).length} repositories already classified) - resuming with the saved categories.`,
+        );
       } else {
         categories = await planCategories(ai, allRepos, config);
       }
@@ -77,8 +86,8 @@ export const runCommand = new Command("run")
         return;
       }
 
-      // Step 4: Confirm replacing existing output
-      if (!options.onlyNew && existing.categories.length > 0) {
+      // Step 4: Confirm replacing existing output (skipped while resuming)
+      if (!options.onlyNew && !resuming && existing.categories.length > 0) {
         const shouldOverwrite = await confirm({
           message: `Overwrite the existing Markdown output in ${existing.dir}?`,
           default: true,

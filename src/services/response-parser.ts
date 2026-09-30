@@ -118,12 +118,53 @@ function isLanguageToken(token: string): boolean {
 }
 
 /**
+ * Canonical form of a category name: the hierarchy separator is always "-".
+ * "阅读/小说/epub/漫画" -> "阅读-小说-epub-漫画", "AI: 绘画" -> "AI-绘画".
+ *
+ * The display name and the generated file name stay identical, so what the
+ * model plans is exactly what shows up in the index and in the file names.
+ */
+export function normalizeCategoryName(name: string): string {
+  const normalized = name
+    .trim()
+    .replace(/[\/\\|:：]+/g, "-")
+    .replace(/\s*-\s*/g, "-")
+    .replace(/-{2,}/g, "-")
+    .replace(/-+$/, "")
+    .replace(/^-+/, "")
+    .trim();
+
+  return normalized || name.trim();
+}
+
+/**
+ * Drops umbrella categories whose subcategories are part of the same plan:
+ * with "游戏", "游戏-Minecraft" and "游戏-CSGO" planned, "游戏" disappears so
+ * its repositories are filed into the subcategories instead of a broad bucket.
+ */
+export function collapseMajorCategories(categories: Category[]): {
+  kept: Category[];
+  dropped: Category[];
+} {
+  const names = categories.map((c) => c.name);
+
+  const dropped = categories.filter((c) =>
+    names.some((other) => other !== c.name && other.startsWith(`${c.name}-`)),
+  );
+  if (dropped.length === 0) return { kept: categories, dropped };
+
+  const kept = categories.filter((c) => !dropped.includes(c));
+  // Never drop everything - the deepest subcategories always survive.
+  return kept.length > 0 ? { kept, dropped } : { kept: categories, dropped: [] };
+}
+
+/**
  * Detects a category that groups repositories by programming language
  * (e.g. "Lang: Python", "语言: Go", "Tech: JS & TS", "Python", "Python/Go").
  */
 export function isLanguageCategory(name: string): boolean {
   const segments = name
-    .split(/[:\/]/)
+    .split(/[:\/\-]/)
     .map((segment) => segment.trim())
     .filter(Boolean);
 
@@ -180,16 +221,27 @@ export function parseCategoryPlanResponse(text: string, config: Config): Categor
 
     const categories: Category[] = rawCategories.map(
       (c: { name?: string; description?: string }) => ({
-        name: c?.name || "Unnamed",
+        name: normalizeCategoryName(c?.name || "Unnamed"),
         description: c?.description || "",
         keywords: [],
       }),
     );
 
-    const { kept, dropped } = filterLanguageCategories(categories);
+    const { kept: domainCategories, dropped } =
+      filterLanguageCategories(categories);
     if (dropped.length > 0) {
       console.warn(
         `Warning: Dropped ${dropped.length} language-based category(ies) - repositories are grouped by domain, not language: ${dropped
+          .map((c) => c.name)
+          .join(", ")}`,
+      );
+    }
+
+    const { kept, dropped: collapsed } =
+      collapseMajorCategories(domainCategories);
+    if (collapsed.length > 0) {
+      console.warn(
+        `Warning: Dropped ${collapsed.length} umbrella category(ies) that already have subcategories - their repositories go to the subcategories: ${collapsed
           .map((c) => c.name)
           .join(", ")}`,
       );

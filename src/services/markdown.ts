@@ -22,6 +22,7 @@ import {
 import { join, resolve } from "path";
 import type { Category } from "../types";
 import { UNCATEGORIZED_CATEGORY_NAME } from "../types";
+import { normalizeCategoryName } from "./response-parser";
 
 /** Marker on the generated index file */
 export const INDEX_MARKER = "<!-- startidy:index -->";
@@ -278,7 +279,7 @@ function readCategoryFile(
   }
 
   return {
-    name: unescapeMarkerValue(marker[1]) || fileName,
+    name: normalizeCategoryName(unescapeMarkerValue(marker[1]) || fileName),
     description: marker[2] ? unescapeMarkerValue(marker[2]) : "",
     file: fileName,
     repoIds,

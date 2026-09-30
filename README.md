@@ -14,29 +14,30 @@
 - **Markdown 输出**：生成 `stars/README.md`（索引）以及每个分类一个 `stars/<分类名>.md`
 - **自动规划分类**：AI 分析你 Star 的仓库，最多生成 32 个合适的分类
 - **智能归类**：分析每个仓库的标题、描述和 README，把它们放进合适的分类
-- **中文、自由命名**：像 `windows工具`、`好用软件`、`阅读/小说/epub/漫画` 这样的简短中文名（也支持 `大类: 小类`，最长 20 字符）
+- **中文、自由命名**：像 `windows工具`、`好用软件`、`阅读-小说-epub-漫画` 这样的简短中文名；需要分层时用 `大类-小类` 写法（例如 `游戏-Minecraft`）
 - **不按语言分类**：按平台、用途或主题分组，AI 永远不会生成 `Lang: Python` 这类语言分类
 - **分步执行或全自动**：既可以单独运行每一步，也可以一次性跑完整流程
 - **批量处理**：每次并行处理 20 个仓库，分类更快
+- **断点续传**：每批分类完成后立刻写出 Markdown 并记录进度；中断后重新运行同一条命令会从断点继续，全部完成后进度文件自动删除
 
 ## 分类示例
 
 ```
-windows工具         Android好用软件     macOS工具
-好用软件             框架/库             配置/脚本
-shell相关            编辑器相关          浏览器相关
-ai相关               游戏相关            音乐
-阅读/小说/epub/漫画   obsidian/笔记软件   vps服务
-运维                 一堆awesome         有用但不多
-生活                 主题美化            电视
+windows工具           Android好用软件     macOS工具
+好用软件              框架-库             配置-脚本
+shell相关             编辑器相关          浏览器相关
+ai相关                游戏-Minecraft      音乐
+阅读-小说-epub-漫画   obsidian-笔记软件   vps服务
+运维                  一堆awesome         有用但不多
+生活                  主题美化            电视
 ```
 
 分类会从四个角度灵活组合，根据你 Stars 的实际情况自由取舍：
 
 - **平台 / 系统**：`windows工具`、`Android好用软件`、`电视`
-- **用途 / 软件类型**：`好用软件`、`框架/库`、`配置/脚本`、`shell相关`、`编辑器相关`、`笔记软件`
-- **主题 / 领域**：`ai相关`、`游戏相关`、`音乐`、`阅读/小说/epub/漫画`、`vps服务`、`运维`
-- **个人化 / 兜底**（最多 1-2 个）：`一堆awesome`、`有用但不多`、`生活`、`学习/大学生`
+- **用途 / 软件类型**：`好用软件`、`框架-库`、`配置-脚本`、`shell相关`、`编辑器相关`、`笔记软件`
+- **主题 / 领域**：`ai相关`、`游戏-Minecraft`、`音乐`、`阅读-小说-epub-漫画`、`vps服务`、`运维`
+- **个人化 / 兜底**（最多 1-2 个）：`一堆awesome`、`有用但不多`、`生活`、`学习-大学生`
 
 ## 安装
 
@@ -140,24 +141,24 @@ cp .env.example .env        # 或 cp .env.example.zh .env
 
 ### 全局命令行参数
 
-| 参数 | 说明 |
-|------|------|
-| `--token <token>` | GitHub Personal Access Token |
-| `--username <username>` | GitHub 用户名 |
-| `--ai-provider <provider>` | AI 提供方：`openai`（默认）或 `gemini` |
-| `--gemini-key <key>` | Google Gemini API Key |
-| `--openai-key <key>` | OpenAI 兼容 API Key |
-| `--openai-base-url <url>` | OpenAI 兼容接口地址（默认：`https://api.openai.com/v1`） |
-| `--openai-model <model>` | OpenAI 兼容模型（默认：`gpt-4o-mini`） |
-| `--ai-model <model>` | 当前提供方使用的模型名 |
-| `--max-categories <n>` | 最大分类数（默认：32） |
-| `--batch-size <n>` | 分类批大小（默认：20） |
-| `--output-dir <dir>` | Markdown 文件输出目录（默认：`stars`） |
-| `--debug` | 开启调试模式 |
+| 参数                         | 说明                                                       |
+| ---------------------------- | ---------------------------------------------------------- |
+| `--token <token>`          | GitHub Personal Access Token                               |
+| `--username <username>`    | GitHub 用户名                                              |
+| `--ai-provider <provider>` | AI 提供方：`openai`（默认）或 `gemini`                 |
+| `--gemini-key <key>`       | Google Gemini API Key                                      |
+| `--openai-key <key>`       | OpenAI 兼容 API Key                                        |
+| `--openai-base-url <url>`  | OpenAI 兼容接口地址（默认：`https://api.openai.com/v1`） |
+| `--openai-model <model>`   | OpenAI 兼容模型（默认：`gpt-4o-mini`）                   |
+| `--ai-model <model>`       | 当前提供方使用的模型名                                     |
+| `--max-categories <n>`     | 最大分类数（默认：32）                                     |
+| `--batch-size <n>`         | 分类批大小（默认：20）                                     |
+| `--output-dir <dir>`       | Markdown 文件输出目录（默认：`stars`）                   |
+| `--debug`                  | 开启调试模式                                               |
 
 ### 获取 GitHub Token
 
-1. 打开 [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens)
+1. 打开 [GitHub Settings &gt; Developer settings &gt; Personal access tokens](https://github.com/settings/tokens)
 2. 点击 "Generate new token (classic)"
 3. 勾选权限：`repo`、`read:user`
 4. 生成并复制 token
@@ -174,15 +175,15 @@ Startidy 可以对接任何实现了 OpenAI Chat Completions API 的服务
 （`POST {baseUrl}/chat/completions`）。OpenAI 兼容是默认提供方
 （不设置 `AI_PROVIDER` 时即为 `openai`），只需把 `OPENAI_BASE_URL` 指向你的提供方：
 
-| 提供方 | `OPENAI_BASE_URL` | `OPENAI_MODEL` 示例 |
-|--------|-------------------|----------------------|
-| OpenAI | `https://api.openai.com/v1` | `gpt-4o-mini` |
-| DeepSeek | `https://api.deepseek.com/v1` | `deepseek-chat` |
-| OpenRouter | `https://openrouter.ai/api/v1` | `openai/gpt-4o-mini` |
-| Groq | `https://api.groq.com/openai/v1` | `llama-3.3-70b-versatile` |
-| Ollama（本地） | `http://localhost:11434/v1` | `llama3.1` |
-| LM Studio（本地） | `http://localhost:1234/v1` | `local-model` |
-| vLLM（本地） | `http://localhost:8000/v1` | 你部署的模型 |
+| 提供方            | `OPENAI_BASE_URL`                | `OPENAI_MODEL` 示例       |
+| ----------------- | ---------------------------------- | --------------------------- |
+| OpenAI            | `https://api.openai.com/v1`      | `gpt-4o-mini`             |
+| DeepSeek          | `https://api.deepseek.com/v1`    | `deepseek-chat`           |
+| OpenRouter        | `https://openrouter.ai/api/v1`   | `openai/gpt-4o-mini`      |
+| Groq              | `https://api.groq.com/openai/v1` | `llama-3.3-70b-versatile` |
+| Ollama（本地）    | `http://localhost:11434/v1`      | `llama3.1`                |
+| LM Studio（本地） | `http://localhost:1234/v1`       | `local-model`             |
+| vLLM（本地）      | `http://localhost:8000/v1`       | 你部署的模型                |
 
 本地服务通常会忽略 API Key，但 `OPENAI_API_KEY` 仍必须设置为非空值
 （随便填一个字符串即可，例如 `ollama`）。
@@ -219,6 +220,9 @@ startidy run --only-new
 
 # 模拟运行（只预览分类）
 startidy run --dry-run
+
+# 中断后重新运行同一条命令即可续传：已完成的批次会被自动跳过
+startidy run
 ```
 
 ### 分步执行
@@ -267,25 +271,27 @@ stars/
 └── 阅读-小说-epub-漫画.md
 ```
 
-- 分类文件名由分类名推导而来：`"阅读/小说/epub/漫画"` → `阅读-小说-epub-漫画.md`。
+- 分类名与文件名完全一致：分层分隔符统一为 `-`，所以 `游戏-Minecraft` 写成 `游戏-Minecraft.md`。模型如果返回 `游戏/Minecraft`、`AI: 绘画` 这类写法，会被自动规整为 `游戏-Minecraft`、`AI-绘画`。
+- 不保留空泛大类：如果方案里已经有 `游戏-Minecraft`、`游戏-CSGO` 这样的小类，`游戏` 这个大类会被丢掉，它的仓库会被拆进各个小类，而不是留在一个大桶里。
+- **断点续传**：每批分类完成后都会写出一次 Markdown，并把进度记录到 `OUTPUT_DIR/.startidy-state.json`；中途中断后重新运行同一命令会自动从断点继续（不再重复询问是否覆盖），全部完成后该进度文件会被自动删除。想从头开始就运行 `startidy classify --reset`。
 - 不会生成编程语言分类（`Lang: Python`、`Lang: Go` 等）：AI 会按用途和领域分组。如果模型仍然返回了这类分类，会在规划阶段被剔除并给出警告。
 - 每个生成的文件都带有 HTML 注释标记，因此 `--reset` 和过期文件清理只会动 Startidy 自己生成的文件。
 - 可以放心把 `OUTPUT_DIR` 指向你同时在手工维护的仓库 —— 没有标记的文件永远不会被修改或删除。
 
 ### 命令参数一览
 
-| 命令 | 参数 | 说明 |
-|------|------|------|
-| `run` | （无） | 全自动执行 |
-| `run` | `--only-new` | 只处理新的 Stars |
-| `run` | `--dry-run` | 模拟运行 |
-| `plan` | （无） | 规划分类 |
-| `plan` | `--show` | 查看已保存的方案 |
-| `plan` | `--delete` | 删除已保存的方案 |
-| `classify` | （无） | 分类 Stars 并写出 Markdown |
-| `classify` | `--only-new` | 只处理未分类的（合并） |
+| 命令         | 参数               | 说明                         |
+| ------------ | ------------------ | ---------------------------- |
+| `run`      | （无）             | 全自动执行                   |
+| `run`      | `--only-new`     | 只处理新的 Stars             |
+| `run`      | `--dry-run`      | 模拟运行                     |
+| `plan`     | （无）             | 规划分类                     |
+| `plan`     | `--show`         | 查看已保存的方案             |
+| `plan`     | `--delete`       | 删除已保存的方案             |
+| `classify` | （无）             | 分类 Stars 并写出 Markdown   |
+| `classify` | `--only-new`     | 只处理未分类的（合并）       |
 | `classify` | `--use-existing` | 以现有 Markdown 输出作为分类 |
-| `classify` | `--reset` | 删除生成的 Markdown 文件 |
+| `classify` | `--reset`        | 删除生成的 Markdown 文件     |
 
 ### 手动工作流示例
 
@@ -316,7 +322,7 @@ startidy classify --only-new
 ── Batch 1/27 (1-20) ──
 ✔ README fetched
 ✔ Classification complete
-  ✅ facebook/react → 框架/库
+  ✅ facebook/react → 框架-库
   ✅ tensorflow/tensorflow → ai相关
   ...
 

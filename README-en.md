@@ -14,29 +14,30 @@ It writes a browsable flat Markdown layout: an index `README.md` with a table of
 - **Markdown Output**: Writes `stars/README.md` (index) and one `stars/<Category>.md` per category
 - **Automatic Category Planning**: The AI analyzes your starred repositories and creates up to 32 optimal categories
 - **Smart Classification**: Analyzes each repository's title, description, and README to place them in appropriate categories
-- **Chinese, Loose Naming**: Short Chinese labels like `windows工具`, `好用软件` or `阅读/小说/epub/漫画` (`Major: Minor` is still allowed; 20 char limit)
+- **Chinese, Loose Naming**: Short Chinese labels like `windows工具`, `好用软件` or `阅读-小说-epub-漫画`; use `Major-Minor` for hierarchy (e.g. `游戏-Minecraft`)
 - **No Language Categories**: Repositories are grouped by platform, use case or topic - the AI never creates `Lang: Python`-style categories
 - **Step-by-Step or Full Automation**: Run individual steps or execute the entire workflow at once
 - **Batch Processing**: Parallel processing of 20 repositories at a time for faster classification
+- **Resumable Runs**: Every finished batch is written to disk with its progress; re-run the same command after an interruption and it continues where it stopped (the progress file is deleted on completion)
 
 ## Category Examples
 
 ```
-windows工具         Android好用软件     macOS工具
-好用软件             框架/库             配置/脚本
-shell相关            编辑器相关          浏览器相关
-ai相关               游戏相关            音乐
-阅读/小说/epub/漫画   obsidian/笔记软件   vps服务
-运维                 一堆awesome         有用但不多
-生活                 主题美化            电视
+windows工具           Android好用软件     macOS工具
+好用软件              框架-库             配置-脚本
+shell相关             编辑器相关          浏览器相关
+ai相关                游戏-Minecraft      音乐
+阅读-小说-epub-漫画   obsidian-笔记软件   vps服务
+运维                  一堆awesome         有用但不多
+生活                  主题美化            电视
 ```
 
 Categories are planned along four angles, mixed freely as your Stars require:
 
 - **Platform / system**: `windows工具`, `Android好用软件`, `电视`
-- **Use case / software type**: `好用软件`, `框架/库`, `配置/脚本`, `shell相关`, `编辑器相关`, `笔记软件`
-- **Topic / domain**: `ai相关`, `游戏相关`, `音乐`, `阅读/小说/epub/漫画`, `vps服务`, `运维`
-- **Personal / catch-all** (at most 1-2): `一堆awesome`, `有用但不多`, `生活`, `学习/大学生`
+- **Use case / software type**: `好用软件`, `框架-库`, `配置-脚本`, `shell相关`, `编辑器相关`, `笔记软件`
+- **Topic / domain**: `ai相关`, `游戏-Minecraft`, `音乐`, `阅读-小说-epub-漫画`, `vps服务`, `运维`
+- **Personal / catch-all** (at most 1-2): `一堆awesome`, `有用但不多`, `生活`, `学习-大学生`
 
 ## Installation
 
@@ -221,6 +222,10 @@ startidy run --only-new
 
 # Simulation mode (preview categories only)
 startidy run --dry-run
+
+# After an interruption, just run the same command again:
+# finished batches are skipped automatically
+startidy run
 ```
 
 ### Step-by-Step Execution
@@ -269,7 +274,9 @@ stars/
 └── Web-Frontend.md
 ```
 
-- Category file names are derived from category names: `"阅读/小说/epub/漫画"` → `阅读-小说-epub-漫画.md`.
+- Category names and file names are identical: the hierarchy separator is always `-`, so `游戏-Minecraft` becomes `游戏-Minecraft.md`. A model returning `游戏/Minecraft` or `AI: 绘画` has it normalized to `游戏-Minecraft` / `AI-绘画`.
+- Empty umbrella categories are dropped: when a plan already contains subcategories like `游戏-Minecraft` and `游戏-CSGO`, the broad `游戏` category is removed and its repositories are filed into the subcategories instead.
+- **Resumable runs**: every finished batch writes the Markdown output and records progress in `OUTPUT_DIR/.startidy-state.json`. Re-running the same command after an interruption resumes automatically (no overwrite prompt), and the progress file is deleted once the run completes. Use `startidy classify --reset` to start over.
 - Programming-language categories (`Lang: Python`, `Lang: Go`, ...) are never planned: the AI groups repositories by purpose and domain instead. If a model returns one anyway, it is dropped from the plan with a warning.
 - Every generated file carries an HTML comment marker, so `--reset` and stale-file cleanup only ever touch Startidy-generated files.
 - Safe to point `OUTPUT_DIR` at a repository you also edit by hand - files without the marker are never modified or deleted.
